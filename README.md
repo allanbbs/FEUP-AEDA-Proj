@@ -37,9 +37,9 @@ First project from Data structure classes (MIEIC 1st)
 ### Class serviços
 Nota1: Considere que um serviço de transporte inclui o transporte de um único tipo de produtos.  
 Nota2: A escolha de qual camião atende um determinado serviço é efetuada de modo a equilibrar a ocupação de todos os camiões.  
-| Tipo  | Nome  | Descricao  | 
+| Tipo  | Nome  | Descricao | 
 |---|---|---|
-|uint8_t| tempo| tempo de viagem, vai receber o ponto de origem e de destino. A partir daí, definir o tempo de viagem|
+|uint8_t | tempo | tempo de viagem, vai receber o ponto de origem e de destino. A partir daí, definir o tempo de viagem | 
 
 ### Class camioes
 
