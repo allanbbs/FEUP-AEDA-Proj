@@ -40,7 +40,7 @@ Nota2: A escolha de qual camião atende um determinado serviço é efetuada de m
 | Tipo  | Nome  | Descricao  | 
 |---|---|---|
 |uint8_t| tempo| tempo de viagem, vai receber o ponto de origem e de destino. A partir daí, definir o tempo de viagem|
-||||
+
 ### Class camioes
 
 | Tipo  | Nome  | Descricao  | 
