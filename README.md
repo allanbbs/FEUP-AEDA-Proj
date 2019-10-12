@@ -24,15 +24,6 @@ First project from Data structure classes (MIEIC 1st)
 |uint8_t | id | id do cliente | 
 | vector | servicos | vector com os serviços requisitados pelos clientes | 
 
-### Class mercadorias
-
-- classe mercadorias: 
-  
-	subcasses de mercadorias:  
-		-congelação  
-		-perigosa  
-		-animais  
-		-mercadorias especiais  
 
 ### Class serviços
 Nota1: Considere que um serviço de transporte inclui o transporte de um único tipo de produtos.  
