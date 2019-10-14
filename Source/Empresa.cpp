@@ -2,7 +2,7 @@
 // Created by maruba on 14/10/19.
 //
 
-#include "Empresa.h"
+#include "../Header/Empresa.h"
 
 Empresa::Empresa() {}
 

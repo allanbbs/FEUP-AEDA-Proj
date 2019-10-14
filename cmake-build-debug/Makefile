@@ -123,32 +123,32 @@ AEDA_Proj1/fast:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/build
 .PHONY : AEDA_Proj1/fast
 
-Empresa.o: Empresa.cpp.o
+Source/Empresa.o: Source/Empresa.cpp.o
 
-.PHONY : Empresa.o
+.PHONY : Source/Empresa.o
 
 # target to build an object file
-Empresa.cpp.o:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Empresa.cpp.o
-.PHONY : Empresa.cpp.o
+Source/Empresa.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o
+.PHONY : Source/Empresa.cpp.o
 
-Empresa.i: Empresa.cpp.i
+Source/Empresa.i: Source/Empresa.cpp.i
 
-.PHONY : Empresa.i
+.PHONY : Source/Empresa.i
 
 # target to preprocess a source file
-Empresa.cpp.i:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Empresa.cpp.i
-.PHONY : Empresa.cpp.i
+Source/Empresa.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.i
+.PHONY : Source/Empresa.cpp.i
 
-Empresa.s: Empresa.cpp.s
+Source/Empresa.s: Source/Empresa.cpp.s
 
-.PHONY : Empresa.s
+.PHONY : Source/Empresa.s
 
 # target to generate assembly for a file
-Empresa.cpp.s:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Empresa.cpp.s
-.PHONY : Empresa.cpp.s
+Source/Empresa.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.s
+.PHONY : Source/Empresa.cpp.s
 
 main.o: main.cpp.o
 
@@ -186,9 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... AEDA_Proj1"
 	@echo "... edit_cache"
-	@echo "... Empresa.o"
-	@echo "... Empresa.i"
-	@echo "... Empresa.s"
+	@echo "... Source/Empresa.o"
+	@echo "... Source/Empresa.i"
+	@echo "... Source/Empresa.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
