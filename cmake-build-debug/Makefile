@@ -123,6 +123,33 @@ AEDA_Proj1/fast:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/build
 .PHONY : AEDA_Proj1/fast
 
+Servicos.o: Servicos.cpp.o
+
+.PHONY : Servicos.o
+
+# target to build an object file
+Servicos.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Servicos.cpp.o
+.PHONY : Servicos.cpp.o
+
+Servicos.i: Servicos.cpp.i
+
+.PHONY : Servicos.i
+
+# target to preprocess a source file
+Servicos.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Servicos.cpp.i
+.PHONY : Servicos.cpp.i
+
+Servicos.s: Servicos.cpp.s
+
+.PHONY : Servicos.s
+
+# target to generate assembly for a file
+Servicos.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Servicos.cpp.s
+.PHONY : Servicos.cpp.s
+
 Source/Empresa.o: Source/Empresa.cpp.o
 
 .PHONY : Source/Empresa.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... AEDA_Proj1"
 	@echo "... edit_cache"
+	@echo "... Servicos.o"
+	@echo "... Servicos.i"
+	@echo "... Servicos.s"
 	@echo "... Source/Empresa.o"
 	@echo "... Source/Empresa.i"
 	@echo "... Source/Empresa.s"

@@ -8,8 +8,11 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <algorithm>
+
 #include "Clientes.h"
 #include "Camioes.h"
+#include "Servicos.h"
 
 using namespace std;
 

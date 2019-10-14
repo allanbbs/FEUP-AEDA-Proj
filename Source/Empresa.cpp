@@ -10,9 +10,9 @@ Empresa::~Empresa() {
     for (int i = 0; i < get_numClientes(); i++) delete cli[i];          //cleaning the vector
     for (int i = 0; i < get_numCamiao(); i++) delete cam[i];
     for (int i = 0; i < get_numServicos(); i++) delete ser[i];
-    delete cli;                                                         //deleting the vector allocation
-    delete cam;
-    delete ser;
+    cli.clear();                                                         //deleting the vector allocation
+    cam.clear();
+    ser.clear();
 }
 
 float Empresa::getLucro_mes() const {
@@ -71,3 +71,4 @@ void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &i
         cout << os.str();
     }
 }
+
