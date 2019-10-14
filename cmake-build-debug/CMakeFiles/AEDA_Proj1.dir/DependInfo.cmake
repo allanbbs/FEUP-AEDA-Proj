@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/main.cpp" "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o"
+  "/home/maruba/Documents/AEDA_Proj1/Empresa.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Empresa.cpp.o"
+  "/home/maruba/Documents/AEDA_Proj1/main.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
