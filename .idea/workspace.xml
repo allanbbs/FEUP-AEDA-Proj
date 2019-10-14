@@ -12,12 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1847e1cc-cf8d-49e9-9c68-7270dfc545e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Header/Servicos.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Servicos.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Header/Empresa.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Empresa.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Header/Local.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Local.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Header/Servicos.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Servicos.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Empresa.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Empresa.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Local.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Local.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Servicos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Servicos.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/build.make" afterDir="false" />
@@ -47,7 +48,7 @@
   <component name="ProjectId" id="1S4C1ofuKtW4nPeWOtihaaJieMl" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/CLionProjects/untitled4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -58,8 +59,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Header" />
       <recent name="$PROJECT_DIR$/Source" />
+      <recent name="$PROJECT_DIR$/Header" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -92,7 +93,8 @@
       <option name="presentableId" value="Default" />
       <updated>1571046266308</updated>
       <workItem from="1571046267434" duration="2582000" />
-      <workItem from="1571050328198" duration="4101000" />
+      <workItem from="1571050328198" duration="4940000" />
+      <workItem from="1571058108354" duration="3640000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,8 @@
 
 #include "../Header/Empresa.h"
 
+void headerServInfor();
+
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
@@ -68,7 +70,20 @@ void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &i
         for (auto it = ser.begin(); it < ser.end(); it++){
             os << (*it);
         }
-        cout << os.str();
     }
+    headerServInfor();
+    cout << os.str();
 }
+
+void headerServInfor(){
+    cout << left << setw(10) << "| ID"
+         << setw(15) << "| TIPO"
+         << setw(10) << "| TEMPO"
+         << setw(30) << "| PARTIDA"
+         << setw(30) << "| CHEGADA"
+         << setw(10) << "| N CAMIOES"
+         << setw(10) << "| PRECO" << endl;
+
+}
+
 

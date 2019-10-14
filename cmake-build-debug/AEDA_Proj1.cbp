@@ -87,13 +87,19 @@
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Empresa.h">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Servicos.cpp">
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Servicos.h">
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Local.cpp">
+			<Option target="AEDA_Proj1"/>
+		</Unit>
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Local.h">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Empresa.cpp">
+			<Option target="AEDA_Proj1"/>
+		</Unit>
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/main.cpp">
