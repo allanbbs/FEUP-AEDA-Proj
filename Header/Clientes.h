@@ -13,14 +13,14 @@ class Clientes {
 private:
     string name;
     unsigned int nif;
-    vector <Servicos*> ser;
+    vector <Servicos*> services;
 public:
     Clientes();
     Clientes(string n,unsigned int anif);
     ~Clientes();
     float cal_lucro();
     unsigned int get_nif();
-    void addService(Servicos &servico);
+    void addService(Servicos servico);
     friend ostream & operator <<(ostream& out, Clientes client);
 
 };
