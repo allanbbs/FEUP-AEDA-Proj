@@ -35,7 +35,7 @@ float Servicos::cal_tempo() {
     float y1 = partida.get_Coordy() * multiplier;
     float y2 = destino.get_Coordy() * multiplier;
     double dy = y2 - y1;
-    double r = 6378.137;
+    double r = 6378.137; //radius of the earth
 
     double distance = acos(sin(x1)*sin(x2)+cos(x1)*cos(x2)*cos(dy))*r;
 
