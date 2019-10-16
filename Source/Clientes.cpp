@@ -23,13 +23,18 @@ float Clientes::cal_lucro() {
     }
     return lucro;
 }
-void Clientes::addService(Servicos servico) {
-    services.push_back(&servico);
+void Clientes::addService(Servicos *servico) {
+    services.push_back(servico);
 }
 unsigned int Clientes::get_nif() {
     return nif;
 }
 
-ostream & operator<<(ostream &out, Clientes client) {
+ostream & operator<<(ostream &out,const Clientes &client) {
+    out<<"Name: "<<client.name<<" NIF: "<<client.nif<<endl;
+    out<<"Services: "<<endl;
+    for(auto a: client.services){
+        out<<a->get_id()<<endl;
+    }
     return out;
 }

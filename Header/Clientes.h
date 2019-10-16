@@ -20,8 +20,8 @@ public:
     ~Clientes();
     float cal_lucro();
     unsigned int get_nif();
-    void addService(Servicos servico);
-    friend ostream & operator <<(ostream& out, Clientes client);
+    void addService(Servicos *servico);
+    friend ostream & operator <<(ostream& out,const Clientes &client);
 
 };
 
