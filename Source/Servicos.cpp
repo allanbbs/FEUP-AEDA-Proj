@@ -33,7 +33,7 @@ float Servicos::cal_tempo() {
     float x1 = partida.get_Coordx() * multiplier;
     float x2 = destino.get_Coordx() * multiplier;
     float y1 = partida.get_Coordy() * multiplier;
-    float y2 = partida.get_Coordy() * multiplier;
+    float y2 = destino.get_Coordy() * multiplier;
     double dy = y2 - y1;
     double r = 6378.137;
 
