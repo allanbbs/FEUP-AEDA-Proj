@@ -9,8 +9,9 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
-#define PI 3.14159265358979323846
+#define PI 3.14159265358979323846
 #include "Local.h"
+#include "Camiao.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ using namespace std;
 class Servicos{
 private:
     unsigned int id;
-    std::vector<Camiao*> camioes;   /**< vector with all the camioes used to this service*/
+    std::vector<Camiao *> camioes;   /**< vector with all the camioes used to this service*/
     Local destino;                  /**< arrival place */
     Local partida;                 /**<  departure place */
     string tipo;

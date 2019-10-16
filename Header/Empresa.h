@@ -10,8 +10,8 @@
 #include <sstream>
 #include <algorithm>
 
-#include "Clientes.h"
-#include "Camioes.h"
+#include "clientes.h"
+#include "Camiao.h"
 #include "Servicos.h"
 
 using namespace std;

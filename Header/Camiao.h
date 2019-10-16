@@ -7,53 +7,59 @@
 #include <algorithm>
 #include <iostream>
 #include <iomanip>
+#include "TaxTable.h"
 using namespace std;
 #ifndef AEDA_PROJ1_CAMIAO_H
 #define AEDA_PROJ1_CAMIAO_H
+extern TaxTable* table;
 
 class Camiao{
 protected:
     unsigned int CargaMax;
     bool disponibilidade;
-    public:
-        Camiao(unsigned int carg,bool disp = true);
-        Camiao(ifstream&v);
-        ~Camiao();
-        virtual float cal_preco();
+private:
+    double tax = table->table["Base"];
+public:
+    explicit Camiao(unsigned int carg,bool disp = true);
+    ~Camiao();
+    virtual double cal_preco();
     };
 
 
 class Congelado:public Camiao{
     private:
         int temperatura;
+        double tax = table->table["Congelado"];
     public:
-        Congelado(unsigned int carg,bool disp,int temp);bool
+        Congelado(unsigned int carg,bool disp,int temp);
         ~Congelado();
         int getTemp() const;
-        float cal_preco();
+        double cal_preco();
 };
 
 
 class Perigoso: public Camiao{
 private:
     int quaoPerigoso;
+    double tax = table->table["Perigoso"];
 public:
     Perigoso(unsigned int carg,bool disp,int lvl);
     ~Perigoso();
-    float cal_preco();
+    double cal_preco();
     int getLevel() const;
 };
 
 class Animals: public Camiao{
     private:
         int animalCount;
+        double tax = table->table["Animal"];
     public:
         Animals(unsigned int carg,bool disp,int number);
         ~Animals();
         int getAnimalCount() const;
         void removeAnimal(){animalCount--;}
         void addAnimal(){animalCount++;}
-        float cal_preco();
+        double cal_preco();
 };
 
 

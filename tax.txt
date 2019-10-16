@@ -1,0 +1,8 @@
+Congelado
+300
+Perigoso
+400
+Animal
+600
+Base
+200

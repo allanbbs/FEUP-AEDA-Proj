@@ -9,14 +9,11 @@ Camiao::Camiao(unsigned int carg,bool disp) {
     disponibilidade = disp;
 }
 
-Camiao::Camiao(ifstream &v) {
-    //to implement after checking file format//
-}
-
 Camiao::~Camiao() {}
 
-float Camiao::cal_preco() {
-    //to implement after checking tax format
+double Camiao::cal_preco() {
+    //to implement after checking tax format//
+    return tax;
 }
 //Congelado sub-class//
 Congelado::Congelado(unsigned int carg, bool disp, int temp) : Camiao(carg,disp){
@@ -29,9 +26,9 @@ int Congelado::getTemp() const {
     return temperatura;
 }
 
-float Congelado::cal_preco() {
+double Congelado::cal_preco() {
     //to implement after checking taxes format
-    return 0.0;
+    return tax;
 }
 
 //Perigoso sub-class//
@@ -45,8 +42,9 @@ int Perigoso::getLevel() const {
     return quaoPerigoso;
 }
 
-float Perigoso::cal_preco() {
+double Perigoso::cal_preco() {
     //to implement after checking tax format
+    return tax;
 }
 
 //Animals sub-class//
@@ -59,5 +57,6 @@ int Animals::getAnimalCount() const {
     return animalCount;
 }
 
-
-
+double Animals::cal_preco() {
+    return tax;
+}

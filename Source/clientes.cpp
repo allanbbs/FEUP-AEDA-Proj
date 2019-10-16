@@ -1,10 +1,10 @@
 //
 // Created by Amanda  on 2019-10-14.
 //
-#include "serivos.cpp"
-#include "servicos.h"
+#include "../Header/Servicos.h"
 #include "../Header/clientes.h"
-
+#include <vector>
+using namespace std;
 Clientes::Clientes() {
     //
 }
@@ -12,7 +12,7 @@ Clientes::Clientes(string n, unsigned int anif) {
     name = n;
     nif = anif;
 }
-Clients::~Clientes(){
+Clientes::~Clientes(){
 
 }
 float Clientes::cal_lucro() {
@@ -23,13 +23,13 @@ float Clientes::cal_lucro() {
     }
     return lucro;
 }
-void Clientes::addService(Servico &servico) {
-    ser->push_back(servico*)//todo n sei se esta certo
+void Clientes::addService(Servicos &servico) {
+    ser.push_back(&servico);
 }
 unsigned int Clientes::get_nif() {
     return nif;
 }
 
-ostream & Clientes::operator<<(ostream &out, Clientes client) {
+ostream & operator<<(ostream &out, Clientes client) {
     return out;
 }

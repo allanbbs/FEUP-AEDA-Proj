@@ -1,7 +1,10 @@
 //
 // Created by Amanda  on 2019-10-14.
 //
-
+#include <string>
+#include <iostream>
+using namespace std;
+#include "Servicos.h"
 #ifndef AEDA_01_CLIENTES_H
 #define AEDA_01_CLIENTES_H
 
@@ -16,8 +19,8 @@ public:
     Clientes(string n,unsigned int anif);
     ~Clientes();
     float cal_lucro();
-    unsigned int get_nif(); (
-    void addService(Servico &servico);
+    unsigned int get_nif();
+    void addService(Servicos &servico);
     friend ostream & operator <<(ostream& out, Clientes client);
 
 };
