@@ -1,25 +1,23 @@
-
-#include <fstream>
 #include <iostream>
-#include <sstream>
-#include <algorithm>
-#include <map>
 #include <vector>
 #include <string>
 #include "Header/TaxTable.h"
 #include "Header/Camiao.h"
+#include "Header/Clientes.h"
+#include "Header/Servicos.h"
 using namespace std;
 ifstream in("/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/tax.txt");
 TaxTable *table = new TaxTable(in);
+
 int main() {
-    Camiao base(1000);
-    Congelado con(1000,1,-100);
-    Perigoso per(1000,1,7);
-    Animals ani(1000,1,10);
-    cout<<base.cal_preco()<<
-    con.cal_preco()<<
-    per.cal_preco()<<
-    ani.cal_preco()<<endl;
+    Local partida("Porto",0.0,0.0);
+    Local destino("Barra do Garcas",12.0,12.0);
+    Clientes a("Allan",201800149);
+    Servicos b(partida,destino,1,"Animal");
+    a.addService(&b);
+    cout<<b.cal_tempo()<<endl;
+    return 0;
+
 }
 
 

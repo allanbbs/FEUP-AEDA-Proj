@@ -14,11 +14,22 @@
 using namespace std;
 #ifndef AEDA_PROJ1_TAXTABLE_H
 #define AEDA_PROJ1_TAXTABLE_H
+/**
+ * @brief Class to store taxes read from tax file
+ */
 class TaxTable{
 public:
     map<string,double> table;
 public:
+    /**
+     * @brief Constructor for TaxTable Class
+     * @param input Input stream to read from tax file
+     */
     TaxTable(istream& input);
+    /**
+     *
+     * @return return map size
+     */
     int tableSize() const {return table.size();};
 
 };
