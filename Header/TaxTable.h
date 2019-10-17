@@ -14,6 +14,7 @@
 using namespace std;
 #ifndef AEDA_PROJ1_TAXTABLE_H
 #define AEDA_PROJ1_TAXTABLE_H
+
 /**
  * @brief Class to store taxes read from tax file
  */

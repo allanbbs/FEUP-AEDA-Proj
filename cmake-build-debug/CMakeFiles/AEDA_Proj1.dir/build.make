@@ -83,9 +83,35 @@ CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Source/Empresa.cpp -o CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.s
 
+CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o: CMakeFiles/AEDA_Proj1.dir/flags.make
+CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o: ../Source/Camiao.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o -c /home/maruba/Documents/AEDA_Proj1/Source/Camiao.cpp
+
+CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maruba/Documents/AEDA_Proj1/Source/Camiao.cpp > CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.i
+
+CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Source/Camiao.cpp -o CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.s
+
+CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o: CMakeFiles/AEDA_Proj1.dir/flags.make
+CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o: ../Source/Clientes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o -c /home/maruba/Documents/AEDA_Proj1/Source/Clientes.cpp
+
+CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maruba/Documents/AEDA_Proj1/Source/Clientes.cpp > CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.i
+
+CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Source/Clientes.cpp -o CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.s
+
 CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o: CMakeFiles/AEDA_Proj1.dir/flags.make
 CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o: ../Source/Servicos.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o -c /home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp
 
 CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.i: cmake_force
@@ -96,36 +122,70 @@ CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp -o CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.s
 
-CMakeFiles/AEDA_Proj1.dir/Local.cpp.o: CMakeFiles/AEDA_Proj1.dir/flags.make
-CMakeFiles/AEDA_Proj1.dir/Local.cpp.o: ../Local.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Local.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Proj1.dir/Local.cpp.o -c /home/maruba/Documents/AEDA_Proj1/Local.cpp
+CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o: CMakeFiles/AEDA_Proj1.dir/flags.make
+CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o: ../Source/Local.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o -c /home/maruba/Documents/AEDA_Proj1/Source/Local.cpp
 
-CMakeFiles/AEDA_Proj1.dir/Local.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Proj1.dir/Local.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maruba/Documents/AEDA_Proj1/Local.cpp > CMakeFiles/AEDA_Proj1.dir/Local.cpp.i
+CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maruba/Documents/AEDA_Proj1/Source/Local.cpp > CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.i
 
-CMakeFiles/AEDA_Proj1.dir/Local.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Local.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Local.cpp -o CMakeFiles/AEDA_Proj1.dir/Local.cpp.s
+CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Source/Local.cpp -o CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.s
+
+CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o: CMakeFiles/AEDA_Proj1.dir/flags.make
+CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o: ../Source/Errors.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o -c /home/maruba/Documents/AEDA_Proj1/Source/Errors.cpp
+
+CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maruba/Documents/AEDA_Proj1/Source/Errors.cpp > CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.i
+
+CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Source/Errors.cpp -o CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.s
+
+CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o: CMakeFiles/AEDA_Proj1.dir/flags.make
+CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o: ../Source/TaxTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o -c /home/maruba/Documents/AEDA_Proj1/Source/TaxTable.cpp
+
+CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maruba/Documents/AEDA_Proj1/Source/TaxTable.cpp > CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.i
+
+CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maruba/Documents/AEDA_Proj1/Source/TaxTable.cpp -o CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.s
 
 # Object files for target AEDA_Proj1
 AEDA_Proj1_OBJECTS = \
 "CMakeFiles/AEDA_Proj1.dir/main.cpp.o" \
 "CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o" \
+"CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o" \
+"CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o" \
 "CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o" \
-"CMakeFiles/AEDA_Proj1.dir/Local.cpp.o"
+"CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o" \
+"CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o" \
+"CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o"
 
 # External object files for target AEDA_Proj1
 AEDA_Proj1_EXTERNAL_OBJECTS =
 
 AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/main.cpp.o
 AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o
+AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o
+AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o
 AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o
-AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Local.cpp.o
+AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o
+AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o
+AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o
 AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/build.make
 AEDA_Proj1: CMakeFiles/AEDA_Proj1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable AEDA_Proj1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable AEDA_Proj1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AEDA_Proj1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

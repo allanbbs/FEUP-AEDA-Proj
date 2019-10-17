@@ -84,22 +84,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Empresa.h">
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h">
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Camiao.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Local.cpp">
-			<Option target="AEDA_Proj1"/>
-		</Unit>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Local.h">
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Clientes.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Empresa.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Errors.cpp">
+			<Option target="AEDA_Proj1"/>
+		</Unit>
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Local.cpp">
+			<Option target="AEDA_Proj1"/>
+		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp">
+			<Option target="AEDA_Proj1"/>
+		</Unit>
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/TaxTable.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/main.cpp">

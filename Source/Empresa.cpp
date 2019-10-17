@@ -6,6 +6,10 @@
 
 void headerServInfor();
 
+size_t Empresa::nCam = 0;
+size_t Empresa::nCli = 0;
+size_t Empresa::nSer = 0;
+
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
@@ -25,49 +29,74 @@ float Empresa::getLucro_mes() const {
 }
 
 
-size_t Empresa::get_numClientes() const {
-    return cli.size();
+size_t Empresa::get_numClientes() {
+    return nCli;
 }
 
-size_t Empresa::get_numCamiao() const {
-    return cam.size();
+size_t Empresa::get_numCamiao() {
+    return nCam;
 }
 
-size_t Empresa::get_numServicos() const {
-    return ser.size();
+size_t Empresa::get_numServicos() {
+    return nSer;
 }
 
-void Empresa::addClientes(const string& name,const unsigned int& nif) {    //checked.
-    auto c = new Clientes(name,nif);
+void Empresa::addClientes(const string &name, const unsigned int &nif) {
+    auto c = new Clientes(name, nif);
+    nCli++;
     cli.push_back(c);
 }
 
-void Empresa::display_clientesInfo(const unsigned int& n, const unsigned int& nif) {
-    ostringstream os;
-    if (nif) {                                                          //case just one nif, search for it.
-        auto it = find_if(cli.begin(), cli.end(), [nif](Clientes *c) { return (c->get_nif() == nif); });
-        os << (*it);
+void Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
+                         const unsigned int cliNif){
+    size_t pos = SearchCli(cliNif);
+    Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo);
+
+    ser.push_back(new_Service);
+    (cli[pos])->addService(new_Service);
+}
+
+size_t Empresa::SearchCli(const unsigned int &nif) const{
+    for (int i = 0; i< cli.size(); i++){
+        if (cli[i]->get_nif() == nif) return i;
     }
-    else{
-        for (auto it = cli.begin(); it < cli.end(); it++){
-            os << (*it);
-        }
+    throw NoClient(nif);
+}
+
+size_t Empresa::SearchSer(const unsigned int &id)const {
+    for (int i = 0; i < ser.size(); i++){
+        if (ser[i]->get_id() == id) return i;
     }
-    cout << os.str();
+    throw NoService(id);
 }
 
 void Empresa::display_lucro_mes() {
     cout << "Total profit of the month: " << this->getLucro_mes() << endl;
 }
 
-void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &id) {
+void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &nif) {
     ostringstream os;
-    if (id){
-        auto it = find_if(ser.begin(),ser.end(), [id](Servicos* s){return s->get_id() == id;});
-        os << (*it);
+    if (nif) {
+        size_t pos = SearchCli(nif);
+
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
+        os << *cli[pos];
+    } else {
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
+        for (auto it = cli.begin(); it < cli.end(); it++) {
+            os << (*it);
+        }
     }
-    else{
-        for (auto it = ser.begin(); it < ser.end(); it++){
+    cout << os.str();
+}
+
+void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &id) const{
+    ostringstream os;
+    if (id) {
+        size_t pos = SearchSer(id);
+        os << *ser[pos];
+    } else {
+        for (auto it = ser.begin(); it < ser.end(); it++) {
             os << (*it);
         }
     }
@@ -75,15 +104,14 @@ void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &i
     cout << os.str();
 }
 
-void headerServInfor(){
-    cout << left << setw(10) << "| ID"
-         << setw(15) << "| TIPO"
-         << setw(10) << "| TEMPO"
-         << setw(30) << "| PARTIDA"
-         << setw(30) << "| CHEGADA"
-         << setw(10) << "| N CAMIOES"
-         << setw(10) << "| PRECO" << endl;
+void headerServInfor() {
+    cout << left << setw(10) << "ID"
+         << setw(15) << "TIPO"
+         << setw(10) << "TEMPO"
+         << setw(30) << "PARTIDA"
+         << setw(30) << "CHEGADA"
+         << setw(15) << "N CAMIOES"
+         << setw(10) << "PRECO" << endl;
 
 }
-
 

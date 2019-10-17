@@ -10,3 +10,9 @@ NoClient::NoClient(const unsigned int &Nif): nif(Nif) {}
 unsigned int NoClient::getNif() {
     return nif;
 }
+
+NoService::NoService(const unsigned int &Id): id(Id) {}
+
+unsigned int NoService::getId() {
+    return id;
+}

@@ -123,32 +123,59 @@ AEDA_Proj1/fast:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/build
 .PHONY : AEDA_Proj1/fast
 
-Local.o: Local.cpp.o
+Source/Camiao.o: Source/Camiao.cpp.o
 
-.PHONY : Local.o
+.PHONY : Source/Camiao.o
 
 # target to build an object file
-Local.cpp.o:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Local.cpp.o
-.PHONY : Local.cpp.o
+Source/Camiao.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o
+.PHONY : Source/Camiao.cpp.o
 
-Local.i: Local.cpp.i
+Source/Camiao.i: Source/Camiao.cpp.i
 
-.PHONY : Local.i
+.PHONY : Source/Camiao.i
 
 # target to preprocess a source file
-Local.cpp.i:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Local.cpp.i
-.PHONY : Local.cpp.i
+Source/Camiao.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.i
+.PHONY : Source/Camiao.cpp.i
 
-Local.s: Local.cpp.s
+Source/Camiao.s: Source/Camiao.cpp.s
 
-.PHONY : Local.s
+.PHONY : Source/Camiao.s
 
 # target to generate assembly for a file
-Local.cpp.s:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Local.cpp.s
-.PHONY : Local.cpp.s
+Source/Camiao.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.s
+.PHONY : Source/Camiao.cpp.s
+
+Source/Clientes.o: Source/Clientes.cpp.o
+
+.PHONY : Source/Clientes.o
+
+# target to build an object file
+Source/Clientes.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o
+.PHONY : Source/Clientes.cpp.o
+
+Source/Clientes.i: Source/Clientes.cpp.i
+
+.PHONY : Source/Clientes.i
+
+# target to preprocess a source file
+Source/Clientes.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.i
+.PHONY : Source/Clientes.cpp.i
+
+Source/Clientes.s: Source/Clientes.cpp.s
+
+.PHONY : Source/Clientes.s
+
+# target to generate assembly for a file
+Source/Clientes.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.s
+.PHONY : Source/Clientes.cpp.s
 
 Source/Empresa.o: Source/Empresa.cpp.o
 
@@ -177,6 +204,60 @@ Source/Empresa.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.s
 .PHONY : Source/Empresa.cpp.s
 
+Source/Errors.o: Source/Errors.cpp.o
+
+.PHONY : Source/Errors.o
+
+# target to build an object file
+Source/Errors.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o
+.PHONY : Source/Errors.cpp.o
+
+Source/Errors.i: Source/Errors.cpp.i
+
+.PHONY : Source/Errors.i
+
+# target to preprocess a source file
+Source/Errors.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.i
+.PHONY : Source/Errors.cpp.i
+
+Source/Errors.s: Source/Errors.cpp.s
+
+.PHONY : Source/Errors.s
+
+# target to generate assembly for a file
+Source/Errors.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.s
+.PHONY : Source/Errors.cpp.s
+
+Source/Local.o: Source/Local.cpp.o
+
+.PHONY : Source/Local.o
+
+# target to build an object file
+Source/Local.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o
+.PHONY : Source/Local.cpp.o
+
+Source/Local.i: Source/Local.cpp.i
+
+.PHONY : Source/Local.i
+
+# target to preprocess a source file
+Source/Local.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.i
+.PHONY : Source/Local.cpp.i
+
+Source/Local.s: Source/Local.cpp.s
+
+.PHONY : Source/Local.s
+
+# target to generate assembly for a file
+Source/Local.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.s
+.PHONY : Source/Local.cpp.s
+
 Source/Servicos.o: Source/Servicos.cpp.o
 
 .PHONY : Source/Servicos.o
@@ -203,6 +284,33 @@ Source/Servicos.s: Source/Servicos.cpp.s
 Source/Servicos.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.s
 .PHONY : Source/Servicos.cpp.s
+
+Source/TaxTable.o: Source/TaxTable.cpp.o
+
+.PHONY : Source/TaxTable.o
+
+# target to build an object file
+Source/TaxTable.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o
+.PHONY : Source/TaxTable.cpp.o
+
+Source/TaxTable.i: Source/TaxTable.cpp.i
+
+.PHONY : Source/TaxTable.i
+
+# target to preprocess a source file
+Source/TaxTable.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.i
+.PHONY : Source/TaxTable.cpp.i
+
+Source/TaxTable.s: Source/TaxTable.cpp.s
+
+.PHONY : Source/TaxTable.s
+
+# target to generate assembly for a file
+Source/TaxTable.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.s
+.PHONY : Source/TaxTable.cpp.s
 
 main.o: main.cpp.o
 
@@ -240,15 +348,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... AEDA_Proj1"
 	@echo "... edit_cache"
-	@echo "... Local.o"
-	@echo "... Local.i"
-	@echo "... Local.s"
+	@echo "... Source/Camiao.o"
+	@echo "... Source/Camiao.i"
+	@echo "... Source/Camiao.s"
+	@echo "... Source/Clientes.o"
+	@echo "... Source/Clientes.i"
+	@echo "... Source/Clientes.s"
 	@echo "... Source/Empresa.o"
 	@echo "... Source/Empresa.i"
 	@echo "... Source/Empresa.s"
+	@echo "... Source/Errors.o"
+	@echo "... Source/Errors.i"
+	@echo "... Source/Errors.s"
+	@echo "... Source/Local.o"
+	@echo "... Source/Local.i"
+	@echo "... Source/Local.s"
 	@echo "... Source/Servicos.o"
 	@echo "... Source/Servicos.i"
 	@echo "... Source/Servicos.s"
+	@echo "... Source/TaxTable.o"
+	@echo "... Source/TaxTable.i"
+	@echo "... Source/TaxTable.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

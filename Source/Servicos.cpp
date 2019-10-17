@@ -10,7 +10,7 @@ Servicos::Servicos() {
 }
 
 Servicos::Servicos(const Local &Partida, const Local &Destino, const unsigned int &Id,const string& Tipo) : id(Id), partida(Partida),
-                                                                                         destino(Destino), tipo(Tipo) {};
+                                                                                         destino(Destino), tipo(Tipo), status(false) {};
 
 Servicos::~Servicos() {
     for (int i = 0; i < num_camiao(); i++) delete camioes[i];
@@ -57,7 +57,7 @@ ostream &operator<<(ostream &os, Servicos servico) {
                << setw(10) << servico.cal_tempo()
                << setw(30) << servico.get_partida()
                << setw(30) << servico.get_destino()
-               << setw(10) << servico.num_camiao()
+               << setw(15) << servico.num_camiao()
                << setw(10) << servico.cal_preco() << endl;
     return os;
 }
@@ -72,4 +72,12 @@ string Servicos::get_partida() {
 
 string Servicos::get_tipo() {
     return tipo;
+}
+
+void Servicos::set_statusFalse() {
+    status = false;
+}
+
+void Servicos::set_statusTrue() {
+    status = true;
 }

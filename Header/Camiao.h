@@ -8,143 +8,89 @@
 #include <iostream>
 #include <iomanip>
 #include "TaxTable.h"
+
 using namespace std;
 #ifndef AEDA_PROJ1_CAMIAO_H
 #define AEDA_PROJ1_CAMIAO_H
-extern TaxTable* table;
+extern TaxTable *table;
 
-class Camiao{
+/**
+ * @brief Class responsable for camiao management
+ */
+class Camiao {
 protected:
-    unsigned int CargaMax;
-    bool disponibilidade;
+    unsigned int CargaMax;                /**<Camiao max storage*/
+    bool disponibilidade;               /**<If a camiao is available or not*/
 private:
-    double tax = table->table["Base"];
+    double tax = table->table["Base"];  /**<Get the taxes*/
 public:
-    explicit Camiao(unsigned int carg,bool disp = true);
-    ~Camiao();
-    virtual double cal_preco();
-    };
-
-
-class Congelado:public Camiao{
-    private:
-        int temperatura;
-        double tax = table->table["Congelado"];
-    public:
-        Congelado(unsigned int carg,bool disp,int temp);
-        ~Congelado();
-        int getTemp() const;
-        double cal_preco();
+    /**
+     * Contructor
+     * @param carg CargaMax
+     * @param disp If a camiao is available or not
+     */
+    explicit Camiao(unsigned int carg, bool disp = true);
+    ~Camiao();                          /**<Destructor*/
+    virtual double cal_preco();         /**<Price of the camiao service*/
 };
 
 
-class Perigoso: public Camiao{
+class Congelado : public Camiao {
 private:
-    int quaoPerigoso;
-    double tax = table->table["Perigoso"];
+    float temperatura;                      /**<Temperature*/
+    double tax = table->table["Congelado"];/**<Get the taxes*/
 public:
-    Perigoso(unsigned int carg,bool disp,int lvl);
+    /**
+     * Contructor
+     * @param carg cargaMax
+     * @param disp If it's available or not
+     * @param temp Temperature
+     */
+    Congelado(unsigned int carg, bool disp, float temp);
+    ~Congelado();
+    int getTemp() const;                /**<Get the temperature*/
+    double cal_preco();
+};
+
+
+class Perigoso : public Camiao {
+private:
+    int quaoPerigoso;       /**<How dangerous an animal is*/
+    double tax = table->table["Perigoso"];/**<Get the taxes*/
+public:
+    /**
+     * Constructor
+     * @param carg cargaMax
+     * @param disp If it's available or not
+     * @param lvl How dangerous the animal is
+     */
+    Perigoso(unsigned int carg, bool disp, int lvl);
     ~Perigoso();
     double cal_preco();
-    int getLevel() const;
+    int getLevel() const;       /**<Get quaoPerigoso*/
 };
 
-class Animals: public Camiao{
-    private:
-        int animalCount;
-        double tax = table->table["Animal"];
-    public:
-        Animals(unsigned int carg,bool disp,int number);
-        ~Animals();
-        int getAnimalCount() const;
-        void removeAnimal(){animalCount--;}
-        void addAnimal(){animalCount++;}
-        double cal_preco();
+/**
+ * Camiao with animals as product
+ */
+class Animals : public Camiao {
+private:
+    int animalCount;                    /**<How many animal there are in a camiao*/
+    double tax = table->table["Animal"];/**<Get the taxes*/
+public:
+    /**
+     * Contructor
+     * @param carg CargaMax
+     * @param disp If it's available or not
+     * @param number id
+     */
+    Animals(unsigned int carg, bool disp, int number);
+    ~Animals();                 /**<Destructor*/
+    int getAnimalCount() const; /**<Get how many animals there are in a camiao*/
+    void removeAnimal() { animalCount--; }
+    void addAnimal() { animalCount++; }
+    double cal_preco();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #endif //AEDA_PROJ1_CAMIAO_H

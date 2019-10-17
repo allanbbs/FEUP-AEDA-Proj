@@ -12,16 +12,16 @@ using namespace std;
 class Clientes {
 private:
     string name;
-    unsigned int nif;
-    vector <Servicos*> services;
+    unsigned int nif;   /**<Identification of the client*/
+    vector <Servicos*> services;    /**<Services requested by the client*/
 public:
     Clientes();
-    Clientes(string n,unsigned int anif);
+    Clientes(const string& n, const unsigned int& anif);
     ~Clientes();
-    float cal_lucro();
-    unsigned int get_nif();
-    void addService(Servicos *servico);
-    friend ostream & operator <<(ostream& out,const Clientes &client);
+    float cal_lucro() const;  /**<Calculates the total profit provided by the client*/
+    unsigned int get_nif() const;
+    void addService(Servicos *servico); /**<Add a service*/
+    friend ostream & operator <<(ostream& out,const Clientes &client);  /**<Display the information abou a client*/
 
 };
 
