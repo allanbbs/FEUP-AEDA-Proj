@@ -1,4 +1,9 @@
 /home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/maruba/Documents/AEDA_Proj1
--- Configuring done
--- Generating done
--- Build files have been written to: /home/maruba/Documents/AEDA_Proj1/cmake-build-debug
+CMake Error: File /home/maruba/Documents/AEDA_Proj1/docs/Doxyfile does not exist.
+CMake Error at CMakeLists.txt:18 (configure_file):
+  configure_file Problem configuring file
+
+
+Doxygen build started
+-- Configuring incomplete, errors occurred!
+See also "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/CMakeOutput.log".
