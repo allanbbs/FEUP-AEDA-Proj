@@ -7,7 +7,7 @@
 #include "Header/Servicos.h"
 #include "Header/Empresa.h"
 using namespace std;
-ifstream in("tax.txt");
+ifstream in("/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/AEDA_Proj1/tax.txt");
 TaxTable *table = new TaxTable(in);
 
 int main() {

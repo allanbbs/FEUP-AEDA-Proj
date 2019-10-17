@@ -49,7 +49,12 @@ int Servicos::num_camiao() {
 unsigned int Servicos::get_id() {
     return id;
 }
-
+/**
+ *
+ * @param os
+ * @param
+ * @return
+ */
 ostream &operator<<(ostream &os, Servicos servico) {
     cout.fill();
     os << left << setw(10) << servico.get_id()

@@ -101,6 +101,10 @@ public:
      */
     void set_statusTrue();
 
+    void addCamiao(Camiao *camiao){
+        camioes.push_back(camiao);
+    }
+
 };
 
 
