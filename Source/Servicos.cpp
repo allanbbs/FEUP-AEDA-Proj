@@ -45,6 +45,7 @@ int Servicos::num_camiao() {
 
 
 ostream &operator<<(ostream &os, Servicos servico) {
+    os<<fixed<<setprecision(2);
     cout.fill();
     os << left << setw(10) << servico.get_id()
                << setw(15) << servico.get_tipo()

@@ -75,11 +75,13 @@ size_t Empresa::SearchSer(const unsigned int &id)const {
 }
 
 void Empresa::display_lucro_mes() {
+    cout<<fixed<<setprecision(2);
     cout << "Total profit of the month: " << this->getLucro_mes() << endl;
 }
 
 void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &nif) {
     ostringstream os;
+    os<<fixed<<setprecision(2);
     if (nif) {
         size_t pos = SearchCli(nif);
 
@@ -96,6 +98,7 @@ void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &ni
 
 void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &id) const{
     ostringstream os;
+    os<<fixed<<setprecision(2);
     if (id) {
         size_t pos = SearchSer(id);
         os << *ser[pos];
