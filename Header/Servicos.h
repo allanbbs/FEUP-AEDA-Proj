@@ -22,11 +22,12 @@ using namespace std;
 class Servicos {
 private:
     unsigned int id;
-    std::vector<Camiao *> camioes;   /**< vector with all the camioes used to this service*/
-    Local destino;                  /**< arrival place */
-    Local partida;                 /**<  departure place */
-    string tipo;
-    bool status;                    /**<if the service is complete */
+    std::vector<Camiao *> camioes;           /**<Vector with all the camioes used to this service*/
+    Local arrival;                          /**<Arrival place */
+    Local departure;                        /**<Departure place */
+    string type;                            /**<Type of the products transporting*/
+    bool status;                            /**<If the service is complete */
+    float profit;                           /**<Profit of the service*/
 public:
     /**
      * @brief Default contructor for Servicos
@@ -35,11 +36,12 @@ public:
 
     /**
      * @brief Constructor for Servicos
-     * @param Partida Name of the departure place
-     * @param Destino Name of the arrival place
+     * @param Departure Name of the departure place
+     * @param Arrival Name of the arrival place
      * @param Id Identification for the service
+     * @param profit is initialized by cal_profit() function
      */
-    Servicos(const Local &Partida, const Local &Destino, const unsigned int &Id, const string &Tipo);
+    Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo);
 
     /**
      * @brief Default destructor
@@ -49,10 +51,10 @@ public:
     /**
      * @brief Calculates the price according to the time of traveling, price of each camiao and the fixed tax
      * @param tax Fixed tax established by the enterprise
-     * @param lucro the total profit to be returned
-     * @return Returns the price
+     * @param profit the total profit to be returned
+     * @return Returns the profit based on the time
      */
-    float cal_preco();
+    void cal_profitTime();
 
     /**
      * @brief Calculates the time of traveling according to geographic cordenates of the arrival and departure.
@@ -65,10 +67,6 @@ public:
      */
     int num_camiao();
 
-    /**
-     * @return Get the id of the service
-     */
-    unsigned int get_id();
 
     /**
      * @brief Stores the information about the client at os;
@@ -79,31 +77,50 @@ public:
     friend ostream &operator<<(ostream &out, Servicos servico);
 
     /**
-     * @return Returns the name of partida
+     * @return Get the id of the service
      */
-    string get_partida();
+    unsigned int get_id();
 
     /**
-     * @return Returns the name of destino
+     * @return the profit
      */
-    string get_destino();
+    float get_profit() const;
+
+    /**
+     * @return Returns the name of departure
+     */
+    string get_departure() const;
+
+    /**
+     * @return Returns the name of arrival
+     */
+    string get_arrival() const;
 
     /**
      * @return Returns the type of the service. What kind produtct it will transport
      */
-    string get_tipo();
+    string get_tipo() const;
+
     /**
      * @brief status = false, service is not complete
      */
     void set_statusFalse();
+
     /**
      * @brief status = true, service is complete
      */
     void set_statusTrue();
 
-    void addCamiao(Camiao *camiao){
-        camioes.push_back(camiao);
-    }
+    /**
+     * Adds a camiao to the service and increase the profit variable based on the camiao profit
+     * @param camiao
+     */
+    void addCamiao(Camiao *camiao);
+
+    /**
+     * If the same service is requested again by another client, the profit doubles
+     */
+    void request();
 
 };
 

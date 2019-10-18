@@ -16,9 +16,9 @@ private:
 public:
     Local();
     Local(string  Name, float X, float Y);
-    float get_Coordx();
-    float get_Coordy();
-    string getName();
+    float get_Coordx() const;
+    float get_Coordy() const;
+    string getName() const;
 
 };
 

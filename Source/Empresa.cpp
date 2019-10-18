@@ -13,10 +13,10 @@ size_t Empresa::nSer = 0;
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
-    for (int i = 0; i < get_numClientes(); i++) delete cli[i];          //cleaning the vector
+    for (int i = 0; i < get_numClientes(); i++) delete cli[i];              //cleaning the vector
     for (int i = 0; i < get_numCamiao(); i++) delete cam[i];
     for (int i = 0; i < get_numServicos(); i++) delete ser[i];
-    cli.clear();                                                         //deleting the vector allocation
+    cli.clear();                                                            //deleting the vector allocation
     cam.clear();
     ser.clear();
 }
@@ -24,7 +24,7 @@ Empresa::~Empresa() {
 float Empresa::getLucro_mes() const {
     float lucro = 0;
     for (auto it = cli.begin(); it < cli.end(); it++)
-        lucro += (*it)->cal_lucro();
+        lucro += (*it)->get_profit();
     return lucro;
 }
 
@@ -41,12 +41,16 @@ size_t Empresa::get_numServicos() {
     return nSer;
 }
 
+
 void Empresa::addClientes(const string &name, const unsigned int &nif) {
     auto c = new Clientes(name, nif);
     nCli++;
     cli.push_back(c);
 }
 
+//modificar
+//se servico ja existe chama add service para o servico ja existente e chama request
+//se naocria novo servico
 void Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
                          const unsigned int cliNif){
     size_t pos = SearchCli(cliNif);
@@ -114,4 +118,3 @@ void headerServInfor() {
          << setw(10) << "PRECO" << endl;
 
 }
-

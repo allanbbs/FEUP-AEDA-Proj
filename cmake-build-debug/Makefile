@@ -123,19 +123,6 @@ AEDA_Proj1/fast:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/build
 .PHONY : AEDA_Proj1/fast
 
-#=============================================================================
-# Target rules for targets named Doxygen
-
-# Build rule for target.
-Doxygen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Doxygen
-.PHONY : Doxygen
-
-# fast build rule for target.
-Doxygen/fast:
-	$(MAKE) -f CMakeFiles/Doxygen.dir/build.make CMakeFiles/Doxygen.dir/build
-.PHONY : Doxygen/fast
-
 Source/Camiao.o: Source/Camiao.cpp.o
 
 .PHONY : Source/Camiao.o
@@ -359,9 +346,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... AEDA_Proj1"
-	@echo "... Doxygen"
+	@echo "... edit_cache"
 	@echo "... Source/Camiao.o"
 	@echo "... Source/Camiao.i"
 	@echo "... Source/Camiao.s"

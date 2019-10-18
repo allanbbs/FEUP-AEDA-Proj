@@ -9,31 +9,28 @@ Servicos::Servicos() {
     id = -1;
 }
 
-Servicos::Servicos(const Local &Partida, const Local &Destino, const unsigned int &Id,const string& Tipo) : id(Id), partida(Partida),
-                                                                                         destino(Destino), tipo(Tipo), status(false) {};
+Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id,const string& Tipo) : id(Id), departure(Departure),
+                                                                                         arrival(Arrival), type(Tipo), status(false) {
+    cal_profitTime();
+};
 
 Servicos::~Servicos() {
     for (int i = 0; i < num_camiao(); i++) delete camioes[i];
     camioes.clear();
 }
 
-float Servicos::cal_preco() {
+void Servicos::cal_profitTime() {
     float tax = 0.2;
-    float lucro = 0;
-    for (auto it = camioes.begin(); it < camioes.end(); it++) {
-        lucro += (*it)->cal_preco();
-    }
-    lucro += (float) num_camiao() * tax * cal_tempo();
-    return lucro;
+    profit += tax * cal_tempo();
 }
 
 float Servicos::cal_tempo() {
     float velocity = 60;
     double multiplier = PI / 180.0;
-    float x1 = partida.get_Coordx() * multiplier;
-    float x2 = destino.get_Coordx() * multiplier;
-    float y1 = partida.get_Coordy() * multiplier;
-    float y2 = destino.get_Coordy() * multiplier;
+    float x1 = departure.get_Coordx() * multiplier;
+    float x2 = arrival.get_Coordx() * multiplier;
+    float y1 = departure.get_Coordy() * multiplier;
+    float y2 = arrival.get_Coordy() * multiplier;
     double dy = y2 - y1;
     double r = 6378.137; //radius of the earth
 
@@ -46,37 +43,37 @@ int Servicos::num_camiao() {
     return camioes.size();
 }
 
-unsigned int Servicos::get_id() {
-    return id;
-}
-/**
- *
- * @param os
- * @param
- * @return
- */
+
 ostream &operator<<(ostream &os, Servicos servico) {
     cout.fill();
     os << left << setw(10) << servico.get_id()
                << setw(15) << servico.get_tipo()
                << setw(10) << servico.cal_tempo()
-               << setw(30) << servico.get_partida()
-               << setw(30) << servico.get_destino()
+               << setw(30) << servico.get_departure()
+               << setw(30) << servico.get_arrival()
                << setw(15) << servico.num_camiao()
-               << setw(10) << servico.cal_preco() << endl;
+               << setw(10) << servico.profit << endl;
     return os;
 }
 
-string Servicos::get_destino() {
-    return destino.getName();
+unsigned int Servicos::get_id() {
+    return id;
 }
 
-string Servicos::get_partida() {
-    return partida.getName();
+float Servicos::get_profit() const {
+    return profit;
 }
 
-string Servicos::get_tipo() {
-    return tipo;
+string Servicos::get_departure() const{
+    return departure.getName();
+}
+
+string Servicos::get_arrival() const{
+    return arrival.getName();
+}
+
+string Servicos::get_tipo() const{
+    return type;
 }
 
 void Servicos::set_statusFalse() {
@@ -85,4 +82,13 @@ void Servicos::set_statusFalse() {
 
 void Servicos::set_statusTrue() {
     status = true;
+}
+
+void Servicos::addCamiao(Camiao *camiao) {
+    camioes.push_back(camiao);
+    profit += camiao->cal_preco();
+}
+
+void Servicos::request() {
+    profit+=profit;
 }

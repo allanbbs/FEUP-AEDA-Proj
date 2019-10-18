@@ -12,30 +12,25 @@ Clientes::Clientes() {
     nif = 0;
 }
 
-Clientes::Clientes(const string& n, const unsigned int& anif): name(n), nif(anif) {}
+Clientes::Clientes(const string &n, const unsigned int &anif) : name(n), nif(anif), profit(0) {}
 
 Clientes::~Clientes() {
-
+    for (int i = 0 ; i < services.size(); i++) delete services[i];
+    services.clear();
 }
 
-float Clientes::cal_lucro() const{
-    float lucro = 0.0;
-    if (services.empty()) {
-        cout << "No service to calculate gains" << endl;
-        return lucro;
-    }
-    for (auto it = services.begin(); it < services.end(); it++) {
-        lucro += (*it)->cal_preco();
-    }
-    return lucro;
+float Clientes::get_profit() const {
+    return profit;
+}
+
+unsigned int Clientes::get_nif() const {
+    return nif;
 }
 
 void Clientes::addService(Servicos *servico) {
     services.push_back(servico);
-}
+    profit += servico->get_profit();
 
-unsigned int Clientes::get_nif() const{
-    return nif;
 }
 
 ostream &operator<<(ostream &out, const Clientes &client) {
@@ -48,4 +43,4 @@ ostream &operator<<(ostream &out, const Clientes &client) {
     out << endl;
 
     return out;
-    }
+}

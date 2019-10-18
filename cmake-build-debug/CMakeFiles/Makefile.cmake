@@ -22,9 +22,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-C.cmake"
   "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-CXX.cmake"
   "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/FindDoxygen.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageHandleStandardArgs.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageMessage.cmake"
   "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Internal/CMakeCheckCompilerFlag.cmake"
   "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-C.cmake"
   "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-CXX.cmake"
@@ -36,7 +33,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.15.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeSystem.cmake"
-  "../docs/Doxyfile"
   )
 
 # The corresponding makefile is:
@@ -47,12 +43,10 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "Doxyfile"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/AEDA_Proj1.dir/DependInfo.cmake"
-  "CMakeFiles/Doxygen.dir/DependInfo.cmake"
   )

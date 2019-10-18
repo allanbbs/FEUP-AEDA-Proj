@@ -15,14 +15,14 @@ Local::Local() {
 
 Local::Local(string  Name, float X, float Y): name(Name), x(X), y(Y) {};
 
-float Local::get_Coordx() {
+float Local::get_Coordx()const {
     return x;
 }
 
-float Local::get_Coordy() {
+float Local::get_Coordy()const {
     return y;
 }
 
-string Local::getName() {
+string Local::getName()const {
     return name;
 }
