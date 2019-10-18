@@ -19,7 +19,7 @@ Clientes::~Clientes() {
     services.clear();
 }
 
-float Clientes::get_profit() const {
+double Clientes::get_profit() const {
     return profit;
 }
 

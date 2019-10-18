@@ -17,7 +17,7 @@ private:
     string name;                      /**<Name of the client*/
     unsigned int nif;                 /**<Identification of the client*/
     vector<Servicos *> services;      /**<Services requested by the client*/
-    float profit;                     /**<Clients profit*/
+    double profit;                     /**<Clients profit*/
 public:
     /**
      * Default constructos
@@ -36,7 +36,7 @@ public:
     /**
      * @return Returns the profit of the client
      */
-    float get_profit() const;
+    double get_profit() const;
     /**
      * @return Returns the clients nif (identification)
      */

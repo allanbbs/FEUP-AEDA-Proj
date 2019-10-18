@@ -20,17 +20,17 @@ Servicos::~Servicos() {
 }
 
 void Servicos::cal_profitTime() {
-    float tax = 0.2;
+    double tax = 0.2;
     profit += tax * cal_tempo();
 }
 
-float Servicos::cal_tempo() {
-    float velocity = 60;
+double Servicos::cal_tempo() {
+    double velocity = 60;
     double multiplier = PI / 180.0;
-    float x1 = departure.get_Coordx() * multiplier;
-    float x2 = arrival.get_Coordx() * multiplier;
-    float y1 = departure.get_Coordy() * multiplier;
-    float y2 = arrival.get_Coordy() * multiplier;
+    double x1 = departure.get_Coordx() * multiplier;
+    double x2 = arrival.get_Coordx() * multiplier;
+    double y1 = departure.get_Coordy() * multiplier;
+    double y2 = arrival.get_Coordy() * multiplier;
     double dy = y2 - y1;
     double r = 6378.137; //radius of the earth
 
@@ -60,7 +60,7 @@ unsigned int Servicos::get_id() {
     return id;
 }
 
-float Servicos::get_profit() const {
+double Servicos::get_profit() const {
     return profit;
 }
 

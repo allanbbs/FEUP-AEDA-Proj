@@ -21,8 +21,8 @@ Empresa::~Empresa() {
     ser.clear();
 }
 
-float Empresa::getLucro_mes() const {
-    float lucro = 0;
+double Empresa::getLucro_mes() const {
+    double lucro = 0;
     for (auto it = cli.begin(); it < cli.end(); it++)
         lucro += (*it)->get_profit();
     return lucro;
