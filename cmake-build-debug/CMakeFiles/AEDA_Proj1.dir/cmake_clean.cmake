@@ -4,7 +4,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o"
   "CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o"
   "CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o"
-  "CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o"
   "CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o"
   "CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o"
   "CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o"

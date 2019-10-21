@@ -13,9 +13,9 @@ size_t Empresa::nSer = 0;
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
-    for (int i = 0; i < get_numClientes(); i++) delete cli[i];              //cleaning the vector
-    for (int i = 0; i < get_numCamiao(); i++) delete cam[i];
-    for (int i = 0; i < get_numServicos(); i++) delete ser[i];
+    for (int i = 0; i < nCam; i++) delete cli[i];              //cleaning the vector
+    for (int i = 0; i < nCli; i++) delete cam[i];
+    for (int i = 0; i < nSer; i++) delete ser[i];
     cli.clear();                                                            //deleting the vector allocation
     cam.clear();
     ser.clear();
@@ -28,24 +28,10 @@ double Empresa::getLucro_mes() const {
     return lucro;
 }
 
-
-size_t Empresa::get_numClientes() {
-    return nCli;
-}
-
-size_t Empresa::get_numCamiao() {
-    return nCam;
-}
-
-size_t Empresa::get_numServicos() {
-    return nSer;
-}
-
-
 void Empresa::addClientes(const string &name, const unsigned int &nif) {
     long int pos = SearchCli(nif);
     if (pos != -1)
-        throw ClientRepeated(nif);
+        throw ClientRepeated(to_string(nif));
     auto c = new Clientes(name, nif);
     nCli++;
     cli.push_back(c);
@@ -56,7 +42,7 @@ void Empresa::addServico(const Local &Partida, const Local &Destino, const strin
                          const unsigned int cliNif){
     long int pos = SearchCli(cliNif);
     if (pos == -1)
-        throw NoClient(cliNif);
+        throw NoClient(to_string(cliNif));
 
     Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo);
 
@@ -75,7 +61,7 @@ size_t Empresa::SearchSer(const unsigned int &id)const {
     for (int i = 0; i < ser.size(); i++){
         if (ser[i]->get_id() == id) return i;
     }
-    throw NoService(id);
+    throw NoService(to_string(id));
 }
 
 void Empresa::display_lucro_mes() {
@@ -89,7 +75,7 @@ void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &ni
     if (nif) {
         long int pos = SearchCli(nif);
         if (pos == -1)
-            throw NoClient(nif);
+            throw NoClient(to_string(nif));
 
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
         os << *cli[pos];

@@ -21,9 +21,6 @@ CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o: ../Header/Servicos.h
 CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o: ../Header/TaxTable.h
 CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o: ../Source/Empresa.cpp
 
-CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o: ../Header/Errors.h
-CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o: ../Source/Errors.cpp
-
 CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o: ../Header/Local.h
 CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o: ../Source/Local.cpp
 

@@ -29,6 +29,7 @@ private:
     static size_t nCam;
     static size_t nCli;
     static size_t nSer;
+
 public:
     /**
      * @brief Constructor for the class
@@ -45,21 +46,6 @@ public:
      * @return Returns the profit of the month
      */
     double getLucro_mes() const;
-
-    /**
-     * @return Returns the number of clients
-     */
-    static size_t get_numClientes();
-
-    /**
-     * @return Returns the number of camioes
-     */
-    static size_t get_numCamiao();
-
-    /**
-     * @return Returns the number of services
-     */
-    static size_t get_numServicos();
 
     /**
      * @brief Add a new client to the vector cli

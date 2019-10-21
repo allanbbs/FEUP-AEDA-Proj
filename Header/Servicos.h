@@ -26,7 +26,6 @@ private:
     Local arrival;                          /**<Arrival place */
     Local departure;                        /**<Departure place */
     string type;                            /**<Type of the products transporting*/
-    bool status;                            /**<If the service is complete */
     double profit;                           /**<Profit of the service*/
 public:
     /**
@@ -94,6 +93,7 @@ public:
     /**
      * @return Returns the name of arrival
      */
+
     string get_arrival() const;
 
     /**
@@ -102,25 +102,11 @@ public:
     string get_tipo() const;
 
     /**
-     * @brief status = false, service is not complete
-     */
-    void set_statusFalse();
-
-    /**
-     * @brief status = true, service is complete
-     */
-    void set_statusTrue();
-
-    /**
      * Adds a camiao to the service and increase the profit variable based on the camiao profit
      * @param camiao
      */
     void addCamiao(Camiao *camiao);
 
-    /**
-     * If the same service is requested again by another client, the profit doubles
-     */
-    void request();
 
 };
 

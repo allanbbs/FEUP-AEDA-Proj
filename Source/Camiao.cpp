@@ -4,9 +4,8 @@
 #include "../Header/Camiao.h"
 
 //Base class//
-Camiao::Camiao(unsigned int carg,bool disp) {
+Camiao::Camiao(unsigned int carg) {
     CargaMax = carg;
-    disponibilidade = disp;
 }
 
 Camiao::~Camiao() {}
@@ -16,7 +15,7 @@ double Camiao::cal_preco() {
     return tax;
 }
 //Congelado sub-class//
-Congelado::Congelado(unsigned int carg, bool disp, double temp) : Camiao(carg,disp){
+Congelado::Congelado(unsigned int carg, bool disp, double temp) : Camiao(carg){
     temperatura = temp;
 }
 
@@ -33,7 +32,7 @@ double Congelado::cal_preco() {
 
 //Perigoso sub-class//
 
-Perigoso::Perigoso(unsigned int carg, bool disp, int lvl) : Camiao(carg,disp){
+Perigoso::Perigoso(unsigned int carg, bool disp, int lvl) : Camiao(carg){
     quaoPerigoso = lvl;
 }
 Perigoso::~Perigoso() {}
@@ -48,7 +47,7 @@ double Perigoso::cal_preco() {
 }
 
 //Animals sub-class//
-Animals::Animals(unsigned int carg, bool disp, int number) : Camiao(carg,disp){
+Animals::Animals(unsigned int carg, bool disp, int number) : Camiao(carg){
     animalCount = number;
 }
 Animals::~Animals() {}

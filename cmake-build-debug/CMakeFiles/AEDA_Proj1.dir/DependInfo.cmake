@@ -7,7 +7,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/maruba/Documents/AEDA_Proj1/Source/Camiao.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o"
   "/home/maruba/Documents/AEDA_Proj1/Source/Clientes.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o"
   "/home/maruba/Documents/AEDA_Proj1/Source/Empresa.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o"
-  "/home/maruba/Documents/AEDA_Proj1/Source/Errors.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o"
   "/home/maruba/Documents/AEDA_Proj1/Source/Local.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.o"
   "/home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o"
   "/home/maruba/Documents/AEDA_Proj1/Source/TaxTable.cpp" "/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o"

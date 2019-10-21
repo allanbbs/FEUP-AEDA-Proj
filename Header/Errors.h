@@ -1,36 +1,38 @@
 #ifndef AEDA_PROJ1_ERRORS_H
 #define AEDA_PROJ1_ERRORS_H
 
+#include <string>
+/**
+ * @brief Class made to throw types of errors
+ */
+class Error{
+protected:
+    std::string info;   /**<string containing the cause of the error*/
+public:
+    Error(std::string Info): info(Info) { };
+    std::string getInfo() const {return info;};
+};
 /**
  * Error case the client doens't exist
  */
-class NoClient {
-private:
-    unsigned int nif;   /**<identification of the client*/
+
+class NoClient: Error {
 public:
-    NoClient(const unsigned int& Nif);  /**<Constructor*/
-    unsigned int getNif() const;
+    NoClient(const std::string & nif): Error(nif) {}
 };
 
 /**
  * Error case the service doesn't exist
  */
-class NoService{
-private:
-    unsigned int id;
+class NoService: Error{
 public:
-    NoService(const unsigned int& Id);
-    unsigned int getId() const;
+    NoService(const std::string &id): Error(id){ }
 };
 /**
  * Error case the client already exists
  */
-class ClientRepeated{
-private:
-    unsigned int nif;
+class ClientRepeated: Error{
 public:
-    ClientRepeated(const unsigned int& Nif);
-    unsigned int getNif() const;
-
+    ClientRepeated(const std::string &id): Error(id){ }
 };
 #endif //AEDA_PROJ1_ERRORS_H

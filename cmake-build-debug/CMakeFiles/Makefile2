@@ -76,12 +76,12 @@ preinstall:
 CMakeFiles/AEDA_Proj1.dir/all:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/depend
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target AEDA_Proj1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target AEDA_Proj1"
 .PHONY : CMakeFiles/AEDA_Proj1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/AEDA_Proj1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/AEDA_Proj1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/AEDA_Proj1.dir/rule
@@ -103,7 +103,7 @@ CMakeFiles/AEDA_Proj1.dir/clean:
 CMakeFiles/Doxygen.dir/all:
 	$(MAKE) -f CMakeFiles/Doxygen.dir/build.make CMakeFiles/Doxygen.dir/depend
 	$(MAKE) -f CMakeFiles/Doxygen.dir/build.make CMakeFiles/Doxygen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=10 "Built target Doxygen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maruba/Documents/AEDA_Proj1/cmake-build-debug/CMakeFiles --progress-num=9 "Built target Doxygen"
 .PHONY : CMakeFiles/Doxygen.dir/all
 
 # Build rule for subdir invocation for target.

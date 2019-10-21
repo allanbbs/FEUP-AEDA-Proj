@@ -217,33 +217,6 @@ Source/Empresa.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.s
 .PHONY : Source/Empresa.cpp.s
 
-Source/Errors.o: Source/Errors.cpp.o
-
-.PHONY : Source/Errors.o
-
-# target to build an object file
-Source/Errors.cpp.o:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.o
-.PHONY : Source/Errors.cpp.o
-
-Source/Errors.i: Source/Errors.cpp.i
-
-.PHONY : Source/Errors.i
-
-# target to preprocess a source file
-Source/Errors.cpp.i:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.i
-.PHONY : Source/Errors.cpp.i
-
-Source/Errors.s: Source/Errors.cpp.s
-
-.PHONY : Source/Errors.s
-
-# target to generate assembly for a file
-Source/Errors.cpp.s:
-	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Errors.cpp.s
-.PHONY : Source/Errors.cpp.s
-
 Source/Local.o: Source/Local.cpp.o
 
 .PHONY : Source/Local.o
@@ -371,9 +344,6 @@ help:
 	@echo "... Source/Empresa.o"
 	@echo "... Source/Empresa.i"
 	@echo "... Source/Empresa.s"
-	@echo "... Source/Errors.o"
-	@echo "... Source/Errors.i"
-	@echo "... Source/Errors.s"
 	@echo "... Source/Local.o"
 	@echo "... Source/Local.i"
 	@echo "... Source/Local.s"

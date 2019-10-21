@@ -20,7 +20,6 @@ extern TaxTable *table;
 class Camiao {
 protected:
     unsigned int CargaMax;                /**<Camiao max storage*/
-    bool disponibilidade;               /**<If a camiao is available or not*/
 private:
     double tax = table->table["Base"];  /**<Get the taxes*/
 public:
@@ -29,7 +28,7 @@ public:
      * @param carg CargaMax
      * @param disp If a camiao is available or not
      */
-    explicit Camiao(unsigned int carg, bool disp = true);
+    explicit Camiao(unsigned int carg);
     ~Camiao();                          /**<Destructor*/
     virtual double cal_preco();         /**<Price of the camiao service*/
 };

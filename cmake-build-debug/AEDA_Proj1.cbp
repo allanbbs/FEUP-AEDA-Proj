@@ -112,9 +112,6 @@
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Empresa.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Errors.cpp">
-			<Option target="AEDA_Proj1"/>
-		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Local.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>

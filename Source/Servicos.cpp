@@ -11,9 +11,8 @@ Servicos::Servicos() {
 
 Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id,const string& Tipo) : id(Id), departure(Departure),
 
-                                                                                         arrival(Arrival), type(Tipo), status(false) {
+                                                                                         arrival(Arrival), type(Tipo) {
     profit = 0;
-    base_profit = 0;
     cal_profitTime();
 };
 
@@ -25,7 +24,6 @@ Servicos::~Servicos() {
 void Servicos::cal_profitTime() {
     double tax = 0.2;
     profit += tax * cal_tempo();
-    base_profit = tax*cal_tempo();
 }
 
 double Servicos::cal_tempo() {
@@ -81,20 +79,10 @@ string Servicos::get_tipo() const{
     return type;
 }
 
-void Servicos::set_statusFalse() {
-    status = false;
-}
-
-void Servicos::set_statusTrue() {
-    status = true;
-}
-
 void Servicos::addCamiao(Camiao *camiao) {
     camioes.push_back(camiao);
     profit += camiao->cal_preco();
-    base_profit+= camiao->cal_preco();
 }
 
-void Servicos::request() {
-    profit+=base_profit;
-}
+
+
