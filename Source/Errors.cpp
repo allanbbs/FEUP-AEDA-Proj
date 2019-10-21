@@ -7,15 +7,17 @@
 
 NoClient::NoClient(const unsigned int &Nif): nif(Nif) {}
 
-unsigned int NoClient::getNif() {
+unsigned int NoClient::getNif() const{
     return nif;
 }
 
 NoService::NoService(const unsigned int &Id): id(Id) {}
 
-unsigned int NoService::getId() {
+unsigned int NoService::getId() const{
     return id;
 }
 
-//cliente repetido
-
+ClientRepeated::ClientRepeated(const unsigned int &Nif): nif(Nif) {}
+unsigned int ClientRepeated::getNif() const {
+    return nif;
+}

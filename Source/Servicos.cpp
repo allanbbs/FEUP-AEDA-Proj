@@ -10,7 +10,10 @@ Servicos::Servicos() {
 }
 
 Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id,const string& Tipo) : id(Id), departure(Departure),
+
                                                                                          arrival(Arrival), type(Tipo), status(false) {
+    profit = 0;
+    base_profit = 0;
     cal_profitTime();
 };
 
@@ -22,6 +25,7 @@ Servicos::~Servicos() {
 void Servicos::cal_profitTime() {
     float tax = 0.2;
     profit += tax * cal_tempo();
+    base_profit = tax*cal_tempo();
 }
 
 float Servicos::cal_tempo() {
@@ -87,8 +91,9 @@ void Servicos::set_statusTrue() {
 void Servicos::addCamiao(Camiao *camiao) {
     camioes.push_back(camiao);
     profit += camiao->cal_preco();
+    base_profit+= camiao->cal_preco();
 }
 
 void Servicos::request() {
-    profit+=profit;
+    profit+=base_profit;
 }

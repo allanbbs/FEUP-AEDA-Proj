@@ -78,9 +78,9 @@ public:
     /**
      * Search for a client with nif given
      * @param nif Identification of the client
-     * @return Return the position of client in the vector cli. If it doens't exist throw an exception
+     * @return Return the position of client in the vector cli
      */
-    size_t SearchCli(const unsigned int &nif) const;
+    long int SearchCli(const unsigned int &nif) const;
 
     /**
      * Search for a service with the id given

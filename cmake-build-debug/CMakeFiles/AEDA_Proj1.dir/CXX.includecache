@@ -106,6 +106,20 @@ vector
 ../Header/Empresa.h
 /home/maruba/Documents/AEDA_Proj1/Header/Empresa.h
 
+/home/maruba/Documents/AEDA_Proj1/Source/Errors.cpp
+../Header/Errors.h
+/home/maruba/Documents/AEDA_Proj1/Header/Errors.h
+
+/home/maruba/Documents/AEDA_Proj1/Source/Local.cpp
+../Header/Local.h
+/home/maruba/Documents/AEDA_Proj1/Header/Local.h
+utility
+-
+
+/home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp
+../Header/Servicos.h
+/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
+
 /home/maruba/Documents/AEDA_Proj1/main.cpp
 iostream
 -

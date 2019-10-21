@@ -43,28 +43,32 @@ size_t Empresa::get_numServicos() {
 
 
 void Empresa::addClientes(const string &name, const unsigned int &nif) {
+    long int pos = SearchCli(nif);
+    if (pos != -1)
+        throw ClientRepeated(nif);
     auto c = new Clientes(name, nif);
     nCli++;
     cli.push_back(c);
 }
 
-//modificar
-//se servico ja existe chama add service para o servico ja existente e chama request
-//se naocria novo servico
+
 void Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
                          const unsigned int cliNif){
-    size_t pos = SearchCli(cliNif);
+    long int pos = SearchCli(cliNif);
+    if (pos == -1)
+        throw NoClient(cliNif);
+
     Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo);
 
     ser.push_back(new_Service);
     (cli[pos])->addService(new_Service);
 }
 
-size_t Empresa::SearchCli(const unsigned int &nif) const{
+long int Empresa::SearchCli(const unsigned int &nif) const{
     for (int i = 0; i< cli.size(); i++){
         if (cli[i]->get_nif() == nif) return i;
     }
-    throw NoClient(nif);
+    return -1;
 }
 
 size_t Empresa::SearchSer(const unsigned int &id)const {
@@ -81,7 +85,9 @@ void Empresa::display_lucro_mes() {
 void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &nif) {
     ostringstream os;
     if (nif) {
-        size_t pos = SearchCli(nif);
+        long int pos = SearchCli(nif);
+        if (pos == -1)
+            throw NoClient(nif);
 
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
         os << *cli[pos];

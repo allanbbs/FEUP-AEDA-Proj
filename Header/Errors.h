@@ -9,7 +9,7 @@ private:
     unsigned int nif;   /**<identification of the client*/
 public:
     NoClient(const unsigned int& Nif);  /**<Constructor*/
-    unsigned int getNif();
+    unsigned int getNif() const;
 };
 
 /**
@@ -20,8 +20,17 @@ private:
     unsigned int id;
 public:
     NoService(const unsigned int& Id);
-    unsigned int getId();
+    unsigned int getId() const;
 };
+/**
+ * Error case the client already exists
+ */
+class ClientRepeated{
+private:
+    unsigned int nif;
+public:
+    ClientRepeated(const unsigned int& Nif);
+    unsigned int getNif() const;
 
-
+};
 #endif //AEDA_PROJ1_ERRORS_H

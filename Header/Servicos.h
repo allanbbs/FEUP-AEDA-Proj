@@ -28,6 +28,7 @@ private:
     string type;                            /**<Type of the products transporting*/
     bool status;                            /**<If the service is complete */
     float profit;                           /**<Profit of the service*/
+    float base_profit;
 public:
     /**
      * @brief Default contructor for Servicos
