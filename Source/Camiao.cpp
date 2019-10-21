@@ -15,7 +15,7 @@ double Camiao::cal_preco() {
     return tax;
 }
 //Congelado sub-class//
-Congelado::Congelado(unsigned int carg, bool disp, double temp) : Camiao(carg){
+Congelado::Congelado(unsigned int carg, double temp) : Camiao(carg){
     temperatura = temp;
 }
 
@@ -29,10 +29,11 @@ double Congelado::cal_preco() {
     //to implement after checking taxes format
     return tax;
 }
+string Congelado::getType() {return "Congelado";}
 
 //Perigoso sub-class//
 
-Perigoso::Perigoso(unsigned int carg, bool disp, int lvl) : Camiao(carg){
+Perigoso::Perigoso(unsigned int carg, int lvl) : Camiao(carg){
     quaoPerigoso = lvl;
 }
 Perigoso::~Perigoso() {}
@@ -46,8 +47,10 @@ double Perigoso::cal_preco() {
     return tax;
 }
 
+string Perigoso::getType() {return "Perigoso";}
+
 //Animals sub-class//
-Animals::Animals(unsigned int carg, bool disp, int number) : Camiao(carg){
+Animals::Animals(unsigned int carg, int number) : Camiao(carg){
     animalCount = number;
 }
 Animals::~Animals() {}
@@ -59,3 +62,5 @@ int Animals::getAnimalCount() const {
 double Animals::cal_preco() {
     return tax;
 }
+
+string Animals::getType() {return "Animal";}

@@ -25,12 +25,22 @@ private:
 public:
     /**
      * Contructor
-     * @param carg CargaMax
-     * @param disp If a camiao is available or not
+     * @param carg CargaMax in kg measure
      */
     explicit Camiao(unsigned int carg);
-    ~Camiao();                          /**<Destructor*/
-    virtual double cal_preco();         /**<Price of the camiao service*/
+    /*
+     * Default destructor
+     */
+    ~Camiao();
+    /**
+     * @return the price of the camiao
+     */
+    virtual double cal_preco();
+    /**
+     * @return the type of the camiao
+     */
+    virtual string getType() = 0;
+
 };
 
 
@@ -45,16 +55,20 @@ public:
      * @param disp If it's available or not
      * @param temp Temperature
      */
-    Congelado(unsigned int carg, bool disp, double temp);
+    Congelado(unsigned int carg, double temp);
+    /**
+     * Default destructor
+     */
     ~Congelado();
     double getTemp() const;                /**<Get the temperature*/
     double cal_preco();
+    string getType();
 };
 
 
 class Perigoso : public Camiao {
 private:
-    int quaoPerigoso;       /**<How dangerous an animal is*/
+    int quaoPerigoso;       /**<How dangerous an animal is in a scale of 0-10*/
     double tax = table->table["Perigoso"];/**<Get the taxes*/
 public:
     /**
@@ -63,10 +77,11 @@ public:
      * @param disp If it's available or not
      * @param lvl How dangerous the animal is
      */
-    Perigoso(unsigned int carg, bool disp, int lvl);
+    Perigoso(unsigned int carg, int lvl);
     ~Perigoso();
     double cal_preco();
     int getLevel() const;       /**<Get quaoPerigoso*/
+    string getType();
 };
 
 /**
@@ -83,12 +98,13 @@ public:
      * @param disp If it's available or not
      * @param number id
      */
-    Animals(unsigned int carg, bool disp, int number);
+    Animals(unsigned int carg, int number);
     ~Animals();                 /**<Destructor*/
     int getAnimalCount() const; /**<Get how many animals there are in a camiao*/
     void removeAnimal() { animalCount--; }
     void addAnimal() { animalCount++; }
     double cal_preco();
+    string getType();
 };
 
 

@@ -22,7 +22,7 @@ Servicos::~Servicos() {
 }
 
 void Servicos::cal_profitTime() {
-    double tax = 0.2;
+    double tax = 75;
     profit += tax * cal_tempo();
 }
 

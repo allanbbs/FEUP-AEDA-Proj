@@ -33,6 +33,7 @@ void Empresa::gravaSer() {
     string type;
     unsigned int cliNif;
     while(!file.eof()){
+        //get the first e local (the departure)
         getline(file, aux);
         getline(file, local);
         getline(file, aux);
@@ -43,7 +44,7 @@ void Empresa::gravaSer() {
         is.str(aux);
         is >> cordy;
         Local *l1 = new Local(local, cordx, cordy);
-
+        //get the second local (the arrival)
         getline(file, local);
         getline(file, aux);
         is.clear();
@@ -54,14 +55,48 @@ void Empresa::gravaSer() {
         is.str(aux);
         is >> cordy;
         Local *l2 = new Local(local, cordx, cordy);
-
+        //get the type of service
         getline(file, type);
-
+        //get the client nif
         getline(file, aux);
         is.clear();
         is.str(aux);
         is >> cliNif;
         addServico(*l1, *l2, type, cliNif);
+    }
+}
+
+void Empresa::gravaCam() {
+    fstream file("../AEDA_Proj1/Ficheiros/camioes");
+    unsigned int carga;
+    double auxDouble;
+    int auxInt;
+    string type;
+    string auxString;
+    while(!file.eof()){
+        getline(file, auxString); //get empty line
+        getline(file, auxString); //get cargaMax
+        istringstream is(auxString);
+        is >> carga;
+        getline(file, type);        //get the type
+        getline(file,auxString);    //get the special atribute
+        is.clear();
+        is.str(auxString);
+        if (type == "Animal") {
+            is >> auxInt;
+            Animals * c = new Animals(carga, auxInt);
+            cam.push_back(c);
+        }
+        else if(type == "Congelado") {
+            is >> auxDouble;
+            Congelado* c = new Congelado(carga, auxDouble);
+            cam.push_back(c);
+        }
+        else{
+            is >> auxInt;
+            Perigoso* c = new Perigoso(carga, auxInt);
+            cam.push_back(c);
+        }
     }
 }
 
