@@ -36,3 +36,8 @@ public:
     ClientRepeated(const std::string &id): Error(id){ }
 };
 #endif //AEDA_PROJ1_ERRORS_H
+
+class WrongInput_option: Error{
+public:
+    WrongInput_option(const string &input): Error(input){ }
+};

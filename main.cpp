@@ -27,14 +27,72 @@ TaxTable *table = new TaxTable(in);
 //
 //}
 
+void mainMenu();            //handle the main menu
+void printMainMenu();        //prints the main menu
+
 int main(){
     Empresa e;
     e.gravaCli();
     e.gravaSer();
     e.gravaCam();
-    e.display_clientesInfo(1,201800175);
-    e.display_clientesInfo(1, 201700520);
-    e.display_servicoStatus(1,1);
+    mainMenu();
+}
+
+//checks if the menu option input is accepted
+int checkOption(int min, int max){
+    int input;
+    cin >> input;
+
+    //if it's not an int
+    if (cin.fail()){
+        throw WrongInput_option("Invalid Input.");
+        cin.ignore(1000, '\n');
+        cin.clear();
+    }
+    //if it's not in the interval
+    else if (input > max || input < min){
+        throw WrongInput_option("Input is not an option.");
+        cin.ignore(1000, '\n');
+        cin.clear();
+    }
+    else
+        return input;
 
 }
 
+void mainMenu(){
+    while (true) {
+        int option;
+        //check if it's an acceptable input
+        try {
+            option = checkOption(1, 5);
+        }
+        catch (Error &e){
+            cout << e.getInfo() << endl;
+            continue;
+        }
+
+        if (option == 5)        //exit option
+            break;
+        switch(option){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+        }
+    }
+
+}
+
+void printMainMenu(){
+    cout << "--TRANSPORTATION ENTERPRISE--" << endl << endl
+        << "1 -- Status information" << endl
+        << "2 -- Profit information" << endl
+        << "3 -- Add new client" << endl
+        << "4 -- New service request" << endl
+        << "5 -- Exit" << endl;
+}
