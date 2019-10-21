@@ -16,13 +16,13 @@ double Camiao::cal_preco() {
     return tax;
 }
 //Congelado sub-class//
-Congelado::Congelado(unsigned int carg, bool disp, float temp) : Camiao(carg,disp){
+Congelado::Congelado(unsigned int carg, bool disp, double temp) : Camiao(carg,disp){
     temperatura = temp;
 }
 
 Congelado::~Congelado() {}
 
-int Congelado::getTemp() const {
+double Congelado::getTemp() const {
     return temperatura;
 }
 

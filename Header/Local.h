@@ -12,12 +12,12 @@ using namespace std;
 class Local {
 private:
     string name;
-    float x, y;
+    double x, y;
 public:
     Local();
-    Local(string  Name, float X, float Y);
-    float get_Coordx() const;
-    float get_Coordy() const;
+    Local(string  Name, double X, double Y);
+    double get_Coordx() const;
+    double get_Coordy() const;
     string getName() const;
 
 };

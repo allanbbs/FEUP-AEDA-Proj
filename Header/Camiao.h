@@ -37,7 +37,7 @@ public:
 
 class Congelado : public Camiao {
 private:
-    float temperatura;                      /**<Temperature*/
+    double temperatura;                      /**<Temperature*/
     double tax = table->table["Congelado"];/**<Get the taxes*/
 public:
     /**
@@ -46,9 +46,9 @@ public:
      * @param disp If it's available or not
      * @param temp Temperature
      */
-    Congelado(unsigned int carg, bool disp, float temp);
+    Congelado(unsigned int carg, bool disp, double temp);
     ~Congelado();
-    int getTemp() const;                /**<Get the temperature*/
+    double getTemp() const;                /**<Get the temperature*/
     double cal_preco();
 };
 

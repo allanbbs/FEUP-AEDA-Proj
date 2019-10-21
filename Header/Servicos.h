@@ -27,8 +27,7 @@ private:
     Local departure;                        /**<Departure place */
     string type;                            /**<Type of the products transporting*/
     bool status;                            /**<If the service is complete */
-    float profit;                           /**<Profit of the service*/
-    float base_profit;
+    double profit;                           /**<Profit of the service*/
 public:
     /**
      * @brief Default contructor for Servicos
@@ -61,7 +60,7 @@ public:
      * @brief Calculates the time of traveling according to geographic cordenates of the arrival and departure.
      * @return Returns the time of traveling
      */
-    float cal_tempo();
+    double cal_tempo();
 
     /**
      * @return Returns the number of camioes operating on this service
@@ -85,7 +84,7 @@ public:
     /**
      * @return the profit
      */
-    float get_profit() const;
+    double get_profit() const;
 
     /**
      * @return Returns the name of departure

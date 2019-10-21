@@ -21,8 +21,8 @@ Empresa::~Empresa() {
     ser.clear();
 }
 
-float Empresa::getLucro_mes() const {
-    float lucro = 0;
+double Empresa::getLucro_mes() const {
+    double lucro = 0;
     for (auto it = cli.begin(); it < cli.end(); it++)
         lucro += (*it)->get_profit();
     return lucro;
@@ -79,11 +79,13 @@ size_t Empresa::SearchSer(const unsigned int &id)const {
 }
 
 void Empresa::display_lucro_mes() {
+    cout<<fixed<<setprecision(2);
     cout << "Total profit of the month: " << this->getLucro_mes() << endl;
 }
 
 void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &nif) {
     ostringstream os;
+    os<<fixed<<setprecision(2);
     if (nif) {
         long int pos = SearchCli(nif);
         if (pos == -1)
@@ -102,6 +104,7 @@ void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &ni
 
 void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &id) const{
     ostringstream os;
+    os<<fixed<<setprecision(2);
     if (id) {
         size_t pos = SearchSer(id);
         os << *ser[pos];

@@ -13,13 +13,13 @@ Local::Local() {
     y = 0;
 }
 
-Local::Local(string  Name, float X, float Y): name(Name), x(X), y(Y) {};
+Local::Local(string  Name, double X, double Y): name(Name), x(X), y(Y) {};
 
-float Local::get_Coordx()const {
+double Local::get_Coordx()const {
     return x;
 }
 
-float Local::get_Coordy()const {
+double Local::get_Coordy()const {
     return y;
 }
 

@@ -44,7 +44,7 @@ public:
      * @brief Calculates the profit of the month
      * @return Returns the profit of the month
      */
-    float getLucro_mes() const;
+    double getLucro_mes() const;
 
     /**
      * @return Returns the number of clients
@@ -90,7 +90,7 @@ public:
     size_t SearchSer(const unsigned int &id) const;
 
     template<class T>
-    float getLucro_camiaoMes(const T &c) const;
+    double getLucro_camiaoMes(const T &c) const;
 
     /**
      * @brief This function prints on the screen the information about the client(s). Case the nif is given it just print the information of one client (which has the nif given).

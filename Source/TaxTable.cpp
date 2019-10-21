@@ -4,6 +4,7 @@
 #include "../Header/TaxTable.h"
 #include <string>
 using namespace std;
+
 TaxTable::TaxTable(istream &input) {
     string type;
     string tax;

@@ -19,7 +19,7 @@ Clientes::~Clientes() {
     services.clear();
 }
 
-float Clientes::get_profit() const {
+double Clientes::get_profit() const {
     return profit;
 }
 
@@ -34,6 +34,7 @@ void Clientes::addService(Servicos *servico) {
 }
 
 ostream &operator<<(ostream &out, const Clientes &client) {
+    cout<<fixed<<setprecision(2);
     out << left << setw(30) << client.name << setw(20) << client.nif;
 
     if (client.services.empty()) out << "No services!" << endl;
