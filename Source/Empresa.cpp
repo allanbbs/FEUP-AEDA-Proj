@@ -20,8 +20,7 @@ void Empresa::gravaCli() {
         getline(file, aux);     //get string nif
         istringstream is(aux);        //get unsigned int nif
         is >> nif;
-        Clientes* client =new  Clientes(name, nif);
-        cli.push_back(client);        //add client to the list
+        addClientes(name,nif);      //add client
     }
 }
 

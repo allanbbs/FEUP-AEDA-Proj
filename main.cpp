@@ -31,6 +31,7 @@ int main(){
     Empresa e;
     e.gravaCli();
     e.display_clientesInfo(1,201800175);
+    e.display_clientesInfo(1, 201700520);
 
 }
 
