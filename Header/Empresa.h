@@ -9,6 +9,8 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include <sstream>
+#include <fstream>
 
 #include "Clientes.h"
 #include "Camiao.h"
@@ -29,8 +31,19 @@ private:
     static size_t nCam;
     static size_t nCli;
     static size_t nSer;
-
 public:
+    /*
+     * @brief Read information from clients.txt file and build the cli vector
+     */
+    void gravaCli();
+    /*
+     * @brief Read information from camioes.txt file and build the cam vector
+     */
+    void gravaCam();
+    /*
+     * @ brief Read information from servicos.txt file and build the ser vector
+     */
+    void gravanSer();
     /**
      * @brief Constructor for the class
      */

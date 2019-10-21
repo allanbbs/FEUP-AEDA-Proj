@@ -10,6 +10,21 @@ size_t Empresa::nCam = 0;
 size_t Empresa::nCli = 0;
 size_t Empresa::nSer = 0;
 
+void Empresa::gravaCli() {
+    ifstream file("../AEDA_Proj1/Ficheiros/clientes");
+    string name;
+    string aux;
+    unsigned int nif;
+    while(!file.eof()){
+        getline(file, name);    //get name
+        getline(file, aux);     //get string nif
+        istringstream is(aux);        //get unsigned int nif
+        is >> nif;
+        Clientes* client =new  Clientes(name, nif);
+        cli.push_back(client);        //add client to the list
+    }
+}
+
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
