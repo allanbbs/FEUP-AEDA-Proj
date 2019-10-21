@@ -7,7 +7,7 @@
 #include "Header/Servicos.h"
 #include "Header/Empresa.h"
 using namespace std;
-ifstream in("../AEDA_Proj1/tax.txt"); //NAO MUDA!
+ifstream in("../AEDA_Proj1/Ficheiros/tax.txt"); //NAO MUDA!
 TaxTable *table = new TaxTable(in);
 
 //int main() {
@@ -30,8 +30,10 @@ TaxTable *table = new TaxTable(in);
 int main(){
     Empresa e;
     e.gravaCli();
+    e.gravaSer();
     e.display_clientesInfo(1,201800175);
     e.display_clientesInfo(1, 201700520);
+    e.display_servicoStatus(1,1);
 
 }
 

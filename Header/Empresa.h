@@ -43,7 +43,7 @@ public:
     /*
      * @ brief Read information from servicos.txt file and build the ser vector
      */
-    void gravanSer();
+    void gravaSer();
     /**
      * @brief Constructor for the class
      */

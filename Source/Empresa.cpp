@@ -24,6 +24,47 @@ void Empresa::gravaCli() {
     }
 }
 
+void Empresa::gravaSer() {
+    ifstream file("../AEDA_Proj1/Ficheiros/servicos");
+    string local;
+    string aux;
+    double cordx;
+    double cordy;
+    string type;
+    unsigned int cliNif;
+    while(!file.eof()){
+        getline(file, aux);
+        getline(file, local);
+        getline(file, aux);
+        istringstream is(aux);
+        is >> cordx;
+        getline(file, aux);
+        is.clear();
+        is.str(aux);
+        is >> cordy;
+        Local *l1 = new Local(local, cordx, cordy);
+
+        getline(file, local);
+        getline(file, aux);
+        is.clear();
+        is.str(aux);
+        is >> cordx;
+        getline(file, aux);
+        is.clear();
+        is.str(aux);
+        is >> cordy;
+        Local *l2 = new Local(local, cordx, cordy);
+
+        getline(file, type);
+
+        getline(file, aux);
+        is.clear();
+        is.str(aux);
+        is >> cliNif;
+        addServico(*l1, *l2, type, cliNif);
+    }
+}
+
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {

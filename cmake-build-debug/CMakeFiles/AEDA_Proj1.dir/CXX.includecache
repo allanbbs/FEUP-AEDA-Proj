@@ -100,7 +100,21 @@ vector
 string
 -
 
-/home/maruba/Documents/AEDA_Proj1/Source/Empresa.cpp
-../Header/Empresa.h
+/home/maruba/Documents/AEDA_Proj1/main.cpp
+iostream
+-
+vector
+-
+string
+-
+Header/TaxTable.h
+/home/maruba/Documents/AEDA_Proj1/Header/TaxTable.h
+Header/Camiao.h
+/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
+Header/Clientes.h
+/home/maruba/Documents/AEDA_Proj1/Header/Clientes.h
+Header/Servicos.h
+/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
+Header/Empresa.h
 /home/maruba/Documents/AEDA_Proj1/Header/Empresa.h
 
