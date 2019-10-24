@@ -186,8 +186,8 @@ void Empresa::display_servicoStatus( const unsigned int &id) const{
         os << *ser[pos];
     } else {
         for (auto it = ser.begin(); it != ser.end(); it++) {
-            os << *(*it);
-            //cout<<(*it);
+            os << **it;
+
         }
     }
     headerServInfor();
