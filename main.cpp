@@ -97,13 +97,12 @@ void mainMenu(Empresa &e){
                 break;
             case 3:
                 unsigned int nif;
-                cout<<"Nome: ";
-                cin>>nome;
-                cout<<"NIF: ";
+                cout<<"Nome: "<<endl;
+                cin.ignore();
+                getline(cin,nome);
+                cout<<"NIF: "<<endl;
                 cin>>nif;
-                for(auto a: e.getServices()){
-                    if(a->get)
-                }
+                e.addClientes(nome,nif);
                 break;
             case 4:
                 break;
