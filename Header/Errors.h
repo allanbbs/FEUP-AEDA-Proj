@@ -10,7 +10,7 @@ protected:
     std::string info;   /**<string containing the cause of the error*/
 public:
     Error(std::string Info): info(Info) { };
-    std::string getInfo() const {return info;};
+    virtual std::string getInfo() const {return info;};
 };
 /**
  * Error case the client doens't exist
@@ -19,6 +19,7 @@ public:
 class NoClient: Error {
 public:
     NoClient(const std::string & nif): Error(nif) {}
+    std::string getInfo() const {return info;}
 };
 
 /**
@@ -27,17 +28,20 @@ public:
 class NoService: Error{
 public:
     NoService(const std::string &id): Error(id){ }
+    std::string getInfo() const {return info;}
 };
 /**
  * Error case the client already exists
  */
-class ClientRepeated: Error{
+class RepeatedClient: Error{
 public:
-    ClientRepeated(const std::string &id): Error(id){ }
+    RepeatedClient(const std::string &id): Error(id){ }
+    std::string getInfo() const {return info;}
 };
 #endif //AEDA_PROJ1_ERRORS_H
 
 class WrongInput_option: Error{
 public:
     WrongInput_option(const string &input): Error(input){ }
+    string getInfo() const {return info;};
 };

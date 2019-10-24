@@ -71,7 +71,7 @@ void mainMenu(Empresa &e){
         try {
             option = checkOption(1, 5);
         }
-        catch (Error &e){
+        catch (WrongInput_option &e){
             cout << e.getInfo() << endl;
             continue;
         }
