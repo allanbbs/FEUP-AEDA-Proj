@@ -48,14 +48,14 @@ int checkOption(int min, int max){
     if (cin.fail()){
         cin.ignore(1000, '\n');
         cin.clear();
-        throw WrongInput_option("Invalid Input.");
+        throw WrongInput_option("Invalid Input.Please enter an integer");
 
     }
     //if it's not in the interval
     else if (input > max || input < min){
         cin.ignore(1000, '\n');
         cin.clear();
-        throw WrongInput_option("Input is not an option.");
+        throw WrongInput_option("Given input is not an option.");
     }
     else
         return input;
@@ -97,13 +97,20 @@ void mainMenu(Empresa &e){
                 break;
             case 3:
                 unsigned int nif;
+                cout<<"Number of clients: "<<e.getClientes().size()<<endl;
                 cout<<"Nome: "<<endl;
                 cin.ignore();
                 getline(cin,nome);
                 cout<<"NIF: "<<endl;
                 cin>>nif;
-                e.addClientes(nome,nif);
+                try {
+                    e.addClientes(nome, nif);
+                }
+                catch(RepeatedClient &a){
+                    cout<<a.getInfo()<<endl;
+                }
                 break;
+
             case 4:
                 break;
             default:

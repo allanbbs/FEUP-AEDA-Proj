@@ -65,7 +65,7 @@ public:
      * @param name The name of the new client
      * @param nif Personal numeration of the client
      */
-    bool addClientes(const string &name, const unsigned int &nif);
+    void addClientes(const string &name, const unsigned int &nif);
     /**
      * @param Partida Departure Local
      * @param Destino Arrival local

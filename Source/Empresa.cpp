@@ -118,16 +118,17 @@ double Empresa::getLucro_mes() const {
     return lucro;
 }
 
-bool Empresa::addClientes(const string &name, const unsigned int &nif) {
+void Empresa::addClientes(const string &name, const unsigned int &nif) {
     long int pos = SearchCli(nif);
     if (pos != -1) {
-        cout << "There is already someone registered with the provided NIF" << endl;
-        return false;
+        /*cout << "There is already someone registered with the provided NIF" << endl;
+        return false;*/
+        throw RepeatedClient(name);
     }
     auto c = new Clientes(name, nif);
     nCli++;
     cli.push_back(c);
-    return true;
+    //return true;
 }
 
 
