@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Camiao.h
 sstream
 -
 fstream
@@ -20,17 +20,17 @@ iostream
 iomanip
 -
 TaxTable.h
-/home/maruba/Documents/AEDA_Proj1/Header/TaxTable.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/TaxTable.h
 
-/home/maruba/Documents/AEDA_Proj1/Header/Clientes.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Clientes.h
 string
 -
 iostream
 -
 Servicos.h
-/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Servicos.h
 
-/home/maruba/Documents/AEDA_Proj1/Header/Empresa.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Empresa.h
 iostream
 -
 string
@@ -44,25 +44,25 @@ sstream
 fstream
 -
 Clientes.h
-/home/maruba/Documents/AEDA_Proj1/Header/Clientes.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Clientes.h
 Camiao.h
-/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Camiao.h
 Servicos.h
-/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Servicos.h
 Errors.h
-/home/maruba/Documents/AEDA_Proj1/Header/Errors.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Errors.h
 
-/home/maruba/Documents/AEDA_Proj1/Header/Errors.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Errors.h
 string
 -
 
-/home/maruba/Documents/AEDA_Proj1/Header/Local.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Local.h
 iostream
 -
 string
 -
 
-/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Servicos.h
 iostream
 -
 string
@@ -74,11 +74,11 @@ cmath
 iomanip
 -
 Local.h
-/home/maruba/Documents/AEDA_Proj1/Header/Local.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Local.h
 Camiao.h
-/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Camiao.h
 
-/home/maruba/Documents/AEDA_Proj1/Header/TaxTable.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/TaxTable.h
 fstream
 -
 iostream
@@ -100,21 +100,7 @@ vector
 string
 -
 
-/home/maruba/Documents/AEDA_Proj1/main.cpp
-iostream
--
-vector
--
-string
--
-Header/TaxTable.h
-/home/maruba/Documents/AEDA_Proj1/Header/TaxTable.h
-Header/Camiao.h
-/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
-Header/Clientes.h
-/home/maruba/Documents/AEDA_Proj1/Header/Clientes.h
-Header/Servicos.h
-/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
-Header/Empresa.h
-/home/maruba/Documents/AEDA_Proj1/Header/Empresa.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Source/Empresa.cpp
+../Header/Empresa.h
+/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Header/Empresa.h
 

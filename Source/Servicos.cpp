@@ -55,7 +55,7 @@ ostream &operator<<(ostream &os, Servicos servico) {
                << setw(30) << servico.get_departure()
                << setw(30) << servico.get_arrival()
                << setw(15) << servico.num_camiao()
-               << setw(10) << servico.profit << endl;
+               << setw(10) << servico.get_profit() << endl;
     return os;
 }
 

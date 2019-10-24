@@ -27,7 +27,7 @@ TaxTable *table = new TaxTable(in);
 //
 //}
 
-void mainMenu();            //handle the main menu
+void mainMenu(Empresa &e);            //handle the main menu
 void printMainMenu();        //prints the main menu
 
 int main(){
@@ -35,7 +35,7 @@ int main(){
     e.gravaCli();
     e.gravaSer();
     e.gravaCam();
-    mainMenu();
+    mainMenu(e);
 }
 
 //checks if the menu option input is accepted
@@ -45,22 +45,23 @@ int checkOption(int min, int max){
 
     //if it's not an int
     if (cin.fail()){
-        throw WrongInput_option("Invalid Input.");
         cin.ignore(1000, '\n');
         cin.clear();
+        throw WrongInput_option("Invalid Input.");
+
     }
     //if it's not in the interval
     else if (input > max || input < min){
-        throw WrongInput_option("Input is not an option.");
         cin.ignore(1000, '\n');
         cin.clear();
+        throw WrongInput_option("Input is not an option.");
     }
     else
         return input;
 
 }
 
-void mainMenu(){
+void mainMenu(Empresa &e){
     while (true) {
         int option;
         //check if it's an acceptable input
@@ -76,12 +77,24 @@ void mainMenu(){
             break;
         switch(option){
             case 1:
+                int id;
+                cout<<"All Clients(0)"<<endl;
+                cout<<"Especific client(service_id)"<<endl;
+                cin>>id;
+                while(cin.fail()){
+                    cout<<"Wrong input! Please enter an integer"<<endl;
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cin>>id;
+                }
+                e.display_servicoStatus(id);
                 break;
             case 2:
                 break;
             case 3:
                 break;
             case 4:
+                break;
+            default:
                 break;
         }
     }

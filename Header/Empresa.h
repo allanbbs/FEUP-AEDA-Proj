@@ -108,7 +108,7 @@ public:
      * @param n Number of the services to print
      * @param id Identification number of the service
      */
-    void display_servicoStatus(const unsigned int &n, const unsigned int &id = 0) const;
+    void display_servicoStatus(const unsigned int &id = 0) const;
 
 };
 

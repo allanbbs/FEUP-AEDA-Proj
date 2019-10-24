@@ -178,15 +178,16 @@ void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &ni
     cout << os.str();
 }
 
-void Empresa::display_servicoStatus(const unsigned int &n, const unsigned int &id) const{
+void Empresa::display_servicoStatus( const unsigned int &id) const{
     ostringstream os;
     os<<fixed<<setprecision(2);
     if (id) {
         size_t pos = SearchSer(id);
         os << *ser[pos];
     } else {
-        for (auto it = ser.begin(); it < ser.end(); it++) {
-            os << (*it);
+        for (auto it = ser.begin(); it != ser.end(); it++) {
+            os << *(*it);
+            //cout<<(*it);
         }
     }
     headerServInfor();
