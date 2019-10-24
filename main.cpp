@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib>
 #include "Header/TaxTable.h"
 #include "Header/Camiao.h"
 #include "Header/Clientes.h"
@@ -62,7 +63,9 @@ int checkOption(int min, int max){
 }
 
 void mainMenu(Empresa &e){
+    string nome;
     while (true) {
+        printMainMenu();
         int option;
         //check if it's an acceptable input
         try {
@@ -82,6 +85,7 @@ void mainMenu(Empresa &e){
                 cout<<"Especific client(service_id)"<<endl;
                 cin>>id;
                 while(cin.fail()){
+                    cin.clear();
                     cout<<"Wrong input! Please enter an integer"<<endl;
                     cin.ignore(numeric_limits<streamsize>::max(),'\n');
                     cin>>id;
@@ -89,8 +93,17 @@ void mainMenu(Empresa &e){
                 e.display_servicoStatus(id);
                 break;
             case 2:
+                e.display_lucro_mes();
                 break;
             case 3:
+                unsigned int nif;
+                cout<<"Nome: ";
+                cin>>nome;
+                cout<<"NIF: ";
+                cin>>nif;
+                for(auto a: e.getServices()){
+                    if(a->get)
+                }
                 break;
             case 4:
                 break;

@@ -110,6 +110,19 @@ public:
      */
     void display_servicoStatus(const unsigned int &id = 0) const;
 
+    vector<Servicos*> getServices() const{
+        vector<Servicos*> res(ser);
+        return res;
+    }
+    vector<Clientes*> getClientes() const{
+        vector<Clientes*> res(cli);
+        return res;
+    }
+
+    vector<Camiao*> getCamiao() const{
+        vector<Camiao*> res(cam);
+        return res;
+    }
 };
 
 
