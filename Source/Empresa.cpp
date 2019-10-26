@@ -3,7 +3,7 @@
 //
 
 #include "../Header/Empresa.h"
-
+#include <fstream>
 void headerServInfor();
 
 size_t Empresa::nCam = 0;
@@ -128,6 +128,9 @@ void Empresa::addClientes(const string &name, const unsigned int &nif) {
     auto c = new Clientes(name, nif);
     nCli++;
     cli.push_back(c);
+    ofstream o("/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Ficheiros/clientes");
+    o.seekp(o.end);
+    o<<"\n"<<c->getName()<<"\n"<<c->get_nif();
     //return true;
 }
 

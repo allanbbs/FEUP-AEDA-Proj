@@ -13,9 +13,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1847e1cc-cf8d-49e9-9c68-7270dfc545e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Header/Algorithms.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Algorithms.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Header/Errors.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Errors.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a" beforeDir="false" afterPath="$PROJECT_DIR$/a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ficheiros/clientes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Header/Clientes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Clientes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Empresa.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Empresa.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +123,7 @@
       <workItem from="1571656449706" duration="14806000" />
       <workItem from="1571918960789" duration="13172000" />
       <workItem from="1572035078848" duration="800000" />
-      <workItem from="1572095763563" duration="6372000" />
+      <workItem from="1572095763563" duration="7633000" />
     </task>
     <servers />
   </component>

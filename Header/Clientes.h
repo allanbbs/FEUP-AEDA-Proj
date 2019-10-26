@@ -41,10 +41,17 @@ public:
      * @return Returns the clients nif (identification)
      */
     unsigned int get_nif() const;
+
     /**
-     * Client request a service
-     * @param servico Service to be added
+     * @return Returns the client's name
      */
+    string getName() const{return name;};
+
+    /**
+   * Client request a service
+   * @param servico Service to be added
+   */
+
     void addService(Servicos *servico);
     /**
      * Display the information about the client
