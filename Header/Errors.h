@@ -42,6 +42,6 @@ public:
 
 class WrongInput_option: Error{
 public:
-    WrongInput_option(const string &input): Error(input){ }
-    string getInfo() const {return info;};
+    WrongInput_option(const std::string &input): Error(input){ }
+    std::string getInfo() const {return info;};
 };
