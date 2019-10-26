@@ -81,8 +81,8 @@ void mainMenu(Empresa &e){
         switch(option){
             case 1:
                 int id;
-                cout<<"All Clients(0)"<<endl;
-                cout<<"Especific client(service_id)"<<endl;
+                cout<<"All Services(0)"<<endl;
+                cout<<"Especific service(service_id)"<<endl;
                 cin>>id;
                 while(cin.fail()){
                     cin.clear();
@@ -111,43 +111,39 @@ void mainMenu(Empresa &e){
                 }
                 break;
 
-            case 4:
+            case 4: {
+                map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
+                string partida,chegada,tipo;
+                unsigned int anif;
+                int type;
+                cout<<"Enter place of departure: "<<endl;
+                cin.ignore();
+                getline(cin,partida);
+                cout<<"Enter place of arrival: "<<endl;
+                cin.ignore();
+                getline(cin,chegada);
+                cout<<"Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): "<<endl;
 
+                try{
+                    type = checkOption(0,3);
+                }
+                catch(WrongInput_option &e){
+                    cout<<e.getInfo()<<endl;
+                    break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                }
+                cin.ignore();
+                cin>>anif;
+                while(cin.fail()){
+                    cin.clear();
+                    cout<<"Wrong input.Please enter an integer"<<endl;
+                    cin.ignore();
+                    cin>>anif;
+                }
+                tipo = temp[type];
+                e.addServico(Local(partida,0,0),Local(chegada,0,0),tipo,anif);
                 break;
+            }
             default:
                 break;
         }
