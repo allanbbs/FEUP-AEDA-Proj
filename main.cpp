@@ -105,6 +105,9 @@ void mainMenu(Empresa &e){
                 cin>>nif;
                 try {
                     e.addClientes(nome, nif);
+                    ofstream o("/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/Ficheiros/clientes",ios_base::app);
+                    o<<"\n"<<nome<<"\n"<<nif;
+                    o.close();
                 }
                 catch(RepeatedClient &a){
                     cout<<a.getInfo()<<endl;
