@@ -45,3 +45,4 @@ public:
     WrongInput_option(const std::string &input): Error(input){ }
     std::string getInfo() const {return info;};
 };
+

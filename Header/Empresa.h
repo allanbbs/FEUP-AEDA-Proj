@@ -28,10 +28,11 @@ private:
     vector<Clientes *> cli; /**< Vector that contains all clients of this enterprise*/
     vector<Camiao *> cam;   /**<Vector that contais all camioes of this enterprise*/
     vector<Servicos *> ser; /**<Vector that contais all services offered for the enterprise*/
+
+public:
     static size_t nCam;
     static size_t nCli;
     static size_t nSer;
-public:
     /*
      * @brief Read information from clients.txt file and build the cli vector
      */
@@ -96,7 +97,7 @@ public:
      * @param n Number of clients to print
      * @param nif Personal numeration of the client
      */
-    void display_clientesInfo(const unsigned int &n, const unsigned int &nif = 0);
+    void display_clientesInfo(const unsigned int &nif = 0);
 
     /**
      * @brief Displays in a simple way the total profit of the month

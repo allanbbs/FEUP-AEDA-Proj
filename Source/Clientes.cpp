@@ -37,7 +37,7 @@ ostream &operator<<(ostream &out, const Clientes &client) {
     cout<<fixed<<setprecision(2);
     out << left << setw(30) << client.name << setw(20) << client.nif;
 
-    if (client.services.empty()) out << "No services!" << endl;
+    if (client.services.empty()) out << "No services!";
 
     for (auto a: client.services)       //list of services
         out << a->get_id() << " ";

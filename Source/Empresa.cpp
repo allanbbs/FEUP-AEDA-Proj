@@ -163,8 +163,9 @@ void Empresa::display_lucro_mes() {
     cout << "Total profit of the month: " << this->getLucro_mes() << endl;
 }
 
-void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &nif) {
+void Empresa::display_clientesInfo(const unsigned int &nif) {
     ostringstream os;
+    unsigned int n = 20;
     os<<fixed<<setprecision(2);
     if (nif) {
         long int pos = SearchCli(nif);
@@ -176,14 +177,17 @@ void Empresa::display_clientesInfo(const unsigned int &n, const unsigned int &ni
     } else {
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
         for (auto it = cli.begin(); it < cli.end(); it++) {
-            os << (*it);
+            os << *(*it);
+            n--;
+            if (n == 0) return;
         }
     }
     cout << os.str();
 }
 
-void Empresa::display_servicoStatus( const unsigned int &id) const{
+void Empresa::display_servicoStatus(const unsigned int &id) const{
     ostringstream os;
+    unsigned int n = 20;
     os<<fixed<<setprecision(2);
     if (id) {
         size_t pos = SearchSer(id);
@@ -191,6 +195,8 @@ void Empresa::display_servicoStatus( const unsigned int &id) const{
     } else {
         for (auto it = ser.begin(); it != ser.end(); it++) {
             os << **it;
+            n--;
+            if (n == 0) return;
 
         }
     }
