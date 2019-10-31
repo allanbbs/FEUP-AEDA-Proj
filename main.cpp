@@ -20,6 +20,8 @@ void printMenuStatus();                 //print the menu for status
 void handleMenuStatus(Empresa &e);                //handle the menu status
 void handleAddClient(Empresa &e);
 int validClientNif(Empresa &e);
+void handleAddService(Empresa &e);
+double checkNumber();
 
 int main(){
     Empresa e;
@@ -66,37 +68,7 @@ void mainMenu(Empresa &e){
                 break;
 
             case 4: {
-                map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
-                string partida,chegada,tipo;
-                unsigned int anif;
-                int type;
-                cout<<"Enter place of departure: "<<endl;
-                cin.ignore();
-                getline(cin,partida);
-                cout<<"Enter place of arrival: "<<endl;
-                cin.ignore();
-                getline(cin,chegada);
-                cout<<"Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): "<<endl;
-
-                try{
-                    type = checkOption(0,3);
-                }
-                catch(WrongInput_option &e){
-                    cout<<e.getInfo()<<endl;
-                    break;
-
-                }
-                cin.ignore();
-                cin>>anif;
-                while(cin.fail()){
-                    cin.clear();
-                    cout<<"Wrong input.Please enter an integer"<<endl;
-                    cin.ignore();
-                    cin>>anif;
-                }
-                tipo = temp[type];
-                e.addServico(Local(partida,0,0),Local(chegada,0,0),tipo,anif);
-                break;
+                handleAddService(e);
             }
             default:
                 break;
@@ -164,6 +136,86 @@ void handleMenuStatus(Empresa &e){
     }
 }
 
+void handleAddClient(Empresa &e){
+    int nif;
+    string nome;
+    cout<<"Number of clients: "<< Empresa::nCli <<endl;
+    cout<<"Nome: ";
+    cin.ignore();
+    getline(cin,nome);
+    cout<<"[exit -1] NIF: ";
+    while (true) {
+        cin >> nif;
+        if (nif == -1) return;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        try {
+            e.addClientes(nome, nif);
+            ofstream o("../AEDA_Proj1/Ficheiros/clientes", ios_base::app);
+            o << "\n" << nome << "\n" << nif;
+            o.close();
+            return;
+        }
+        catch (RepeatedClient &a) {
+            cout << "There is already a client with nif "<<a.getInfo() << endl;
+            continue;
+        }
+    }
+}
+
+void handleAddService(Empresa &e){
+    map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
+
+    double l1x, l1y, l2x,l2y;
+    string partida,chegada,tipo;
+    long int anif, type;
+
+    while (true) {
+        cout << "Enter place of departure: ";
+        cin.ignore();
+        getline(cin, partida);
+        cout << "Enter place of arrival: ";
+        cin.ignore();
+        getline(cin, chegada);
+        cout << "Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+
+        try {
+            type = checkOption(0, 3);
+        }
+        catch (WrongInput_option &e) {
+            cout << e.getInfo() << endl;
+            continue;
+
+        }
+        anif = validClientNif(e);
+        if (anif == -1) return;
+        tipo = temp[type];
+        try {
+            cout << "Partida coordenada x (latitude): " << endl;
+            l1x = checkNumber();
+            cout << "Partida coordenada y (Longitude): " << endl;
+            l1y = checkNumber();
+            cout << "Chegada coordenada x (Latitude): " << endl;
+            l2x = checkNumber();
+            cout << "Chegada coordenada y (Longitude): " << endl;
+            l2y = checkNumber();
+        }
+        catch(WrongInput_option &error){
+            cout << error.getInfo();
+            cin.ignore();
+            break;
+        }
+
+        e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif);
+        cout << "Service added successfully" << endl;
+        wait();
+        return;
+    }
+}
+
 //checks if the menu option input is accepted
 int checkOption(int min, int max){
     int input;
@@ -219,43 +271,28 @@ int validClientNif(Empresa &e) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        try {
-            e.SearchCli(nif);
+
+        if (e.SearchCli(nif) != -1)
             return nif;
-        }
-        catch (NoService &error) {
-            cout << "The nif " << error.getInfo() << "does not exist!" << endl;
-            continue;
-        }
+        else
+            cout << "No client with nif " << nif << endl;
+
     }
 }
 
-void handleAddClient(Empresa &e){
-    int nif;
-    string nome;
-    cout<<"Number of clients: "<< Empresa::nCli <<endl;
-    cout<<"Nome: ";
-    cin.ignore();
-    getline(cin,nome);
-    cout<<"[exit -1] NIF: ";
-    while (true) {
-        cin >> nif;
-        if (nif == -1) return;
+double checkNumber(){
+    double m;
+    string j;
+    for (int i = 0; i < 4; i++){
+        cin >> m;
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
+            cout << "Not a number " << 3-i << " more tries" << endl;
         }
-        try {
-            e.addClientes(nome, nif);
-            ofstream o("../AEDA_Proj1/Ficheiros/clientes", ios_base::app);
-            o << "\n" << nome << "\n" << nif;
-            o.close();
-            return;
-        }
-        catch (RepeatedClient &a) {
-            cout << "There is already a client with nif "<<a.getInfo() << endl;
-            continue;
-        }
+        else
+            return m;
+
     }
+    throw WrongInput_option("Too many trie. Aborting operation! \n");
 }
