@@ -88,9 +88,9 @@ void printMainMenu(){
 
 void printMenuStatus(){
     cout<< "--STATUS MENU--" << endl
-        <<"[1] -- First 20 most profitable service status"<<endl
+        <<"[1] -- First 20 most profitable service"<<endl
         <<"[2] -- Specific service"<<endl
-        <<"[3] -- First n clients status" << endl
+        <<"[3] -- First 20 most profitable clients" << endl
         <<"[4] -- Specific client status" << endl
         <<"[5] -- Cancel" << endl
         <<"Option: " << endl;
@@ -178,17 +178,18 @@ void handleAddService(Empresa &e){
         cin.ignore();
         getline(cin, partida);
         cout << "Enter place of arrival: ";
-        cin.ignore();
         getline(cin, chegada);
         cout << "Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+        while (true) {
+            try {
+                type = checkOption(0, 3);
+                break;
+            }
+            catch (WrongInput_option &e) {
+                cout << e.getInfo() << endl;
+                continue;
 
-        try {
-            type = checkOption(0, 3);
-        }
-        catch (WrongInput_option &e) {
-            cout << e.getInfo() << endl;
-            continue;
-
+            }
         }
         anif = validClientNif(e);
         if (anif == -1) return;
@@ -210,7 +211,14 @@ void handleAddService(Empresa &e){
         }
 
         e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif);
+
+        ofstream o("../AEDA_Proj1/Ficheiros/servicos", ios_base::app);
+        o << "\n\n" << partida << "\n" << l1x << "\n" << l1y;
+        o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
+        o << "\n" << tipo << "\n" << anif;
+        o.close();
         cout << "Service added successfully" << endl;
+
         wait();
         return;
     }
