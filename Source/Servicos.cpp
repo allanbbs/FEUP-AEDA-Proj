@@ -21,9 +21,12 @@ Servicos::~Servicos() {
     camioes.clear();
 }
 
+//complexity O^n
 void Servicos::cal_profitTime() {
     double tax = 75;
     profit += tax * cal_tempo();
+    for (auto it = camioes.begin(); it < camioes.end(); it++)
+        profit += (*it)-> cal_preco();
 }
 
 double Servicos::cal_tempo() {
