@@ -14,9 +14,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1847e1cc-cf8d-49e9-9c68-7270dfc545e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ficheiros/servicos" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/servicos" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ficheiros/camioes" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/camioes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Header/Camiao.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Camiao.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Header/Empresa.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Empresa.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Camiao.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Camiao.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Empresa.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Empresa.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,6 +51,7 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="gEcJgSmH" />
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectId" id="1S4C1ofuKtW4nPeWOtihaaJieMl" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -61,7 +64,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -121,7 +124,8 @@
       <workItem from="1571918960789" duration="13172000" />
       <workItem from="1572035078848" duration="800000" />
       <workItem from="1572095763563" duration="9243000" />
-      <workItem from="1572545568035" duration="11218000" />
+      <workItem from="1572545568035" duration="12346000" />
+      <workItem from="1572589409038" duration="6065000" />
     </task>
     <servers />
   </component>

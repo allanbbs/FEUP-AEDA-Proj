@@ -76,6 +76,13 @@ public:
     void addServico(const Local &Partida, const Local &Destino, const string &Tipo, const unsigned int cliNif);
 
     /**
+     * It adds a new truck to the enterprise
+     * @param type the type of the trucm
+     * @param cargaMax max number of items
+     * @param caract the special caracteristic for the type of the truck: temperatura, quaoPerigoso or animalCount
+     */
+    void addCamiao(const int&  type, const unsigned int &cargaMax, const double& caract = -1);
+    /**
      * Search for a client with nif given
      * @param nif Identification of the client
      * @return Return the position of client in the vector cli

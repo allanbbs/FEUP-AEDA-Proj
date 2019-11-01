@@ -74,28 +74,34 @@ void Empresa::gravaCam() {
     string type;
     string auxString;
     while(!file.eof()){
-        getline(file, auxString); //get empty line
+        getline(file, auxString); //get first line
+
         getline(file, auxString); //get cargaMax
         istringstream is(auxString);
         is >> carga;
+
         getline(file, type);        //get the type
         getline(file,auxString);    //get the special atribute
         is.clear();
         is.str(auxString);
         if (type == "Animal") {
             is >> auxInt;
-            Animals * c = new Animals(carga, auxInt);
+            Animals * c = new Animals(carga, auxInt, ++nCam);
             cam.push_back(c);
         }
         else if(type == "Congelado") {
             is >> auxDouble;
-            Congelado* c = new Congelado(carga, auxDouble);
+            Congelado* c = new Congelado(carga, auxDouble, ++nCam);
+            cam.push_back(c);
+        }
+        else if(type == "Perigoso"){
+            is >> auxInt;
+            Perigoso* c = new Perigoso(carga, auxInt, ++nCam);
             cam.push_back(c);
         }
         else{
             is >> auxInt;
-            Perigoso* c = new Perigoso(carga, auxInt);
-            cam.push_back(c);
+            Base *c = new Base(carga, ++nCam);
         }
     }
 }
@@ -212,5 +218,28 @@ void headerServInfor() {
          << setw(30) << "CHEGADA"
          << setw(15) << "N CAMIOES"
          << setw(10) << "PRECO" << endl;
+
+}
+
+void Empresa::addCamiao(const int &type, const unsigned int &cargaMax, const double &caract) {
+    map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
+    string sType = temp[type];
+    unsigned int id = ++nCam;
+    if (sType == "Base") {
+        Camiao *c = new Base(cargaMax, id);
+        cam.push_back(c);
+    }
+    else if (sType == "Congelado") {
+        Camiao *c = new Congelado(cargaMax, caract, id);
+        cam.push_back(c);
+    }
+    else if (sType == "Perigoso") {
+        Camiao *c = new Perigoso(cargaMax, caract, id);
+        cam.push_back(c);
+    }
+    else if (sType == "Animal") {
+        Camiao *c = new Animals(cargaMax, caract, id);
+        cam.push_back(c);
+    }
 
 }

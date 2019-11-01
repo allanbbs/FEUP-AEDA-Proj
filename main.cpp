@@ -21,6 +21,7 @@ void handleMenuStatus(Empresa &e);                //handle the menu status
 void handleAddClient(Empresa &e);
 int validClientNif(Empresa &e);
 void handleAddService(Empresa &e);
+void handleAddTruck(Empresa &e);
 double checkNumber();
 
 int main(){
@@ -45,14 +46,14 @@ void mainMenu(Empresa &e){
         int option;
         //check if it's an acceptable input
         try {
-            option = checkOption(1, 5);
+            option = checkOption(1, 6);
         }
         catch (WrongInput_option &error){
             cout << error.getInfo() << endl;
             continue;
         }
 
-        if (option == 5)                                            //exit option
+        if (option == 6)                                            //exit option
             break;
         switch(option){
             case 1:
@@ -61,6 +62,7 @@ void mainMenu(Empresa &e){
 
             case 2:
                 e.display_lucro_mes();
+                wait();
                 break;
 
             case 3:
@@ -69,7 +71,12 @@ void mainMenu(Empresa &e){
 
             case 4: {
                 handleAddService(e);
+                break;
             }
+            case 5:
+                handleAddTruck(e);
+
+                break;
             default:
                 break;
         }
@@ -83,7 +90,8 @@ void printMainMenu(){
         << "[2] -- Profit information" << endl
         << "[3] -- Add new client" << endl
         << "[4] -- New service request" << endl
-        << "[5] -- Exit" << endl;
+        << "[5] -- Add truck" << endl
+        << "[6] -- Exit" << endl;
 }
 
 void printMenuStatus(){
@@ -99,7 +107,6 @@ void printMenuStatus(){
 
 void handleMenuStatus(Empresa &e){
     int option, n, id, nif;
-
     while(true) {
         printMenuStatus();
         try {
@@ -304,3 +311,50 @@ double checkNumber(){
     }
     throw WrongInput_option("Too many trie. Aborting operation! \n");
 }
+
+void handleAddTruck(Empresa &e){
+    int type, carg;
+    double caract;
+    map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
+    while (true) {
+        cout << "Max carg: ";
+        carg = checkNumber();
+        if (carg < 1){
+            cout << "Only positive numbers." << endl;
+        }
+        else break;
+    }
+
+    cout << "Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+    type = checkOption(0, 3);
+
+    if(type == 0)
+        e.addCamiao(0, carg);
+    else if (type == 1){
+        cout << "Temperature: ";
+        try{
+            caract = checkNumber();
+        }catch(WrongInput_option &error){
+            cout << "Not a number! " << endl;
+        }
+        e.addCamiao(1, carg, caract);
+    }
+    else if (type == 2){
+        cout << "Level of dangerous [1-10]: ";
+        caract = checkOption(1,10);
+        e.addCamiao(2, carg, caract);
+    }
+    else if (type == 3){
+        cout << "Number of animals. Watch the max storage ("<< carg << ") " << endl;
+        caract = checkOption(0, carg);
+        e.addCamiao(3, carg, caract);
+
+    }
+    ofstream o("../AEDA_Proj1/Ficheiros/camiao", ios_base::app);
+    o << "\n" << carg << "\n" << temp[type];
+    o << "\n" << caract << "\n";
+    o.close();
+
+
+
+};

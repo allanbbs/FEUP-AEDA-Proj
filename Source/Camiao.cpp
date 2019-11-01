@@ -4,18 +4,18 @@
 #include "../Header/Camiao.h"
 
 //Base class//
-Camiao::Camiao(unsigned int carg) {
+Camiao::Camiao(const unsigned int& carg, const unsigned int& id) {
     CargaMax = carg;
+    this->id = id;
 }
 
 Camiao::~Camiao() {}
 
-double Camiao::cal_preco() {
-    //to implement after checking tax format//
-    return tax;
-}
+
+//bool Camiao::operator<(class Camiao) const {}
+
 //Congelado sub-class//
-Congelado::Congelado(unsigned int carg, double temp) : Camiao(carg){
+Congelado::Congelado(unsigned int carg, double temp, unsigned int Id) : Camiao(carg,Id){
     temperatura = temp;
 }
 
@@ -27,13 +27,13 @@ double Congelado::getTemp() const {
 
 double Congelado::cal_preco() {
     //to implement after checking taxes format
-    return tax;
+    return tax* 0.01 * temperatura * CargaMax;
 }
 string Congelado::getType() {return "Congelado";}
 
 //Perigoso sub-class//
 
-Perigoso::Perigoso(unsigned int carg, int lvl) : Camiao(carg){
+Perigoso::Perigoso(unsigned int carg, int lvl, unsigned int Id) : Camiao(carg, Id){
     quaoPerigoso = lvl;
 }
 Perigoso::~Perigoso() {}
@@ -43,14 +43,13 @@ int Perigoso::getLevel() const {
 }
 
 double Perigoso::cal_preco() {
-    //to implement after checking tax format
-    return tax;
+    return tax*0.01*(double)quaoPerigoso*CargaMax;
 }
 
 string Perigoso::getType() {return "Perigoso";}
 
 //Animals sub-class//
-Animals::Animals(unsigned int carg, int number) : Camiao(carg){
+Animals::Animals(unsigned int carg, int number, unsigned int Id) : Camiao(carg, Id){
     animalCount = number;
 }
 Animals::~Animals() {}
@@ -60,7 +59,16 @@ int Animals::getAnimalCount() const {
 }
 
 double Animals::cal_preco() {
-    return tax;
+    return tax*0.01*animalCount*CargaMax;
 }
 
 string Animals::getType() {return "Animal";}
+
+//Base subClass//
+string Base::getType() {
+    return "Base";
+}
+
+double Base::cal_preco() {
+    return tax*0.01 *CargaMax;
+}

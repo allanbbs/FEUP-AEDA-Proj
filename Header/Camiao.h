@@ -20,26 +20,26 @@ extern TaxTable *table;
 class Camiao {
 protected:
     unsigned int CargaMax;                /**<Camiao max storage*/
-private:
-    double tax = table->table["Base"];  /**<Get the taxes*/
+    unsigned int id;                        /**<The camiao identification*/
 public:
     /**
      * Contructor
      * @param carg CargaMax in kg measure
      */
-    explicit Camiao(unsigned int carg);
+    Camiao(const unsigned int& carg, const unsigned int& id);
     /*
      * Default destructor
      */
-    ~Camiao();
+    virtual ~Camiao();
     /**
      * @return the price of the camiao
      */
-    virtual double cal_preco();
+    virtual double cal_preco() = 0;
     /**
      * @return the type of the camiao
      */
     virtual string getType() = 0;
+    //bool operator<(class Camiao) const;
 
 };
 
@@ -55,7 +55,7 @@ public:
      * @param disp If it's available or not
      * @param temp Temperature
      */
-    Congelado(unsigned int carg, double temp);
+    Congelado(unsigned int carg, double temp, unsigned int Id);
     /**
      * Default destructor
      */
@@ -77,7 +77,7 @@ public:
      * @param disp If it's available or not
      * @param lvl How dangerous the animal is
      */
-    Perigoso(unsigned int carg, int lvl);
+    Perigoso(unsigned int carg, int lvl, unsigned int Id);
     ~Perigoso();
     double cal_preco();
     int getLevel() const;       /**<Get quaoPerigoso*/
@@ -98,7 +98,7 @@ public:
      * @param disp If it's available or not
      * @param number id
      */
-    Animals(unsigned int carg, int number);
+    Animals(unsigned int carg, int number, unsigned int Id);
     ~Animals();                 /**<Destructor*/
     int getAnimalCount() const; /**<Get how many animals there are in a camiao*/
     void removeAnimal() { animalCount--; }
@@ -107,5 +107,14 @@ public:
     string getType();
 };
 
+class Base: public Camiao{
+private:
+    double tax = table->table["Base"];  /**<Get the taxes*/
+public:
+    Base(unsigned int carg, unsigned int Id): Camiao(carg, Id) {};
+    string getType();
+    double cal_preco();
+
+};
 
 #endif //AEDA_PROJ1_CAMIAO_H
