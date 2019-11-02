@@ -7,12 +7,15 @@
 Camiao::Camiao(const unsigned int& carg, const unsigned int& id) {
     CargaMax = carg;
     this->id = id;
+    totalProfit = 0;
 }
 
 Camiao::~Camiao() {}
 
+void Camiao::addedToService() {
+    totalProfit += cal_preco();
+}
 
-//bool Camiao::operator<(class Camiao) const {}
 
 //Congelado sub-class//
 Congelado::Congelado(unsigned int carg, double temp, unsigned int Id) : Camiao(carg,Id){
@@ -71,4 +74,12 @@ string Base::getType() {
 
 double Base::cal_preco() {
     return tax*0.01 *CargaMax;
+}
+
+bool operator<(const Camiao& c1, const Camiao& c2){
+    if (c1.totalProfit < c2.totalProfit) return true;
+    else if (c1.totalProfit > c2.totalProfit) return false;
+    else if (c1.CargaMax < c2.CargaMax ) return true;
+    else if (c1.CargaMax > c2.CargaMax) return false;
+    return true;
 }

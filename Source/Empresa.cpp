@@ -24,14 +24,16 @@ void Empresa::gravaCli() {
     }
 }
 
-void Empresa::gravaSer() {
+void Empresa::gravaSer(Empresa &e) {
     ifstream file("../AEDA_Proj1/Ficheiros/servicos");
     string local;
     string aux;
+    int aux_int;
     double cordx;
     double cordy;
     string type;
     unsigned int cliNif;
+    vector<int> trucks;
     while(!file.eof()){
         //get the first e local (the departure)
         getline(file, aux);
@@ -62,7 +64,15 @@ void Empresa::gravaSer() {
         is.clear();
         is.str(aux);
         is >> cliNif;
-        addServico(*l1, *l2, type, cliNif);
+        Servicos* s = addServico(*l1, *l2, type, cliNif);
+        getline(file, aux);
+        is.clear();
+        is.str(aux);
+        while (!is.eof() && aux!= "0"){
+            is >> aux_int;
+            this->addCamiaoId_Servico(aux_int, s);
+            cout << "picuinha\n" << endl;
+        }
     }
 }
 
@@ -138,7 +148,7 @@ void Empresa::addClientes(const string &name, const unsigned int &nif) {
 }
 
 
-void Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
+Servicos* Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
                          const unsigned int cliNif){
     long int pos = SearchCli(cliNif);
     if (pos == -1)
@@ -148,6 +158,7 @@ void Empresa::addServico(const Local &Partida, const Local &Destino, const strin
 
     ser.push_back(new_Service);
     (cli[pos])->addService(new_Service);
+    return new_Service;
 }
 
 long int Empresa::SearchCli(const unsigned int &nif) const{
@@ -169,6 +180,14 @@ void Empresa::display_lucro_mes() {
     cout << "Total profit of the month: " << this->getLucro_mes() << endl;
 }
 
+void Empresa::display_CamiaoProfit(){
+    headerCamInfor();
+    cout << left << setw(10) << getLucro_camiaoMes("Base")
+         << setw(10) << getLucro_camiaoMes("Congelado")
+         << setw(10) << getLucro_camiaoMes("Perigoso")
+         << getLucro_camiaoMes("Animals") << endl;
+
+}
 void Empresa::display_clientesInfo(const unsigned int &nif) {
     ostringstream os;
     unsigned int n = 20;
@@ -221,6 +240,14 @@ void headerServInfor() {
 
 }
 
+void headerCamInfor() {
+    cout << left << setw(10) << "BASE"
+         << setw(10) << "FROZEN"
+         << setw(10) << "DANGEROUS"
+         << "ANIMALS" << endl;
+
+}
+
 void Empresa::addCamiao(const int &type, const unsigned int &cargaMax, const double &caract) {
     map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
     string sType = temp[type];
@@ -243,3 +270,24 @@ void Empresa::addCamiao(const int &type, const unsigned int &cargaMax, const dou
     }
 
 }
+
+//nao estamos checando se o camiao existe
+void Empresa::addCamiaoId_Servico(const int& id, Servicos* s) {
+    for (auto it = cam.begin(); it != cam.end(); it++){
+        if ((*it)->getId() == id)
+            s->addCamiao((*it));
+
+    }
+}
+
+
+double Empresa::getLucro_camiaoMes(const string& type) const{
+    double lucro = 0;
+    for (auto const &it : cam){
+        if (it->getType() == type)
+            lucro+= it->getProfit();
+    }
+    return lucro;
+}
+
+

@@ -12,11 +12,11 @@
 #include <sstream>
 #include <fstream>
 
-#include "Clientes.h"
+
 #include "Camiao.h"
 #include "Servicos.h"
 #include "Errors.h"
-
+#include "Clientes.h"
 
 using namespace std;
 
@@ -44,7 +44,7 @@ public:
     /*
      * @ brief Read information from servicos.txt file and build the ser vector
      */
-    void gravaSer();
+    void gravaSer(Empresa &e);
     /**
      * @brief Constructor for the class
      */
@@ -73,7 +73,7 @@ public:
      * @param Id Identificantion for the service
      * @param Tipo What kind of products it will transport
      */
-    void addServico(const Local &Partida, const Local &Destino, const string &Tipo, const unsigned int cliNif);
+    Servicos* addServico(const Local &Partida, const Local &Destino, const string &Tipo, const unsigned int cliNif);
 
     /**
      * It adds a new truck to the enterprise
@@ -96,8 +96,7 @@ public:
      */
     size_t SearchSer(const unsigned int &id) const;
 
-    template<class T>
-    double getLucro_camiaoMes(const T &c) const;
+    double getLucro_camiaoMes(const string& type) const;
 
     /**
      * @brief This function prints on the screen the information about the client(s). Case the nif is given it just print the information of one client (which has the nif given).
@@ -110,6 +109,8 @@ public:
      * @brief Displays in a simple way the total profit of the month
      */
     void display_lucro_mes();
+
+    void display_CamiaoProfit();
 
     /**
      * @brief This function prints on the screen the information about the service(s). Case the id is given it just print the information of one service (which has the id give).
@@ -131,7 +132,14 @@ public:
         vector<Camiao*> res(cam);
         return res;
     }
+
+    void addCamiaoId_Servico(const int& id, Servicos* s);
+
+
 };
+
+void headerServInfor();
+void headerCamInfor();
 
 
 #endif //AEDA_PROJ1_EMPRESA_H

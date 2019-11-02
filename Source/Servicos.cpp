@@ -4,7 +4,6 @@
 
 #include "../Header/Servicos.h"
 
-
 Servicos::Servicos() {
     id = -1;
 }
@@ -85,6 +84,7 @@ string Servicos::get_tipo() const{
 void Servicos::addCamiao(Camiao *camiao) {
     camioes.push_back(camiao);
     profit += camiao->cal_preco();
+    camiao->addedToService();       //increasing the truck totalProfit
 }
 
 

@@ -11,10 +11,12 @@
 #include <cmath>
 #include <iomanip>
 
+
 #define PI 3.14159265358979323846
 
 #include "Local.h"
 #include "Camiao.h"
+
 
 using namespace std;
 
@@ -106,7 +108,6 @@ public:
      * @param camiao
      */
     void addCamiao(Camiao *camiao);
-
 
 };
 

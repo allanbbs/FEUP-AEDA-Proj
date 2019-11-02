@@ -27,8 +27,8 @@ double checkNumber();
 int main(){
     Empresa e;
     e.gravaCli();
-    e.gravaSer();
     e.gravaCam();
+    e.gravaSer(e);
     mainMenu(e);
 }
 
@@ -62,6 +62,7 @@ void mainMenu(Empresa &e){
 
             case 2:
                 e.display_lucro_mes();
+                e.display_CamiaoProfit();
                 wait();
                 break;
 
@@ -218,6 +219,7 @@ void handleAddService(Empresa &e){
         }
 
         e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif);
+        //alocar camioes
 
         ofstream o("../AEDA_Proj1/Ficheiros/servicos", ios_base::app);
         o << "\n\n" << partida << "\n" << l1x << "\n" << l1y;
@@ -234,23 +236,31 @@ void handleAddService(Empresa &e){
 //checks if the menu option input is accepted
 int checkOption(int min, int max){
     int input;
-    cin >> input;
+
 
     //if it's not an int
-    if (cin.fail()){
-        cin.ignore(1000, '\n');
-        cin.clear();
-        throw WrongInput_option("Invalid Input. Please enter an integer");
+    while (true) {
+        try {
+            cin >> input;
+            if (cin.fail()) {
+                cin.ignore(1000, '\n');
+                cin.clear();
+                throw WrongInput_option("Invalid Input. Please enter an integer");
 
+            }
+                //if it's not in the interval
+            else if (input > max || input < min) {
+                cin.ignore(1000, '\n');
+                cin.clear();
+                throw WrongInput_option("Given input is not an option. Try again");
+            } else
+                return input;
+        }
+        catch(WrongInput_option & error){
+            cout << error.getInfo() << endl;
+            continue;
+        }
     }
-        //if it's not in the interval
-    else if (input > max || input < min){
-        cin.ignore(1000, '\n');
-        cin.clear();
-        throw WrongInput_option("Given input is not an option.");
-    }
-    else
-        return input;
 
 }
 
@@ -325,8 +335,17 @@ void handleAddTruck(Empresa &e){
         else break;
     }
 
-    cout << "Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
-    type = checkOption(0, 3);
+    cout << "[exit -1] Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+    while(true) {
+        try {
+            type = checkOption(0, 3);
+            break;
+        }
+        catch (WrongInput_option &error) {
+            cout << error.getInfo() << endl;
+            continue;
+        }
+    }
 
     if(type == 0)
         e.addCamiao(0, carg);
@@ -341,19 +360,39 @@ void handleAddTruck(Empresa &e){
     }
     else if (type == 2){
         cout << "Level of dangerous [1-10]: ";
-        caract = checkOption(1,10);
+        while(true) {
+            try {
+                caract = checkOption(1, 10);
+                break;
+            }
+            catch (WrongInput_option &error) {
+                cout << error.getInfo() << endl;
+                continue;
+            }
+        }
         e.addCamiao(2, carg, caract);
     }
     else if (type == 3){
         cout << "Number of animals. Watch the max storage ("<< carg << ") " << endl;
-        caract = checkOption(0, carg);
+        while(true) {
+            try {
+                caract = checkOption(1, 10);
+                break;
+            }
+            catch (WrongInput_option &error) {
+                cout << error.getInfo() << endl;
+                continue;
+            }
+        }
         e.addCamiao(3, carg, caract);
 
     }
-    ofstream o("../AEDA_Proj1/Ficheiros/camiao", ios_base::app);
-    o << "\n" << carg << "\n" << temp[type];
-    o << "\n" << caract << "\n";
-    o.close();
+    if (type!= -1) {
+        ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
+        o << "\n" << carg << "\n" << temp[type];
+        o << "\n" << caract << "\n";
+        o.close();
+    }
 
 
 

@@ -21,6 +21,7 @@ class Camiao {
 protected:
     unsigned int CargaMax;                /**<Camiao max storage*/
     unsigned int id;                        /**<The camiao identification*/
+    double totalProfit;
 public:
     /**
      * Contructor
@@ -39,7 +40,10 @@ public:
      * @return the type of the camiao
      */
     virtual string getType() = 0;
-    //bool operator<(class Camiao) const;
+    void addedToService();
+    int getId() { return id; }
+    double getProfit() {return totalProfit; }
+    friend bool operator<(const Camiao& c1, const Camiao& c2);
 
 };
 
@@ -101,8 +105,8 @@ public:
     Animals(unsigned int carg, int number, unsigned int Id);
     ~Animals();                 /**<Destructor*/
     int getAnimalCount() const; /**<Get how many animals there are in a camiao*/
-    void removeAnimal() { animalCount--; }
-    void addAnimal() { animalCount++; }
+    //void removeAnimal() { animalCount--; }
+    //void addAnimal() { animalCount++; }
     double cal_preco();
     string getType();
 };
