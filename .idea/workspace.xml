@@ -14,12 +14,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1847e1cc-cf8d-49e9-9c68-7270dfc545e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ficheiros/servicos" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/servicos" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Header/Algorithms.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Algorithms.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header/Camiao.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Camiao.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header/Empresa.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Empresa.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header/Servicos.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Servicos.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Camiao.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Camiao.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Empresa.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Empresa.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Servicos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Servicos.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" afterDir="false" />
@@ -134,7 +131,8 @@
       <workItem from="1572679132370" duration="11704000" />
       <workItem from="1572696383302" duration="707000" />
       <workItem from="1572936279633" duration="13000" />
-      <workItem from="1572950545362" duration="2687000" />
+      <workItem from="1572950545362" duration="3031000" />
+      <workItem from="1572962354917" duration="2496000" />
     </task>
     <servers />
   </component>
@@ -155,6 +153,15 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/Empresa.cpp</url>
+          <line>299</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="it" language="ObjectiveC" />

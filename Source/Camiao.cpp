@@ -76,10 +76,10 @@ double Base::cal_preco() {
     return tax*0.01 *CargaMax;
 }
 
-bool operator<(const Camiao& c1, const Camiao& c2){
-    if (c1.totalProfit < c2.totalProfit) return true;
-    else if (c1.totalProfit > c2.totalProfit) return false;
-    else if (c1.CargaMax < c2.CargaMax ) return true;
-    else if (c1.CargaMax > c2.CargaMax) return false;
+bool Compare(const Camiao* c1, const Camiao* c2){
+    if (c1->getProfit() < c2->getProfit()) return true;
+    else if (c1->getProfit() > c2->getProfit()) return false;
+    else if (c1->getCargaMax() < c2->getCargaMax() ) return true;
+    else if (c1->getCargaMax() > c2->getCargaMax()) return false;
     return true;
 }

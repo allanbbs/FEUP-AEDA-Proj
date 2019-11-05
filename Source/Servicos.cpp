@@ -82,6 +82,17 @@ string Servicos::get_tipo() const{
     return type;
 }
 
+int Servicos::get_carga() const {
+    return carga;
+}
+
+string Servicos::get_camioes_id() const {
+    string s;
+    for (const auto& x: camioes){
+        s += to_string(x->getId())+" ";
+    }
+    return s;
+}
 void Servicos::addCamiao(Camiao *camiao) {
     camioes.push_back(camiao);
     profit += camiao->cal_preco();

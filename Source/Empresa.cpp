@@ -76,7 +76,6 @@ void Empresa::gravaSer(Empresa &e) {
         while (!is.eof() && aux!= "0"){
             is >> aux_int;
             this->addCamiaoId_Servico(aux_int, s);
-            cout << "picuinha\n" << endl;
         }
     }
 }
@@ -117,6 +116,7 @@ void Empresa::gravaCam() {
         else{
             is >> auxInt;
             Base *c = new Base(carga, ++nCam);
+            cam.push_back(c);
         }
     }
 }
@@ -296,16 +296,22 @@ double Empresa::getLucro_camiaoMes(const string& type) const{
     return lucro;
 }
 
-void Empresa::allocateCamiao(const Camiao *c, Servicos * s) {
+//supostamente tinhamos de chegar o nivel de perigo e da temperatura
+//por outro lado, talvez o perigo e temperatura influencie apenas no preço
+bool Empresa::allocateCamiao(Servicos * s) {
     vector<Camiao *> cam_copy(cam);
-    quickSort(cam_copy, 0, cam_copy.size());
+    int carga = s->get_carga();
+    sort(cam_copy.begin(), cam_copy.end(), Compare);
+    //quickSort(cam_copy, 0, cam_copy.size());
     for (const auto & x: cam_copy){
-        //congelado -> checar carga e temperatura
-        //perigoso -> checar nivel de perigosidade
-        if (x->getType() == c->getType()){
-
+        if (x->getType() == s->get_tipo()){
+            carga -= x->getCargaMax();
+            s->addCamiao(x);
         }
+        if (carga<0)
+            break;
     }
+    return carga <= 0;
 
 }
 

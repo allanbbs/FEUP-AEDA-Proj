@@ -133,10 +133,10 @@ public:
         return res;
     }
 
-    //adiciona camiao na empresa
+    //adiciona camiao no servico de acordo com o id
     void addCamiaoId_Servico(const int& id, Servicos* s);
 
-    void allocateCamiao(const Camiao* c, Servicos* s);
+    bool allocateCamiao(Servicos* s);
 };
 
 void headerServInfor();

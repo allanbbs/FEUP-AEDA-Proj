@@ -41,9 +41,10 @@ public:
      */
     virtual string getType() const = 0;
     void addedToService();
-    int getId() { return id; }
-    double getProfit() {return totalProfit; }
-    friend bool operator<(const Camiao& c1, const Camiao& c2);
+    int getId() const { return id; }
+    int getCargaMax() const {return CargaMax;}
+    double getProfit() const {return totalProfit; }
+
 
 };
 
@@ -121,4 +122,5 @@ public:
 
 };
 
+bool Compare(const Camiao* c1, const Camiao* c2);
 #endif //AEDA_PROJ1_CAMIAO_H

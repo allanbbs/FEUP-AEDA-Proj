@@ -104,6 +104,10 @@ public:
      */
     string get_tipo() const;
 
+    int get_carga() const;
+
+    string get_camioes_id() const;
+
     /**
      * Adds a camiao to the service and increase the profit variable based on the camiao profit
      * @param camiao

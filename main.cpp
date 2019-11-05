@@ -223,17 +223,19 @@ void handleAddService(Empresa &e){
         }
 
         Servicos * temp = e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif, carga);
-        //alocar camioes
+        if (!e.allocateCamiao(temp)){
+            cout << "Not enough trucks" << endl;
+            return;
+        }
 
         ofstream o("../AEDA_Proj1/Ficheiros/servicos", ios_base::app);
         o << "\n\n" << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
-        o << "\n" << tipo << "\n" << anif<< "\n" << carga;
-        //depois de alocar guarda a string no arquivo
+        o << "\n" << tipo << "\n" << anif<< "\n" << carga << "\n";
+        o << temp->get_camioes_id();
         o.close();
         cout << "Service added successfully" << endl;
 
-        wait();
         return;
     }
 }
