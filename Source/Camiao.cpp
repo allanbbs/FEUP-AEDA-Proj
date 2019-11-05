@@ -32,7 +32,7 @@ double Congelado::cal_preco() {
     //to implement after checking taxes format
     return tax* 0.01 * temperatura * CargaMax;
 }
-string Congelado::getType() {return "Congelado";}
+string Congelado::getType() const {return "Congelado";}
 
 //Perigoso sub-class//
 
@@ -49,7 +49,7 @@ double Perigoso::cal_preco() {
     return tax*0.01*(double)quaoPerigoso*CargaMax;
 }
 
-string Perigoso::getType() {return "Perigoso";}
+string Perigoso::getType() const {return "Perigoso";}
 
 //Animals sub-class//
 Animals::Animals(unsigned int carg, int number, unsigned int Id) : Camiao(carg, Id){
@@ -65,10 +65,10 @@ double Animals::cal_preco() {
     return tax*0.01*animalCount*CargaMax;
 }
 
-string Animals::getType() {return "Animal";}
+string Animals::getType() const {return "Animal";}
 
 //Base subClass//
-string Base::getType() {
+string Base::getType() const {
     return "Base";
 }
 

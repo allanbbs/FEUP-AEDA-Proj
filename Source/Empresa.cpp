@@ -28,7 +28,7 @@ void Empresa::gravaSer(Empresa &e) {
     ifstream file("../AEDA_Proj1/Ficheiros/servicos");
     string local;
     string aux;
-    int aux_int;
+    int aux_int, carga;
     double cordx;
     double cordy;
     string type;
@@ -64,7 +64,12 @@ void Empresa::gravaSer(Empresa &e) {
         is.clear();
         is.str(aux);
         is >> cliNif;
-        Servicos* s = addServico(*l1, *l2, type, cliNif);
+        //get the carga
+        getline(file, aux);
+        is.clear();
+        is.str(aux);
+        is >> carga;
+        Servicos* s = addServico(*l1, *l2, type, cliNif, carga);
         getline(file, aux);
         is.clear();
         is.str(aux);
@@ -149,12 +154,12 @@ void Empresa::addClientes(const string &name, const unsigned int &nif) {
 
 
 Servicos* Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
-                         const unsigned int cliNif){
+                         const unsigned int cliNif, const int& carga){
     long int pos = SearchCli(cliNif);
     if (pos == -1)
         throw NoClient(to_string(cliNif));
 
-    Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo);
+    Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo, carga);
 
     ser.push_back(new_Service);
     (cli[pos])->addService(new_Service);
@@ -236,7 +241,8 @@ void headerServInfor() {
          << setw(30) << "PARTIDA"
          << setw(30) << "CHEGADA"
          << setw(15) << "N CAMIOES"
-         << setw(10) << "PRECO" << endl;
+         << setw(10) << "PRECO"
+         << "CARGA" << endl;
 
 }
 
@@ -288,6 +294,19 @@ double Empresa::getLucro_camiaoMes(const string& type) const{
             lucro+= it->getProfit();
     }
     return lucro;
+}
+
+void Empresa::allocateCamiao(const Camiao *c, Servicos * s) {
+    vector<Camiao *> cam_copy(cam);
+    quickSort(cam_copy, 0, cam_copy.size());
+    for (const auto & x: cam_copy){
+        //congelado -> checar carga e temperatura
+        //perigoso -> checar nivel de perigosidade
+        if (x->getType() == c->getType()){
+
+        }
+    }
+
 }
 
 

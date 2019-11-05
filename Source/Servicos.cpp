@@ -8,9 +8,9 @@ Servicos::Servicos() {
     id = -1;
 }
 
-Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id,const string& Tipo) : id(Id), departure(Departure),
+Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id,const string& Tipo, const int & Carga) : id(Id), departure(Departure),
 
-                                                                                         arrival(Arrival), type(Tipo) {
+                                                                                         arrival(Arrival), type(Tipo), carga(Carga) {
     profit = 0;
     cal_profitTime();
 };
@@ -57,7 +57,8 @@ ostream &operator<<(ostream &os, Servicos servico) {
                << setw(30) << servico.get_departure()
                << setw(30) << servico.get_arrival()
                << setw(15) << servico.num_camiao()
-               << setw(10) << servico.get_profit() << endl;
+               << setw(10) << servico.get_profit()
+               << servico.carga << endl;
     return os;
 }
 

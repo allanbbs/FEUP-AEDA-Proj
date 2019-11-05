@@ -180,8 +180,12 @@ void handleAddService(Empresa &e){
     double l1x, l1y, l2x,l2y;
     string partida,chegada,tipo;
     long int anif, type;
+    int carga;
 
     while (true) {
+        //precisa checar os valores
+        cout << "Enter the number of products: ";
+        cin >> carga;
         cout << "Enter place of departure: ";
         cin.ignore();
         getline(cin, partida);
@@ -218,13 +222,14 @@ void handleAddService(Empresa &e){
             break;
         }
 
-        e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif);
+        Servicos * temp = e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif, carga);
         //alocar camioes
 
         ofstream o("../AEDA_Proj1/Ficheiros/servicos", ios_base::app);
         o << "\n\n" << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
-        o << "\n" << tipo << "\n" << anif;
+        o << "\n" << tipo << "\n" << anif<< "\n" << carga;
+        //depois de alocar guarda a string no arquivo
         o.close();
         cout << "Service added successfully" << endl;
 
@@ -322,6 +327,7 @@ double checkNumber(){
     throw WrongInput_option("Too many trie. Aborting operation! \n");
 }
 
+//adiciona camiao na empresa
 void handleAddTruck(Empresa &e){
     int type, carg;
     double caract;

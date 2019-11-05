@@ -1,7 +1,7 @@
 //
 // Created by maruba on 21/10/19.
 //
-/*
+
 #ifndef AEDA_PROJ1_ALGORITHMS_H
 #define AEDA_PROJ1_ALGORITHMS_H
 #include <vector>
@@ -33,7 +33,4 @@ void quickSort(vector<T>& v, int left, int right) {
 }
 
 
-template<class T>
-
 #endif //AEDA_PROJ1_ALGORITHMS_H
-*/

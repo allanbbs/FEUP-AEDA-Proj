@@ -29,6 +29,7 @@ private:
     Local departure;                        /**<Departure place */
     string type;                            /**<Type of the products transporting*/
     double profit;                           /**<Profit of the service*/
+    int carga;
 public:
     /**
      * @brief Default contructor for Servicos
@@ -42,7 +43,7 @@ public:
      * @param Id Identification for the service
      * @param profit is initialized by cal_profit() function
      */
-    Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo);
+    Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo, const int& Carga);
 
     /**
      * @brief Default destructor

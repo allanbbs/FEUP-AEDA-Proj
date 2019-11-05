@@ -12,11 +12,11 @@
 #include <sstream>
 #include <fstream>
 
-
 #include "Camiao.h"
 #include "Servicos.h"
 #include "Errors.h"
 #include "Clientes.h"
+#include "Algorithms.h"
 
 using namespace std;
 
@@ -73,7 +73,7 @@ public:
      * @param Id Identificantion for the service
      * @param Tipo What kind of products it will transport
      */
-    Servicos* addServico(const Local &Partida, const Local &Destino, const string &Tipo, const unsigned int cliNif);
+    Servicos* addServico(const Local &Partida, const Local &Destino, const string &Tipo, const unsigned int cliNif, const int& carga);
 
     /**
      * It adds a new truck to the enterprise
@@ -133,9 +133,10 @@ public:
         return res;
     }
 
+    //adiciona camiao na empresa
     void addCamiaoId_Servico(const int& id, Servicos* s);
 
-
+    void allocateCamiao(const Camiao* c, Servicos* s);
 };
 
 void headerServInfor();

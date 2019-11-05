@@ -12,6 +12,7 @@ CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o: ../Header/Servicos.h
 CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o: ../Header/TaxTable.h
 CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o: ../Source/Clientes.cpp
 
+CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o: ../Header/Algorithms.h
 CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o: ../Header/Camiao.h
 CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o: ../Header/Clientes.h
 CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o: ../Header/Empresa.h
@@ -33,6 +34,7 @@ CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o: ../Source/Servicos.cpp
 CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o: ../Header/TaxTable.h
 CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.o: ../Source/TaxTable.cpp
 
+CMakeFiles/AEDA_Proj1.dir/main.cpp.o: ../Header/Algorithms.h
 CMakeFiles/AEDA_Proj1.dir/main.cpp.o: ../Header/Camiao.h
 CMakeFiles/AEDA_Proj1.dir/main.cpp.o: ../Header/Clientes.h
 CMakeFiles/AEDA_Proj1.dir/main.cpp.o: ../Header/Empresa.h

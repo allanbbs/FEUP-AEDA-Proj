@@ -39,7 +39,7 @@ public:
     /**
      * @return the type of the camiao
      */
-    virtual string getType() = 0;
+    virtual string getType() const = 0;
     void addedToService();
     int getId() { return id; }
     double getProfit() {return totalProfit; }
@@ -66,7 +66,7 @@ public:
     ~Congelado();
     double getTemp() const;                /**<Get the temperature*/
     double cal_preco();
-    string getType();
+    string getType() const;
 };
 
 
@@ -85,7 +85,7 @@ public:
     ~Perigoso();
     double cal_preco();
     int getLevel() const;       /**<Get quaoPerigoso*/
-    string getType();
+    string getType() const;
 };
 
 /**
@@ -108,7 +108,7 @@ public:
     //void removeAnimal() { animalCount--; }
     //void addAnimal() { animalCount++; }
     double cal_preco();
-    string getType();
+    string getType() const;
 };
 
 class Base: public Camiao{
@@ -116,7 +116,7 @@ private:
     double tax = table->table["Base"];  /**<Get the taxes*/
 public:
     Base(unsigned int carg, unsigned int Id): Camiao(carg, Id) {};
-    string getType();
+    string getType() const;
     double cal_preco();
 
 };
