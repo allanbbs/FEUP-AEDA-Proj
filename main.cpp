@@ -174,6 +174,7 @@ void handleAddClient(Empresa &e){
     }
 }
 
+//TESTAR
 void handleAddService(Empresa &e){
     map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
 
@@ -184,27 +185,25 @@ void handleAddService(Empresa &e){
 
     while (true) {
         //precisa checar os valores
-        cout << "Enter the number of products: ";
-        cin >> carga;
-        cout << "Enter place of departure: ";
-        cin.ignore();
-        getline(cin, partida);
-        cout << "Enter place of arrival: ";
-        getline(cin, chegada);
-        cout << "Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
-        while (true) {
-            try {
-                type = checkOption(0, 3);
-                break;
-            }
-            catch (WrongInput_option &e) {
-                cout << e.getInfo() << endl;
-                continue;
+        cout << "[EXIT -1] Enter the number of products: ";
+        carga = checkNumber();
+        if (carga == -1) return;
 
-            }
-        }
+        cout << "[EXIT -1] Enter place of departure: ";
+        getline(cin, partida);
+        if (partida == "-1") return;
+
+        cout << "[EXIT -1] Enter place of arrival: ";
+        getline(cin, chegada);
+        if (chegada == "-1") return;
+
+        cout << "[EXIT -1] Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+        type = checkOption(-1, 3);
+        if (type == -1) return;
+
         anif = validClientNif(e);
         if (anif == -1) return;
+
         tipo = temp[type];
         try {
             cout << "Partida coordenada x (latitude): " << endl;
@@ -240,25 +239,23 @@ void handleAddService(Empresa &e){
     }
 }
 
-//checks if the menu option input is accepted
+//DONE
 int checkOption(int min, int max){
     int input;
-
-
     //if it's not an int
     while (true) {
         try {
             cin >> input;
             if (cin.fail()) {
-                cin.ignore(1000, '\n');
                 cin.clear();
+                cin.ignore(1000, '\n');
                 throw WrongInput_option("Invalid Input. Please enter an integer");
 
             }
                 //if it's not in the interval
             else if (input > max || input < min) {
-                cin.ignore(1000, '\n');
                 cin.clear();
+                cin.ignore(1000, '\n');
                 throw WrongInput_option("Given input is not an option. Try again");
             } else
                 return input;
@@ -313,23 +310,28 @@ int validClientNif(Empresa &e) {
 }
 
 double checkNumber(){
-    double m;
-    string j;
-    for (int i = 0; i < 4; i++){
-        cin >> m;
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Not a number " << 3-i << " more tries" << endl;
-        }
-        else
-            return m;
+    double input;
+    while (true) {
+        try {
+            cout << "[EXIT -1]"<< endl;
+            cin >> input;
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                throw WrongInput_option("Invalid Input. Please enter an integer");
 
+            }
+            else
+                return input;
+        }
+        catch(WrongInput_option & error){
+            cout << error.getInfo() << endl;
+            continue;
+        }
     }
-    throw WrongInput_option("Too many trie. Aborting operation! \n");
 }
 
-//adiciona camiao na empresa
+//TESTAR
 void handleAddTruck(Empresa &e){
     int type, carg;
     double caract;
@@ -337,26 +339,18 @@ void handleAddTruck(Empresa &e){
     while (true) {
         cout << "Max carg: ";
         carg = checkNumber();
-        if (carg < 1){
-            cout << "Only positive numbers." << endl;
-        }
+        if (carg == -1) return;
+        if (carg < 1) cout << "Only positive numbers." << endl;
         else break;
     }
 
-    cout << "[exit -1] Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
-    while(true) {
-        try {
-            type = checkOption(0, 3);
-            break;
-        }
-        catch (WrongInput_option &error) {
-            cout << error.getInfo() << endl;
-            continue;
-        }
-    }
+    cout << "[EXIT -1] Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+    type = checkOption(-1, 3);
+    if (type == -1) return;
 
     if(type == 0)
         e.addCamiao(0, carg);
+
     else if (type == 1){
         cout << "Temperature: ";
         try{
@@ -381,26 +375,18 @@ void handleAddTruck(Empresa &e){
         e.addCamiao(2, carg, caract);
     }
     else if (type == 3){
-        cout << "Number of animals. Watch the max storage ("<< carg << ") " << endl;
-        while(true) {
-            try {
-                caract = checkOption(1, 10);
-                break;
-            }
-            catch (WrongInput_option &error) {
-                cout << error.getInfo() << endl;
-                continue;
-            }
+        cout << "[EXIT -1/0] Number of animals. Watch the max storage ("<< carg << ") " << endl;
+        caract = checkOption(-1, 10);
+        if (caract == -1 || caract == 0)  return;
         }
         e.addCamiao(3, carg, caract);
 
-    }
-    if (type!= -1) {
-        ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
-        o << "\n" << carg << "\n" << temp[type];
-        o << "\n" << caract << "\n";
-        o.close();
-    }
+
+    ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
+    o << "\n" << carg << "\n" << temp[type];
+    o << "\n" << caract << "\n";
+    o.close();
+
 
 
 
