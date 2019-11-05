@@ -45,13 +45,8 @@ void mainMenu(Empresa &e){
         printMainMenu();
         int option;
         //check if it's an acceptable input
-        try {
-            option = checkOption(1, 6);
-        }
-        catch (WrongInput_option &error){
-            cout << error.getInfo() << endl;
-            continue;
-        }
+
+        option = checkOption(1, 6);
 
         if (option == 6)                                            //exit option
             break;
@@ -107,16 +102,12 @@ void printMenuStatus(){
 }
 
 void handleMenuStatus(Empresa &e){
-    int option, n, id, nif;
+    int option, id, nif;
     while(true) {
         printMenuStatus();
-        try {
-            option = checkOption(1, 5);
-        }
-        catch (WrongInput_option &error) {
-            cout << error.getInfo() << endl;
-            continue;
-        }
+
+        option = checkOption(1, 5);
+
         if (option == 5) return;
         switch(option){
             case 1:

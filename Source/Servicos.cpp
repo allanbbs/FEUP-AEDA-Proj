@@ -15,11 +15,6 @@ Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned 
     cal_profitTime();
 };
 
-Servicos::~Servicos() {
-    for (int i = 0; i < num_camiao(); i++) delete camioes[i];
-    camioes.clear();
-}
-
 //complexity O^n
 void Servicos::cal_profitTime() {
     double tax = 75;

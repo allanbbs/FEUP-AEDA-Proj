@@ -45,10 +45,6 @@ public:
      */
     Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo, const int& Carga);
 
-    /**
-     * @brief Default destructor
-     */
-    ~Servicos();
 
     /**
      * @brief Calculates the price according to the time of traveling, price of each camiao and the fixed tax
