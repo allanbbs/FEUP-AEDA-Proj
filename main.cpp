@@ -21,6 +21,7 @@ void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
 int month;
+extern bool novo;
 
 int main(){
     Empresa e;
@@ -219,7 +220,14 @@ void handleAddService(Empresa &e){
         }
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);
-        o << "\n\n" << partida << "\n" << l1x << "\n" << l1y;
+
+        if (novo) {
+            o << "\n";
+            novo = false;
+        }
+        else o << "\n\n";
+
+        o << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
         o << "\n" << tipo << "\n" << anif<< "\n" << carga << "\n";
         o << temp->get_camioes_id();

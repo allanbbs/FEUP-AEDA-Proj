@@ -4,8 +4,9 @@
 
 #include "../Header/Empresa.h"
 #include <fstream>
-void headerServInfor();
 
+void headerServInfor();
+bool novo;
 size_t Empresa::nCam = 0;
 size_t Empresa::nCli = 0;
 size_t Empresa::nSer = 0;
@@ -15,17 +16,17 @@ void Empresa::gravaCli() {
     string name;
     string aux;
     unsigned int nif;
-    while(!file.eof()){
+    while (!file.eof()) {
         getline(file, name);    //get name
         getline(file, aux);     //get string nif
         istringstream is(aux);        //get unsigned int nif
         is >> nif;
-        addClientes(name,nif);      //add client
+        addClientes(name, nif);      //add client
     }
 }
 
-void Empresa::gravaSer(Empresa &e, const int& month) {
-    string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
+void Empresa::gravaSer(Empresa &e, const int &month) {
+    string fileName = "../AEDA_Proj1/Ficheiros/servicos" + to_string(month) + ".txt";
     ifstream file(fileName.c_str());
     string local, aux, type;
     int aux_int, carga;
@@ -33,12 +34,7 @@ void Empresa::gravaSer(Empresa &e, const int& month) {
     unsigned int cliNif;
     vector<int> trucks;
 
-    //if the file does not exists, create one
-    if (file.fail()) {
-        ofstream create(fileName.c_str());
-        create.close();
-    }
-    else {
+    if (!file.fail())
         while (!file.eof()) {
             //get the first e local (the departure)
             getline(file, aux);
@@ -83,8 +79,9 @@ void Empresa::gravaSer(Empresa &e, const int& month) {
                 this->addCamiaoId_Servico(aux_int, s);
             }
         }
-    }
+    else novo = true;
 }
+
 
 void Empresa::gravaCam() {
     fstream file("../AEDA_Proj1/Ficheiros/camioes");
@@ -93,7 +90,7 @@ void Empresa::gravaCam() {
     int auxInt;
     string type;
     string auxString;
-    while(!file.eof()){
+    while (!file.eof()) {
         getline(file, auxString); //get first line
 
         getline(file, auxString); //get cargaMax
@@ -101,25 +98,22 @@ void Empresa::gravaCam() {
         is >> carga;
 
         getline(file, type);        //get the type
-        getline(file,auxString);    //get the special atribute
+        getline(file, auxString);    //get the special atribute
         is.clear();
         is.str(auxString);
         if (type == "Animal") {
             is >> auxInt;
-            Animals * c = new Animals(carga, auxInt, ++nCam);
+            Animals *c = new Animals(carga, auxInt, ++nCam);
             cam.push_back(c);
-        }
-        else if(type == "Congelado") {
+        } else if (type == "Congelado") {
             is >> auxDouble;
-            Congelado* c = new Congelado(carga, auxDouble, ++nCam);
+            Congelado *c = new Congelado(carga, auxDouble, ++nCam);
             cam.push_back(c);
-        }
-        else if(type == "Perigoso"){
+        } else if (type == "Perigoso") {
             is >> auxInt;
-            Perigoso* c = new Perigoso(carga, auxInt, ++nCam);
+            Perigoso *c = new Perigoso(carga, auxInt, ++nCam);
             cam.push_back(c);
-        }
-        else{
+        } else {
             is >> auxInt;
             Base *c = new Base(carga, ++nCam);
             cam.push_back(c);
@@ -154,8 +148,8 @@ void Empresa::addClientes(const string &name, const unsigned int &nif) {
 }
 
 
-Servicos* Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
-                         const unsigned int cliNif, const int& carga){
+Servicos *Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
+                              const unsigned int cliNif, const int &carga) {
     long int pos = SearchCli(cliNif);
     if (pos == -1) throw NoClient(to_string(cliNif));
     Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo, carga);
@@ -163,31 +157,32 @@ Servicos* Empresa::addServico(const Local &Partida, const Local &Destino, const 
     (cli[pos])->addService(new_Service);
     return new_Service;
 }
+
 //podemos usar pesquisa binaria
-long int Empresa::SearchCli(const unsigned int &nif) const{
-    for (int i = 0; i< cli.size(); i++){
+long int Empresa::SearchCli(const unsigned int &nif) const {
+    for (int i = 0; i < cli.size(); i++) {
         if (cli[i]->get_nif() == nif) return i;
     }
     return -1;
 }
 
-size_t Empresa::SearchSer(const unsigned int &id)const {
-    for (int i = 0; i < ser.size(); i++){
+size_t Empresa::SearchSer(const unsigned int &id) const {
+    for (int i = 0; i < ser.size(); i++) {
         if (ser[i]->get_id() == id) return i;
     }
     throw NoService(to_string(id));
 }
 
 void Empresa::display_lucro_mes() {
-    cout    <<  fixed   <<  setprecision(2);
-    cout    <<  "Total profit of the month: " << this->getLucro_mes() << endl;
+    cout << fixed << setprecision(2);
+    cout << "Total profit of the month: " << this->getLucro_mes() << endl;
 }
 
-void Empresa::display_CamiaoProfit(){
+void Empresa::display_CamiaoProfit() {
     headerCamInfor();
-    cout << left        << setw(10)     << getLucro_camiaoMes("Base")
-         << setw(10)    << getLucro_camiaoMes("Congelado")
-         << setw(10)    << getLucro_camiaoMes("Perigoso")
+    cout << left << setw(10) << getLucro_camiaoMes("Base")
+         << setw(10) << getLucro_camiaoMes("Congelado")
+         << setw(10) << getLucro_camiaoMes("Perigoso")
          << getLucro_camiaoMes("Animals") << endl;
 
 }
@@ -195,7 +190,7 @@ void Empresa::display_CamiaoProfit(){
 void Empresa::display_clientesInfo(const unsigned int &nif) {
     ostringstream os;
     unsigned int n = 20;
-    os<<fixed<<setprecision(2);
+    os << fixed << setprecision(2);
     if (nif) {
         long int pos = SearchCli(nif);
         if (pos == -1)
@@ -203,15 +198,15 @@ void Empresa::display_clientesInfo(const unsigned int &nif) {
 
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
         os << "=========================================================="
-            "======================================="<< endl;
+              "=======================================" << endl;
         os << *cli[pos];
     } else {
         vector<Clientes *> c(cli);
         sort(c.begin(), c.end(), Compare_clientes);
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
         os << "=========================================================="
-            "======================================="<< endl;
-        for (auto it =  c.begin(); it < c.end(); it++) {
+              "=======================================" << endl;
+        for (auto it = c.begin(); it < c.end(); it++) {
             os << *(*it);
             n--;
             if (n == 0) return;
@@ -220,10 +215,10 @@ void Empresa::display_clientesInfo(const unsigned int &nif) {
     cout << os.str();
 }
 
-void Empresa::display_servicoStatus(const unsigned int &id) const{
+void Empresa::display_servicoStatus(const unsigned int &id) const {
     ostringstream os;
     unsigned int n = 20;
-    os<<fixed<<setprecision(2);
+    os << fixed << setprecision(2);
 
     if (id) {
         size_t pos = SearchSer(id);
@@ -253,7 +248,7 @@ void headerServInfor() {
          << "CARGA" << endl;
     cout << "=========================================================="
             "=========================================================="
-            "=========="<< endl;
+            "==========" << endl;
 
 }
 
@@ -264,36 +259,36 @@ void headerCamInfor() {
          << "ANIMALS" << endl;
     cout << "=========================================================="
             "=========================================================="
-            "=========="<< endl;
+            "==========" << endl;
 
 }
 
 void Empresa::addCamiao(const int &type, const unsigned int &cargaMax, const double &caract) {
-    map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
+    map<unsigned int, string> temp = {{0, "Base"},
+                                      {1, "Congelado"},
+                                      {2, "Perigoso"},
+                                      {3, "Animal"}};
     string sType = temp[type];
     unsigned int id = ++nCam;
     if (sType == "Base") {
         Camiao *c = new Base(cargaMax, id);
         cam.push_back(c);
-    }
-    else if (sType == "Congelado") {
+    } else if (sType == "Congelado") {
         Camiao *c = new Congelado(cargaMax, caract, id);
         cam.push_back(c);
-    }
-    else if (sType == "Perigoso") {
+    } else if (sType == "Perigoso") {
         Camiao *c = new Perigoso(cargaMax, caract, id);
         cam.push_back(c);
-    }
-    else if (sType == "Animal") {
+    } else if (sType == "Animal") {
         Camiao *c = new Animals(cargaMax, caract, id);
         cam.push_back(c);
     }
 
 }
 
-//nao estamos checando se o camiao existe
-void Empresa::addCamiaoId_Servico(const int& id, Servicos* s) {
-    for (auto it = cam.begin(); it != cam.end(); it++){
+//nao estamos checando se o camiao existe e nao precisa
+void Empresa::addCamiaoId_Servico(const int &id, Servicos *s) {
+    for (auto it = cam.begin(); it != cam.end(); it++) {
         if ((*it)->getId() == id)
             s->addCamiao((*it));
 
@@ -301,28 +296,28 @@ void Empresa::addCamiaoId_Servico(const int& id, Servicos* s) {
 }
 
 
-double Empresa::getLucro_camiaoMes(const string& type) const{
+double Empresa::getLucro_camiaoMes(const string &type) const {
     double lucro = 0;
-    for (auto const &it : cam){
+    for (auto const &it : cam) {
         if (it->getType() == type)
-            lucro+= it->getProfit();
+            lucro += it->getProfit();
     }
     return lucro;
 }
 
 //supostamente tinhamos de chegar o nivel de perigo e da temperatura
 //por outro lado, talvez o perigo e temperatura influencie apenas no preço
-bool Empresa::allocateCamiao(Servicos * s) {
+bool Empresa::allocateCamiao(Servicos *s) {
     vector<Camiao *> cam_copy(cam);
     int carga = s->get_carga();
     sort(cam_copy.begin(), cam_copy.end(), Compare);
     //quickSort(cam_copy, 0, cam_copy.size());
-    for (const auto & x: cam_copy){
-        if (x->getType() == s->get_tipo()){
+    for (const auto &x: cam_copy) {
+        if (x->getType() == s->get_tipo()) {
             carga -= x->getCargaMax();
             s->addCamiao(x);
         }
-        if (carga<0)
+        if (carga < 0)
             break;
     }
     return carga <= 0;
