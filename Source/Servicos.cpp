@@ -57,7 +57,7 @@ ostream &operator<<(ostream &os, Servicos servico) {
     return os;
 }
 
-unsigned int Servicos::get_id() {
+unsigned int Servicos::get_id() const{
     return id;
 }
 
@@ -96,6 +96,13 @@ void Servicos::addCamiao(Camiao *camiao) {
     camioes.push_back(camiao);
     profit += camiao->cal_preco();
     camiao->addedToService();       //increasing the truck totalProfit
+}
+
+bool Compare_servico(const Servicos* c, const Servicos* c1){
+    if (c->get_profit() < c1->get_profit()) return false;
+    else if (c1->get_profit() < c->get_profit()) return true;
+    else if(c->get_id() < c1->get_id()) return true;
+    return false;
 }
 
 

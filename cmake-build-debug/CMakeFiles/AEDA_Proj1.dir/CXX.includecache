@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/maruba/Documents/AEDA_Proj1/Header/Algorithms.h
-vector
--
-iostream
--
-
 /home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
 sstream
 -
@@ -57,8 +51,6 @@ Errors.h
 /home/maruba/Documents/AEDA_Proj1/Header/Errors.h
 Clientes.h
 /home/maruba/Documents/AEDA_Proj1/Header/Clientes.h
-Algorithms.h
-/home/maruba/Documents/AEDA_Proj1/Header/Algorithms.h
 
 /home/maruba/Documents/AEDA_Proj1/Header/Errors.h
 string
@@ -111,6 +103,26 @@ string
 /home/maruba/Documents/AEDA_Proj1/Header/utils.h
 Empresa.h
 /home/maruba/Documents/AEDA_Proj1/Header/Empresa.h
+
+/home/maruba/Documents/AEDA_Proj1/Source/Clientes.cpp
+vector
+-
+../Header/Clientes.h
+/home/maruba/Documents/AEDA_Proj1/Header/Clientes.h
+
+/home/maruba/Documents/AEDA_Proj1/Source/Empresa.cpp
+../Header/Empresa.h
+/home/maruba/Documents/AEDA_Proj1/Header/Empresa.h
+fstream
+-
+
+/home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp
+../Header/Servicos.h
+/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
+
+/home/maruba/Documents/AEDA_Proj1/Source/utils.cpp
+../Header/utils.h
+/home/maruba/Documents/AEDA_Proj1/Header/utils.h
 
 /home/maruba/Documents/AEDA_Proj1/main.cpp
 iostream

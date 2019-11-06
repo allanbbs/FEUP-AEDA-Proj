@@ -163,7 +163,7 @@ Servicos* Empresa::addServico(const Local &Partida, const Local &Destino, const 
     (cli[pos])->addService(new_Service);
     return new_Service;
 }
-
+//podemos usar pesquisa binaria
 long int Empresa::SearchCli(const unsigned int &nif) const{
     for (int i = 0; i< cli.size(); i++){
         if (cli[i]->get_nif() == nif) return i;
@@ -191,6 +191,7 @@ void Empresa::display_CamiaoProfit(){
          << getLucro_camiaoMes("Animals") << endl;
 
 }
+
 void Empresa::display_clientesInfo(const unsigned int &nif) {
     ostringstream os;
     unsigned int n = 20;
@@ -200,15 +201,17 @@ void Empresa::display_clientesInfo(const unsigned int &nif) {
         if (pos == -1)
             throw NoClient(to_string(nif));
 
-        os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
         os << "=========================================================="
             "======================================="<< endl;
         os << *cli[pos];
     } else {
-        os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
+        vector<Clientes *> c(cli);
+        sort(c.begin(), c.end(), Compare_clientes);
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
         os << "=========================================================="
             "======================================="<< endl;
-        for (auto it = cli.begin(); it < cli.end(); it++) {
+        for (auto it =  c.begin(); it < c.end(); it++) {
             os << *(*it);
             n--;
             if (n == 0) return;
@@ -221,11 +224,14 @@ void Empresa::display_servicoStatus(const unsigned int &id) const{
     ostringstream os;
     unsigned int n = 20;
     os<<fixed<<setprecision(2);
+
     if (id) {
         size_t pos = SearchSer(id);
         os << *ser[pos];
     } else {
-        for (auto it = ser.begin(); it != ser.end(); it++) {
+        vector<Servicos *> s(ser);
+        sort(s.begin(), s.end(), Compare_servico);
+        for (auto it = s.begin(); it != s.end(); it++) {
             os << **it;
             n--;
             if (n == 0) return;

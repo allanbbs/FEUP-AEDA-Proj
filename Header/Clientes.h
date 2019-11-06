@@ -61,8 +61,8 @@ public:
      */
     friend ostream &operator<<(ostream &out, const Clientes &client);
 
-    bool operator<(const Clientes& c); 
 };
+bool Compare_clientes(const Clientes* c, const Clientes* c1);
 
 
 #endif //AEDA_01_CLIENTES_H

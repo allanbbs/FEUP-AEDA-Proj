@@ -9,3 +9,25 @@ Animal
 201800149
 20
 3
+
+Pentaval
+3.4
+4.3
+Casa do Monstro
+1
+1.2
+Base
+201800175
+10
+4
+
+Minha casa
+20
+30
+Sua casa
+10
+20
+Perigoso
+201800175
+20
+2

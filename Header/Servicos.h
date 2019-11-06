@@ -77,7 +77,7 @@ public:
     /**
      * @return Get the id of the service
      */
-    unsigned int get_id();
+    unsigned int get_id() const;
 
     /**
      * @return the profit
@@ -112,5 +112,6 @@ public:
 
 };
 
+bool Compare_servico(const Servicos* c, const Servicos* c1);
 
 #endif //AEDA_PROJ1_SERVICOS_H

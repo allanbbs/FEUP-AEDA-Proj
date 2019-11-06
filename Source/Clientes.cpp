@@ -33,7 +33,8 @@ void Clientes::addService(Servicos *servico) {
 
 ostream &operator<<(ostream &out, const Clientes &client) {
     cout<<fixed<<setprecision(2);
-    out << left << setw(30) << client.name << setw(20) << client.nif;
+    out << left << setw(30) << client.name << setw(20) << client.nif
+        << setw(20) << client.profit;
 
     if (client.services.empty()) out << "No services!";
 
@@ -44,10 +45,10 @@ ostream &operator<<(ostream &out, const Clientes &client) {
     return out;
 }
 
-bool Clientes::operator<(const Clientes &c) {
-    if (c.get_profit() < this->profit) return true;
-    else if (this->profit < c.get_profit()) return false;
-    else if(this->name < c.getName()) return true;
-    else if (c.getName() < this->name) return false;
+bool Compare_clientes(const Clientes* c, const Clientes* c1) {
+    if (c->get_profit() < c1->get_profit()) return false;
+    else if (c1->get_profit() < c->get_profit()) return true;
+    else if(c->getName() < c1->getName()) return true;
+    else if (c1->getName() < c->getName()) return false;
     return true;
 }
