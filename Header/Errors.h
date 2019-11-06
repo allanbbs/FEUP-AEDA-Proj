@@ -38,7 +38,7 @@ public:
     RepeatedClient(const std::string &id): Error(id){ }
     std::string getInfo() const {return info;}
 };
-#endif //AEDA_PROJ1_ERRORS_H
+
 
 class WrongInput_option: Error{
 public:
@@ -46,3 +46,4 @@ public:
     std::string getInfo() const {return info;};
 };
 
+#endif //AEDA_PROJ1_ERRORS_H

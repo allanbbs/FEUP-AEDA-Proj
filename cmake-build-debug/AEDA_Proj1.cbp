@@ -106,6 +106,9 @@
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/utils.h">
+			<Option target="AEDA_Proj1"/>
+		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/Camiao.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
@@ -122,6 +125,9 @@
 			<Option target="AEDA_Proj1"/>
 		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/TaxTable.cpp">
+			<Option target="AEDA_Proj1"/>
+		</Unit>
+		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Source/utils.cpp">
 			<Option target="AEDA_Proj1"/>
 		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/main.cpp">

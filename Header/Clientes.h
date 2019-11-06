@@ -60,6 +60,8 @@ public:
      * @return ostream with the information
      */
     friend ostream &operator<<(ostream &out, const Clientes &client);
+
+    bool operator<(const Clientes& c); 
 };
 
 

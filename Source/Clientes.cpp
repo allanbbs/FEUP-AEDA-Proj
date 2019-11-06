@@ -43,3 +43,11 @@ ostream &operator<<(ostream &out, const Clientes &client) {
 
     return out;
 }
+
+bool Clientes::operator<(const Clientes &c) {
+    if (c.get_profit() < this->profit) return true;
+    else if (this->profit < c.get_profit()) return false;
+    else if(this->name < c.getName()) return true;
+    else if (c.getName() < this->name) return false;
+    return true;
+}

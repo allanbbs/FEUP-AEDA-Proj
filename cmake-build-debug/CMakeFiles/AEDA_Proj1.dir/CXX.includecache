@@ -108,6 +108,10 @@ vector
 string
 -
 
+/home/maruba/Documents/AEDA_Proj1/Header/utils.h
+Empresa.h
+/home/maruba/Documents/AEDA_Proj1/Header/Empresa.h
+
 /home/maruba/Documents/AEDA_Proj1/main.cpp
 iostream
 -
@@ -121,6 +125,8 @@ Header/TaxTable.h
 /home/maruba/Documents/AEDA_Proj1/Header/TaxTable.h
 Header/Camiao.h
 /home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
+Header/utils.h
+/home/maruba/Documents/AEDA_Proj1/Header/utils.h
 Header/Clientes.h
 /home/maruba/Documents/AEDA_Proj1/Header/Clientes.h
 Header/Servicos.h

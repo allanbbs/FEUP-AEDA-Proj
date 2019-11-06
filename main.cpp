@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include "Header/TaxTable.h"
 #include "Header/Camiao.h"
+#include "Header/utils.h"
 #include "Header/Clientes.h"
 #include "Header/Servicos.h"
 #include "Header/Empresa.h"
@@ -13,16 +14,12 @@ TaxTable *table = new TaxTable(in);
 
 
 void mainMenu(Empresa &e);              //handle the main menu
-void printMainMenu();                   //prints the main menu
-int checkOption(int min, int max);      //checks if it's a valid option
-int validServiceId(Empresa &e);         //checks if it's a valid service id
+void printMainMenu();
 void printMenuStatus();                 //print the menu for status
 void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
-int validClientNif(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
-double checkNumber();
 int month;
 
 int main(){
@@ -35,13 +32,6 @@ int main(){
         e.gravaSer(e, month);
         mainMenu(e);
     }
-}
-
-
-void wait(){
-    cout << endl << "[PRESS ENTER]";
-    cin.ignore();
-    while (cin.get() != '\n') {};
 }
 
 void mainMenu(Empresa &e){
@@ -170,7 +160,6 @@ void handleAddClient(Empresa &e){
     }
 }
 
-//TESTAR
 void handleAddService(Empresa &e){
     map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
 
@@ -242,99 +231,6 @@ void handleAddService(Empresa &e){
     }
 }
 
-//DONE
-int checkOption(int min, int max){
-    int input;
-    //if it's not an int
-    while (true) {
-        try {
-            cin >> input;
-            if (cin.fail()) {
-                cin.clear();
-                cin.ignore(1000, '\n');
-                throw WrongInput_option("Invalid Input. Please enter an integer");
-
-            }
-                //if it's not in the interval
-            else if (input > max || input < min) {
-                cin.clear();
-                cin.ignore(1000, '\n');
-                throw WrongInput_option("Given input is not an option. Try again");
-            } else
-                return input;
-        }
-        catch(WrongInput_option & error){
-            cout << error.getInfo() << endl;
-            continue;
-        }
-    }
-
-}
-
-
-int validServiceId(Empresa &e){
-    int id;
-    while(true) {
-        cout << "Type the id: ";
-        cin >> id;
-        if(cin.fail()){
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        }
-        try {
-            e.SearchSer(id);
-            return id;
-        }
-        catch (NoService &error) {
-            cout <<"The id " <<error.getInfo() << "does not exist!"<<endl;
-            cout <<"Type 1 to " << Empresa::nSer << endl;
-            continue;
-        }
-    }
-}
-
-int validClientNif(Empresa &e) {
-    int nif;
-    while (true) {
-        cout << "Type the nif [EXIT -1]  ";
-        cin >> nif;
-        if (nif == -1) return -1;
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-
-        if (e.SearchCli(nif) != -1)
-            return nif;
-        else
-            cout << "No client with nif " << nif << endl;
-
-    }
-}
-
-double checkNumber(){
-    double input;
-    while (true) {
-        try {
-            cout << "[EXIT -1] ";
-            cin >> input;
-            if (cin.fail()) {
-                cin.clear();
-                cin.ignore(1000, '\n');
-                throw WrongInput_option("Invalid Input. Please enter an integer");
-
-            }
-            else
-                return input;
-        }
-        catch(WrongInput_option & error){
-            cout << error.getInfo() << endl;
-            continue;
-        }
-    }
-}
-
-//TESTAR
 void handleAddTruck(Empresa &e){
     int type, carg;
     double caract;

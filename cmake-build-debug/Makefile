@@ -298,6 +298,33 @@ Source/TaxTable.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/TaxTable.cpp.s
 .PHONY : Source/TaxTable.cpp.s
 
+Source/utils.o: Source/utils.cpp.o
+
+.PHONY : Source/utils.o
+
+# target to build an object file
+Source/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/utils.cpp.o
+.PHONY : Source/utils.cpp.o
+
+Source/utils.i: Source/utils.cpp.i
+
+.PHONY : Source/utils.i
+
+# target to preprocess a source file
+Source/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/utils.cpp.i
+.PHONY : Source/utils.cpp.i
+
+Source/utils.s: Source/utils.cpp.s
+
+.PHONY : Source/utils.s
+
+# target to generate assembly for a file
+Source/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/utils.cpp.s
+.PHONY : Source/utils.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -353,6 +380,9 @@ help:
 	@echo "... Source/TaxTable.o"
 	@echo "... Source/TaxTable.i"
 	@echo "... Source/TaxTable.s"
+	@echo "... Source/utils.o"
+	@echo "... Source/utils.i"
+	@echo "... Source/utils.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
