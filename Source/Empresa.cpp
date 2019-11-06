@@ -203,9 +203,13 @@ void Empresa::display_clientesInfo(const unsigned int &nif) {
             throw NoClient(to_string(nif));
 
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
+        os << "=========================================================="
+            "======================================="<< endl;
         os << *cli[pos];
     } else {
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << "SERVICES" << endl;
+        os << "=========================================================="
+            "======================================="<< endl;
         for (auto it = cli.begin(); it < cli.end(); it++) {
             os << *(*it);
             n--;
@@ -243,6 +247,9 @@ void headerServInfor() {
          << setw(15) << "N CAMIOES"
          << setw(10) << "PRECO"
          << "CARGA" << endl;
+    cout << "=========================================================="
+            "=========================================================="
+            "=========="<< endl;
 
 }
 
@@ -251,6 +258,9 @@ void headerCamInfor() {
          << setw(10) << "FROZEN"
          << setw(10) << "DANGEROUS"
          << "ANIMALS" << endl;
+    cout << "=========================================================="
+            "=========================================================="
+            "=========="<< endl;
 
 }
 

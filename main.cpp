@@ -81,23 +81,25 @@ void mainMenu(Empresa &e){
 }
 
 void printMainMenu(){
-    cout << "--TRANSPORTATION ENTERPRISE--" << endl << endl
-        << "[1] -- Status information" << endl
-        << "[2] -- Profit information" << endl
-        << "[3] -- Add new client" << endl
-        << "[4] -- New service request" << endl
-        << "[5] -- Add truck" << endl
-        << "[6] -- Exit" << endl;
+    cout    << "      TRANSPORTATION ENTERPRISE       " << endl 
+            << "======================================" << endl
+            << "Status information                 [1]" << endl
+            << "Profit information                 [2]" << endl
+            << "Add new client                     [3]" << endl
+            << "New service request                [4]" << endl
+            << "Add truck                          [5]" << endl
+            << "Exit                               [6]" << endl;
 }
 
 void printMenuStatus(){
-    cout<< "--STATUS MENU--" << endl
-        <<"[1] -- First 20 most profitable service"<<endl
-        <<"[2] -- Specific service"<<endl
-        <<"[3] -- First 20 most profitable clients" << endl
-        <<"[4] -- Specific client status" << endl
-        <<"[5] -- Cancel" << endl
-        <<"Option: " << endl;
+    cout    << "                STATUS MENU                 " << endl
+            << "============================================" << endl
+            << "First 20 most profitable service         [1]" << endl
+            << "Specific service                         [2]" << endl
+            << "First 20 most profitable clients         [3]" << endl
+            << "Specific client status                   [4]" << endl
+            << "Cancel                                   [5]" << endl
+            << "Option: " << endl;
 
 }
 
@@ -142,7 +144,7 @@ void handleAddClient(Empresa &e){
     cout<<"Nome: ";
     cin.ignore();
     getline(cin,nome);
-    cout<<"[exit -1] NIF: ";
+    cout<<"NIF [EXIT -1]  ";
     while (true) {
         cin >> nif;
         if (nif == -1) return;
@@ -176,19 +178,20 @@ void handleAddService(Empresa &e){
 
     while (true) {
         //precisa checar os valores
-        cout << "[EXIT -1] Enter the number of products: ";
+        cout << "Enter the number of products ";
         carga = checkNumber();
         if (carga == -1) return;
 
-        cout << "[EXIT -1] Enter place of departure: ";
+        cout << "Enter place of departure [EXIT -1] ";
+        cin.ignore();
         getline(cin, partida);
         if (partida == "-1") return;
 
-        cout << "[EXIT -1] Enter place of arrival: ";
+        cout << "Enter place of arrival [EXIT -1] ";
         getline(cin, chegada);
         if (chegada == "-1") return;
 
-        cout << "[EXIT -1] Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+        cout << "Enter type of package (0-BASE,1-FROZEN, 2-DANGEROUS,3-ANIMAL) [EXIT -1] ";
         type = checkOption(-1, 3);
         if (type == -1) return;
 
@@ -197,14 +200,18 @@ void handleAddService(Empresa &e){
 
         tipo = temp[type];
         try {
-            cout << "Partida coordenada x (latitude): " << endl;
+            cout << "Partida coordenada x (latitude) ";
             l1x = checkNumber();
-            cout << "Partida coordenada y (Longitude): " << endl;
+            if (l1x == -1) return;
+            cout << "Partida coordenada y (Longitude) ";
             l1y = checkNumber();
-            cout << "Chegada coordenada x (Latitude): " << endl;
+            if (l1y == -1) return;
+            cout << "Chegada coordenada x (Latitude) ";
             l2x = checkNumber();
-            cout << "Chegada coordenada y (Longitude): " << endl;
+            if (l2x == -1) return;
+            cout << "Chegada coordenada y (Longitude) ";
             l2y = checkNumber();
+            if (l2y == -1) return;
         }
         catch(WrongInput_option &error){
             cout << error.getInfo();
@@ -214,7 +221,8 @@ void handleAddService(Empresa &e){
 
         Servicos * temp = e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif, carga);
         if (!e.allocateCamiao(temp)){
-            cout << "Not enough trucks" << endl;
+            cout << "Not enough trucks [PRESS ENTER]" << endl;
+            wait();
             return;
         }
 
@@ -224,7 +232,8 @@ void handleAddService(Empresa &e){
         o << "\n" << tipo << "\n" << anif<< "\n" << carga << "\n";
         o << temp->get_camioes_id();
         o.close();
-        cout << "Service added successfully" << endl;
+        cout << "Service added successfully! [PRESS ENTER]" << endl;
+        wait();
 
         return;
     }
@@ -284,7 +293,7 @@ int validServiceId(Empresa &e){
 int validClientNif(Empresa &e) {
     int nif;
     while (true) {
-        cout << "[-1] Cancel. Type the nif: ";
+        cout << "Type the nif [EXIT -1]  ";
         cin >> nif;
         if (nif == -1) return -1;
         if (cin.fail()) {
@@ -304,7 +313,7 @@ double checkNumber(){
     double input;
     while (true) {
         try {
-            cout << "[EXIT -1]"<< endl;
+            cout << "[EXIT -1] ";
             cin >> input;
             if (cin.fail()) {
                 cin.clear();

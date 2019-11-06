@@ -81,11 +81,15 @@ int Servicos::get_carga() const {
     return carga;
 }
 
+//we dont wanna add a space to the last element
 string Servicos::get_camioes_id() const {
     string s;
-    for (const auto& x: camioes){
-        s += to_string(x->getId())+" ";
-    }
+
+    for (int i = 0; i< camioes.size()-1; i++)
+        s += to_string(camioes[i]->getId())+" ";
+    
+    //the last element must not contain a space
+    s += to_string(camioes[camioes.size()-1]->getId());
     return s;
 }
 void Servicos::addCamiao(Camiao *camiao) {
