@@ -24,58 +24,64 @@ void Empresa::gravaCli() {
     }
 }
 
-void Empresa::gravaSer(Empresa &e) {
-    ifstream file("../AEDA_Proj1/Ficheiros/servicos");
-    string local;
-    string aux;
+void Empresa::gravaSer(Empresa &e, const int& month) {
+    string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
+    ifstream file(fileName.c_str());
+    string local, aux, type;
     int aux_int, carga;
-    double cordx;
-    double cordy;
-    string type;
+    double cordx, cordy;
     unsigned int cliNif;
     vector<int> trucks;
-    while(!file.eof()){
-        //get the first e local (the departure)
-        getline(file, aux);
-        getline(file, local);
-        getline(file, aux);
-        istringstream is(aux);
-        is >> cordx;
-        getline(file, aux);
-        is.clear();
-        is.str(aux);
-        is >> cordy;
-        Local *l1 = new Local(local, cordx, cordy);
-        //get the second local (the arrival)
-        getline(file, local);
-        getline(file, aux);
-        is.clear();
-        is.str(aux);
-        is >> cordx;
-        getline(file, aux);
-        is.clear();
-        is.str(aux);
-        is >> cordy;
-        Local *l2 = new Local(local, cordx, cordy);
-        //get the type of service
-        getline(file, type);
-        //get the client nif
-        getline(file, aux);
-        is.clear();
-        is.str(aux);
-        is >> cliNif;
-        //get the carga
-        getline(file, aux);
-        is.clear();
-        is.str(aux);
-        is >> carga;
-        Servicos* s = addServico(*l1, *l2, type, cliNif, carga);
-        getline(file, aux);
-        is.clear();
-        is.str(aux);
-        while (!is.eof() && aux!= "0"){
-            is >> aux_int;
-            this->addCamiaoId_Servico(aux_int, s);
+
+    //if the file does not exists, create one
+    if (file.fail()) {
+        ofstream create(fileName.c_str());
+        create.close();
+    }
+    else {
+        while (!file.eof()) {
+            //get the first e local (the departure)
+            getline(file, aux);
+            getline(file, local);
+            getline(file, aux);
+            istringstream is(aux);
+            is >> cordx;
+            getline(file, aux);
+            is.clear();
+            is.str(aux);
+            is >> cordy;
+            Local *l1 = new Local(local, cordx, cordy);
+            //get the second local (the arrival)
+            getline(file, local);
+            getline(file, aux);
+            is.clear();
+            is.str(aux);
+            is >> cordx;
+            getline(file, aux);
+            is.clear();
+            is.str(aux);
+            is >> cordy;
+            Local *l2 = new Local(local, cordx, cordy);
+            //get the type of service
+            getline(file, type);
+            //get the client nif
+            getline(file, aux);
+            is.clear();
+            is.str(aux);
+            is >> cliNif;
+            //get the carga
+            getline(file, aux);
+            is.clear();
+            is.str(aux);
+            is >> carga;
+            Servicos *s = addServico(*l1, *l2, type, cliNif, carga);
+            getline(file, aux);
+            is.clear();
+            is.str(aux);
+            while (!is.eof() && aux != "0") {
+                is >> aux_int;
+                this->addCamiaoId_Servico(aux_int, s);
+            }
         }
     }
 }
@@ -141,26 +147,18 @@ double Empresa::getLucro_mes() const {
 
 void Empresa::addClientes(const string &name, const unsigned int &nif) {
     long int pos = SearchCli(nif);
-    if (pos != -1) {
-        /*cout << "There is already someone registered with the provided NIF" << endl;
-        return false;*/
-        throw RepeatedClient(name);
-    }
+    if (pos != -1) throw RepeatedClient(name);
     auto c = new Clientes(name, nif);
     nCli++;
     cli.push_back(c);
-    //return true;
 }
 
 
 Servicos* Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
                          const unsigned int cliNif, const int& carga){
     long int pos = SearchCli(cliNif);
-    if (pos == -1)
-        throw NoClient(to_string(cliNif));
-
+    if (pos == -1) throw NoClient(to_string(cliNif));
     Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo, carga);
-
     ser.push_back(new_Service);
     (cli[pos])->addService(new_Service);
     return new_Service;
@@ -181,15 +179,15 @@ size_t Empresa::SearchSer(const unsigned int &id)const {
 }
 
 void Empresa::display_lucro_mes() {
-    cout<<fixed<<setprecision(2);
-    cout << "Total profit of the month: " << this->getLucro_mes() << endl;
+    cout    <<  fixed   <<  setprecision(2);
+    cout    <<  "Total profit of the month: " << this->getLucro_mes() << endl;
 }
 
 void Empresa::display_CamiaoProfit(){
     headerCamInfor();
-    cout << left << setw(10) << getLucro_camiaoMes("Base")
-         << setw(10) << getLucro_camiaoMes("Congelado")
-         << setw(10) << getLucro_camiaoMes("Perigoso")
+    cout << left        << setw(10)     << getLucro_camiaoMes("Base")
+         << setw(10)    << getLucro_camiaoMes("Congelado")
+         << setw(10)    << getLucro_camiaoMes("Perigoso")
          << getLucro_camiaoMes("Animals") << endl;
 
 }

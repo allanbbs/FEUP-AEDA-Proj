@@ -12,24 +12,29 @@ ifstream in("../AEDA_Proj1/Ficheiros/tax.txt"); //NAO MUDA!
 TaxTable *table = new TaxTable(in);
 
 
-void mainMenu(Empresa &e);            //handle the main menu
+void mainMenu(Empresa &e);              //handle the main menu
 void printMainMenu();                   //prints the main menu
 int checkOption(int min, int max);      //checks if it's a valid option
-int validServiceId(Empresa &e);       //checks if it's a valid service id
+int validServiceId(Empresa &e);         //checks if it's a valid service id
 void printMenuStatus();                 //print the menu for status
-void handleMenuStatus(Empresa &e);                //handle the menu status
+void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 int validClientNif(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
 double checkNumber();
+int month;
 
 int main(){
     Empresa e;
-    e.gravaCli();
-    e.gravaCam();
-    e.gravaSer(e);
-    mainMenu(e);
+    cout << "Welcome! Type the month to be analyzed [EXIT 0] ";
+    month = checkOption(0,12);
+    if (month != 0){
+        e.gravaCli();
+        e.gravaCam();
+        e.gravaSer(e, month);
+        mainMenu(e);
+    }
 }
 
 
@@ -44,8 +49,6 @@ void mainMenu(Empresa &e){
     while (true) {
         printMainMenu();
         int option;
-        //check if it's an acceptable input
-
         option = checkOption(1, 6);
 
         if (option == 6)                                            //exit option
@@ -225,8 +228,8 @@ void handleAddService(Empresa &e){
             wait();
             return;
         }
-
-        ofstream o("../AEDA_Proj1/Ficheiros/servicos", ios_base::app);
+        string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
+        ofstream o(fileName.c_str(), ios_base::app);
         o << "\n\n" << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
         o << "\n" << tipo << "\n" << anif<< "\n" << carga << "\n";

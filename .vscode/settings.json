@@ -5,6 +5,7 @@
         "titleBar.activeForeground": "#FCF9FB"
     },
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp"
     }
 }

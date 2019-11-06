@@ -44,7 +44,7 @@ public:
     /*
      * @ brief Read information from servicos.txt file and build the ser vector
      */
-    void gravaSer(Empresa &e);
+    void gravaSer(Empresa &e, const int& month);
     /**
      * @brief Constructor for the class
      */
