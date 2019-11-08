@@ -138,8 +138,8 @@ Empresa::Empresa() {}
 
 //algum erro aqui
 Empresa::~Empresa() {
-    for (int i = nCam-1; i >= 0; i--) delete cli[i];              //cleaning the vector
-    for (int i = nCli-1; i >= 0; i--) delete cam[i];
+    for (int i = nCli-1; i >= 0; i--) delete cli[i];              //cleaning the vector
+    for (int i = nCam-1; i >= 0; i--) delete cam[i];
     for (int i = nSer-1; i >= 0; i--) delete ser[i];
     cli.clear();                                                            //deleting the vector allocation
     cam.clear();
