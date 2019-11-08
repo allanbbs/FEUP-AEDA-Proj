@@ -219,7 +219,7 @@ void Empresa::display_clientesInfo(const unsigned int &nif, long int n, bool (*f
         for (auto it = c.begin(); it < c.end(); it++) {
             os << *(*it);
             n--;
-            if (n == 0) return;
+            if (n == 0) break;
         }
     }
     cout << os.str();

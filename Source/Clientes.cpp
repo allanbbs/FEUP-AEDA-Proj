@@ -62,7 +62,7 @@ bool Compare_clientesLeast(const Clientes *c, const Clientes* c1){
 }
 
 bool Compare_clientesAlphabetic(const Clientes *c, const Clientes* c1){
-    else if(c->getName() < c1->getName()) return true;
+    if(c->getName() < c1->getName()) return true;
     else if (c1->getName() < c->getName()) return false;
     return true;
 }

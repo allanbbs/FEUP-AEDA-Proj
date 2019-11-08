@@ -125,7 +125,10 @@ void handleMenuStatus(Empresa &e){
                 wait();
                 break;
             case 3:
-                e.display_clientesInfo();
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_clientesInfo(0,n);
                 wait();
                 break;
             case 4:
