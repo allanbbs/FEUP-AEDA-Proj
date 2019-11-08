@@ -11,17 +11,18 @@ size_t Empresa::nCam = 0;
 size_t Empresa::nCli = 0;
 size_t Empresa::nSer = 0;
 
+
 void Empresa::gravaCli() {
     ifstream file("../AEDA_Proj1/Ficheiros/clientes");
-    string name;
-    string aux;
+    string name;                        //stores the name of the client       
+    string aux;                         //auxiliar variable to read lines 
     unsigned int nif;
     while (!file.eof()) {
-        getline(file, name);    //get name
-        getline(file, aux);     //get string nif
-        istringstream is(aux);        //get unsigned int nif
+        getline(file, name);            //get name
+        getline(file, aux);             //get string nif
+        istringstream is(aux);          //get unsigned int nif
         is >> nif;
-        addClientes(name, nif);      //add client
+        addClientes(name, nif);         //add client
     }
 }
 
@@ -51,16 +52,17 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             Local *l1 = new Local(local, cordx, cordy);     //crete the local class for departure
             
             //get the second local (the arrival)
-            getline(file, local);
-            getline(file, aux);
+            getline(file, local);                           //get the local of arrival
+            getline(file, aux);                             //get the first coordinate
             is.clear();
             is.str(aux);
             is >> cordx;
-            getline(file, aux);
+            
+            getline(file, aux);                             //get the second coordinate
             is.clear();
             is.str(aux);
             is >> cordy;
-            Local *l2 = new Local(local, cordx, cordy);
+            Local *l2 = new Local(local, cordx, cordy);     //create the local class for arrival
             
             //get the type of service
             getline(file, type);
@@ -87,9 +89,10 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
                 is >> aux_int;
                 this->addCamiaoId_Servico(aux_int, s);
             }
-            e.addServico(s, cliNif);
+
+            e.addServico(s, cliNif);                        //associate the service to a client
         }
-    else novo = true;
+    else novo = true;                                       //if there's nothing to read, it means that this is a new file
 }
 
 
@@ -223,9 +226,8 @@ void Empresa::display_clientesInfo(const unsigned int &nif) {
     cout << os.str();
 }
 
-void Empresa::display_servicoStatus(const unsigned int &id) const {
+void Empresa::display_servicoStatus(const unsigned int &id, long int n, bool (*f)(const Servicos*, const Servicos*), const string& type) const {
     ostringstream os;
-    unsigned int n = 20;
     os << fixed << setprecision(2);
 
     if (id) {
@@ -233,12 +235,22 @@ void Empresa::display_servicoStatus(const unsigned int &id) const {
         os << *ser[pos];
     } else {
         vector<Servicos *> s(ser);
-        sort(s.begin(), s.end(), Compare_servico);
-        for (auto it = s.begin(); it != s.end(); it++) {
-            os << **it;
-            n--;
-            if (n == 0) return;
-
+        sort(s.begin(), s.end(), f);
+        if (type.empty()) {
+            for (auto & it : s) {
+                os << *it;
+                n--;
+                if (n == 0) break;
+            }
+        }
+        else{
+            for (auto & it : s) {
+                if (it->get_tipo() == type){
+                    os << *it;
+                    n--;
+                }
+                if (n == 0) break;
+            }
         }
     }
     headerServInfor();
@@ -311,8 +323,6 @@ double Empresa::getLucro_camiaoMes(const string &type) const {
     return lucro;
 }
 
-//supostamente tinhamos de chegar o nivel de perigo e da temperatura
-//por outro lado, talvez o perigo e temperatura influencie apenas no preço
 bool Empresa::allocateCamiao(Servicos *s) {
     vector<Camiao *> cam_copy(cam);
     int carga = s->get_carga();

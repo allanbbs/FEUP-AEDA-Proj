@@ -15,7 +15,6 @@ Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned 
     cal_profitTime();
 };
 
-//complexity O^n
 void Servicos::cal_profitTime() {
     double tax = 75;
     profit += tax * cal_tempo();
@@ -98,11 +97,18 @@ void Servicos::addCamiao(Camiao *camiao) {
     camiao->addedToService();       //increasing the truck totalProfit
 }
 
-bool Compare_servico(const Servicos* c, const Servicos* c1){
-    if (c->get_profit() < c1->get_profit()) return false;
-    else if (c1->get_profit() < c->get_profit()) return true;
-    else if(c->get_id() < c1->get_id()) return true;
+bool Compare_servico_profit(const Servicos* s, const Servicos* s1){
+    if (s->get_profit() < s1->get_profit()) return false;
+    else if (s1->get_profit() < s->get_profit()) return true;
+    else if(s->get_id() < s1->get_id()) return true;
     return false;
+}
+
+bool Compare_servico_Leastprofit(const Servicos *s, const Servicos *s1){
+    if (s->get_profit() < s1->get_profit()) return true;
+    else if (s1->get_profit() < s->get_profit()) return false;
+    else if(s->get_id() < s1->get_id()) return false;
+    return true;
 }
 
 

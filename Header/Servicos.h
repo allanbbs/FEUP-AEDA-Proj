@@ -28,7 +28,7 @@ private:
     Local arrival;                          /**<Arrival place */
     Local departure;                        /**<Departure place */
     string type;                            /**<Type of the products transporting*/
-    double profit;                           /**<Profit of the service*/
+    double profit;                          /**<Profit of the service*/
     int carga;
 public:
     /**
@@ -112,6 +112,7 @@ public:
 
 };
 
-bool Compare_servico(const Servicos* c, const Servicos* c1);
+bool Compare_servico_profit(const Servicos* c, const Servicos* c1);
+bool Compare_servico_Leastprofit(const Servicos *s, const Servicos *s1);
 
 #endif //AEDA_PROJ1_SERVICOS_H

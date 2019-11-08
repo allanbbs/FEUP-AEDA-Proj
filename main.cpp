@@ -88,31 +88,38 @@ void printMainMenu(){
 }
 
 void printMenuStatus(){
-    cout    << "                STATUS MENU                 " << endl
-            << "============================================" << endl
-            << "First 20 most profitable service         [1]" << endl
-            << "Specific service                         [2]" << endl
-            << "First 20 most profitable clients         [3]" << endl
-            << "Specific client status                   [4]" << endl
-            << "Cancel                                   [5]" << endl
-            << "Option: " << endl;
+    cout    << "            SEARCH SERVICES                                                     SEARCH CLIENTS                  " << endl
+            << "============================================                     ============================================   " << endl
+            << "First x most profitable services         [1]                     First x most profitable clients          [3]   " << endl
+            << "First x least profitable services        [8]                     First x least profitable clients         [9]   " << endl
+            << "First x services of a specific type      [6]                     First x clients in alphabetic orther     [4]   " << endl
+            << "Specific service by id                   [2]                     Specific client status by nif            [7]   " << endl
+            << "Cancel                                   [5]                                                                    " << endl
+            << "Option:                                                                                                         " << endl;
 
 }
 
 void handleMenuStatus(Empresa &e){
-    int option, id, nif;
+    int option, id, nif, type;
+    long int n;
+    map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
+
     while(true) {
         clear_screen();
         printMenuStatus();
 
-        option = checkOption(1, 5);
+        option = checkOption(1, 9);
 
         if (option == 5) return;
         switch(option){
-            case 1:
-                e.display_servicoStatus();
+            case 1: {
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_servicoStatus(0, n);
                 wait();
                 break;
+            }
             case 2:
                 id = validServiceId(e);
                 e.display_servicoStatus(id);
@@ -129,6 +136,23 @@ void handleMenuStatus(Empresa &e){
                     wait();
                 }
                 break;
+            case 8:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_servicoStatus(0, n, Compare_servico_Leastprofit);
+                wait();
+                break;
+            case 6:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                cout << "Enter type of package (0-BASE,1-FROZEN, 2-DANGEROUS,3-ANIMAL) [EXIT -1] ";
+                type = checkOption(-1, 3);
+                if (type == -1) continue;
+                e.display_servicoStatus(0, n, Compare_servico_Leastprofit, temp[type]);
+                wait();
+                break;
+
         }
     }
 }

@@ -14,13 +14,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1847e1cc-cf8d-49e9-9c68-7270dfc545e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ficheiros/clientes" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/clientes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ficheiros/servicos3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/servicos3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Header/Clientes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Clientes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header/Empresa.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Empresa.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Header/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Header/Servicos.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Servicos.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Empresa.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Empresa.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/utils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Servicos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Servicos.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -139,7 +136,7 @@
       <workItem from="1573036069373" duration="939000" />
       <workItem from="1573058486585" duration="1642000" />
       <workItem from="1573060159460" duration="9586000" />
-      <workItem from="1573195496910" duration="4830000" />
+      <workItem from="1573195496910" duration="9930000" />
     </task>
     <servers />
   </component>

@@ -116,7 +116,7 @@ public:
      * @param n Number of the services to print
      * @param id Identification number of the service
      */
-    void display_servicoStatus(const unsigned int &id = 0) const;
+    void display_servicoStatus(const unsigned int &id = 0, long int n = 10000, bool(*f)(const Servicos*, const Servicos*) = Compare_servico_profit, const string& type = "") const;
 
     //adiciona camiao no servico de acordo com o id
     void addCamiaoId_Servico(const int& id, Servicos* s);
