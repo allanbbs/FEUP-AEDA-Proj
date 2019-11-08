@@ -5,7 +5,7 @@
 #include "../Header/utils.h"
 
 
-int checkOption(int min, int max){
+int checkOption(int min, int max) {
     int input;
     //if it's not an int
     while (true) {
@@ -25,7 +25,7 @@ int checkOption(int min, int max){
             } else
                 return input;
         }
-        catch(WrongInput_option & error){
+        catch (WrongInput_option &error) {
             cout << error.getInfo() << endl;
             continue;
         }
@@ -33,22 +33,22 @@ int checkOption(int min, int max){
 
 }
 
-int validServiceId(Empresa &e){
+int validServiceId(Empresa &e) {
     int id;
-    while(true) {
+    while (true) {
         cout << "Type the id: ";
         cin >> id;
-        if(cin.fail()){
+        if (cin.fail()) {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         try {
             e.SearchSer(id);
             return id;
         }
         catch (NoService &error) {
-            cout <<"The id " <<error.getInfo() << "does not exist!"<<endl;
-            cout <<"Type 1 to " << Empresa::nSer << endl;
+            cout << "The id " << error.getInfo() << " does not exist!" << endl;
+            cout << "Type 1 to " << Empresa::nSer << endl;
             continue;
         }
     }
@@ -73,7 +73,7 @@ int validClientNif(Empresa &e) {
     }
 }
 
-double checkNumber(){
+double checkNumber() {
     double input;
     while (true) {
         try {
@@ -84,19 +84,26 @@ double checkNumber(){
                 cin.ignore(1000, '\n');
                 throw WrongInput_option("Invalid Input. Please enter an integer");
 
-            }
-            else
+            } else
                 return input;
         }
-        catch(WrongInput_option & error){
+        catch (WrongInput_option &error) {
             cout << error.getInfo() << endl;
             continue;
         }
     }
 }
 
-void wait(){
+void wait() {
     cout << endl << "[PRESS ENTER]";
     cin.ignore();
     while (cin.get() != '\n') {};
+}
+
+void clear_screen() {
+#ifdef WINDOWS
+    std::system("cls");
+#else
+    std::system("clear");
+#endif
 }

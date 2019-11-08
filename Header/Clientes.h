@@ -53,6 +53,8 @@ public:
    */
 
     void addService(Servicos *servico);
+
+
     /**
      * Display the information about the client
      * @param out ostream with the information

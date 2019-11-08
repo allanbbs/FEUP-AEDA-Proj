@@ -36,17 +36,20 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
 
     if (!file.fail())
         while (!file.eof()) {
-            //get the first e local (the departure)
-            getline(file, aux);
-            getline(file, local);
-            getline(file, aux);
+            getline(file, aux);                             //get empty line 
+
+            //get the first local (the departure)
+            getline(file, local);                           //get the local of departure
+            getline(file, aux);                             //get the first coordinate
             istringstream is(aux);
             is >> cordx;
-            getline(file, aux);
+            
+            getline(file, aux);                             //get the second coordinate
             is.clear();
             is.str(aux);
             is >> cordy;
-            Local *l1 = new Local(local, cordx, cordy);
+            Local *l1 = new Local(local, cordx, cordy);     //crete the local class for departure
+            
             //get the second local (the arrival)
             getline(file, local);
             getline(file, aux);
@@ -58,19 +61,25 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             is.str(aux);
             is >> cordy;
             Local *l2 = new Local(local, cordx, cordy);
+            
             //get the type of service
             getline(file, type);
+
             //get the client nif
             getline(file, aux);
             is.clear();
             is.str(aux);
             is >> cliNif;
+
             //get the carga
             getline(file, aux);
             is.clear();
             is.str(aux);
             is >> carga;
-            Servicos *s = addServico(*l1, *l2, type, cliNif, carga);
+
+            Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga);
+            
+            //get camioes id
             getline(file, aux);
             is.clear();
             is.str(aux);
@@ -78,6 +87,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
                 is >> aux_int;
                 this->addCamiaoId_Servico(aux_int, s);
             }
+            e.addServico(s, cliNif);
         }
     else novo = true;
 }
@@ -123,10 +133,11 @@ void Empresa::gravaCam() {
 
 Empresa::Empresa() {}
 
+//algum erro aqui
 Empresa::~Empresa() {
-    for (int i = 0; i < nCam; i++) delete cli[i];              //cleaning the vector
-    for (int i = 0; i < nCli; i++) delete cam[i];
-    for (int i = 0; i < nSer; i++) delete ser[i];
+    for (int i = nCam-1; i >= 0; i--) delete cli[i];              //cleaning the vector
+    for (int i = nCli-1; i >= 0; i--) delete cam[i];
+    for (int i = nSer-1; i >= 0; i--) delete ser[i];
     cli.clear();                                                            //deleting the vector allocation
     cam.clear();
     ser.clear();
@@ -147,15 +158,12 @@ void Empresa::addClientes(const string &name, const unsigned int &nif) {
     cli.push_back(c);
 }
 
-
-Servicos *Empresa::addServico(const Local &Partida, const Local &Destino, const string &Tipo,
-                              const unsigned int cliNif, const int &carga) {
+Servicos *Empresa::addServico(Servicos* s, const unsigned int cliNif) {
     long int pos = SearchCli(cliNif);
     if (pos == -1) throw NoClient(to_string(cliNif));
-    Servicos *new_Service = new Servicos(Partida, Destino, ++nSer, Tipo, carga);
-    ser.push_back(new_Service);
-    (cli[pos])->addService(new_Service);
-    return new_Service;
+    ser.push_back(s);
+    (cli[pos])->addService(s);
+    return s;
 }
 
 //podemos usar pesquisa binaria
@@ -258,8 +266,7 @@ void headerCamInfor() {
          << setw(10) << "DANGEROUS"
          << "ANIMALS" << endl;
     cout << "=========================================================="
-            "=========================================================="
-            "==========" << endl;
+            "=================================" << endl;
 
 }
 
@@ -295,7 +302,6 @@ void Empresa::addCamiaoId_Servico(const int &id, Servicos *s) {
     }
 }
 
-
 double Empresa::getLucro_camiaoMes(const string &type) const {
     double lucro = 0;
     for (auto const &it : cam) {
@@ -311,13 +317,12 @@ bool Empresa::allocateCamiao(Servicos *s) {
     vector<Camiao *> cam_copy(cam);
     int carga = s->get_carga();
     sort(cam_copy.begin(), cam_copy.end(), Compare);
-    //quickSort(cam_copy, 0, cam_copy.size());
     for (const auto &x: cam_copy) {
         if (x->getType() == s->get_tipo()) {
             carga -= x->getCargaMax();
             s->addCamiao(x);
         }
-        if (carga < 0)
+        if (carga <= 0)
             break;
     }
     return carga <= 0;

@@ -41,6 +41,7 @@ void mainMenu(Empresa &e){
         printMainMenu();
         int option;
         option = checkOption(1, 6);
+        clear_screen();
 
         if (option == 6)                                            //exit option
             break;
@@ -70,6 +71,7 @@ void mainMenu(Empresa &e){
             default:
                 break;
         }
+        clear_screen();
     }
 
 }
@@ -100,6 +102,7 @@ void printMenuStatus(){
 void handleMenuStatus(Empresa &e){
     int option, id, nif;
     while(true) {
+        clear_screen();
         printMenuStatus();
 
         option = checkOption(1, 5);
@@ -127,7 +130,6 @@ void handleMenuStatus(Empresa &e){
                 }
                 break;
         }
-
     }
 }
 
@@ -138,20 +140,17 @@ void handleAddClient(Empresa &e){
     cout<<"Nome: ";
     cin.ignore();
     getline(cin,nome);
-    cout<<"NIF [EXIT -1]  ";
+    cout<<"NIF ";
     while (true) {
-        cin >> nif;
+        nif = checkNumber();
         if (nif == -1) return;
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
         try {
             e.addClientes(nome, nif);
             ofstream o("../AEDA_Proj1/Ficheiros/clientes", ios_base::app);
             o << "\n" << nome << "\n" << nif;
             o.close();
+            cout << "Client added successfully! ";
+            wait();
             return;
         }
         catch (RepeatedClient &a) {
@@ -171,6 +170,7 @@ void handleAddService(Empresa &e){
 
     while (true) {
         //precisa checar os valores
+        clear_screen();
         cout << "Enter the number of products ";
         carga = checkNumber();
         if (carga == -1) return;
@@ -212,12 +212,13 @@ void handleAddService(Empresa &e){
             break;
         }
 
-        Servicos * temp = e.addServico(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), tipo, anif, carga);
-        if (!e.allocateCamiao(temp)){
-            cout << "Not enough trucks [PRESS ENTER]" << endl;
+        Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga);
+        if (!e.allocateCamiao(s)){
+            cout << "Not enough trucks " << endl;
             wait();
             return;
         }
+        e.addServico(s, anif);
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);
 
@@ -230,9 +231,9 @@ void handleAddService(Empresa &e){
         o << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
         o << "\n" << tipo << "\n" << anif<< "\n" << carga << "\n";
-        o << temp->get_camioes_id();
+        o << s->get_camioes_id();
         o.close();
-        cout << "Service added successfully! [PRESS ENTER]" << endl;
+        cout << "Service added successfully! ";
         wait();
 
         return;

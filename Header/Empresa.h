@@ -72,7 +72,7 @@ public:
      * @param Id Identificantion for the service
      * @param Tipo What kind of products it will transport
      */
-    Servicos* addServico(const Local &Partida, const Local &Destino, const string &Tipo, const unsigned int cliNif, const int& carga);
+    Servicos * addServico(Servicos* s, const unsigned int cliNif);
 
     /**
      * It adds a new truck to the enterprise
@@ -117,20 +117,6 @@ public:
      * @param id Identification number of the service
      */
     void display_servicoStatus(const unsigned int &id = 0) const;
-
-    vector<Servicos*> getServices() const{
-        vector<Servicos*> res(ser);
-        return res;
-    }
-    vector<Clientes*> getClientes() const{
-        vector<Clientes*> res(cli);
-        return res;
-    }
-
-    vector<Camiao*> getCamiao() const{
-        vector<Camiao*> res(cam);
-        return res;
-    }
 
     //adiciona camiao no servico de acordo com o id
     void addCamiaoId_Servico(const int& id, Servicos* s);
