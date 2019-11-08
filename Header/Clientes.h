@@ -65,6 +65,8 @@ public:
 
 };
 bool Compare_clientes(const Clientes* c, const Clientes* c1);
+bool Compare_clientesLeast(const Clientes* c, const Clientes* c1);
+bool Compare_clientesAlphabetic(const Clientes *c, const Clientes* c1);
 
 
 #endif //AEDA_01_CLIENTES_H

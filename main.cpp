@@ -66,7 +66,6 @@ void mainMenu(Empresa &e){
             }
             case 5:
                 handleAddTruck(e);
-
                 break;
             default:
                 break;
@@ -92,8 +91,8 @@ void printMenuStatus(){
             << "============================================                     ============================================   " << endl
             << "First x most profitable services         [1]                     First x most profitable clients          [3]   " << endl
             << "First x least profitable services        [8]                     First x least profitable clients         [9]   " << endl
-            << "First x services of a specific type      [6]                     First x clients in alphabetic orther     [4]   " << endl
-            << "Specific service by id                   [2]                     Specific client status by nif            [7]   " << endl
+            << "First x services of a specific type      [6]                     First x clients in alphabetic orther     [7]   " << endl
+            << "Specific service by id                   [2]                     Specific client status by nif            [4]   " << endl
             << "Cancel                                   [5]                                                                    " << endl
             << "Option:                                                                                                         " << endl;
 
@@ -150,6 +149,20 @@ void handleMenuStatus(Empresa &e){
                 type = checkOption(-1, 3);
                 if (type == -1) continue;
                 e.display_servicoStatus(0, n, Compare_servico_Leastprofit, temp[type]);
+                wait();
+                break;
+            case 9:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_clientesInfo(0,n,Compare_clientesLeast);
+                wait();
+                break;
+            case 7:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_clientesInfo(0,n,Compare_clientesAlphabetic);
                 wait();
                 break;
 

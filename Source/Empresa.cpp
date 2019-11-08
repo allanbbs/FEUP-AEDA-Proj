@@ -198,9 +198,8 @@ void Empresa::display_CamiaoProfit() {
 
 }
 
-void Empresa::display_clientesInfo(const unsigned int &nif) {
+void Empresa::display_clientesInfo(const unsigned int &nif, long int n, bool (*f)(const Clientes* c, const Clientes* c1)) {
     ostringstream os;
-    unsigned int n = 20;
     os << fixed << setprecision(2);
     if (nif) {
         long int pos = SearchCli(nif);
@@ -213,7 +212,7 @@ void Empresa::display_clientesInfo(const unsigned int &nif) {
         os << *cli[pos];
     } else {
         vector<Clientes *> c(cli);
-        sort(c.begin(), c.end(), Compare_clientes);
+        sort(c.begin(), c.end(), f);
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
         os << "=========================================================="
               "=======================================" << endl;

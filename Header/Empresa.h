@@ -102,8 +102,7 @@ public:
      * @param n Number of clients to print
      * @param nif Personal numeration of the client
      */
-    void display_clientesInfo(const unsigned int &nif = 0);
-
+    void display_clientesInfo(const unsigned int &nif= 0, long int n = 1, bool (*f)(const Clientes* c, const Clientes* c1) = Compare_clientes);
     /**
      * @brief Displays in a simple way the total profit of the month
      */
