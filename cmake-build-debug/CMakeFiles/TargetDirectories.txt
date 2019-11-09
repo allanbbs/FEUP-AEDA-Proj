@@ -1,3 +1,0 @@
-/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir
-/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug/CMakeFiles/edit_cache.dir

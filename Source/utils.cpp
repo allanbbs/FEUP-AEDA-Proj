@@ -4,7 +4,12 @@
 
 #include "../Header/utils.h"
 
-
+/**
+ *
+ * @param min
+ * @param max
+ * @return
+ */
 int checkOption(int min, int max) {
     int input;
     //if it's not an int
@@ -32,6 +37,11 @@ int checkOption(int min, int max) {
     }
 
 }
+/**
+ *
+ * @param e
+ * @return
+ */
 
 int validServiceId(Empresa &e) {
     int id;
@@ -53,7 +63,11 @@ int validServiceId(Empresa &e) {
         }
     }
 }
-
+/**
+ *
+ * @param e
+ * @return
+ */
 int validClientNif(Empresa &e) {
     int nif;
     while (true) {
@@ -72,7 +86,10 @@ int validClientNif(Empresa &e) {
 
     }
 }
-
+/**
+ *
+ * @return
+ */
 double checkNumber() {
     double input;
     while (true) {
@@ -93,7 +110,9 @@ double checkNumber() {
         }
     }
 }
-
+/**
+ *
+ */
 void wait() {
     cout << endl << "[PRESS ENTER]";
     cin.ignore();
