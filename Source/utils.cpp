@@ -59,7 +59,7 @@ int validServiceId(Empresa &e) {
 }
 
 int validClientNif(Empresa &e) {
-    int nif;
+    long long int nif;
     while (true) {
         cout << "Type the nif [EXIT -1]  ";
         cin >> nif;

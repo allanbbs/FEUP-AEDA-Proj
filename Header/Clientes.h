@@ -22,7 +22,7 @@ using namespace std;
 class Clientes {
 private:
     string name;                        /**<Name of the client*/
-    unsigned int nif;                   /**<Identification of the client*/
+    long long int nif;                       /**<Identification of the client*/
     vector<Servicos *> services;        /**<Services requested by the client*/
     double profit;                      /**<Clients profit*/
 public:
@@ -35,7 +35,7 @@ public:
      * @param n Clients name
      * @param anif Nif (identificantion of the client)
      */
-    Clientes(const string &n, const unsigned int &anif);
+    Clientes(const string &n, const long long int &anif);
     /**
      * Default destructor
      */
@@ -47,7 +47,7 @@ public:
     /**
      * @return Returns the clients nif (identification)
      */
-    unsigned int get_nif() const;
+    long long int get_nif() const;
 
     /**
      * @return Returns the client's name
@@ -59,8 +59,16 @@ public:
    * @param servico Service to be added
    */
     void addService(Servicos *servico);
-
-
+    /**
+     * @brief Change the name of the client
+     * @param name the new name of the client
+     */
+    void setName(const string& name);
+    /**
+     * @brief Change the nif of a client given the actual nif
+     * @param nif The actual nif of the client
+     */
+    void setNif(const long long int& nif);
     /**
      * Display the information about the client
      * @param out ostream with the information

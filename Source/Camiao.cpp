@@ -10,7 +10,7 @@
  */
 
 //Base class//
-Camiao::Camiao(const unsigned int& carg, const unsigned int& id) {
+Camiao::Camiao(const long long int& carg, const long long int& id) {
     CargaMax = carg;
     this->id = id;
     totalProfit = 0;
@@ -26,7 +26,7 @@ void Camiao::addedToService() {
 //Congelado sub-class//
 
 //constructor of  congelado
-Congelado::Congelado(unsigned int carg, double temp, unsigned int Id) : Camiao(carg,Id){
+Congelado::Congelado(long long int carg, double temp, long long int Id) : Camiao(carg,Id){
     temperatura = temp;
 }
 // congelado destructor
@@ -38,13 +38,13 @@ double Congelado::getTemp() const {
 
 double Congelado::cal_preco() {
     //to implement after checking taxes format
-    return tax* 0.01 * temperatura * CargaMax;
+    return tax* 0.01 * temperatura * (double)CargaMax;
 }
 
 string Congelado::getType() const {return "Congelado";}
 
 //Perigoso sub-class//
-Perigoso::Perigoso(unsigned int carg, int lvl, unsigned int Id) : Camiao(carg, Id){
+Perigoso::Perigoso(long long int carg, int lvl, long long int Id) : Camiao(carg, Id){
     quaoPerigoso = lvl;
 }
 
@@ -55,14 +55,14 @@ int Perigoso::getLevel() const {
 }
 
 double Perigoso::cal_preco() {
-    return tax*0.01*(double)quaoPerigoso*CargaMax;
+    return tax*0.01*(double)quaoPerigoso*(double)CargaMax;
 }
 
 string Perigoso::getType() const {return "Perigoso";}
 
 // Animals sub-class//
 
-Animals::Animals(unsigned int carg, int number, unsigned int Id) : Camiao(carg, Id){
+Animals::Animals(long long int carg, int number, long long int Id) : Camiao(carg, Id){
     animalCount = number;
 }
 

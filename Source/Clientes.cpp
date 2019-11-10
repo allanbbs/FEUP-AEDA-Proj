@@ -14,7 +14,7 @@ Clientes::Clientes() {
     nif = 0;
 }
 
-Clientes::Clientes(const string &n, const unsigned int &anif) : name(n), nif(anif), profit(0) {}
+Clientes::Clientes(const string &n, const long long int &anif) : name(n), nif(anif), profit(0) {}
 
 Clientes::~Clientes() {
     for (int i = 0 ; i < services.size(); i++) delete services[i];
@@ -26,7 +26,7 @@ double Clientes::get_profit() const {
     return profit;
 }
 
-unsigned int Clientes::get_nif() const {
+long long int Clientes::get_nif() const {
     return nif;
 }
 
@@ -37,13 +37,19 @@ void Clientes::addService(Servicos *servico) {
 
 }
 
+void Clientes::setName(const string& name) {
+    this->name = name;
+}
 
+void Clientes::setNif(const long long int &nif) {
+    this->nif = nif;
+}
 ostream &operator<<(ostream &out, const Clientes &client) {
     cout<<fixed<<setprecision(2);
     out << left << setw(30) << client.name << setw(20) << client.nif
                 <<setw(20) << client.profit; 
 
-    if (client.services.empty()) out << "No services!" << endl; //if the client hasn't requested for a service it will be noticed   
+    if (client.services.empty()) out << "No services!";         //if the client hasn't requested for a service it will be noticed 
 
     for (auto a: client.services)                               //else it will print a list of the requested services
         out << a->get_id() << " ";

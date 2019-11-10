@@ -24,8 +24,8 @@ extern TaxTable *table;
  */
 class Camiao {
 protected:
-    unsigned int CargaMax;                  /**<Camiao max storage*/
-    unsigned int id;                        /**<The camiao identification*/
+    long long int CargaMax;                  /**<Camiao max storage, if negative means that the truck is not available anymore*/
+    long long int id;                        /**<The camiao identification*/
     double totalProfit;                     /**<Total profit the of the truck**/
 public:
     /**
@@ -33,7 +33,7 @@ public:
      * @param carg CargaMax in kg measure
      * @param id identification of the truck
      */
-    Camiao(const unsigned int& carg, const unsigned int& id);
+    Camiao(const long long int& carg, const long long int& id);
     /**
      * @brief Default destructor
      */
@@ -85,7 +85,7 @@ public:
      * @param disp If it's available or not
      * @param temp Temperature
      */
-    Congelado(unsigned int carg, double temp, unsigned int Id);
+    Congelado(long long int carg, double temp, long long int Id);
     /**
      * Default destructor
      */
@@ -122,7 +122,7 @@ public:
      * @param disp If it's available or not
      * @param lvl How dangerous the animal is
      */
-    Perigoso(unsigned int carg, int lvl, unsigned int Id);
+    Perigoso(long long int carg, int lvl, long long int Id);
     /**
      * Default destructor
      *@brief Destroy the Perigoso object
@@ -155,7 +155,7 @@ public:
      * @param disp If it's available or not
      * @param number id
      */
-    Animals(unsigned int carg, int number, unsigned int Id);
+    Animals(long long int carg, int number, long long int Id);
     /**
      * Default destructor
      *
@@ -190,7 +190,7 @@ public:
      * @param carg The actual storage
      * @param Id The identification number of the truck
      */
-    Base(unsigned int carg, unsigned int Id): Camiao(carg, Id) {};
+    Base(long long int carg, long long int Id): Camiao(carg, Id) {};
     /**
      * @brief Get the Type object
      * @return string

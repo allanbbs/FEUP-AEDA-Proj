@@ -9,6 +9,7 @@ var searchData=
   ['camiao_2eh',['Camiao.h',['../_camiao_8h.html',1,'']]],
   ['camioes',['camioes',['../class_servicos.html#a6e69ec3a50d0176d14ca1a58018f1293',1,'Servicos']]],
   ['cargamax',['CargaMax',['../class_camiao.html#aec5373562b39920e1b1d2a59318c43c0',1,'Camiao']]],
+  ['changeclientname',['changeClientName',['../class_empresa.html#a7543b4a30b7a8e180db43fecb49d9248',1,'Empresa']]],
   ['checknumber',['checkNumber',['../utils_8h.html#a517ab7f68319b35a52ed085490b0ae75',1,'checkNumber():&#160;utils.cpp'],['../utils_8cpp.html#a517ab7f68319b35a52ed085490b0ae75',1,'checkNumber():&#160;utils.cpp']]],
   ['checkoption',['checkOption',['../utils_8h.html#ad54db2bec279be1d8c30400e2a1788f6',1,'checkOption(int min, int max):&#160;utils.cpp'],['../utils_8cpp.html#ad54db2bec279be1d8c30400e2a1788f6',1,'checkOption(int min, int max):&#160;utils.cpp']]],
   ['clear_5fscreen',['clear_screen',['../utils_8h.html#a4953d1edcbbfc7e420c423ded1d5621a',1,'clear_screen():&#160;utils.cpp'],['../utils_8cpp.html#a4953d1edcbbfc7e420c423ded1d5621a',1,'clear_screen():&#160;utils.cpp']]],

@@ -69,14 +69,14 @@ public:
      * @param name The name of the new client
      * @param nif Personal numeration of the client
      */
-    void addClientes(const string &name, const unsigned int &nif);
+    void addClientes(const string &name, const long long int &nif);
     /**
      * @param Partida Departure Local
      * @param Destino Arrival local
      * @param Id Identificantion for the service
      * @param Tipo What kind of products it will transport
      */
-    Servicos * addServico(Servicos* s, const unsigned int cliNif);
+    Servicos * addServico(Servicos* s, const long long int cliNif);
 
     /**
      * @brief It adds a new truck to the enterprise
@@ -84,20 +84,21 @@ public:
      * @param cargaMax max number of items
      * @param caract the special caracteristic for the type of the truck: temperatura, quaoPerigoso or animalCount
      */
-    void addCamiao(const int&  type, const unsigned int &cargaMax, const double& caract = -1);
+    void addCamiao(const int&  type, const long long int &cargaMax, const double& caract = -1);
+
     /**
      * @brief Search for a client with nif given
      * @param nif Identification of the client
      * @return Return the position of client in the vector cli
      */
-    long int SearchCli(const unsigned int &nif) const;
+    long int SearchCli(const long long int &nif) const;
 
     /**
      * @brief Search for a service with the id given
      * @param id Identification of the service
      * @return Return the position of the service in the vector ser. If it doesn't exist throw an exception
      */
-    size_t SearchSer(const unsigned int &id) const;
+    size_t SearchSer(const long long int &id) const;
     /**
      * @brief Get the profit of the month for a specific type o truck
      * 
@@ -113,7 +114,7 @@ public:
      * @param n Number of clients to be shown
      * @param f Function used to sort the vector
      */
-    void display_clientesInfo(const unsigned int &nif= 0, long int n = 1, bool (*f)(const Clientes* c, const Clientes* c1) = Compare_clientes);
+    void display_clientesInfo(const long long int &nif= 0, long int n = 1, bool (*f)(const Clientes* c, const Clientes* c1) = Compare_clientes);
     /**
      * @brief Displays in a simple way the total profit of the month
      */
@@ -132,7 +133,7 @@ public:
      * @param f Function to sort the vector
      * @param type Type of the service (if it's necessary)
      */
-    void display_servicoStatus(const unsigned int &id = 0, long int n = 10000, bool(*f)(const Servicos*, const Servicos*) = Compare_servico_profit, const string& type = "") const;
+    void display_servicoStatus(const long long int &id = 0, long int n = 10000, bool(*f)(const Servicos*, const Servicos*) = Compare_servico_profit, const string& type = "") const;
 
     /**
      * @brief Add a truck to a specific service based on its id
@@ -149,6 +150,34 @@ public:
      * @return false if it didn't allocate trucks successfully
      */
     bool allocateCamiao(Servicos* s);
+    /**
+     * @brief it changes the name of the client in the file and at the program
+     */
+    void changeClientName(const long long int& nif);
+    /**
+     * @brief Changes a client nif to another non negative
+     * @param nif
+     */
+    void changeClientNif(long long int& nif);
+    /**
+     * @brief remove a client
+     * @param nif The nif of the client to be removed
+     * @warning The clients are not deleted from the files, their nif are converted to negative ones. On this way the enterprise keeps the historic about the client and at the same time the client is "removed".
+     */
+    void removeClient(const long long int& nif);
+
+    /**
+     * @brief this method rewrites all the clients.
+     * Usually this function is called when something has changed for a specific client
+     */
+    void rewriteClients();
+    /**
+     * @brief Reaccept a ex-client into the enterprise
+     * After being excluded from the enterprise the client might want to become a client again.
+     * @param nif Nif of the client
+     */
+    void reAcceptClient(const long int& pos);
+
 };
 
 /**

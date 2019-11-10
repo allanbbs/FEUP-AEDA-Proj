@@ -20,7 +20,7 @@ void Empresa::gravaCli() {
     ifstream file("../AEDA_Proj1/Ficheiros/clientes");
     string name;                        //stores the name of the client       
     string aux;                         //auxiliar variable to read lines 
-    unsigned int nif;
+    long long int nif;
     while (!file.eof()) {
         getline(file, name);            //get name
         getline(file, aux);             //get string nif
@@ -36,7 +36,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
     string local, aux, type;
     int aux_int, carga;
     double cordx, cordy;
-    unsigned int cliNif;
+    long long int cliNif;
     vector<int> trucks;
 
     if (!file.fail())
@@ -143,10 +143,10 @@ void Empresa::gravaCam() {
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
-    for (int i = nCam-1; i >= 0; i--) delete cli[i];                //cleaning the vector
-    for (int i = nCli-1; i >= 0; i--) delete cam[i];
+    for (int i = cli.size()-1; i >= 0; i--) delete cli[i];                //cleaning the vector
+    for (int i = nCam-1; i >= 0; i--) delete cam[i];
     for (int i = nSer-1; i >= 0; i--) delete ser[i];
-    cli.clear();                                                    //deleting the vector allocation
+    cli.clear();                                                        //deleting the vector allocation
     cam.clear();
     ser.clear();
 }
@@ -160,15 +160,16 @@ double Empresa::getLucro_mes() const {
 }
 
 
-void Empresa::addClientes(const string &name, const unsigned int &nif) {
+void Empresa::addClientes(const string &name, const long long int &nif) {
     long int pos = SearchCli(nif);                                  //check if the client already exists
     if (pos != -1) throw RepeatedClient(name);                      // if so, throw a exception
     auto c = new Clientes(name, nif);
-    nCli++;                                                         //increase the number of clients 
+    if (nif> 0 )
+        nCli++;                                                         //increase the number of clients
     cli.push_back(c);
 }
 
-Servicos *Empresa::addServico(Servicos* s, const unsigned int cliNif) {
+Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
     long int pos = SearchCli(cliNif);
     if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
     ser.push_back(s);
@@ -177,14 +178,14 @@ Servicos *Empresa::addServico(Servicos* s, const unsigned int cliNif) {
 }
 
 
-long int Empresa::SearchCli(const unsigned int &nif) const {
+long int Empresa::SearchCli(const long long int &nif) const {
     for (int i = 0; i < cli.size(); i++) {                          //Linear search O^n
         if (cli[i]->get_nif() == nif) return i;
     }
     return -1;                                                      // if doesnt exist returns -1
 }
 
-size_t Empresa::SearchSer(const unsigned int &id) const {
+size_t Empresa::SearchSer(const long long int &id) const {
     for (int i = 0; i < ser.size(); i++) {                          //Linear search O^n
         if (ser[i]->get_id() == id) return i;                      
     }
@@ -206,7 +207,7 @@ void Empresa::display_CamiaoProfit() {
 }
 
 
-void Empresa::display_clientesInfo(const unsigned int &nif, long int n, bool (*f)(const Clientes* c, const Clientes* c1)) {
+void Empresa::display_clientesInfo(const long long int &nif, long int n, bool (*f)(const Clientes* c, const Clientes* c1)) {
     ostringstream os;
     os << fixed << setprecision(2);
     if (nif) {                                                      //Case just one client to be shown
@@ -225,8 +226,10 @@ void Empresa::display_clientesInfo(const unsigned int &nif, long int n, bool (*f
         os << "=========================================================="
               "=======================================" << endl;
         for (auto it = c.begin(); it < c.end(); it++) {
-            os << *(*it);   
-            n--;                                                    //When n == 0, n clients has already been displayed
+            if ((*it)->get_nif()>0) {                                   //the negative nifs are from deleted clients
+                os << *(*it);
+                n--;                                                    //When n == 0, n clients has already been displayed
+            }
             if (n == 0) break;
         }
     }
@@ -234,7 +237,7 @@ void Empresa::display_clientesInfo(const unsigned int &nif, long int n, bool (*f
 }
 
 
-void Empresa::display_servicoStatus(const unsigned int &id, long int n, bool (*f)(const Servicos*, const Servicos*), const string& type) const {
+void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (*f)(const Servicos*, const Servicos*), const string& type) const {
     ostringstream os;
     os << fixed << setprecision(2);
 
@@ -291,7 +294,7 @@ void headerCamInfor() {
 
 }
 
-void Empresa::addCamiao(const int &type, const unsigned int &cargaMax, const double &caract) {
+void Empresa::addCamiao(const int &type, const long long int &cargaMax, const double &caract) {
     map<unsigned int, string> temp = {{0, "Base"},
                                       {1, "Congelado"},
                                       {2, "Perigoso"},
@@ -348,3 +351,70 @@ bool Empresa::allocateCamiao(Servicos *s) {
 
 }
 
+void Empresa::changeClientName(const long long int& nif) {
+    string name;
+    //get the position of the client
+    long int pos = SearchCli(nif);
+    cin.ignore();
+    cout << "Type the new name [EXIT -1]: ";
+    getline(cin, name);
+    if (name == "-1") return;
+
+    cli[pos]->setName(name);
+    //we need to rewrite the file
+    rewriteClients();
+}
+
+void Empresa::rewriteClients() {
+    ofstream file("../AEDA_Proj1/Ficheiros/clientes");
+    for (long int i = 0; i < cli.size(); i++)
+        if (i != cli.size()-1)
+            file << cli[i]->getName() << endl << cli[i]->get_nif() << endl;
+
+    file << cli[cli.size()-1]->getName() << endl << cli[cli.size()-1]->get_nif();
+
+}
+
+void Empresa::changeClientNif(long long int &nif) {
+    string name;
+    //get the position of the client
+    long int pos = SearchCli(nif);
+    cin.ignore();
+
+    //check if the nif is valid
+    while (true) {
+        cout << "Type the new nif [EXIT -1]:  ";
+        cin >> nif;
+        if (nif == -1) return;
+        if (cin.fail()) {                   //if a string
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        if(nif < -1 || nif == 0) {          //if the value is not valid
+            cout << "Type positive numbers " << endl;
+            continue;
+        }
+        if (this->SearchCli(nif) == -1){    //checking if there isnt someone with the same nif
+            cli[pos]->setNif(nif);
+            break;
+        }
+        else                                //there is someone with the same nif
+            cout << "There is already a client with nif " << nif << endl;
+
+    }
+    rewriteClients();                       //we need to rewrite the file
+}
+
+void Empresa::removeClient(const long long int &nif) {
+    long int pos = SearchCli(nif);          //get the position of the client
+    if (nif == -1) return;                  //to cancel the operation
+
+    cli[pos]->setNif((-1)*nif);         //change the nif to a negative one
+    nCli--;
+    rewriteClients();                       //we need to rewrite the file
+}
+
+void Empresa::reAcceptClient(const long int& pos) {
+    cli[pos]->setNif((-1)*cli[pos]->get_nif());
+    rewriteClients();
+}

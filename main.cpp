@@ -27,6 +27,7 @@ void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
+
 int month;
 extern bool novo;
 
@@ -41,13 +42,12 @@ int main(){
         mainMenu(e);
     }
 }
-
 void mainMenu(Empresa &e){
     string nome;
     while (true) {
         printMainMenu();
         int option;
-        option = checkOption(1, 6);
+        option = checkOption(1, 11);
         clear_screen();
 
         if (option == 6)                                            //exit option
@@ -74,6 +74,31 @@ void mainMenu(Empresa &e){
             case 5:
                 handleAddTruck(e);
                 break;
+            case 7:{
+                long int nif = validClientNif(e);
+                if (nif == -1) continue;
+                e.changeClientName(nif);
+                cout << "Name changed successfully! ";
+                wait();
+                break;
+            }
+            case 8:{
+                long long int nif = validClientNif(e);
+                if (nif == -1) continue;
+                e.changeClientNif(nif);
+                cout << "Nif changed sucessfully! ";
+                wait();
+                break;
+
+            }
+            case 9:{
+                long long nif = validClientNif(e);
+                if (nif == -1) continue;
+                e.removeClient(nif);
+                cout << "Client removed successfully! ";
+                wait();
+                break;
+            }
             default:
                 break;
         }
@@ -83,14 +108,13 @@ void mainMenu(Empresa &e){
 }
 
 void printMainMenu(){
-    cout    << "      TRANSPORTATION ENTERPRISE       " << endl 
-            << "======================================" << endl
-            << "Status information                 [1]" << endl
-            << "Profit information                 [2]" << endl
-            << "Add new client                     [3]" << endl
-            << "New service request                [4]" << endl
-            << "Add truck                          [5]" << endl
-            << "Exit                               [6]" << endl;
+    cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT           " << endl
+            << "======================================      ======================================= " << endl
+            << "Status information                 [1]      Add new client                      [3] " << endl
+            << "Profit information                 [2]      Change client NAME                  [7] " << endl
+            << "Add truck                          [5]      Change client NIF                   [8] " << endl
+            << "Remove truck                      [10]      Remove a client                     [9] " << endl
+            << "Exit                               [6]      New service request                 [4] " << endl;
 }
 
 void printMenuStatus(){
@@ -181,16 +205,31 @@ void handleMenuStatus(Empresa &e){
 }
 
 void handleAddClient(Empresa &e){
-    int nif;
+    long long int nif;
     string nome;
     cout<<"Number of clients: "<< Empresa::nCli <<endl;
-    cout<<"Nome: ";
-    cin.ignore();
-    getline(cin,nome);
+
     cout<<"NIF ";
     while (true) {
         nif = checkNumber();
+        if (nif == 0 || nif < -1) continue;     //do not accept negative nifs
         if (nif == -1) return;
+
+        //case it was a ex-client
+        long int pos = e.SearchCli((-1) * nif);
+        if (pos != -1){
+            e.reAcceptClient(pos);
+            cout << "Client reaccepted! ";
+            wait();
+            return;
+        }
+
+        cout<<"Nome [EXIT -1]: ";
+        cin.ignore();
+        getline(cin,nome);
+        if (nome == "-1") return;                   //abort operation
+
+
         try {
             e.addClientes(nome, nif);
             ofstream o("../AEDA_Proj1/Ficheiros/clientes", ios_base::app);

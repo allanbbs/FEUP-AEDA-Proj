@@ -4,6 +4,7 @@ var searchData=
   ['cal_5fprofittime',['cal_profitTime',['../class_servicos.html#a314220b21b09eec1102d70aab65485bd',1,'Servicos']]],
   ['cal_5ftempo',['cal_tempo',['../class_servicos.html#ae00c9c64e9d9e53be5513251c75ed999',1,'Servicos']]],
   ['camiao',['Camiao',['../class_camiao.html#ad27511226d5aef6f29e786138d90e78e',1,'Camiao']]],
+  ['changeclientname',['changeClientName',['../class_empresa.html#a7543b4a30b7a8e180db43fecb49d9248',1,'Empresa']]],
   ['checknumber',['checkNumber',['../utils_8h.html#a517ab7f68319b35a52ed085490b0ae75',1,'checkNumber():&#160;utils.cpp'],['../utils_8cpp.html#a517ab7f68319b35a52ed085490b0ae75',1,'checkNumber():&#160;utils.cpp']]],
   ['checkoption',['checkOption',['../utils_8h.html#ad54db2bec279be1d8c30400e2a1788f6',1,'checkOption(int min, int max):&#160;utils.cpp'],['../utils_8cpp.html#ad54db2bec279be1d8c30400e2a1788f6',1,'checkOption(int min, int max):&#160;utils.cpp']]],
   ['clear_5fscreen',['clear_screen',['../utils_8h.html#a4953d1edcbbfc7e420c423ded1d5621a',1,'clear_screen():&#160;utils.cpp'],['../utils_8cpp.html#a4953d1edcbbfc7e420c423ded1d5621a',1,'clear_screen():&#160;utils.cpp']]],
