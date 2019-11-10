@@ -4,6 +4,10 @@
 
 #include "../Header/utils.h"
 
+/**
+ * @file utils.cpp
+ * @brief Implementation of functions that are useful in the project
+ */
 
 int checkOption(int min, int max) {
     int input;

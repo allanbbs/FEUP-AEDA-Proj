@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['perigoso',['Perigoso',['../class_perigoso.html',1,'']]]
+  ['noclient',['NoClient',['../class_no_client.html',1,'']]],
+  ['noservice',['NoService',['../class_no_service.html',1,'']]]
 ];

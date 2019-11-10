@@ -5,13 +5,12 @@
 #include <string>
 using namespace std;
 /**
- *
- * @param
+ * @file TaxTable.cpp
+ * @brief Implementation of the class TaxTable responsable to handle the classes of the trucks
  */
-
 TaxTable::TaxTable(istream &input) {
-    string type;
-    string tax;
+    string type;                    /**<Type of the truck**/
+    string tax;                     /**<Value of the tax for this specific truck**/
     if(!input.eof())
     while(!input.eof()){
         getline(input,type);

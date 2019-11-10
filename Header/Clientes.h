@@ -10,6 +10,10 @@
 
 
 using namespace std;
+/**
+ * @file Clientes.h
+ * @brief It contais the declarations of class Clientes responsable for Clients management
+ */
 
 /**
  * @brief Class responsable to handle the clients

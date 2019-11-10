@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['profit',['profit',['../class_clientes.html#a31d6c9d511356676b5ffe0f69bef7fb8',1,'Clientes::profit()'],['../class_servicos.html#ae843a45b64df81961436e11ae594d4e2',1,'Servicos::profit()']]]
+  ['name',['name',['../class_clientes.html#a608a08ac8c13ce03d1fe37533d41edc6',1,'Clientes::name()'],['../class_local.html#a92593a756ce7875f0fc3cc3431dcde73',1,'Local::name()']]],
+  ['ncam',['nCam',['../class_empresa.html#abcca6d5fbe7e662bd38297acc080d189',1,'Empresa']]],
+  ['ncli',['nCli',['../class_empresa.html#a18ecb4c524f816f843414369132dac50',1,'Empresa']]],
+  ['nif',['nif',['../class_clientes.html#a943c1b5fd5a777b869179aaf6e9a4349',1,'Clientes']]],
+  ['nser',['nSer',['../class_empresa.html#a07e98959203438cbfbba1a2484f0150d',1,'Empresa']]]
 ];

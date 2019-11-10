@@ -16,6 +16,10 @@ using namespace std;
 #define AEDA_PROJ1_TAXTABLE_H
 
 /**
+ * @file TaxTable.h
+ * @brief Declarations of the class TaxTable responsable to handle the classes of the trucks
+ */
+/**
  * @brief Class to store taxes read from tax file
  */
 class TaxTable{

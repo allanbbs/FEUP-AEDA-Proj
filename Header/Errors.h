@@ -2,6 +2,11 @@
 #define AEDA_PROJ1_ERRORS_H
 
 #include <string>
+
+/**
+ * @file Errors.h
+ * @brief This is the implementation and declaration of error classes
+ */
 /**
  * @brief Class made to throw types of errors
  */
@@ -23,7 +28,7 @@ public:
     virtual std::string getInfo() const {return info;};
 };
 /**
- * Error case the client doens't exist
+ * @brief Error case the client doens't exist
  */
 class NoClient: Error {
 public:
@@ -32,7 +37,7 @@ public:
 };
 
 /**
- * Error case the service doesn't exist
+ * @brief Error case the service doesn't exist
  */
 class NoService: Error{
 public:
@@ -40,7 +45,7 @@ public:
     std::string getInfo() const {return info;}
 };
 /**
- * Error case the client already exists
+ * @brief Error case the client already exists
  */
 class RepeatedClient: Error{
 public:
@@ -48,7 +53,10 @@ public:
     std::string getInfo() const {return info;}
 };
 
-
+/**
+ * @brief Error for wrong inputs
+ * 
+ */
 class WrongInput_option: Error{
 public:
     WrongInput_option(const std::string &input): Error(input){ }

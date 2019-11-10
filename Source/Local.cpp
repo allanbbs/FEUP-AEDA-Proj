@@ -7,7 +7,10 @@
 #include <utility>
 
 
-
+/**
+ * @file Local.cpp
+ * @brief File with the implementation of Local class reponsable to handle the location of the services
+ */
 Local::Local() {
     name = "";
     x = 0;

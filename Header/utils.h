@@ -6,7 +6,10 @@
 #define AEDA_PROJ1_UTILS_H
 #include "Empresa.h"
 #include <cstdlib>
-
+/**
+ * @file utils.h
+ * @brief Some functions that are useful in the project
+ */
 /**
  * @brief 
  * 

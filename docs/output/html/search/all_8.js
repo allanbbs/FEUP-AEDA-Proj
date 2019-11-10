@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['perigoso',['Perigoso',['../class_perigoso.html',1,'Perigoso'],['../class_perigoso.html#a2c4a795ad65355aa6cf3deed665e79df',1,'Perigoso::Perigoso()']]],
-  ['profit',['profit',['../class_clientes.html#a31d6c9d511356676b5ffe0f69bef7fb8',1,'Clientes::profit()'],['../class_servicos.html#ae843a45b64df81961436e11ae594d4e2',1,'Servicos::profit()']]]
+  ['local',['Local',['../class_local.html',1,'Local'],['../class_local.html#a2d768ccf56d02a9dae7e87c973c9876a',1,'Local::Local()'],['../class_local.html#a4fc4bfd569f6b12a4d442d88abd5c84b',1,'Local::Local(string Name, double X, double Y)']]],
+  ['local_2ecpp',['Local.cpp',['../_local_8cpp.html',1,'']]],
+  ['local_2eh',['Local.h',['../_local_8h.html',1,'']]]
 ];

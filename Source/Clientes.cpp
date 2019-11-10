@@ -5,7 +5,10 @@
 #include "../Header/Clientes.h"
 using namespace std;
 
-
+/**
+ * @file Clientes.cpp
+ * @brief It contais the implementation of class Clientes responsable for Clients management
+ */
 Clientes::Clientes() {
     name = "";
     nif = 0;

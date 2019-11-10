@@ -4,6 +4,10 @@
 
 #include "../Header/Servicos.h"
 
+/**
+ * @file Servicos.cpp
+ * @brief Implementation of Servicos class responsable for handle the services (individualy)
+ */
 
 Servicos::Servicos() {
     id = -1;

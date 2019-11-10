@@ -17,6 +17,10 @@
 #include "Errors.h"
 #include "Clientes.h"
 
+/**
+ * @file Empresa.h
+ * @brief It contains the Empresa class declarations, resposable for the management of the enterprise
+ */
 using namespace std;
 
 /**
@@ -75,21 +79,21 @@ public:
     Servicos * addServico(Servicos* s, const unsigned int cliNif);
 
     /**
-     * It adds a new truck to the enterprise
+     * @brief It adds a new truck to the enterprise
      * @param type the type of the trucm
      * @param cargaMax max number of items
      * @param caract the special caracteristic for the type of the truck: temperatura, quaoPerigoso or animalCount
      */
     void addCamiao(const int&  type, const unsigned int &cargaMax, const double& caract = -1);
     /**
-     * Search for a client with nif given
+     * @brief Search for a client with nif given
      * @param nif Identification of the client
      * @return Return the position of client in the vector cli
      */
     long int SearchCli(const unsigned int &nif) const;
 
     /**
-     * Search for a service with the id given
+     * @brief Search for a service with the id given
      * @param id Identification of the service
      * @return Return the position of the service in the vector ser. If it doesn't exist throw an exception
      */

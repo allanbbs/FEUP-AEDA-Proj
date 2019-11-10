@@ -62,9 +62,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_empresa-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Empresa Class Reference</div>  </div>
@@ -78,6 +77,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad08578b613594841b7c8c340ef970b26"><td class="memItemLeft" align="right" valign="top"><a id="ad08578b613594841b7c8c340ef970b26"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#ad08578b613594841b7c8c340ef970b26">gravaCli</a> ()</td></tr>
+<tr class="memdesc:ad08578b613594841b7c8c340ef970b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read information from clients.txt file and build the cli vector. <br /></td></tr>
+<tr class="separator:ad08578b613594841b7c8c340ef970b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16f707313f7dac51beacc0d3f442ab5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#aa16f707313f7dac51beacc0d3f442ab5">gravaCam</a> ()</td></tr>
+<tr class="memdesc:aa16f707313f7dac51beacc0d3f442ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read information from camioes.txt file and build the cam vector.  <a href="#aa16f707313f7dac51beacc0d3f442ab5">More...</a><br /></td></tr>
+<tr class="separator:aa16f707313f7dac51beacc0d3f442ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a147a5afaef7c00061560cd56786c8fd8"><td class="memItemLeft" align="right" valign="top"><a id="a147a5afaef7c00061560cd56786c8fd8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a147a5afaef7c00061560cd56786c8fd8">gravaSer</a> (<a class="el" href="class_empresa.html">Empresa</a> &amp;e, const int &amp;month)</td></tr>
+<tr class="memdesc:a147a5afaef7c00061560cd56786c8fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read information from servicos.txt file and build the ser vector. <br /></td></tr>
+<tr class="separator:a147a5afaef7c00061560cd56786c8fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff124b958356c479ab50ddf4cf302193"><td class="memItemLeft" align="right" valign="top"><a id="aff124b958356c479ab50ddf4cf302193"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#aff124b958356c479ab50ddf4cf302193">Empresa</a> ()</td></tr>
 <tr class="memdesc:aff124b958356c479ab50ddf4cf302193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class. <br /></td></tr>
@@ -86,41 +96,54 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a3c03ed7fbfdaa5c8db9b8587451f1326">~Empresa</a> ()</td></tr>
 <tr class="memdesc:a3c03ed7fbfdaa5c8db9b8587451f1326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the class that cleans all the alocated vectors. <br /></td></tr>
 <tr class="separator:a3c03ed7fbfdaa5c8db9b8587451f1326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca3bb98eb418d078696c9e85e7170601"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#aca3bb98eb418d078696c9e85e7170601">getLucro_mes</a> () const</td></tr>
-<tr class="memdesc:aca3bb98eb418d078696c9e85e7170601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the profit of the month.  <a href="#aca3bb98eb418d078696c9e85e7170601">More...</a><br /></td></tr>
-<tr class="separator:aca3bb98eb418d078696c9e85e7170601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72213a15f88c13724f7b970fb1e82ed5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a72213a15f88c13724f7b970fb1e82ed5">getLucro_mes</a> () const</td></tr>
+<tr class="memdesc:a72213a15f88c13724f7b970fb1e82ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the profit of the month.  <a href="#a72213a15f88c13724f7b970fb1e82ed5">More...</a><br /></td></tr>
+<tr class="separator:a72213a15f88c13724f7b970fb1e82ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b94348830efa0eb7874f14093a3405b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a0b94348830efa0eb7874f14093a3405b">addClientes</a> (const string &amp;name, const unsigned int &amp;nif)</td></tr>
 <tr class="memdesc:a0b94348830efa0eb7874f14093a3405b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new client to the vector cli.  <a href="#a0b94348830efa0eb7874f14093a3405b">More...</a><br /></td></tr>
 <tr class="separator:a0b94348830efa0eb7874f14093a3405b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a758fa7c19a9116f23a23b8fd3723778b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a758fa7c19a9116f23a23b8fd3723778b">addServico</a> (const <a class="el" href="class_local.html">Local</a> &amp;Partida, const <a class="el" href="class_local.html">Local</a> &amp;Destino, const string &amp;Tipo, const unsigned int cliNif)</td></tr>
-<tr class="separator:a758fa7c19a9116f23a23b8fd3723778b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d03625842499401f98b074401245b5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_servicos.html">Servicos</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a0d03625842499401f98b074401245b5b">addServico</a> (<a class="el" href="class_servicos.html">Servicos</a> *s, const unsigned int cliNif)</td></tr>
+<tr class="separator:a0d03625842499401f98b074401245b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3641693f90878a98c50bef9f751b39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#af3641693f90878a98c50bef9f751b39a">addCamiao</a> (const int &amp;type, const unsigned int &amp;cargaMax, const double &amp;caract=-1)</td></tr>
+<tr class="memdesc:af3641693f90878a98c50bef9f751b39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">It adds a new truck to the enterprise.  <a href="#af3641693f90878a98c50bef9f751b39a">More...</a><br /></td></tr>
+<tr class="separator:af3641693f90878a98c50bef9f751b39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a596e13d6bb9188c2b627c4c946524841"><td class="memItemLeft" align="right" valign="top">long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">SearchCli</a> (const unsigned int &amp;nif) const</td></tr>
+<tr class="memdesc:a596e13d6bb9188c2b627c4c946524841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for a client with nif given.  <a href="#a596e13d6bb9188c2b627c4c946524841">More...</a><br /></td></tr>
 <tr class="separator:a596e13d6bb9188c2b627c4c946524841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2120e4fe5335f018c969d041e589716c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a2120e4fe5335f018c969d041e589716c">SearchSer</a> (const unsigned int &amp;id) const</td></tr>
+<tr class="memdesc:a2120e4fe5335f018c969d041e589716c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for a service with the id given.  <a href="#a2120e4fe5335f018c969d041e589716c">More...</a><br /></td></tr>
 <tr class="separator:a2120e4fe5335f018c969d041e589716c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1775a57a267427f49e07fc2005a849e"><td class="memTemplParams" colspan="2"><a id="ae1775a57a267427f49e07fc2005a849e"></a>
-template&lt;class T &gt; </td></tr>
-<tr class="memitem:ae1775a57a267427f49e07fc2005a849e"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getLucro_camiaoMes</b> (const T &amp;c) const</td></tr>
-<tr class="separator:ae1775a57a267427f49e07fc2005a849e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab26ed484c742391185b0a1022bde35f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#ab26ed484c742391185b0a1022bde35f3">display_clientesInfo</a> (const unsigned int &amp;n, const unsigned int &amp;nif=0)</td></tr>
-<tr class="memdesc:ab26ed484c742391185b0a1022bde35f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prints on the screen the information about the client(s). Case the nif is given it just print the information of one client (which has the nif given).  <a href="#ab26ed484c742391185b0a1022bde35f3">More...</a><br /></td></tr>
-<tr class="separator:ab26ed484c742391185b0a1022bde35f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace12bc96868a933be6d46fbca56667c9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#ace12bc96868a933be6d46fbca56667c9">getLucro_camiaoMes</a> (const string &amp;type) const</td></tr>
+<tr class="memdesc:ace12bc96868a933be6d46fbca56667c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the profit of the month for a specific type o truck.  <a href="#ace12bc96868a933be6d46fbca56667c9">More...</a><br /></td></tr>
+<tr class="separator:ace12bc96868a933be6d46fbca56667c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae655b4be332bbbb3ad3124ae4d69b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a0ae655b4be332bbbb3ad3124ae4d69b2">display_clientesInfo</a> (const unsigned int &amp;nif=0, long int n=1, bool(*f)(const <a class="el" href="class_clientes.html">Clientes</a> *c, const <a class="el" href="class_clientes.html">Clientes</a> *c1)=<a class="el" href="_clientes_8cpp.html#a64b3860a4b136dc82e68672cbf8ac53b">Compare_clientes</a>)</td></tr>
+<tr class="memdesc:a0ae655b4be332bbbb3ad3124ae4d69b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the clients information in a specific format.  <a href="#a0ae655b4be332bbbb3ad3124ae4d69b2">More...</a><br /></td></tr>
+<tr class="separator:a0ae655b4be332bbbb3ad3124ae4d69b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a4b65451d3ba0ccce870d72a205e59b"><td class="memItemLeft" align="right" valign="top"><a id="a0a4b65451d3ba0ccce870d72a205e59b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a0a4b65451d3ba0ccce870d72a205e59b">display_lucro_mes</a> ()</td></tr>
 <tr class="memdesc:a0a4b65451d3ba0ccce870d72a205e59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays in a simple way the total profit of the month. <br /></td></tr>
 <tr class="separator:a0a4b65451d3ba0ccce870d72a205e59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a525aa7dd2380cca93730bf209533a67b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a525aa7dd2380cca93730bf209533a67b">display_servicoStatus</a> (const unsigned int &amp;n, const unsigned int &amp;id=0) const</td></tr>
-<tr class="memdesc:a525aa7dd2380cca93730bf209533a67b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prints on the screen the information about the service(s). Case the id is given it just print the information of one service (which has the id give).  <a href="#a525aa7dd2380cca93730bf209533a67b">More...</a><br /></td></tr>
-<tr class="separator:a525aa7dd2380cca93730bf209533a67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2c028358e0bd6093283bc20cbde92b"><td class="memItemLeft" align="right" valign="top"><a id="a2c2c028358e0bd6093283bc20cbde92b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a2c2c028358e0bd6093283bc20cbde92b">display_CamiaoProfit</a> ()</td></tr>
+<tr class="memdesc:a2c2c028358e0bd6093283bc20cbde92b"><td class="mdescLeft">&#160;</td><td class="mdescRight">display profit of each truck type <br /></td></tr>
+<tr class="separator:a2c2c028358e0bd6093283bc20cbde92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0604769c1d4b8621dca28a265853ac93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a0604769c1d4b8621dca28a265853ac93">display_servicoStatus</a> (const unsigned int &amp;id=0, long int n=10000, bool(*f)(const <a class="el" href="class_servicos.html">Servicos</a> *, const <a class="el" href="class_servicos.html">Servicos</a> *)=<a class="el" href="_servicos_8cpp.html#a60bd9c983d6a501402fa0a3b8e0c18be">Compare_servico_profit</a>, const string &amp;type=&quot;&quot;) const</td></tr>
+<tr class="separator:a0604769c1d4b8621dca28a265853ac93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e727d2a339654602a9331880f5351c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a4e727d2a339654602a9331880f5351c9">addCamiaoId_Servico</a> (const int &amp;id, <a class="el" href="class_servicos.html">Servicos</a> *s)</td></tr>
+<tr class="memdesc:a4e727d2a339654602a9331880f5351c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a truck to a specific service based on its id.  <a href="#a4e727d2a339654602a9331880f5351c9">More...</a><br /></td></tr>
+<tr class="separator:a4e727d2a339654602a9331880f5351c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2957222e9b2fe295136f93f8444d64f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#aa2957222e9b2fe295136f93f8444d64f">allocateCamiao</a> (<a class="el" href="class_servicos.html">Servicos</a> *s)</td></tr>
+<tr class="memdesc:aa2957222e9b2fe295136f93f8444d64f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose trucks to be allocated to a service.  <a href="#aa2957222e9b2fe295136f93f8444d64f">More...</a><br /></td></tr>
+<tr class="separator:aa2957222e9b2fe295136f93f8444d64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9acc8105647e6dab1484d7f169ba14e5"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a9acc8105647e6dab1484d7f169ba14e5">get_numClientes</a> ()</td></tr>
-<tr class="separator:a9acc8105647e6dab1484d7f169ba14e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a398dd606fa6a677d7cd3128379984fa0"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a398dd606fa6a677d7cd3128379984fa0">get_numCamiao</a> ()</td></tr>
-<tr class="separator:a398dd606fa6a677d7cd3128379984fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7d3c730891ab09ad8d04ef9f0b67c04"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#af7d3c730891ab09ad8d04ef9f0b67c04">get_numServicos</a> ()</td></tr>
-<tr class="separator:af7d3c730891ab09ad8d04ef9f0b67c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:abcca6d5fbe7e662bd38297acc080d189"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">nCam</a> = 0</td></tr>
+<tr class="separator:abcca6d5fbe7e662bd38297acc080d189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18ecb4c524f816f843414369132dac50"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a18ecb4c524f816f843414369132dac50">nCli</a> = 0</td></tr>
+<tr class="separator:a18ecb4c524f816f843414369132dac50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e98959203438cbfbba1a2484f0150d"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a07e98959203438cbfbba1a2484f0150d">nSer</a> = 0</td></tr>
+<tr class="separator:a07e98959203438cbfbba1a2484f0150d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -130,24 +153,106 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aa3f664b5438e21c09dfcffab157f06c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c84a5a3c91a62594efcd064028caf08"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_servicos.html">Servicos</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a></td></tr>
 <tr class="separator:a4c84a5a3c91a62594efcd064028caf08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:abcca6d5fbe7e662bd38297acc080d189"><td class="memItemLeft" align="right" valign="top"><a id="abcca6d5fbe7e662bd38297acc080d189"></a>
-static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nCam</b> = 0</td></tr>
-<tr class="separator:abcca6d5fbe7e662bd38297acc080d189"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ecb4c524f816f843414369132dac50"><td class="memItemLeft" align="right" valign="top"><a id="a18ecb4c524f816f843414369132dac50"></a>
-static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nCli</b> = 0</td></tr>
-<tr class="separator:a18ecb4c524f816f843414369132dac50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07e98959203438cbfbba1a2484f0150d"><td class="memItemLeft" align="right" valign="top"><a id="a07e98959203438cbfbba1a2484f0150d"></a>
-static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0</td></tr>
-<tr class="separator:a07e98959203438cbfbba1a2484f0150d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that manages an enterprise. </p>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00024">24</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00029">29</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af3641693f90878a98c50bef9f751b39a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3641693f90878a98c50bef9f751b39a">&#9670;&nbsp;</a></span>addCamiao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Empresa::addCamiao </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>cargaMax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>caract</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It adds a new truck to the enterprise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the trucm </td></tr>
+    <tr><td class="paramname">cargaMax</td><td>max number of items </td></tr>
+    <tr><td class="paramname">caract</td><td>the special caracteristic for the type of the truck: temperatura, quaoPerigoso or animalCount </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00294">294</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                                                                                           {</div><div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    map&lt;unsigned int, string&gt; temp = {{0, <span class="stringliteral">&quot;Base&quot;</span>},</div><div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                                      {1, <span class="stringliteral">&quot;Congelado&quot;</span>},</div><div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                                      {2, <span class="stringliteral">&quot;Perigoso&quot;</span>},</div><div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                                      {3, <span class="stringliteral">&quot;Animal&quot;</span>}};</div><div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">string</span> sType = temp[type];                                          <span class="comment">//Get the type</span></div><div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span> = ++<a class="code" href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">nCam</a>;                                           <span class="comment">//Increase ne number of trucks</span></div><div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">if</span> (sType == <span class="stringliteral">&quot;Base&quot;</span>) {</div><div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <a class="code" href="class_camiao.html">Camiao</a> *c = <span class="keyword">new</span> <a class="code" href="class_base.html">Base</a>(cargaMax, <span class="keywordtype">id</span>);</div><div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sType == <span class="stringliteral">&quot;Congelado&quot;</span>) {</div><div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <a class="code" href="class_camiao.html">Camiao</a> *c = <span class="keyword">new</span> <a class="code" href="class_congelado.html">Congelado</a>(cargaMax, caract, <span class="keywordtype">id</span>);</div><div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sType == <span class="stringliteral">&quot;Perigoso&quot;</span>) {</div><div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <a class="code" href="class_camiao.html">Camiao</a> *c = <span class="keyword">new</span> <a class="code" href="class_perigoso.html">Perigoso</a>(cargaMax, caract, <span class="keywordtype">id</span>);</div><div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sType == <span class="stringliteral">&quot;Animal&quot;</span>) {</div><div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <a class="code" href="class_camiao.html">Camiao</a> *c = <span class="keyword">new</span> <a class="code" href="class_animals.html">Animals</a>(cargaMax, caract, <span class="keywordtype">id</span>);</div><div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div><div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div><div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;}</div><div class="ttc" id="class_congelado_html"><div class="ttname"><a href="class_congelado.html">Congelado</a></div><div class="ttdoc">Camiao Truck with frozens as product. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00077">Camiao.h:77</a></div></div>
+<div class="ttc" id="class_base_html"><div class="ttname"><a href="class_base.html">Base</a></div><div class="ttdoc">Camiao Sub class for base products. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00184">Camiao.h:184</a></div></div>
+<div class="ttc" id="class_animals_html"><div class="ttname"><a href="class_animals.html">Animals</a></div><div class="ttdoc">Camiao Truck with animals as product. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00147">Camiao.h:147</a></div></div>
+<div class="ttc" id="class_perigoso_html"><div class="ttname"><a href="class_perigoso.html">Perigoso</a></div><div class="ttdoc">Camiao Sub class that handles trucks with dangerous products. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00114">Camiao.h:114</a></div></div>
+<div class="ttc" id="class_empresa_html_aa3f664b5438e21c09dfcffab157f06c0"><div class="ttname"><a href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">Empresa::cam</a></div><div class="ttdeci">vector&lt; Camiao * &gt; cam</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00032">Empresa.h:32</a></div></div>
+<div class="ttc" id="class_camiao_html"><div class="ttname"><a href="class_camiao.html">Camiao</a></div><div class="ttdoc">Class responsable for truck management. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00025">Camiao.h:25</a></div></div>
+<div class="ttc" id="class_empresa_html_abcca6d5fbe7e662bd38297acc080d189"><div class="ttname"><a href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">Empresa::nCam</a></div><div class="ttdeci">static size_t nCam</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00036">Empresa.h:36</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4e727d2a339654602a9331880f5351c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e727d2a339654602a9331880f5351c9">&#9670;&nbsp;</a></span>addCamiaoId_Servico()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Empresa::addCamiaoId_Servico </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_servicos.html">Servicos</a> *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a truck to a specific service based on its id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Identification of the truck </td></tr>
+    <tr><td class="paramname">s</td><td>Service to the truck be added to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00318">318</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                                                            {</div><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.begin(); it != <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.end(); it++) {                <span class="comment">//Linear Search O^n to find the id</span></div><div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">if</span> ((*it)-&gt;getId() == id)</div><div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            s-&gt;<a class="code" href="class_servicos.html#acb65e3d707266711fb371f7e4844e6f9">addCamiao</a>((*it));</div><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div><div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    }</div><div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div><div class="ttc" id="class_empresa_html_aa3f664b5438e21c09dfcffab157f06c0"><div class="ttname"><a href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">Empresa::cam</a></div><div class="ttdeci">vector&lt; Camiao * &gt; cam</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00032">Empresa.h:32</a></div></div>
+<div class="ttc" id="class_servicos_html_acb65e3d707266711fb371f7e4844e6f9"><div class="ttname"><a href="class_servicos.html#acb65e3d707266711fb371f7e4844e6f9">Servicos::addCamiao</a></div><div class="ttdeci">void addCamiao(Camiao *camiao)</div><div class="ttdef"><b>Definition:</b> <a href="_servicos_8cpp_source.html#l00105">Servicos.cpp:105</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a0b94348830efa0eb7874f14093a3405b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b94348830efa0eb7874f14093a3405b">&#9670;&nbsp;</a></span>addClientes()</h2>
 
@@ -183,37 +288,26 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00045">45</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                                                     {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> pos = <a class="code" href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">SearchCli</a>(nif);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (pos != -1)</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_client_repeated.html">ClientRepeated</a>(nif);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">auto</span> c = <span class="keyword">new</span> <a class="code" href="class_clientes.html">Clientes</a>(name, nif);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    nCli++;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.push_back(c);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div><div class="ttc" id="class_clientes_html"><div class="ttname"><a href="class_clientes.html">Clientes</a></div><div class="ttdef"><b>Definition:</b> <a href="_clientes_8h_source.html#l00015">Clientes.h:15</a></div></div>
-<div class="ttc" id="class_client_repeated_html"><div class="ttname"><a href="class_client_repeated.html">ClientRepeated</a></div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00028">Errors.h:28</a></div></div>
-<div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00026">Empresa.h:26</a></div></div>
-<div class="ttc" id="class_empresa_html_a596e13d6bb9188c2b627c4c946524841"><div class="ttname"><a href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">Empresa::SearchCli</a></div><div class="ttdeci">long int SearchCli(const unsigned int &amp;nif) const</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00067">Empresa.cpp:67</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00163">163</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                                                                     {</div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> pos = <a class="code" href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">SearchCli</a>(nif);                                  <span class="comment">//check if the client already exists</span></div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">if</span> (pos != -1) <span class="keywordflow">throw</span> <a class="code" href="class_repeated_client.html">RepeatedClient</a>(name);                      <span class="comment">// if so, throw a exception</span></div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keyword">auto</span> c = <span class="keyword">new</span> <a class="code" href="class_clientes.html">Clientes</a>(name, nif);</div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="class_empresa.html#a18ecb4c524f816f843414369132dac50">nCli</a>++;                                                         <span class="comment">//increase the number of clients </span></div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.push_back(c);</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div><div class="ttc" id="class_empresa_html_a18ecb4c524f816f843414369132dac50"><div class="ttname"><a href="class_empresa.html#a18ecb4c524f816f843414369132dac50">Empresa::nCli</a></div><div class="ttdeci">static size_t nCli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00037">Empresa.h:37</a></div></div>
+<div class="ttc" id="class_clientes_html"><div class="ttname"><a href="class_clientes.html">Clientes</a></div><div class="ttdoc">Class responsable to handle the clients. </div><div class="ttdef"><b>Definition:</b> <a href="_clientes_8h_source.html#l00022">Clientes.h:22</a></div></div>
+<div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00031">Empresa.h:31</a></div></div>
+<div class="ttc" id="class_repeated_client_html"><div class="ttname"><a href="class_repeated_client.html">RepeatedClient</a></div><div class="ttdoc">Error case the client already exists. </div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00050">Errors.h:50</a></div></div>
+<div class="ttc" id="class_empresa_html_a596e13d6bb9188c2b627c4c946524841"><div class="ttname"><a href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">Empresa::SearchCli</a></div><div class="ttdeci">long int SearchCli(const unsigned int &amp;nif) const</div><div class="ttdoc">Search for a client with nif given. </div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00180">Empresa.cpp:180</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a758fa7c19a9116f23a23b8fd3723778b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a758fa7c19a9116f23a23b8fd3723778b">&#9670;&nbsp;</a></span>addServico()</h2>
+<a id="a0d03625842499401f98b074401245b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d03625842499401f98b074401245b5b">&#9670;&nbsp;</a></span>addServico()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Empresa::addServico </td>
+          <td class="memname"><a class="el" href="class_servicos.html">Servicos</a> * Empresa::addServico </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_local.html">Local</a> &amp;&#160;</td>
-          <td class="paramname"><em>Partida</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_local.html">Local</a> &amp;&#160;</td>
-          <td class="paramname"><em>Destino</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>Tipo</em>, </td>
+          <td class="paramtype"><a class="el" href="class_servicos.html">Servicos</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -230,7 +324,7 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Partida</td><td>Departure <a class="el" href="class_local.html">Local</a> </td></tr>
+    <tr><td class="paramname">Partida</td><td>Departure <a class="el" href="class_local.html" title="Class that handles the locals of transportation. ">Local</a> </td></tr>
     <tr><td class="paramname">Destino</td><td>Arrival local </td></tr>
     <tr><td class="paramname">Id</td><td>Identificantion for the service </td></tr>
     <tr><td class="paramname">Tipo</td><td>What kind of products it will transport </td></tr>
@@ -238,17 +332,52 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00055">55</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                                   {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> pos = <a class="code" href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">SearchCli</a>(cliNif);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (pos == -1)</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_no_client.html">NoClient</a>(cliNif);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_servicos.html">Servicos</a> *new_Service = <span class="keyword">new</span> <a class="code" href="class_servicos.html">Servicos</a>(Partida, Destino, ++nSer, Tipo);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>.push_back(new_Service);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    (<a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>[pos])-&gt;addService(new_Service);</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00026">Empresa.h:26</a></div></div>
-<div class="ttc" id="class_no_client_html"><div class="ttname"><a href="class_no_client.html">NoClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00007">Errors.h:7</a></div></div>
-<div class="ttc" id="class_servicos_html"><div class="ttname"><a href="class_servicos.html">Servicos</a></div><div class="ttdef"><b>Definition:</b> <a href="_servicos_8h_source.html#l00022">Servicos.h:22</a></div></div>
-<div class="ttc" id="class_empresa_html_a596e13d6bb9188c2b627c4c946524841"><div class="ttname"><a href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">Empresa::SearchCli</a></div><div class="ttdeci">long int SearchCli(const unsigned int &amp;nif) const</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00067">Empresa.cpp:67</a></div></div>
-<div class="ttc" id="class_empresa_html_a4c84a5a3c91a62594efcd064028caf08"><div class="ttname"><a href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">Empresa::ser</a></div><div class="ttdeci">vector&lt; Servicos * &gt; ser</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00028">Empresa.h:28</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00171">171</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                                                                    {</div><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> pos = <a class="code" href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">SearchCli</a>(cliNif);</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">if</span> (pos == -1) <span class="keywordflow">throw</span> <a class="code" href="class_no_client.html">NoClient</a>(to_string(cliNif));               <span class="comment">//check if the serices already exists</span></div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>.push_back(s);</div><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    (<a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>[pos])-&gt;addService(s);</div><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">return</span> s;</div><div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00031">Empresa.h:31</a></div></div>
+<div class="ttc" id="class_no_client_html"><div class="ttname"><a href="class_no_client.html">NoClient</a></div><div class="ttdoc">Error case the client doens&amp;#39;t exist. </div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00033">Errors.h:33</a></div></div>
+<div class="ttc" id="class_empresa_html_a596e13d6bb9188c2b627c4c946524841"><div class="ttname"><a href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">Empresa::SearchCli</a></div><div class="ttdeci">long int SearchCli(const unsigned int &amp;nif) const</div><div class="ttdoc">Search for a client with nif given. </div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00180">Empresa.cpp:180</a></div></div>
+<div class="ttc" id="class_empresa_html_a4c84a5a3c91a62594efcd064028caf08"><div class="ttname"><a href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">Empresa::ser</a></div><div class="ttdeci">vector&lt; Servicos * &gt; ser</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00033">Empresa.h:33</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ab26ed484c742391185b0a1022bde35f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab26ed484c742391185b0a1022bde35f3">&#9670;&nbsp;</a></span>display_clientesInfo()</h2>
+<a id="aa2957222e9b2fe295136f93f8444d64f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2957222e9b2fe295136f93f8444d64f">&#9670;&nbsp;</a></span>allocateCamiao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Empresa::allocateCamiao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_servicos.html">Servicos</a> *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Choose trucks to be allocated to a service. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Service requesting trucks </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it allocated trucks successfully </dd>
+<dd>
+false if it didn't allocate trucks successfully </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00335">335</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                                        {</div><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    vector&lt;Camiao *&gt; cam_copy(<a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>);                                     </div><div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">int</span> carga = s-&gt;<a class="code" href="class_servicos.html#a9bdc419f4897edf417c0a00af357c2f2">get_carga</a>();</div><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    sort(cam_copy.begin(), cam_copy.end(), <a class="code" href="_camiao_8h.html#adcb9ff6b0ff0f153598f347a7a8dc948">Compare</a>);                    <span class="comment">//Sort by ascender order of profit </span></div><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;x: cam_copy) {</div><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keywordflow">if</span> (x-&gt;getType() == s-&gt;<a class="code" href="class_servicos.html#a421807c0764d402bf698c8d79a794102">get_tipo</a>()) {                            <span class="comment">//If it has the same type of the service </span></div><div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            carga -= x-&gt;getCargaMax();</div><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            s-&gt;<a class="code" href="class_servicos.html#acb65e3d707266711fb371f7e4844e6f9">addCamiao</a>(x);</div><div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        }</div><div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">if</span> (carga &lt;= 0)                                                 <span class="comment">//If enought trucks</span></div><div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    }</div><div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">return</span> carga &lt;= 0;                                                  </div><div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;}</div><div class="ttc" id="class_servicos_html_a9bdc419f4897edf417c0a00af357c2f2"><div class="ttname"><a href="class_servicos.html#a9bdc419f4897edf417c0a00af357c2f2">Servicos::get_carga</a></div><div class="ttdeci">int get_carga() const</div><div class="ttdoc">Get the actual storage. </div><div class="ttdef"><b>Definition:</b> <a href="_servicos_8cpp_source.html#l00088">Servicos.cpp:88</a></div></div>
+<div class="ttc" id="class_servicos_html_a421807c0764d402bf698c8d79a794102"><div class="ttname"><a href="class_servicos.html#a421807c0764d402bf698c8d79a794102">Servicos::get_tipo</a></div><div class="ttdeci">string get_tipo() const</div><div class="ttdef"><b>Definition:</b> <a href="_servicos_8cpp_source.html#l00083">Servicos.cpp:83</a></div></div>
+<div class="ttc" id="class_empresa_html_aa3f664b5438e21c09dfcffab157f06c0"><div class="ttname"><a href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">Empresa::cam</a></div><div class="ttdeci">vector&lt; Camiao * &gt; cam</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00032">Empresa.h:32</a></div></div>
+<div class="ttc" id="_camiao_8h_html_adcb9ff6b0ff0f153598f347a7a8dc948"><div class="ttname"><a href="_camiao_8h.html#adcb9ff6b0ff0f153598f347a7a8dc948">Compare</a></div><div class="ttdeci">bool Compare(const Camiao *c1, const Camiao *c2)</div><div class="ttdoc">It compares two trucks. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8cpp_source.html#l00090">Camiao.cpp:90</a></div></div>
+<div class="ttc" id="class_servicos_html_acb65e3d707266711fb371f7e4844e6f9"><div class="ttname"><a href="class_servicos.html#acb65e3d707266711fb371f7e4844e6f9">Servicos::addCamiao</a></div><div class="ttdeci">void addCamiao(Camiao *camiao)</div><div class="ttdef"><b>Definition:</b> <a href="_servicos_8cpp_source.html#l00105">Servicos.cpp:105</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0ae655b4be332bbbb3ad3124ae4d69b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ae655b4be332bbbb3ad3124ae4d69b2">&#9670;&nbsp;</a></span>display_clientesInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,13 +386,19 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
           <td class="memname">void Empresa::display_clientesInfo </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramname"><em>nif</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>nif</em> = <code>0</code>&#160;</td>
+          <td class="paramtype">long int&#160;</td>
+          <td class="paramname"><em>n</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*)(const <a class="el" href="class_clientes.html">Clientes</a> *c, const <a class="el" href="class_clientes.html">Clientes</a> *c1)&#160;</td>
+          <td class="paramname"><em>f</em> = <code><a class="el" href="_clientes_8cpp.html#a64b3860a4b136dc82e68672cbf8ac53b">Compare_clientes</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -273,24 +408,25 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
       </table>
 </div><div class="memdoc">
 
-<p>This function prints on the screen the information about the client(s). Case the nif is given it just print the information of one client (which has the nif given). </p>
+<p>Display the clients information in a specific format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>Number of clients to print </td></tr>
-    <tr><td class="paramname">nif</td><td>Personal numeration of the client </td></tr>
+    <tr><td class="paramname">nif</td><td>Case it's a specific nif, the parameter nif must be diferent from zero </td></tr>
+    <tr><td class="paramname">n</td><td>Number of clients to be shown </td></tr>
+    <tr><td class="paramname">f</td><td>Function used to sort the vector </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00085">85</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                                                                 {</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    ostringstream os;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (nif) {</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">int</span> pos = <a class="code" href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">SearchCli</a>(nif);</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (pos == -1)</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="class_no_client.html">NoClient</a>(nif);</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        os &lt;&lt; left &lt;&lt; setw(30) &lt;&lt; <span class="stringliteral">&quot;NAME&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;NIF&quot;</span> &lt;&lt; <span class="stringliteral">&quot;SERVICES&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        os &lt;&lt; *<a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>[pos];</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        os &lt;&lt; left &lt;&lt; setw(30) &lt;&lt; <span class="stringliteral">&quot;NAME&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;NIF&quot;</span> &lt;&lt; <span class="stringliteral">&quot;SERVICES&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.begin(); it &lt; <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.end(); it++) {</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            os &lt;&lt; (*it);</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    cout &lt;&lt; os.str();</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00026">Empresa.h:26</a></div></div>
-<div class="ttc" id="class_no_client_html"><div class="ttname"><a href="class_no_client.html">NoClient</a></div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00007">Errors.h:7</a></div></div>
-<div class="ttc" id="class_empresa_html_a596e13d6bb9188c2b627c4c946524841"><div class="ttname"><a href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">Empresa::SearchCli</a></div><div class="ttdeci">long int SearchCli(const unsigned int &amp;nif) const</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00067">Empresa.cpp:67</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00209">209</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                                                                                                        {</div><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    ostringstream os;</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    os &lt;&lt; fixed &lt;&lt; setprecision(2);</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">if</span> (nif) {                                                      <span class="comment">//Case just one client to be shown</span></div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">int</span> pos = <a class="code" href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">SearchCli</a>(nif);</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">if</span> (pos == -1)</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="class_no_client.html">NoClient</a>(to_string(nif));</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        os &lt;&lt; left &lt;&lt; setw(30) &lt;&lt; <span class="stringliteral">&quot;NAME&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;NIF&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;PROFIT&quot;</span> &lt;&lt; <span class="stringliteral">&quot;SERVICES&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;==========================================================&quot;</span></div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;              <span class="stringliteral">&quot;=======================================&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        os &lt;&lt; *<a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>[pos];</div><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    } <span class="keywordflow">else</span> {                                                        <span class="comment">//Case n clients to be shown</span></div><div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        vector&lt;Clientes *&gt; c(<a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>);</div><div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        sort(c.begin(), c.end(), f);</div><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        os &lt;&lt; left &lt;&lt; setw(30) &lt;&lt; <span class="stringliteral">&quot;NAME&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;NIF&quot;</span> &lt;&lt; setw(20) &lt;&lt; <span class="stringliteral">&quot;PROFIT&quot;</span> &lt;&lt; <span class="stringliteral">&quot;SERVICES&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;==========================================================&quot;</span></div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;              <span class="stringliteral">&quot;=======================================&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = c.begin(); it &lt; c.end(); it++) {</div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            os &lt;&lt; *(*it);   </div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            n--;                                                    <span class="comment">//When n == 0, n clients has already been displayed</span></div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">break</span>;</div><div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    cout &lt;&lt; os.str();</div><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00031">Empresa.h:31</a></div></div>
+<div class="ttc" id="class_no_client_html"><div class="ttname"><a href="class_no_client.html">NoClient</a></div><div class="ttdoc">Error case the client doens&amp;#39;t exist. </div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00033">Errors.h:33</a></div></div>
+<div class="ttc" id="class_empresa_html_a596e13d6bb9188c2b627c4c946524841"><div class="ttname"><a href="class_empresa.html#a596e13d6bb9188c2b627c4c946524841">Empresa::SearchCli</a></div><div class="ttdeci">long int SearchCli(const unsigned int &amp;nif) const</div><div class="ttdoc">Search for a client with nif given. </div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00180">Empresa.cpp:180</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a525aa7dd2380cca93730bf209533a67b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a525aa7dd2380cca93730bf209533a67b">&#9670;&nbsp;</a></span>display_servicoStatus()</h2>
+<a id="a0604769c1d4b8621dca28a265853ac93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0604769c1d4b8621dca28a265853ac93">&#9670;&nbsp;</a></span>display_servicoStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -299,13 +435,25 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
           <td class="memname">void Empresa::display_servicoStatus </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramname"><em>id</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>id</em> = <code>0</code>&#160;</td>
+          <td class="paramtype">long int&#160;</td>
+          <td class="paramname"><em>n</em> = <code>10000</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*)(const <a class="el" href="class_servicos.html">Servicos</a> *, const <a class="el" href="class_servicos.html">Servicos</a> *)&#160;</td>
+          <td class="paramname"><em>f</em> = <code><a class="el" href="_servicos_8cpp.html#a60bd9c983d6a501402fa0a3b8e0c18be">Compare_servico_profit</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>type</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -314,114 +462,61 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>This function prints on the screen the information about the service(s). Case the id is given it just print the information of one service (which has the id give). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>Number of the services to print </td></tr>
-    <tr><td class="paramname">id</td><td>Identification number of the service </td></tr>
+    <tr><td class="paramname">id</td><td>Identification of the service which must be different from zero case needs to display a specific service </td></tr>
+    <tr><td class="paramname">n</td><td>Number of services </td></tr>
+    <tr><td class="paramname">f</td><td>Function to sort the vector </td></tr>
+    <tr><td class="paramname">type</td><td>Type of the service (if it's necessary) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00103">103</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                                                                      {</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ostringstream os;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">id</span>) {</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">size_t</span> pos = <a class="code" href="class_empresa.html#a2120e4fe5335f018c969d041e589716c">SearchSer</a>(<span class="keywordtype">id</span>);</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        os &lt;&lt; *<a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>[pos];</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>.begin(); it &lt; <a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>.end(); it++) {</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            os &lt;&lt; (*it);</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    headerServInfor();</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    cout &lt;&lt; os.str();</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div><div class="ttc" id="class_empresa_html_a2120e4fe5335f018c969d041e589716c"><div class="ttname"><a href="class_empresa.html#a2120e4fe5335f018c969d041e589716c">Empresa::SearchSer</a></div><div class="ttdeci">size_t SearchSer(const unsigned int &amp;id) const</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00074">Empresa.cpp:74</a></div></div>
-<div class="ttc" id="class_empresa_html_a4c84a5a3c91a62594efcd064028caf08"><div class="ttname"><a href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">Empresa::ser</a></div><div class="ttdeci">vector&lt; Servicos * &gt; ser</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00028">Empresa.h:28</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00237">237</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                                                                                                                                             {</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    ostringstream os;</div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    os &lt;&lt; fixed &lt;&lt; setprecision(2);</div><div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">id</span>) {                                                       <span class="comment">//Case just one service to be displayed</span></div><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordtype">size_t</span> pos = <a class="code" href="class_empresa.html#a2120e4fe5335f018c969d041e589716c">SearchSer</a>(<span class="keywordtype">id</span>);</div><div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        os &lt;&lt; *<a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>[pos];    </div><div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    } <span class="keywordflow">else</span> {                                                        <span class="comment">//Case n services to be shown</span></div><div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        vector&lt;Servicos *&gt; s(<a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>);                          </div><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        sort(s.begin(), s.end(), f);                                <span class="comment">//Sorting according with the request</span></div><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keywordflow">if</span> (type.empty()) {                                         <span class="comment">//If there is no preference of types</span></div><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp; it : s) {</div><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                os &lt;&lt; *it;</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                n--;</div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">break</span>;</div><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            }</div><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        }</div><div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">else</span>{                                                       <span class="comment">//If there is preference of type of service</span></div><div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp; it : s) {                                  </div><div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                <span class="keywordflow">if</span> (it-&gt;get_tipo() == type){                        <span class="comment">//Check the type</span></div><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                    os &lt;&lt; *it;</div><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                    n--;</div><div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                }</div><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">break</span>;                                  <span class="comment">//n Services has already been displayed </span></div><div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            }</div><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        }</div><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <a class="code" href="_empresa_8cpp.html#a009faec823cef34dd6e8b5fb580e7781">headerServInfor</a>();                                              <span class="comment">//Show header of the list </span></div><div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    cout &lt;&lt; os.str();</div><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div><div class="ttc" id="class_empresa_html_a2120e4fe5335f018c969d041e589716c"><div class="ttname"><a href="class_empresa.html#a2120e4fe5335f018c969d041e589716c">Empresa::SearchSer</a></div><div class="ttdeci">size_t SearchSer(const unsigned int &amp;id) const</div><div class="ttdoc">Search for a service with the id given. </div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00187">Empresa.cpp:187</a></div></div>
+<div class="ttc" id="class_empresa_html_a4c84a5a3c91a62594efcd064028caf08"><div class="ttname"><a href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">Empresa::ser</a></div><div class="ttdeci">vector&lt; Servicos * &gt; ser</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00033">Empresa.h:33</a></div></div>
+<div class="ttc" id="_empresa_8cpp_html_a009faec823cef34dd6e8b5fb580e7781"><div class="ttname"><a href="_empresa_8cpp.html#a009faec823cef34dd6e8b5fb580e7781">headerServInfor</a></div><div class="ttdeci">void headerServInfor()</div><div class="ttdoc">Header for list of services. </div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8cpp_source.html#l00268">Empresa.cpp:268</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a398dd606fa6a677d7cd3128379984fa0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a398dd606fa6a677d7cd3128379984fa0">&#9670;&nbsp;</a></span>get_numCamiao()</h2>
+<a id="ace12bc96868a933be6d46fbca56667c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace12bc96868a933be6d46fbca56667c9">&#9670;&nbsp;</a></span>getLucro_camiaoMes()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Empresa::get_numCamiao </td>
+          <td class="memname">double Empresa::getLucro_camiaoMes </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Returns the number of camioes </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00036">36</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                              {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> nCam;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="a9acc8105647e6dab1484d7f169ba14e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9acc8105647e6dab1484d7f169ba14e5">&#9670;&nbsp;</a></span>get_numClientes()</h2>
+<p>Get the profit of the month for a specific type o truck. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Empresa::get_numClientes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Returns the number of clients </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00032">32</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> nCli;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00326">326</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                                                           {</div><div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordtype">double</span> lucro = 0;</div><div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;it : <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>) {                                        <span class="comment">//Linear Search to group the profit by type</span></div><div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">if</span> (it-&gt;getType() == type)</div><div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            lucro += it-&gt;getProfit();</div><div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div><div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">return</span> lucro;</div><div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;}</div><div class="ttc" id="class_empresa_html_aa3f664b5438e21c09dfcffab157f06c0"><div class="ttname"><a href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">Empresa::cam</a></div><div class="ttdeci">vector&lt; Camiao * &gt; cam</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00032">Empresa.h:32</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="af7d3c730891ab09ad8d04ef9f0b67c04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7d3c730891ab09ad8d04ef9f0b67c04">&#9670;&nbsp;</a></span>get_numServicos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Empresa::get_numServicos </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Returns the number of services </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00040">40</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                {</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> nSer;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="aca3bb98eb418d078696c9e85e7170601"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca3bb98eb418d078696c9e85e7170601">&#9670;&nbsp;</a></span>getLucro_mes()</h2>
+<a id="a72213a15f88c13724f7b970fb1e82ed5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72213a15f88c13724f7b970fb1e82ed5">&#9670;&nbsp;</a></span>getLucro_mes()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Empresa::getLucro_mes </td>
+          <td class="memname">double Empresa::getLucro_mes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -432,8 +527,36 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
 <p>Calculates the profit of the month. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the profit of the month </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00024">24</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                  {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">float</span> lucro = 0;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.begin(); it &lt; <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.end(); it++)</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        lucro += (*it)-&gt;get_profit();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> lucro;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00026">Empresa.h:26</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00155">155</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                                   {</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">double</span> lucro = 0;</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.begin(); it &lt; <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.end(); it++)               <span class="comment">//profit of each client</span></div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        lucro += (*it)-&gt;get_profit();</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">return</span> lucro;</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00031">Empresa.h:31</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa16f707313f7dac51beacc0d3f442ab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa16f707313f7dac51beacc0d3f442ab5">&#9670;&nbsp;</a></span>gravaCam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Empresa::gravaCam </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read information from camioes.txt file and build the cam vector. </p>
+<p>that reads and records the file of the trucks </p>
+
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00105">105</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                       {</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    fstream file(<span class="stringliteral">&quot;../AEDA_Proj1/Ficheiros/camioes&quot;</span>);</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> carga;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">double</span> auxDouble;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">int</span> auxInt;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">string</span> type;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">string</span> auxString;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">while</span> (!file.eof()) {</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        getline(file, auxString);                           <span class="comment">//get first line</span></div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        getline(file, auxString);                           <span class="comment">//get cargaMax</span></div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        istringstream is(auxString);</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        is &gt;&gt; carga;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        getline(file, type);                                <span class="comment">//get the type</span></div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        getline(file, auxString);                           <span class="comment">//get the special atribute</span></div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        is.clear();</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        is.str(auxString);</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;Animal&quot;</span>) {</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            is &gt;&gt; auxInt;</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <a class="code" href="class_animals.html">Animals</a> *c = <span class="keyword">new</span> <a class="code" href="class_animals.html">Animals</a>(carga, auxInt, ++<a class="code" href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">nCam</a>);</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;Congelado&quot;</span>) {</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            is &gt;&gt; auxDouble;</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <a class="code" href="class_congelado.html">Congelado</a> *c = <span class="keyword">new</span> <a class="code" href="class_congelado.html">Congelado</a>(carga, auxDouble, ++<a class="code" href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">nCam</a>);</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;Perigoso&quot;</span>) {</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            is &gt;&gt; auxInt;</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <a class="code" href="class_perigoso.html">Perigoso</a> *c = <span class="keyword">new</span> <a class="code" href="class_perigoso.html">Perigoso</a>(carga, auxInt, ++<a class="code" href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">nCam</a>);</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            is &gt;&gt; auxInt;</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <a class="code" href="class_base.html">Base</a> *c = <span class="keyword">new</span> <a class="code" href="class_base.html">Base</a>(carga, ++<a class="code" href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">nCam</a>);</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">cam</a>.push_back(c);</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div><div class="ttc" id="class_congelado_html"><div class="ttname"><a href="class_congelado.html">Congelado</a></div><div class="ttdoc">Camiao Truck with frozens as product. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00077">Camiao.h:77</a></div></div>
+<div class="ttc" id="class_base_html"><div class="ttname"><a href="class_base.html">Base</a></div><div class="ttdoc">Camiao Sub class for base products. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00184">Camiao.h:184</a></div></div>
+<div class="ttc" id="class_animals_html"><div class="ttname"><a href="class_animals.html">Animals</a></div><div class="ttdoc">Camiao Truck with animals as product. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00147">Camiao.h:147</a></div></div>
+<div class="ttc" id="class_perigoso_html"><div class="ttname"><a href="class_perigoso.html">Perigoso</a></div><div class="ttdoc">Camiao Sub class that handles trucks with dangerous products. </div><div class="ttdef"><b>Definition:</b> <a href="_camiao_8h_source.html#l00114">Camiao.h:114</a></div></div>
+<div class="ttc" id="class_empresa_html_aa3f664b5438e21c09dfcffab157f06c0"><div class="ttname"><a href="class_empresa.html#aa3f664b5438e21c09dfcffab157f06c0">Empresa::cam</a></div><div class="ttdeci">vector&lt; Camiao * &gt; cam</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00032">Empresa.h:32</a></div></div>
+<div class="ttc" id="class_empresa_html_abcca6d5fbe7e662bd38297acc080d189"><div class="ttname"><a href="class_empresa.html#abcca6d5fbe7e662bd38297acc080d189">Empresa::nCam</a></div><div class="ttdeci">static size_t nCam</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00036">Empresa.h:36</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -452,7 +575,9 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Search for a client with nif given </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Search for a client with nif given. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nif</td><td>Identification of the client </td></tr>
   </table>
@@ -460,8 +585,8 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return the position of client in the vector cli </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00067">67</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                                        {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i&lt; <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.size(); i++){</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>[i]-&gt;get_nif() == nif) <span class="keywordflow">return</span> i;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> -1;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00026">Empresa.h:26</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00180">180</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                                                         {</div><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>.size(); i++) {                          <span class="comment">//Linear search O^n</span></div><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">cli</a>[i]-&gt;get_nif() == nif) <span class="keywordflow">return</span> i;</div><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">return</span> -1;                                                      <span class="comment">// if doesnt exist returns -1</span></div><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div><div class="ttc" id="class_empresa_html_a1b846533a5b6e59cb9fa9b2f1ef43670"><div class="ttname"><a href="class_empresa.html#a1b846533a5b6e59cb9fa9b2f1ef43670">Empresa::cli</a></div><div class="ttdeci">vector&lt; Clientes * &gt; cli</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00031">Empresa.h:31</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -480,7 +605,9 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Search for a service with the id given </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Search for a service with the id given. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Identification of the service </td></tr>
   </table>
@@ -488,9 +615,9 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return the position of the service in the vector ser. If it doesn't exist throw an exception </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00074">74</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                                     {</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>.size(); i++){</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>[i]-&gt;get_id() == id) <span class="keywordflow">return</span> i;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_no_service.html">NoService</a>(<span class="keywordtype">id</span>);</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div><div class="ttc" id="class_empresa_html_a4c84a5a3c91a62594efcd064028caf08"><div class="ttname"><a href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">Empresa::ser</a></div><div class="ttdeci">vector&lt; Servicos * &gt; ser</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00028">Empresa.h:28</a></div></div>
-<div class="ttc" id="class_no_service_html"><div class="ttname"><a href="class_no_service.html">NoService</a></div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00018">Errors.h:18</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_empresa_8cpp_source.html#l00187">187</a> of file <a class="el" href="_empresa_8cpp_source.html">Empresa.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                                                      {</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>.size(); i++) {                          <span class="comment">//Linear search O^n</span></div><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">ser</a>[i]-&gt;get_id() == id) <span class="keywordflow">return</span> i;                      </div><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="class_no_service.html">NoService</a>(to_string(<span class="keywordtype">id</span>));                                 <span class="comment">//if it doenst exist throw an exception </span></div><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div><div class="ttc" id="class_empresa_html_a4c84a5a3c91a62594efcd064028caf08"><div class="ttname"><a href="class_empresa.html#a4c84a5a3c91a62594efcd064028caf08">Empresa::ser</a></div><div class="ttdeci">vector&lt; Servicos * &gt; ser</div><div class="ttdef"><b>Definition:</b> <a href="_empresa_8h_source.html#l00033">Empresa.h:33</a></div></div>
+<div class="ttc" id="class_no_service_html"><div class="ttname"><a href="class_no_service.html">NoService</a></div><div class="ttdoc">Error case the service doesn&amp;#39;t exist. </div><div class="ttdef"><b>Definition:</b> <a href="_errors_8h_source.html#l00042">Errors.h:42</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -516,7 +643,7 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
 </div><div class="memdoc">
 <p>Vector that contais all camioes of this enterprise </p>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00027">27</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00032">32</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
 
 </div>
 </div>
@@ -541,7 +668,82 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
 </div><div class="memdoc">
 <p>Vector that contains all clients of this enterprise </p>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00026">26</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00031">31</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
+
+</div>
+</div>
+<a id="abcca6d5fbe7e662bd38297acc080d189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcca6d5fbe7e662bd38297acc080d189">&#9670;&nbsp;</a></span>nCam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Empresa::nCam = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>How many trucks there are in the enterprise </p>
+
+<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00036">36</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
+
+</div>
+</div>
+<a id="a18ecb4c524f816f843414369132dac50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18ecb4c524f816f843414369132dac50">&#9670;&nbsp;</a></span>nCli</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Empresa::nCli = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>How many clients there are in the enterprise </p>
+
+<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00037">37</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
+
+</div>
+</div>
+<a id="a07e98959203438cbfbba1a2484f0150d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07e98959203438cbfbba1a2484f0150d">&#9670;&nbsp;</a></span>nSer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Empresa::nSer = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>How many services there are in the enterprise in a specific month </p>
+
+<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00038">38</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
 
 </div>
 </div>
@@ -566,7 +768,7 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><b>nSer</b> = 0
 </div><div class="memdoc">
 <p>Vector that contais all services offered for the enterprise </p>
 
-<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00028">28</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_empresa_8h_source.html#l00033">33</a> of file <a class="el" href="_empresa_8h_source.html">Empresa.h</a>.</p>
 
 </div>
 </div>

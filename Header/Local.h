@@ -8,7 +8,14 @@
 #include <string>
 using namespace std;
 
-
+/**
+ * @file Local.h
+ * @brief File with the declaration of Local class reponsable to handle the location of the services
+ */
+/**
+ * @brief Class that handles the locals of transportation
+ * 
+ */
 class Local {
 private:
     string name;                                    /**<Name of the local**/

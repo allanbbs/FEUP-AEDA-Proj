@@ -15,6 +15,11 @@ using namespace std;
 extern TaxTable *table;
 
 /**
+ * @file Camiao.h
+ * @brief It contains the declarations of the class Camiao and its sub-classes.
+ */
+
+/**
  * @brief Class responsable for truck management
  */
 class Camiao {
@@ -30,7 +35,6 @@ public:
      */
     Camiao(const unsigned int& carg, const unsigned int& id);
     /**
-     * Default destructor
      * @brief Default destructor
      */
     virtual ~Camiao();
@@ -67,7 +71,7 @@ public:
 };
 
 /**
- * Truck with frozens as product
+ * @brief Camiao Truck with frozens as product
  *
  */
 class Congelado : public Camiao {
@@ -103,7 +107,10 @@ public:
     string getType() const;
 };
 
-
+/**
+ * @brief Camiao Sub class that handles trucks with dangerous products 
+ * 
+ */
 class Perigoso : public Camiao {
 private:
     int quaoPerigoso;       /**<How dangerous an animal is in a scale of 0-10*/
@@ -135,7 +142,7 @@ public:
 };
 
 /**
- * Truck with animals as product
+ * @brief Camiao Truck with animals as product
  */
 class Animals : public Camiao {
 private:
@@ -172,9 +179,9 @@ public:
 };
 
 /**
- * Base class for the truck
+ * @brief Camiao Sub class for base products
  */
-class Base: public Camiao{
+class Base: public Camiao {
 private:
     double tax = table->table["Base"];      /**<Get the taxes*/
 public:

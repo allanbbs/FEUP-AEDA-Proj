@@ -11,6 +11,10 @@ size_t Empresa::nCam = 0;
 size_t Empresa::nCli = 0;
 size_t Empresa::nSer = 0;
 
+/**
+ * @file Empresa.cpp
+ * @brief It contains the Empresa class implementation, resposable for the management of the enterprise
+ */
 
 void Empresa::gravaCli() {
     ifstream file("../AEDA_Proj1/Ficheiros/clientes");

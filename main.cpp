@@ -9,6 +9,13 @@
 #include "Header/Servicos.h"
 #include "Header/Empresa.h"
 using namespace std;
+
+/**
+ * @file main.cpp
+ * @brief This is the main page of the project that contains the implementation of it
+ *
+ */
+
 ifstream in("../AEDA_Proj1/Ficheiros/tax.txt"); //NAO MUDA!
 TaxTable *table = new TaxTable(in);
 

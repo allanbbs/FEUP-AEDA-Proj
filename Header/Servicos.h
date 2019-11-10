@@ -19,8 +19,14 @@
 
 
 using namespace std;
-
-
+/**
+ * @file Servicos.h
+ * @brief Declarations of Servicos class responsable for handle the services (individualy)
+ */
+/**
+ * @brief Class that handles the services 
+ * 
+ */
 class Servicos {
 private:
     unsigned int id;
