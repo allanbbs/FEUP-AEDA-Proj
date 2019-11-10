@@ -66,7 +66,18 @@ public:
      * @return double
      */
     double getProfit() const {return totalProfit; }
-
+    /**
+     * @brief remove the truck
+     * It does not actually remove the truck, due the register of the client.
+     * What it really does is to set the CargaMax as negative.
+     * On this way it will not be allocated anymore but will keep the register
+     */
+    void removeTruck();
+    /**
+     * @brief get the individual caracteristic of the truck
+     * @return A string with the individual caracteristic
+     */
+    virtual string getCarac() const = 0;
 
 };
 
@@ -94,7 +105,7 @@ public:
      * @brief Get the Temp parameter
      * @return double
      */
-    double getTemp() const;
+    string getCarac() const;
     /**
      * @brief The default price of the truck for one service
      * @return double
@@ -128,12 +139,16 @@ public:
      *@brief Destroy the Perigoso object
      */
     ~Perigoso();
+    /**
+     * @brief calculates the price for one service
+     * @return the price
+     */
     double cal_preco();
     /**
      * @brief Get the Level of dangerous
      * @return int
      */
-    int getLevel() const;
+    string getCarac() const;
     /**
      * @brief Get the Type parameter
      * @return string
@@ -163,9 +178,9 @@ public:
     ~Animals();
     /**
      * @brief Get the Animal Count parameter
-     * @return int
+     * @return string
      */
-    int getAnimalCount() const;
+    string getCarac() const;
     /**
      * @brief The default price of the truck for one service
      * @return double
@@ -201,6 +216,11 @@ public:
      * @return double
      */
     double cal_preco();
+    /**
+     * @brief returns the individual caracteristic
+     * @return 00, because the base class doesn't have this argument
+     */
+    string getCarac() const{return "00";}
 
 };
 

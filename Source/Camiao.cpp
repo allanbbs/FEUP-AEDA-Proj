@@ -22,7 +22,9 @@ void Camiao::addedToService() {
     totalProfit += cal_preco();
 }
 
-
+void Camiao::removeTruck() {
+    this-> CargaMax = -CargaMax;
+}
 //Congelado sub-class//
 
 //constructor of  congelado
@@ -32,8 +34,8 @@ Congelado::Congelado(long long int carg, double temp, long long int Id) : Camiao
 // congelado destructor
 Congelado::~Congelado() {}
 // it returns the temperature of de congelado of the truck
-double Congelado::getTemp() const {
-    return temperatura;
+string Congelado::getCarac() const {
+    return to_string(temperatura);
 }
 
 double Congelado::cal_preco() {
@@ -50,8 +52,8 @@ Perigoso::Perigoso(long long int carg, int lvl, long long int Id) : Camiao(carg,
 
 Perigoso::~Perigoso() {}
 
-int Perigoso::getLevel() const {
-    return quaoPerigoso;
+string Perigoso::getCarac() const {
+    return to_string(quaoPerigoso);
 }
 
 double Perigoso::cal_preco() {
@@ -68,8 +70,8 @@ Animals::Animals(long long int carg, int number, long long int Id) : Camiao(carg
 
 Animals::~Animals() {}
 
-int Animals::getAnimalCount() const {
-    return animalCount;
+string Animals::getCarac() const {
+    return to_string(animalCount);
 }
 
 double Animals::cal_preco() {

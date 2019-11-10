@@ -178,6 +178,12 @@ public:
      */
     void reAcceptClient(const long int& pos);
 
+    void removeTruck(const long long int& id);
+
+    void rewriteTruck();
+
+
+
 };
 
 /**

@@ -340,7 +340,7 @@ bool Empresa::allocateCamiao(Servicos *s) {
     int carga = s->get_carga();
     sort(cam_copy.begin(), cam_copy.end(), Compare);                    //Sort by ascender order of profit 
     for (const auto &x: cam_copy) {
-        if (x->getType() == s->get_tipo()) {                            //If it has the same type of the service 
+        if (x->getType() == s->get_tipo() && x->getCargaMax()>0) {                            //If it has the same type of the service
             carga -= x->getCargaMax();
             s->addCamiao(x);
         }
@@ -372,6 +372,7 @@ void Empresa::rewriteClients() {
             file << cli[i]->getName() << endl << cli[i]->get_nif() << endl;
 
     file << cli[cli.size()-1]->getName() << endl << cli[cli.size()-1]->get_nif();
+    file.close();
 
 }
 
@@ -417,4 +418,34 @@ void Empresa::removeClient(const long long int &nif) {
 void Empresa::reAcceptClient(const long int& pos) {
     cli[pos]->setNif((-1)*cli[pos]->get_nif());
     rewriteClients();
+}
+
+void Empresa::removeTruck(const long long int &id) {
+    for (auto const & t: cam){
+        if (t->getId() == id) {
+            if (t->getCargaMax() < 0) {
+                cout << "Truck has already been removed ";
+                return;
+            }
+            t->removeTruck();
+            nCam--;
+            cout << "Truck removed successufully ";
+            break;
+        }
+    }
+    //now we need to write the information at the file camioes
+    rewriteTruck();
+
+}
+
+void Empresa::rewriteTruck() {
+    ofstream o("../AEDA_Proj1/Ficheiros/camioes");
+    for (auto i  = 0; i < cam.size()-1; i ++){
+        o << "\n" << cam[i]->getCargaMax() << "\n" << cam[i]->getType();
+        o << "\n" << cam[i]->getCarac() << "\n";
+    }
+    o << "\n" << cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType();
+    o << "\n" << cam[cam.size()-1]->getCarac();
+    o.close();
+
 }

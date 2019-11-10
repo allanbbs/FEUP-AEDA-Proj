@@ -99,6 +99,14 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
             }
+            case 10:{
+                cout << "Type the id [EXIT 0]: ";
+                long long int id = checkOption(0,Empresa::nCam);
+                if (id == 0) continue;
+                e.removeTruck(id);
+                wait();
+                break;
+            }
             default:
                 break;
         }
