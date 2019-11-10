@@ -106,6 +106,10 @@ Empresa.h
 cstdlib
 -
 
+/home/maruba/Documents/AEDA_Proj1/Source/Camiao.cpp
+../Header/Camiao.h
+/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h
+
 /home/maruba/Documents/AEDA_Proj1/Source/Clientes.cpp
 vector
 -
@@ -118,9 +122,21 @@ vector
 fstream
 -
 
+/home/maruba/Documents/AEDA_Proj1/Source/Local.cpp
+../Header/Local.h
+/home/maruba/Documents/AEDA_Proj1/Header/Local.h
+utility
+-
+
 /home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp
 ../Header/Servicos.h
 /home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
+
+/home/maruba/Documents/AEDA_Proj1/Source/TaxTable.cpp
+../Header/TaxTable.h
+/home/maruba/Documents/AEDA_Proj1/Header/TaxTable.h
+string
+-
 
 /home/maruba/Documents/AEDA_Proj1/Source/utils.cpp
 ../Header/utils.h
