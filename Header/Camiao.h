@@ -31,51 +31,30 @@ public:
     Camiao(const unsigned int& carg, const unsigned int& id);
     /**
      * Default destructor
+     * @brief Default destructor
      */
     virtual ~Camiao();
     /**
-     * @return Based on the taxes, max storage and caracteristics, calculates the price for one service
+     * @return the price of the camiao
      */
     virtual double cal_preco() = 0;
     /**
-     * @return the type of the camiao
+     * @return the type of the truck
      */
     virtual string getType() const = 0;
-    /**
-     * @brief It computes that the camiao has been added to a service and then increases the total profit
-     * 
-     */
     void addedToService();
-    /**
-     * @brief Get the Id parameter
-     * 
-     * @return int 
-     */
     int getId() const { return id; }
-    /**
-     * @brief Get the Carga Max parameter
-     * 
-     * @return int 
-     */
     int getCargaMax() const {return CargaMax;}
-    /**
-     * @brief Get the Profit parameter
-     * 
-     * @return double 
-     */
     double getProfit() const {return totalProfit; }
 
 
 };
 
-/**
- * @brief Class responsable for frozen trucks
- * 
- */
+
 class Congelado : public Camiao {
 private:
-    double temperatura;                      /**<Temperature*/
-    double tax = table->table["Congelado"];/**<Get the taxes*/
+    double temperatura;                                 /**<Temperature*/
+    double tax = table->table["Congelado"];             /**<Get the taxes*/
 public:
     /**
      * Contructor
@@ -88,23 +67,8 @@ public:
      * Default destructor
      */
     ~Congelado();
-    /**
-     * @brief Get the temperature parameter
-     * 
-     * @return double 
-     */
-    double getTemp() const;                
-    /**
-     * @brief Based on the taxes, max storage and temperature, calculates the price for one service
-     * 
-     * @return double 
-     */
+    double getTemp() const;                /**<Get the temperature*/
     double cal_preco();
-    /**
-     * @brief Get the Type parameter
-     * 
-     * @return string "Congelado"
-     */
     string getType() const;
 };
 
@@ -124,10 +88,6 @@ public:
      * @param lvl How dangerous the animal is
      */
     Perigoso(unsigned int carg, int lvl, unsigned int Id);
-    /**
-     * @brief Destroy the Perigoso object
-     * 
-     */
     ~Perigoso();
     /**
      * @brief Based on the taxes, max storage and how dangerous it is, calculates the price for one service
@@ -135,27 +95,17 @@ public:
      * @return double 
      */
     double cal_preco();
-    /**
-     * @brief Get the Level of dangerous
-     * 
-     * @return int 
-     */
-    int getLevel() const;  
-    /**
-     * @brief Get the Type parameter
-     * 
-     * @return string "Perigoso"
-     */
+    int getLevel() const;       /**<Get quaoPerigoso*/
     string getType() const;
 };
 
 /**
- * Camiao with animals as product
+ * Truck with animals as product
  */
 class Animals : public Camiao {
 private:
-    int animalCount;                        /**<How many animal there are in a camiao*/
-    double tax = table->table["Animal"];    /**<Get the taxes*/
+    int animalCount;                    /**<How many animal there are in a camiao*/
+    double tax = table->table["Animal"];/**<Get the taxes*/
 public:
     /**
      * Contructor
@@ -164,64 +114,26 @@ public:
      * @param number id
      */
     Animals(unsigned int carg, int number, unsigned int Id);
-    /**
-     * @brief Destroy the Animals object
-     * 
-     */
-    ~Animals();   
-    /**
-     * @brief Get the how many animals there are in the truck
-     * 
-     * @return int 
-     */
-    int getAnimalCount() const; 
-    /**
-     * @brief Based on the taxes, max storage and caracteristics, calculates the price for one service
-     * 
-     * @return double 
-     */
+    ~Animals();                 /**<Destructor*/
+    int getAnimalCount() const; /**<Get how many animals there are in a camiao*/
+    //void removeAnimal() { animalCount--; }
+    //void addAnimal() { animalCount++; }
     double cal_preco();
-    /**
-     * @brief Get the Type parameter
-     * 
-     * @return string "Animals" 
-     */
     string getType() const;
 };
 
+/**
+ * Base class for the truck
+ */
 class Base: public Camiao{
 private:
     double tax = table->table["Base"];      /**<Get the taxes*/
 public:
-    /**
-     * @brief Construct a new Base object
-     * 
-     * @param carg The actual storage
-     * @param Id The Number identification
-     */
     Base(unsigned int carg, unsigned int Id): Camiao(carg, Id) {};
-    /**
-     * @brief Get the Type object
-     * 
-     * @return string 
-     */
     string getType() const;
-    /**
-     * @brief Based on the taxes and max storage, calculates the price for one service
-     * 
-     * @return double 
-     */
     double cal_preco();
 
 };
 
-/**
- * @brief Compare two trucks
- * 
- * @param c1 Pointer to the argument of the left to be compared
- * @param c2 Pointer to the argument of the right to be compared
- * @return true if the profit in c1<c2. If they have the same profit return true if max storage c1<c2. If they have the same storage return true. 
- * @return false if the profit in c2<c1. If they have the same profit return false if the max storage c2<c1.
- */
 bool Compare(const Camiao* c1, const Camiao* c2);
 #endif //AEDA_PROJ1_CAMIAO_H
