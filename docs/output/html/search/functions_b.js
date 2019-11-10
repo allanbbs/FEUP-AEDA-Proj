@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['searchcli',['SearchCli',['../class_empresa.html#a596e13d6bb9188c2b627c4c946524841',1,'Empresa']]],
-  ['searchser',['SearchSer',['../class_empresa.html#a2120e4fe5335f018c969d041e589716c',1,'Empresa']]],
-  ['servicos',['Servicos',['../class_servicos.html#a2dd03511fdd7000baa348399db25953f',1,'Servicos::Servicos()'],['../class_servicos.html#a538c5eda3bd621b37a13aed596fc9329',1,'Servicos::Servicos(const Local &amp;Departure, const Local &amp;Arrival, const unsigned int &amp;Id, const string &amp;Tipo, const int &amp;Carga)']]],
-  ['setname',['setName',['../class_clientes.html#a3fc0969860c7df6e4f51394681e8cb41',1,'Clientes']]]
+  ['reacceptclient',['reAcceptClient',['../class_empresa.html#a0de4eb82c44af2365df9ff7ba7f77e04',1,'Empresa']]],
+  ['removeclient',['removeClient',['../class_empresa.html#a0a180803d6252ce2752fea0e7f5a1f5c',1,'Empresa']]],
+  ['removetruck',['removeTruck',['../class_camiao.html#a7a2a1d3ec747b697211e320fee18ed90',1,'Camiao::removeTruck()'],['../class_empresa.html#aff124092a9d1ba883a5462dea5ca1d74',1,'Empresa::removeTruck()']]],
+  ['rewriteclients',['rewriteClients',['../class_empresa.html#a095eaafe3bd2c08914f8e0e7ab075f2e',1,'Empresa']]],
+  ['rewritetruck',['rewriteTruck',['../class_empresa.html#a632509f2cb440b2ae5f27178c66cf2d6',1,'Empresa']]]
 ];

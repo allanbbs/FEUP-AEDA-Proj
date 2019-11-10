@@ -178,8 +178,16 @@ public:
      */
     void reAcceptClient(const long int& pos);
 
+    /**
+     * @brief remove the truck from the enterprise
+     * @param id the truck id
+     * @warning it doesn't actually delete the truck. Just put the carga to negative to indicate that it's not avaialable anymore
+     */
     void removeTruck(const long long int& id);
 
+    /**
+     * @brief rewrite the truck file
+     */
     void rewriteTruck();
 
 

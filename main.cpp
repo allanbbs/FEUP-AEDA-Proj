@@ -27,13 +27,14 @@ void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
+void welcome();
 
 int month;
 extern bool novo;
 
 int main(){
     Empresa e;
-    cout << "Welcome! Type the month to be analyzed [EXIT 0] ";
+    cout << "Type the month to be analyzed [EXIT 0] ";
     month = checkOption(0,12);
     if (month != 0){
         e.gravaCli();
@@ -42,6 +43,7 @@ int main(){
         mainMenu(e);
     }
 }
+
 void mainMenu(Empresa &e){
     string nome;
     while (true) {
