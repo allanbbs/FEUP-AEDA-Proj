@@ -7,15 +7,24 @@
  */
 class Error{
 protected:
-    std::string info;   /**<string containing the cause of the error*/
+    std::string info;                                       /**<string containing the cause of the error*/
 public:
+    /**
+     * @brief Construct a new Error object
+     * 
+     * @param Info Information about the error
+     */
     Error(std::string Info): info(Info) { };
+    /**
+     * @brief Get the Info parameter
+     * 
+     * @return std::string 
+     */
     virtual std::string getInfo() const {return info;};
 };
 /**
  * Error case the client doens't exist
  */
-
 class NoClient: Error {
 public:
     NoClient(const std::string & nif): Error(nif) {}

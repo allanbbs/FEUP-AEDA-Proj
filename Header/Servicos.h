@@ -100,8 +100,18 @@ public:
      */
     string get_tipo() const;
 
+    /**
+     * @brief Get the actual storage
+     * 
+     * @return storage
+     */
     int get_carga() const;
 
+    /**
+     * @brief Get the truck id
+     * 
+     * @return return the id 
+     */
     string get_camioes_id() const;
 
     /**
@@ -112,7 +122,22 @@ public:
 
 };
 
+/**
+ * @function function that check if s' profit is bigger than s1's. If they gave the same profit, compare the id
+ * @param s first service
+ * @param s1 second service
+ * @return true if profit s<s1. If they have the same return true if id s<s1
+ * @return false if profit s1<s. Return false case they have the same profit and id s1<s
+ */
 bool Compare_servico_profit(const Servicos* c, const Servicos* c1);
+
+/**
+ * @function function that check if s' profit is lesser than s1's. If they gave the same profit, compare the id
+ * @param s first service
+ * @param s1 second service
+ * @return true if profit s1<s. If they have the same return true if id s<s1
+ * @return false if profit s<s1. Return false case they have the same profit and id s1<s
+ */
 bool Compare_servico_Leastprofit(const Servicos *s, const Servicos *s1);
 
 #endif //AEDA_PROJ1_SERVICOS_H

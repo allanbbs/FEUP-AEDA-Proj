@@ -195,6 +195,7 @@ void handleAddClient(Empresa &e){
         }
         catch (RepeatedClient &a) {
             cout << "There is already a client with nif "<<a.getInfo() << endl;
+            cout << "Try again:" << endl; 
             continue;
         }
     }
@@ -296,9 +297,11 @@ void handleAddTruck(Empresa &e){
     type = checkOption(-1, 3);
     if (type == -1) return;
 
-    if(type == 0)
+    if(type == 0){
         e.addCamiao(0, carg);
-
+        cout << "Truck added successfully ";
+        wait(); 
+    }
     else if (type == 1){
         cout << "Temperature: ";
         try{

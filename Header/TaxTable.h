@@ -20,7 +20,7 @@ using namespace std;
  */
 class TaxTable{
 public:
-    map<string,double> table;
+    map<string,double> table;       /**<map with each tax**/
 public:
     /**
      * @brief Constructor for TaxTable Class

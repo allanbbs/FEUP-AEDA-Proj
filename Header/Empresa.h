@@ -24,24 +24,24 @@ using namespace std;
  */
 class Empresa {
 private:
-    vector<Clientes *> cli; /**< Vector that contains all clients of this enterprise*/
-    vector<Camiao *> cam;   /**<Vector that contais all camioes of this enterprise*/
-    vector<Servicos *> ser; /**<Vector that contais all services offered for the enterprise*/
+    vector<Clientes *> cli;     /**< Vector that contains all clients of this enterprise*/
+    vector<Camiao *> cam;       /**<Vector that contais all camioes of this enterprise*/
+    vector<Servicos *> ser;     /**<Vector that contais all services offered for the enterprise*/
 
 public:
-    static size_t nCam;
-    static size_t nCli;
-    static size_t nSer;
-    /*
+    static size_t nCam;         /**<How many trucks there are in the enterprise**/
+    static size_t nCli;         /**<How many clients there are in the enterprise**/
+    static size_t nSer;         /**<How many services there are in the enterprise in a specific month**/
+    /**
      * @brief Read information from clients.txt file and build the cli vector
      */
     void gravaCli();
-    /*
+    /**
      * @brief Read information from camioes.txt file and build the cam vector
      */
     void gravaCam();
-    /*
-     * @ brief Read information from servicos.txt file and build the ser vector
+    /**
+     * @brief Read information from servicos.txt file and build the ser vector
      */
     void gravaSer(Empresa &e, const int& month);
     /**
@@ -94,36 +94,68 @@ public:
      * @return Return the position of the service in the vector ser. If it doesn't exist throw an exception
      */
     size_t SearchSer(const unsigned int &id) const;
-
+    /**
+     * @brief Get the profit of the month for a specific type o truck
+     * 
+     * @param type 
+     * @return double 
+     */
     double getLucro_camiaoMes(const string& type) const;
 
     /**
-     * @brief This function prints on the screen the information about the client(s). Case the nif is given it just print the information of one client (which has the nif given).
-     * @param n Number of clients to print
-     * @param nif Personal numeration of the client
+     * @brief Display the clients information in a specific format
+     * 
+     * @param nif Case it's a specific nif, the parameter nif must be diferent from zero
+     * @param n Number of clients to be shown
+     * @param f Function used to sort the vector
      */
     void display_clientesInfo(const unsigned int &nif= 0, long int n = 1, bool (*f)(const Clientes* c, const Clientes* c1) = Compare_clientes);
     /**
      * @brief Displays in a simple way the total profit of the month
      */
     void display_lucro_mes();
-
+    /**
+     * @brief display profit of each truck type
+     * 
+     */
     void display_CamiaoProfit();
 
     /**
-     * @brief This function prints on the screen the information about the service(s). Case the id is given it just print the information of one service (which has the id give).
-     * @param n Number of the services to print
-     * @param id Identification number of the service
+     * @brief 
+     * 
+     * @param id Identification of the service which must be different from zero case needs to display a specific service
+     * @param n Number of services
+     * @param f Function to sort the vector
+     * @param type Type of the service (if it's necessary)
      */
     void display_servicoStatus(const unsigned int &id = 0, long int n = 10000, bool(*f)(const Servicos*, const Servicos*) = Compare_servico_profit, const string& type = "") const;
 
-    //adiciona camiao no servico de acordo com o id
+    /**
+     * @brief Add a truck to a specific service based on its id
+     * 
+     * @param id Identification of the truck
+     * @param s Service to the truck be added to
+     */
     void addCamiaoId_Servico(const int& id, Servicos* s);
-
+    /**
+     * @brief Choose trucks to be allocated to a service
+     * 
+     * @param s Service requesting trucks
+     * @return true if it allocated trucks successfully
+     * @return false if it didn't allocate trucks successfully
+     */
     bool allocateCamiao(Servicos* s);
 };
 
+/**
+ * @brief Header for list of services
+ * 
+ */
 void headerServInfor();
+/**
+ * @brief Header for list of trucks
+ * 
+ */
 void headerCamInfor();
 
 

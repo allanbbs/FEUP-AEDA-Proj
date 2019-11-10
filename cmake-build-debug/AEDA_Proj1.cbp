@@ -94,9 +94,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Algorithms.h">
-			<Option target="AEDA_Proj1"/>
-		</Unit>
 		<Unit filename="/home/maruba/Documents/AEDA_Proj1/Header/Camiao.h">
 			<Option target="AEDA_Proj1"/>
 		</Unit>

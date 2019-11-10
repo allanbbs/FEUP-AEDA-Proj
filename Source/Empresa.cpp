@@ -11,9 +11,7 @@ size_t Empresa::nCam = 0;
 size_t Empresa::nCli = 0;
 size_t Empresa::nSer = 0;
 
-/**
- *
- */
+
 void Empresa::gravaCli() {
     ifstream file("../AEDA_Proj1/Ficheiros/clientes");
     string name;                        //stores the name of the client       
@@ -27,12 +25,7 @@ void Empresa::gravaCli() {
         addClientes(name, nif);         //add client
     }
 }
-/**
- *
- * @param e
- * @param month
- * @function that reads and records in servicos.txt
- */
+
 void Empresa::gravaSer(Empresa &e, const int &month) {
     string fileName = "../AEDA_Proj1/Ficheiros/servicos" + to_string(month) + ".txt";
     ifstream file(fileName.c_str());
@@ -80,7 +73,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             is.str(aux);
             is >> cliNif;
 
-            //get the carga
+            //get the storage
             getline(file, aux);
             is.clear();
             is.str(aux);
@@ -92,7 +85,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             getline(file, aux);
             is.clear();
             is.str(aux);
-            while (!is.eof() && aux != "0") {
+            while (!is.eof() && aux != "0") {               //get the list of trucks id
                 is >> aux_int;
                 this->addCamiaoId_Servico(aux_int, s);
             }
@@ -113,14 +106,14 @@ void Empresa::gravaCam() {
     string type;
     string auxString;
     while (!file.eof()) {
-        getline(file, auxString); //get first line
+        getline(file, auxString);                           //get first line
 
-        getline(file, auxString); //get cargaMax
+        getline(file, auxString);                           //get cargaMax
         istringstream is(auxString);
         is >> carga;
 
-        getline(file, type);        //get the type
-        getline(file, auxString);    //get the special atribute
+        getline(file, type);                                //get the type
+        getline(file, auxString);                           //get the special atribute
         is.clear();
         is.str(auxString);
         if (type == "Animal") {
@@ -142,96 +135,62 @@ void Empresa::gravaCam() {
         }
     }
 }
-/**
- * @brief default empresa constructor
- */
+
 Empresa::Empresa() {}
 
-//todo algum erro aqui
-/**
- * @brief empresa destructor
- */
 Empresa::~Empresa() {
-    for (int i = nCam-1; i >= 0; i--) delete cli[i];              //cleaning the vector
+    for (int i = nCam-1; i >= 0; i--) delete cli[i];                //cleaning the vector
     for (int i = nCli-1; i >= 0; i--) delete cam[i];
     for (int i = nSer-1; i >= 0; i--) delete ser[i];
-    cli.clear();                                                            //deleting the vector allocation
+    cli.clear();                                                    //deleting the vector allocation
     cam.clear();
     ser.clear();
 }
 
-/**
- * @function
- * @return returns the months profit of the company
- */
+
 double Empresa::getLucro_mes() const {
     double lucro = 0;
-    for (auto it = cli.begin(); it < cli.end(); it++)
+    for (auto it = cli.begin(); it < cli.end(); it++)               //profit of each client
         lucro += (*it)->get_profit();
     return lucro;
 }
 
-/**
- * @function function that creates a client and adds in the company repository
- * @param clients name that will be add
- * @param clients nif that will be add
- */
+
 void Empresa::addClientes(const string &name, const unsigned int &nif) {
-    long int pos = SearchCli(nif);//check if the client a ready exist
-    if (pos != -1) throw RepeatedClient(name);// if so, throw a exception
+    long int pos = SearchCli(nif);                                  //check if the client already exists
+    if (pos != -1) throw RepeatedClient(name);                      // if so, throw a exception
     auto c = new Clientes(name, nif);
-    nCli++;
+    nCli++;                                                         //increase the number of clients 
     cli.push_back(c);
 }
-/**
- *@function function that creates a service and adds in the company repository
- * @param s service request by a client
- * @param cliNif - nif of a client that request a service
- * @return returns the service requested
- */
 
 Servicos *Empresa::addServico(Servicos* s, const unsigned int cliNif) {
     long int pos = SearchCli(cliNif);
-    if (pos == -1) throw NoClient(to_string(cliNif));//check if the client exist
+    if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
     return s;
 }
 
-//todo podemos usar pesquisa binaria
-/**
- *
- * @param nif- nif of the searched client
- * @return returns the index of a clients in the vector of clients of the company
- */
+
 long int Empresa::SearchCli(const unsigned int &nif) const {
-    for (int i = 0; i < cli.size(); i++) {
+    for (int i = 0; i < cli.size(); i++) {                          //Linear search O^n
         if (cli[i]->get_nif() == nif) return i;
     }
-    return -1;// if doesnt exist returns -1
-}
-/**
- *
- * @param id -id of the searched service
- * @return returns the index of a service in the vector of services of the company
- */
-size_t Empresa::SearchSer(const unsigned int &id) const {
-    for (int i = 0; i < ser.size(); i++) {
-        if (ser[i]->get_id() == id) return i;
-    }
-    throw NoService(to_string(id));
+    return -1;                                                      // if doesnt exist returns -1
 }
 
-/**
- * @function it shows the profit of a month
- */
+size_t Empresa::SearchSer(const unsigned int &id) const {
+    for (int i = 0; i < ser.size(); i++) {                          //Linear search O^n
+        if (ser[i]->get_id() == id) return i;                      
+    }
+    throw NoService(to_string(id));                                 //if it doenst exist throw an exception 
+}
+
 void Empresa::display_lucro_mes() {
     cout << fixed << setprecision(2);
     cout << "Total profit of the month: " << this->getLucro_mes() << endl;
 }
-/**
- * @function that returns the trucks profit by type
- */
 
 void Empresa::display_CamiaoProfit() {
     headerCamInfor();
@@ -242,16 +201,11 @@ void Empresa::display_CamiaoProfit() {
 
 }
 
-/**
- * @function that shows the information off all clients
- * @param nif - clients nif
- * @param n - clients size
- * @param f
- */
+
 void Empresa::display_clientesInfo(const unsigned int &nif, long int n, bool (*f)(const Clientes* c, const Clientes* c1)) {
     ostringstream os;
     os << fixed << setprecision(2);
-    if (nif) {
+    if (nif) {                                                      //Case just one client to be shown
         long int pos = SearchCli(nif);
         if (pos == -1)
             throw NoClient(to_string(nif));
@@ -260,61 +214,53 @@ void Empresa::display_clientesInfo(const unsigned int &nif, long int n, bool (*f
         os << "=========================================================="
               "=======================================" << endl;
         os << *cli[pos];
-    } else {
+    } else {                                                        //Case n clients to be shown
         vector<Clientes *> c(cli);
         sort(c.begin(), c.end(), f);
         os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
         os << "=========================================================="
               "=======================================" << endl;
         for (auto it = c.begin(); it < c.end(); it++) {
-            os << *(*it);
-            n--;
+            os << *(*it);   
+            n--;                                                    //When n == 0, n clients has already been displayed
             if (n == 0) break;
         }
     }
     cout << os.str();
 }
 
-/**
- * @function it shows the information of all clients
- * @param id- services identification
- * @param n
- * @param f
- * @param type - servirces type
- */
+
 void Empresa::display_servicoStatus(const unsigned int &id, long int n, bool (*f)(const Servicos*, const Servicos*), const string& type) const {
     ostringstream os;
     os << fixed << setprecision(2);
 
-    if (id) {
+    if (id) {                                                       //Case just one service to be displayed
         size_t pos = SearchSer(id);
-        os << *ser[pos];
-    } else {
-        vector<Servicos *> s(ser);
-        sort(s.begin(), s.end(), f);
-        if (type.empty()) {
+        os << *ser[pos];    
+    } else {                                                        //Case n services to be shown
+        vector<Servicos *> s(ser);                          
+        sort(s.begin(), s.end(), f);                                //Sorting according with the request
+        if (type.empty()) {                                         //If there is no preference of types
             for (auto & it : s) {
                 os << *it;
                 n--;
                 if (n == 0) break;
             }
         }
-        else{
-            for (auto & it : s) {
-                if (it->get_tipo() == type){
+        else{                                                       //If there is preference of type of service
+            for (auto & it : s) {                                  
+                if (it->get_tipo() == type){                        //Check the type
                     os << *it;
                     n--;
                 }
-                if (n == 0) break;
+                if (n == 0) break;                                  //n Services has already been displayed 
             }
         }
     }
-    headerServInfor();
+    headerServInfor();                                              //Show header of the list 
     cout << os.str();
 }
-/**
- * @function function that shows all the information about a service
- */
+
 void headerServInfor() {
     cout << left << setw(10) << "ID"
          << setw(15) << "TIPO"
@@ -330,9 +276,7 @@ void headerServInfor() {
 
 }
 
-/**
- * @function function that shows the information of all
- */
+
 void headerCamInfor() {
     cout << left << setw(10) << "BASE"
          << setw(10) << "FROZEN"
@@ -342,19 +286,14 @@ void headerCamInfor() {
             "=================================" << endl;
 
 }
-/**
- * @function function  that adds a trucks in the company repository
- * @param type - trcks type
- * @param cargaMax - max cargo
- * @param caract - trucks caract  that depends of the type
- */
+
 void Empresa::addCamiao(const int &type, const unsigned int &cargaMax, const double &caract) {
     map<unsigned int, string> temp = {{0, "Base"},
                                       {1, "Congelado"},
                                       {2, "Perigoso"},
                                       {3, "Animal"}};
-    string sType = temp[type];
-    unsigned int id = ++nCam;
+    string sType = temp[type];                                          //Get the type
+    unsigned int id = ++nCam;                                           //Increase ne number of trucks
     if (sType == "Base") {
         Camiao *c = new Base(cargaMax, id);
         cam.push_back(c);
@@ -371,52 +310,37 @@ void Empresa::addCamiao(const int &type, const unsigned int &cargaMax, const dou
 
 }
 
-//nao estamos checando se o camiao existe e nao precisa
-/**
- * @function - adds a service that will be request in a truck
- * @param id - trucks id
- * @param s - service that will be request in this truck
- */
+
 void Empresa::addCamiaoId_Servico(const int &id, Servicos *s) {
-    for (auto it = cam.begin(); it != cam.end(); it++) {
+    for (auto it = cam.begin(); it != cam.end(); it++) {                //Linear Search O^n to find the id
         if ((*it)->getId() == id)
             s->addCamiao((*it));
 
     }
 }
-/**
- *
- * @param type- trucks type
- * @return returns the  profit of trucks type
- */
 
 double Empresa::getLucro_camiaoMes(const string &type) const {
     double lucro = 0;
-    for (auto const &it : cam) {
+    for (auto const &it : cam) {                                        //Linear Search to group the profit by type
         if (it->getType() == type)
             lucro += it->getProfit();
     }
     return lucro;
 }
-/**
- * @function that allocates a truck in a service
- * @param s - a service
- * @return true if the cargo is lesser than 0
- */
+
 bool Empresa::allocateCamiao(Servicos *s) {
-    vector<Camiao *> cam_copy(cam);
+    vector<Camiao *> cam_copy(cam);                                     
     int carga = s->get_carga();
-    sort(cam_copy.begin(), cam_copy.end(), Compare);
+    sort(cam_copy.begin(), cam_copy.end(), Compare);                    //Sort by ascender order of profit 
     for (const auto &x: cam_copy) {
-        if (x->getType() == s->get_tipo()) {
+        if (x->getType() == s->get_tipo()) {                            //If it has the same type of the service 
             carga -= x->getCargaMax();
             s->addCamiao(x);
         }
-        if (carga <= 0)
+        if (carga <= 0)                                                 //If enought trucks
             break;
     }
-    return carga <= 0;
+    return carga <= 0;                                                  
 
 }
-
 
