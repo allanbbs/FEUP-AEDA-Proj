@@ -142,9 +142,15 @@ void Empresa::gravaCam() {
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
-    cli.clear();                                                            //deleting the vector allocation
+    vector<Clientes*> tempX;
+    vector<Camiao*> tempY;
+    vector<Servicos*> tempZ;
+    cli.clear();
     cam.clear();
     ser.clear();
+    cli.swap(tempX);
+    cam.swap(tempY);
+    ser.swap(tempZ);
 }
 
 double Empresa::getLucro_mes() const {
