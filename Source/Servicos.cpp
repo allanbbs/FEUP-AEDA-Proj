@@ -112,6 +112,8 @@ void Servicos::addCamiao(Camiao *camiao) {
     camiao->addedToService();                       //increasing the truck totalProfit
 }
 
+//------------------------------------------------------------------------------------
+
 bool Compare_servico_profit(const Servicos* s, const Servicos* s1){
     if (s->get_profit() < s1->get_profit()) return false;
     else if (s1->get_profit() < s->get_profit()) return true;

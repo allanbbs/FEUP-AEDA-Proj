@@ -119,7 +119,7 @@ void Empresa::gravaCam() {
         getline(file, auxString);                           //get cargaMax
         istringstream is(auxString);
         is >> carga;
-
+        ++nCam; 
         getline(file, type);                                //get the type
         if (type == "Animal") {
             Animals *c = new Animals(carga, cam.size()+1);
