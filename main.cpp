@@ -27,7 +27,6 @@ void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
-void welcome();
 
 int month;
 extern bool novo;
@@ -84,15 +83,6 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
             }
-            case 8:{
-                long long int nif = validClientNif(e);
-                if (nif == -1) continue;
-                e.changeClientNif(nif);
-                cout << "Nif changed sucessfully! ";
-                wait();
-                break;
-
-            }
             case 9:{
                 long long nif = validClientNif(e);
                 if (nif == -1) continue;
@@ -101,7 +91,7 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
             }
-            case 10:{
+            case 8:{
                 cout << "Type the id [EXIT 0]: ";
                 long long int id = checkOption(0,Empresa::nCam);
                 if (id == 0) continue;
@@ -122,9 +112,9 @@ void printMainMenu(){
             << "======================================      ======================================= " << endl
             << "Status information                 [1]      Add new client                      [3] " << endl
             << "Profit information                 [2]      Change client NAME                  [7] " << endl
-            << "Add truck                          [5]      Change client NIF                   [8] " << endl
-            << "Remove truck                      [10]      Remove a client                     [9] " << endl
-            << "Exit                               [6]      New service request                 [4] " << endl;
+            << "Add truck                          [5]      Remove a client                     [9] " << endl
+            << "Remove truck                       [8]      New service request                 [4] " << endl
+            << "Exit                               [6]                                              " << endl;
 }
 
 void printMenuStatus(){
@@ -259,18 +249,21 @@ void handleAddClient(Empresa &e){
 
 void handleAddService(Empresa &e){
     map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
-
+    map<unsigned int,string> temp_carac = { {0,"Frio"},{1,"Medio"},{2,"Quente"}, {3,"Toxico"},{4,"Inflamavel"},{5,"Quebravel"}, {6,"Pequeno"},{7,"Medio"},{8,"Grande"},{9,"None"}};
     double l1x, l1y, l2x,l2y;
     string partida,chegada,tipo;
     long int anif, type;
     int carga;
 
     while (true) {
-        //precisa checar os valores
         clear_screen();
         cout << "Enter the number of products ";
         carga = checkNumber();
         if (carga == -1) return;
+        if (carga < -1 || carga == 0) {
+            cout << "Only positive numbers! Try again." << endl;
+            continue;
+        }
 
         cout << "Enter place of departure [EXIT -1] ";
         cin.ignore();
@@ -281,40 +274,54 @@ void handleAddService(Empresa &e){
         getline(cin, chegada);
         if (chegada == "-1") return;
 
-        cout << "Enter type of package (0-BASE,1-FROZEN, 2-DANGEROUS,3-ANIMAL) [EXIT -1] ";
+        cout << "Enter type of package (0 BASE | 1 FROZEN | 2 DANGEROUS | 3 ANIMAL) [EXIT -1] ";
         type = checkOption(-1, 3);
         if (type == -1) return;
+        tipo = temp[type];
 
         anif = validClientNif(e);
         if (anif == -1) return;
 
-        tipo = temp[type];
-        try {
-            cout << "Partida coordenada x (latitude) ";
-            l1x = checkNumber();
-            if (l1x == -1) return;
-            cout << "Partida coordenada y (Longitude) ";
-            l1y = checkNumber();
-            if (l1y == -1) return;
-            cout << "Chegada coordenada x (Latitude) ";
-            l2x = checkNumber();
-            if (l2x == -1) return;
-            cout << "Chegada coordenada y (Longitude) ";
-            l2y = checkNumber();
-            if (l2y == -1) return;
+        cout << "Partida coordenada x (latitude) ";
+        l1x = checkNumber();
+        if (l1x == -1) return;
+        cout << "Partida coordenada y (Longitude) ";
+        l1y = checkNumber();
+        if (l1y == -1) return;
+        cout << "Chegada coordenada x (Latitude) ";
+        l2x = checkNumber();
+        if (l2x == -1) return;
+        cout << "Chegada coordenada y (Longitude) ";
+        l2y = checkNumber();
+        if (l2y == -1) return;
+
+        int opt = 9;
+        if (tipo == "Congelado"){
+            cout << "Enter type temperature of the products (0 COLD | 1 AMBIENT | 2 HOT) [EXIT -1]";
+            opt = checkOption(-1,2);
+            if (opt == -1) return;
         }
-        catch(WrongInput_option &error){
-            cout << error.getInfo();
-            cin.ignore();
-            break;
+        else if (tipo == "Perigoso"){
+            cout << "Enter how dangerous the products are (3 TOXIC | 4 FLAMBLE | 5 SENSIBLE) [EXIT 2]";
+            opt = checkOption(2,5);
+            if (opt == 3) return;
+        }
+        else if(tipo == "Animal"){
+            cout << "Enter the size of the animals (6 LITTLE | 7 MEDIO | 8 BIG) [EXIT 5]";
+            opt = checkOption(5,8);
+            if (opt == 5) return;
         }
 
-        Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga);
+        Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga, temp_carac[opt]);
+
+
+
         if (!e.allocateCamiao(s)){
             cout << "Not enough trucks " << endl;
             wait();
             return;
         }
+
         e.addServico(s, anif);
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);
@@ -328,6 +335,8 @@ void handleAddService(Empresa &e){
         o << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
         o << "\n" << tipo << "\n" << anif<< "\n" << carga << "\n";
+        if (tipo != "None")
+            o << tipo << "\n";
         o << s->get_camioes_id();
         o.close();
         cout << "Service added successfully! ";

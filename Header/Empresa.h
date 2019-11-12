@@ -155,11 +155,6 @@ public:
      */
     void changeClientName(const long long int& nif);
     /**
-     * @brief Changes a client nif to another non negative
-     * @param nif
-     */
-    void changeClientNif(long long int& nif);
-    /**
      * @brief remove a client
      * @param nif The nif of the client to be removed
      * @warning The clients are not deleted from the files, their nif are converted to negative ones. On this way the enterprise keeps the historic about the client and at the same time the client is "removed".

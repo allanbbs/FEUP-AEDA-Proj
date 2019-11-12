@@ -73,11 +73,6 @@ public:
      * On this way it will not be allocated anymore but will keep the register
      */
     void removeTruck();
-    /**
-     * @brief get the individual caracteristic of the truck
-     * @return A string with the individual caracteristic
-     */
-    virtual string getCarac() const = 0;
 
 };
 
@@ -87,7 +82,6 @@ public:
  */
 class Congelado : public Camiao {
 private:
-    double temperatura;                                 /**<Temperature*/
     double tax = table->table["Congelado"];             /**<Get the taxes*/
 public:
     /**
@@ -96,16 +90,11 @@ public:
      * @param disp If it's available or not
      * @param temp Temperature
      */
-    Congelado(long long int carg, double temp, long long int Id);
+    Congelado(long long int carg, long long int Id);
     /**
      * Default destructor
      */
     ~Congelado();
-    /**
-     * @brief Get the Temp parameter
-     * @return double
-     */
-    string getCarac() const;
     /**
      * @brief The default price of the truck for one service
      * @return double
@@ -116,6 +105,7 @@ public:
      * @return string
      */
     string getType() const;
+
 };
 
 /**
@@ -124,16 +114,14 @@ public:
  */
 class Perigoso : public Camiao {
 private:
-    int quaoPerigoso;       /**<How dangerous an animal is in a scale of 0-10*/
     double tax = table->table["Perigoso"];/**<Get the taxes*/
 public:
     /**
      * Constructor
      * @param carg cargaMax
      * @param disp If it's available or not
-     * @param lvl How dangerous the animal is
      */
-    Perigoso(long long int carg, int lvl, long long int Id);
+    Perigoso(long long int carg, long long int Id);
     /**
      * Default destructor
      *@brief Destroy the Perigoso object
@@ -145,15 +133,11 @@ public:
      */
     double cal_preco();
     /**
-     * @brief Get the Level of dangerous
-     * @return int
-     */
-    string getCarac() const;
-    /**
      * @brief Get the Type parameter
      * @return string
      */
     string getType() const;
+
 };
 
 /**
@@ -161,26 +145,19 @@ public:
  */
 class Animals : public Camiao {
 private:
-    int animalCount;                            /**<How many animal there are in a camiao*/
     double tax = table->table["Animal"];        /**<Get the taxes*/
 public:
     /**
      * Contructor
      * @param carg CargaMax
-     * @param disp If it's available or not
-     * @param number id
+     * @param Id id
      */
-    Animals(long long int carg, int number, long long int Id);
+    Animals(long long int carg, long long int Id);
     /**
      * Default destructor
      *
      */
     ~Animals();
-    /**
-     * @brief Get the Animal Count parameter
-     * @return string
-     */
-    string getCarac() const;
     /**
      * @brief The default price of the truck for one service
      * @return double
@@ -191,6 +168,7 @@ public:
      * @return string
      */
     string getType() const;
+
 };
 
 /**
@@ -216,11 +194,6 @@ public:
      * @return double
      */
     double cal_preco();
-    /**
-     * @brief returns the individual caracteristic
-     * @return 00, because the base class doesn't have this argument
-     */
-    string getCarac() const{return "00";}
 
 };
 

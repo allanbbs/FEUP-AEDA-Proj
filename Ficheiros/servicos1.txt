@@ -7,8 +7,9 @@ Madrid
 3.7038
 Congelado
 201800175
-20
-1 2
+30
+Frio
+1 5
 
 Porto
 41.1579
@@ -19,7 +20,8 @@ Braga
 Perigoso
 456987456
 30
-3
+Inflamavel
+2
 
 Santo Ovidio
 4
@@ -30,6 +32,7 @@ Trindade
 Congelado
 201800149
 20
+Quente
 1
 
 Brasil
@@ -41,4 +44,5 @@ Portugal
 Congelado
 2793465
 20
+Frio
 1

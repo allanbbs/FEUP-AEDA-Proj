@@ -10,7 +10,6 @@ var searchData=
   ['get_5fnif',['get_nif',['../class_clientes.html#a1549ba494f6cb0c6afd8bc9acb0522a6',1,'Clientes']]],
   ['get_5fprofit',['get_profit',['../class_clientes.html#afd18e95e185ba72a752cd671c205fad2',1,'Clientes::get_profit()'],['../class_servicos.html#abccba289bb598131f1848088783cfe0f',1,'Servicos::get_profit()']]],
   ['get_5ftipo',['get_tipo',['../class_servicos.html#a421807c0764d402bf698c8d79a794102',1,'Servicos']]],
-  ['getcarac',['getCarac',['../class_camiao.html#a12e862dcd102edecd389691071465da0',1,'Camiao::getCarac()'],['../class_congelado.html#a1148dd830b8331a58eeef967207fac18',1,'Congelado::getCarac()'],['../class_perigoso.html#a6abef5dbbaf34cad0ab65a1857c609b6',1,'Perigoso::getCarac()'],['../class_animals.html#acd3d65f0c654cce3604e95ffa32345f5',1,'Animals::getCarac()'],['../class_base.html#a9eb5d4e19fc491fde5a31832ee0363cf',1,'Base::getCarac()']]],
   ['getcargamax',['getCargaMax',['../class_camiao.html#a5dd97aff932b9e25f58d00b188c69de1',1,'Camiao']]],
   ['getid',['getId',['../class_camiao.html#ae37780c602c26ce2f0062a164757302e',1,'Camiao']]],
   ['getinfo',['getInfo',['../class_error.html#a5d8cd200f64d67c4ffa88d444762eab9',1,'Error::getInfo()'],['../class_no_client.html#a4d4ebb2328a5c9fceaa07097ecfec165',1,'NoClient::getInfo()'],['../class_no_service.html#a816792472ebcfa2ddcf042be2e32560d',1,'NoService::getInfo()'],['../class_repeated_client.html#a5b9fb57e9c4c74a26edffe6435615a22',1,'RepeatedClient::getInfo()'],['../class_wrong_input__option.html#a5ad8a61deebc3b5a376c208cc915eabc',1,'WrongInput_option::getInfo()']]],

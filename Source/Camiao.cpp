@@ -25,68 +25,46 @@ void Camiao::addedToService() {
 void Camiao::removeTruck() {
     this-> CargaMax = -CargaMax;
 }
-//Congelado sub-class//
 
-//constructor of  congelado
-Congelado::Congelado(long long int carg, double temp, long long int Id) : Camiao(carg,Id){
-    temperatura = temp;
-}
-// congelado destructor
+Congelado::Congelado(long long int carg, long long int Id) : Camiao(carg,Id){}
+
 Congelado::~Congelado() {}
-// it returns the temperature of de congelado of the truck
-string Congelado::getCarac() const {
-    return to_string(temperatura);
-}
 
 double Congelado::cal_preco() {
     //to implement after checking taxes format
-    return tax* 0.01 * temperatura * (double)CargaMax;
+    long long int Carga_positive = CargaMax < 0?  -CargaMax: CargaMax;
+    return tax * (double)Carga_positive;
 }
 
 string Congelado::getType() const {return "Congelado";}
 
-//Perigoso sub-class//
-Perigoso::Perigoso(long long int carg, int lvl, long long int Id) : Camiao(carg, Id){
-    quaoPerigoso = lvl;
-}
+Perigoso::Perigoso(long long int carg, long long int Id) : Camiao(carg, Id){}
 
 Perigoso::~Perigoso() {}
 
-string Perigoso::getCarac() const {
-    return to_string(quaoPerigoso);
-}
-
 double Perigoso::cal_preco() {
-    return tax*0.01*(double)quaoPerigoso*(double)CargaMax;
+    return tax*(double)CargaMax;
 }
 
 string Perigoso::getType() const {return "Perigoso";}
 
-// Animals sub-class//
-
-Animals::Animals(long long int carg, int number, long long int Id) : Camiao(carg, Id){
-    animalCount = number;
-}
+Animals::Animals(long long int carg, long long int Id) : Camiao(carg, Id){}
 
 Animals::~Animals() {}
 
-string Animals::getCarac() const {
-    return to_string(animalCount);
-}
-
 double Animals::cal_preco() {
-    return tax*0.01*animalCount*CargaMax;
+    return tax*CargaMax;
 }
 
-string Animals::getType() const {return "Animal";}
+string Animals::getType() const {
+    return "Animal";}
 
-//Base subClass//
 string Base::getType() const {
     return "Base";
 }
 
 double Base::cal_preco() {
-    return tax*0.01 *CargaMax;
+    return tax*CargaMax;
 }
 
 bool Compare(const Camiao* c1, const Camiao* c2){

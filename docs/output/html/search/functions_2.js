@@ -5,7 +5,6 @@ var searchData=
   ['cal_5ftempo',['cal_tempo',['../class_servicos.html#ae00c9c64e9d9e53be5513251c75ed999',1,'Servicos']]],
   ['camiao',['Camiao',['../class_camiao.html#a2f55fe4ec1dfc074048c542e9a0adeab',1,'Camiao']]],
   ['changeclientname',['changeClientName',['../class_empresa.html#a13cff0896042ca81cdcfd6f7c28d7394',1,'Empresa']]],
-  ['changeclientnif',['changeClientNif',['../class_empresa.html#a093d6a8aff4cf3b20220bcfa5af8e1bb',1,'Empresa']]],
   ['checknumber',['checkNumber',['../utils_8h.html#a517ab7f68319b35a52ed085490b0ae75',1,'checkNumber():&#160;utils.cpp'],['../utils_8cpp.html#a517ab7f68319b35a52ed085490b0ae75',1,'checkNumber():&#160;utils.cpp']]],
   ['checkoption',['checkOption',['../utils_8h.html#ad54db2bec279be1d8c30400e2a1788f6',1,'checkOption(int min, int max):&#160;utils.cpp'],['../utils_8cpp.html#ad54db2bec279be1d8c30400e2a1788f6',1,'checkOption(int min, int max):&#160;utils.cpp']]],
   ['clear_5fscreen',['clear_screen',['../utils_8h.html#a4953d1edcbbfc7e420c423ded1d5621a',1,'clear_screen():&#160;utils.cpp'],['../utils_8cpp.html#a4953d1edcbbfc7e420c423ded1d5621a',1,'clear_screen():&#160;utils.cpp']]],
@@ -16,5 +15,5 @@ var searchData=
   ['compare_5fclientesleast',['Compare_clientesLeast',['../_clientes_8h.html#a7caff369f6fb6d00238434a6ae5489d4',1,'Compare_clientesLeast(const Clientes *c, const Clientes *c1):&#160;Clientes.cpp'],['../_clientes_8cpp.html#a7caff369f6fb6d00238434a6ae5489d4',1,'Compare_clientesLeast(const Clientes *c, const Clientes *c1):&#160;Clientes.cpp']]],
   ['compare_5fservico_5fleastprofit',['Compare_servico_Leastprofit',['../_servicos_8h.html#ae76fd38f74b7cf7c13490f7dd9ccc882',1,'Compare_servico_Leastprofit(const Servicos *s, const Servicos *s1):&#160;Servicos.cpp'],['../_servicos_8cpp.html#ae76fd38f74b7cf7c13490f7dd9ccc882',1,'Compare_servico_Leastprofit(const Servicos *s, const Servicos *s1):&#160;Servicos.cpp']]],
   ['compare_5fservico_5fprofit',['Compare_servico_profit',['../_servicos_8h.html#a8369ad940376339cca7fb7d16e2a429f',1,'Compare_servico_profit(const Servicos *c, const Servicos *c1):&#160;Servicos.cpp'],['../_servicos_8cpp.html#a60bd9c983d6a501402fa0a3b8e0c18be',1,'Compare_servico_profit(const Servicos *s, const Servicos *s1):&#160;Servicos.cpp']]],
-  ['congelado',['Congelado',['../class_congelado.html#af1a11adb79d8ae3728e2fda76e445fe4',1,'Congelado']]]
+  ['congelado',['Congelado',['../class_congelado.html#ab30df683e3796cc484a8c1f731c01d7b',1,'Congelado']]]
 ];

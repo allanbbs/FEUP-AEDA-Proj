@@ -7,8 +7,7 @@ var searchData=
   ['addservice',['addService',['../class_clientes.html#ae5f6552d13506086482c454b99092da3',1,'Clientes']]],
   ['addservico',['addServico',['../class_empresa.html#ad6372389d7a306c8cec6e9081e735c63',1,'Empresa']]],
   ['allocatecamiao',['allocateCamiao',['../class_empresa.html#aa2957222e9b2fe295136f93f8444d64f',1,'Empresa']]],
-  ['animalcount',['animalCount',['../class_animals.html#a137b0df408451938ab7f6db870d3b49f',1,'Animals']]],
-  ['animals',['Animals',['../class_animals.html',1,'Animals'],['../class_animals.html#a169f2aaa108fac9c44c548b51533b659',1,'Animals::Animals()']]],
+  ['animals',['Animals',['../class_animals.html',1,'Animals'],['../class_animals.html#a775476dc25a10d289260258d3230fcb1',1,'Animals::Animals()']]],
   ['arrival',['arrival',['../class_servicos.html#aab6fd44c2a001d478b36924c83b8c9c1',1,'Servicos']]],
   ['aeda_5fproj1',['AEDA_Proj1',['../md__home_maruba__documents__a_e_d_a__proj1__r_e_a_d_m_e.html',1,'']]]
 ];

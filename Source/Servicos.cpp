@@ -13,17 +13,16 @@ Servicos::Servicos() {
     id = -1;
 }
 
-Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id,const string& Tipo, const int & Carga) : id(Id), departure(Departure),
+Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id,const string& Tipo, const int & Carga, const string& Condition) : id(Id), departure(Departure),
 
-                                                                                         arrival(Arrival), type(Tipo), carga(Carga) {
+                                                                                         arrival(Arrival), type(Tipo), carga(Carga), condition(Condition) {
     profit = 0;
     cal_profitTime();
 };
 
 
 void Servicos::cal_profitTime() {
-    double tax = 75;
-    profit += tax * cal_tempo();                                //get the base profit
+    profit += cal_tempo() * tax_condition;                                //get the base profit
     for (auto it = camioes.begin(); it < camioes.end(); it++)   //price of each truck
         profit += (*it)-> cal_preco();
 }
@@ -107,7 +106,6 @@ void Servicos::addCamiao(Camiao *camiao) {
     profit += camiao->cal_preco();
     camiao->addedToService();                       //increasing the truck totalProfit
 }
-
 
 bool Compare_servico_profit(const Servicos* s, const Servicos* s1){
     if (s->get_profit() < s1->get_profit()) return false;

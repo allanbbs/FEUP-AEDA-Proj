@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['searchcli',['SearchCli',['../class_empresa.html#a58a26bec368815a4608660af549855c1',1,'Empresa']]],
-  ['searchser',['SearchSer',['../class_empresa.html#ac5fbe498ebe030b3bf4a9e97f723733f',1,'Empresa']]],
-  ['ser',['ser',['../class_empresa.html#a4c84a5a3c91a62594efcd064028caf08',1,'Empresa']]],
-  ['services',['services',['../class_clientes.html#a49aa170d8c3c7793dc3f7fa34472c8ea',1,'Clientes']]],
-  ['servicos',['Servicos',['../class_servicos.html',1,'Servicos'],['../class_servicos.html#a2dd03511fdd7000baa348399db25953f',1,'Servicos::Servicos()'],['../class_servicos.html#a538c5eda3bd621b37a13aed596fc9329',1,'Servicos::Servicos(const Local &amp;Departure, const Local &amp;Arrival, const unsigned int &amp;Id, const string &amp;Tipo, const int &amp;Carga)']]],
-  ['servicos_2ecpp',['Servicos.cpp',['../_servicos_8cpp.html',1,'']]],
-  ['servicos_2eh',['Servicos.h',['../_servicos_8h.html',1,'']]],
-  ['setname',['setName',['../class_clientes.html#a3fc0969860c7df6e4f51394681e8cb41',1,'Clientes']]],
-  ['setnif',['setNif',['../class_clientes.html#ae17405f970a8c3206e39ca361a72b6dc',1,'Clientes']]]
+  ['table',['table',['../class_tax_table.html#ad399944d0c2ad575058715f7096eb488',1,'TaxTable']]],
+  ['tablesize',['tableSize',['../class_tax_table.html#a205d1e488c0f4e42b971ccd9ebdf9caa',1,'TaxTable']]],
+  ['tax',['tax',['../class_congelado.html#aacb1bdf90e035498cbb70dcfcd4cb6a4',1,'Congelado::tax()'],['../class_perigoso.html#a3499eb0715d4544814f971d170573d8d',1,'Perigoso::tax()'],['../class_animals.html#a044fd408ead7a5c3bd3f2ca42b33b13c',1,'Animals::tax()'],['../class_base.html#abd5278dc3ce7e33beb6c080224c8799e',1,'Base::tax()']]],
+  ['tax_5fcondition',['tax_condition',['../class_servicos.html#a6d9f333211c664d23020ff34195b251b',1,'Servicos']]],
+  ['taxtable',['TaxTable',['../class_tax_table.html',1,'TaxTable'],['../class_tax_table.html#a33ae418890b3213604d3f227edd2fc95',1,'TaxTable::TaxTable()']]],
+  ['taxtable_2ecpp',['TaxTable.cpp',['../_tax_table_8cpp.html',1,'']]],
+  ['taxtable_2eh',['TaxTable.h',['../_tax_table_8h.html',1,'']]],
+  ['totalprofit',['totalProfit',['../class_camiao.html#a059cbe4520a4fd90c4c92389eac1bb7f',1,'Camiao']]],
+  ['type',['type',['../class_servicos.html#a29f9022922f5f642dbb42e16bb2b807c',1,'Servicos']]]
 ];

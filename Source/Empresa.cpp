@@ -34,10 +34,9 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
     string fileName = "../AEDA_Proj1/Ficheiros/servicos" + to_string(month) + ".txt";
     ifstream file(fileName.c_str());
     string local, aux, type;
-    int aux_int, carga;
+    long long int aux_int, carga, cliNif;
     double cordx, cordy;
-    long long int cliNif;
-    vector<int> trucks;
+    vector<long long int> trucks;
 
     if (!file.fail())
         while (!file.eof()) {
@@ -83,8 +82,12 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             is.str(aux);
             is >> carga;
 
-            Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga);
-            
+            //get the caracteristic of each type
+            if (type == "Animal" || type == "Perigoso" || type == "Congelado") {
+                    getline(file, aux);
+            }
+            Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga, aux);
+
             //get camioes id
             getline(file, aux);
             is.clear();
@@ -94,7 +97,13 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
                 this->addCamiaoId_Servico(aux_int, s);
             }
 
-            e.addServico(s, cliNif);                        //associate the service to a client
+            try {
+                e.addServico(s, cliNif);                        //associate the service to a client
+            }
+            catch(NoClient & error){
+                cliNif = -cliNif;
+                e.addServico(s, cliNif);
+            }
         }
     else novo = true;                                       //if there's nothing to read, it means that this is a new file
 }
@@ -104,9 +113,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
 
 void Empresa::gravaCam() {
     fstream file("../AEDA_Proj1/Ficheiros/camioes");
-    unsigned int carga;
-    double auxDouble;
-    int auxInt;
+    long long int carga;
     string type;
     string auxString;
     while (!file.eof()) {
@@ -117,23 +124,16 @@ void Empresa::gravaCam() {
         is >> carga;
 
         getline(file, type);                                //get the type
-        getline(file, auxString);                           //get the special atribute
-        is.clear();
-        is.str(auxString);
         if (type == "Animal") {
-            is >> auxInt;
-            Animals *c = new Animals(carga, auxInt, ++nCam);
+            Animals *c = new Animals(carga, ++nCam);
             cam.push_back(c);
         } else if (type == "Congelado") {
-            is >> auxDouble;
-            Congelado *c = new Congelado(carga, auxDouble, ++nCam);
+            Congelado *c = new Congelado(carga, ++nCam);
             cam.push_back(c);
         } else if (type == "Perigoso") {
-            is >> auxInt;
-            Perigoso *c = new Perigoso(carga, auxInt, ++nCam);
+            Perigoso *c = new Perigoso(carga, ++nCam);
             cam.push_back(c);
         } else {
-            is >> auxInt;
             Base *c = new Base(carga, ++nCam);
             cam.push_back(c);
         }
@@ -144,8 +144,8 @@ Empresa::Empresa() {}
 
 Empresa::~Empresa() {
     for (int i = cli.size()-1; i >= 0; i--) delete cli[i];                //cleaning the vector
-    for (int i = nCam-1; i >= 0; i--) delete cam[i];
-    for (int i = nSer-1; i >= 0; i--) delete ser[i];
+    for (int i = cam.size()-1; i >= 0; i--) delete cam[i];
+    for (int i = ser.size()-1; i >= 0; i--) delete ser[i];
     cli.clear();                                                        //deleting the vector allocation
     cam.clear();
     ser.clear();
@@ -154,7 +154,7 @@ Empresa::~Empresa() {
 
 double Empresa::getLucro_mes() const {
     double lucro = 0;
-    for (auto it = cli.begin(); it < cli.end(); it++)               //profit of each client
+    for (auto it = ser.begin(); it < ser.end(); it++)               //profit of each service done
         lucro += (*it)->get_profit();
     return lucro;
 }
@@ -176,7 +176,6 @@ Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
     (cli[pos])->addService(s);
     return s;
 }
-
 
 long int Empresa::SearchCli(const long long int &nif) const {
     for (int i = 0; i < cli.size(); i++) {                          //Linear search O^n
@@ -305,13 +304,13 @@ void Empresa::addCamiao(const int &type, const long long int &cargaMax, const do
         Camiao *c = new Base(cargaMax, id);
         cam.push_back(c);
     } else if (sType == "Congelado") {
-        Camiao *c = new Congelado(cargaMax, caract, id);
+        Camiao *c = new Congelado(cargaMax, id);
         cam.push_back(c);
     } else if (sType == "Perigoso") {
-        Camiao *c = new Perigoso(cargaMax, caract, id);
+        Camiao *c = new Perigoso(cargaMax, id);
         cam.push_back(c);
     } else if (sType == "Animal") {
-        Camiao *c = new Animals(cargaMax, caract, id);
+        Camiao *c = new Animals(cargaMax, id);
         cam.push_back(c);
     }
 
@@ -376,35 +375,6 @@ void Empresa::rewriteClients() {
 
 }
 
-void Empresa::changeClientNif(long long int &nif) {
-    string name;
-    //get the position of the client
-    long int pos = SearchCli(nif);
-    cin.ignore();
-
-    //check if the nif is valid
-    while (true) {
-        cout << "Type the new nif [EXIT -1]:  ";
-        cin >> nif;
-        if (nif == -1) return;
-        if (cin.fail()) {                   //if a string
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        if(nif < -1 || nif == 0) {          //if the value is not valid
-            cout << "Type positive numbers " << endl;
-            continue;
-        }
-        if (this->SearchCli(nif) == -1){    //checking if there isnt someone with the same nif
-            cli[pos]->setNif(nif);
-            break;
-        }
-        else                                //there is someone with the same nif
-            cout << "There is already a client with nif " << nif << endl;
-
-    }
-    rewriteClients();                       //we need to rewrite the file
-}
 
 void Empresa::removeClient(const long long int &nif) {
     long int pos = SearchCli(nif);          //get the position of the client
@@ -442,10 +412,9 @@ void Empresa::rewriteTruck() {
     ofstream o("../AEDA_Proj1/Ficheiros/camioes");
     for (auto i  = 0; i < cam.size()-1; i ++){
         o << "\n" << cam[i]->getCargaMax() << "\n" << cam[i]->getType();
-        o << "\n" << cam[i]->getCarac() << "\n";
+        o << "\n";
     }
     o << "\n" << cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType();
-    o << "\n" << cam[cam.size()-1]->getCarac();
     o.close();
 
 }

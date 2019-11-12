@@ -17,7 +17,7 @@
 #include "Local.h"
 #include "Camiao.h"
 
-
+extern TaxTable *table;
 using namespace std;
 /**
  * @file Servicos.h
@@ -35,7 +35,11 @@ private:
     Local departure;                        /**<Departure place */
     string type;                            /**<Type of the products transporting*/
     double profit;                          /**<Profit of the service*/
-    int carga;
+    int carga;                              /**<Number of products of the service**/
+    string condition = "None";              /**Condition to the product*/
+    double tax_condition = table->table[condition];
+
+
 public:
     /**
      * @brief Default contructor for Servicos
@@ -48,8 +52,9 @@ public:
      * @param Arrival Name of the arrival place
      * @param Id Identification for the service
      * @param profit is initialized by cal_profit() function
+     * @param Condition condition of the product (cold, hot, toxic...)
      */
-    Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo, const int& Carga);
+    Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo, const int& Carga, const string& Condition = "None");
 
 
     /**

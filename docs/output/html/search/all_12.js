@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['validclientnif',['validClientNif',['../utils_8h.html#ad82614aca3f56dcf76ff82abb86cef03',1,'validClientNif(Empresa &amp;e):&#160;utils.cpp'],['../utils_8cpp.html#ad82614aca3f56dcf76ff82abb86cef03',1,'validClientNif(Empresa &amp;e):&#160;utils.cpp']]],
-  ['validserviceid',['validServiceId',['../utils_8h.html#aee6fc6707ff3eaa39890a34299344dd8',1,'validServiceId(Empresa &amp;e):&#160;utils.cpp'],['../utils_8cpp.html#aee6fc6707ff3eaa39890a34299344dd8',1,'validServiceId(Empresa &amp;e):&#160;utils.cpp']]]
+  ['wait',['wait',['../utils_8h.html#aa3b21853f890838c88d047d6c2786917',1,'wait():&#160;utils.cpp'],['../utils_8cpp.html#aa3b21853f890838c88d047d6c2786917',1,'wait():&#160;utils.cpp']]],
+  ['wronginput_5foption',['WrongInput_option',['../class_wrong_input__option.html',1,'']]]
 ];
