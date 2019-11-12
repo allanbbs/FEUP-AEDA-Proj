@@ -157,7 +157,9 @@ double Empresa::getLucro_mes() const {
     return lucro;
 }
 
-
+long long int Empresa::get_cam_num(){
+    return cam.size(); 
+}
 void Empresa::addClientes(const string &name, const long long int &nif) {
     long int pos = SearchCli(nif);                                          //check if the client already exists
     if (pos != -1) throw RepeatedClient(name);                              // if so, throw a exception
@@ -196,9 +198,9 @@ void Empresa::display_lucro_mes() {
 
 void Empresa::display_CamiaoProfit() {
     headerCamInfor();
-    cout << left << setw(10) << getLucro_camiaoMes("Base")
-         << setw(10) << getLucro_camiaoMes("Congelado")
-         << setw(10) << getLucro_camiaoMes("Perigoso")
+    cout << left << setw(20) << getLucro_camiaoMes("Base")
+         << setw(20) << getLucro_camiaoMes("Congelado")
+         << setw(20) << getLucro_camiaoMes("Perigoso")
          << getLucro_camiaoMes("Animals") << endl;
 
 }
@@ -283,12 +285,12 @@ void headerServInfor() {
 
 
 void headerCamInfor() {
-    cout << left << setw(10) << "BASE"
-         << setw(10) << "FROZEN"
-         << setw(10) << "DANGEROUS"
+    cout << left << setw(20) << "BASE"
+         << setw(20) << "FROZEN"
+         << setw(20) << "DANGEROUS"
          << "ANIMALS" << endl;
     cout << "=========================================================="
-            "=================================" << endl;
+            "=======================" << endl;
 
 }
 
@@ -312,6 +314,7 @@ void Empresa::addCamiao(const int &type, const long long int &cargaMax) {
         Camiao *c = new Animals(cargaMax, id);
         cam.push_back(c);
     }
+    ++nCam; 
 
 }
 

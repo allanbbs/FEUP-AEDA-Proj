@@ -183,6 +183,12 @@ public:
      * @brief rewrite the truck file
      */
     void rewriteTruck();
+    /**
+     * @brief get number of trucks
+     * 
+     * @return long long int
+     */
+    long long int get_cam_num(); 
 
 
 

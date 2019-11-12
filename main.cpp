@@ -93,7 +93,7 @@ void mainMenu(Empresa &e){
             }
             case 4:{
                 cout << "Type the id [EXIT 0]: ";
-                long long int id = checkOption(0,Empresa::nCam);
+                long long int id = checkOption(0,e.get_cam_num());
                 if (id == 0) continue;
                 e.removeTruck(id);
                 wait();
@@ -122,7 +122,7 @@ void printMenuStatus(){
             << "============================================                     ============================================   " << endl
             << "First x most profitable services         [1]                     First x most profitable clients          [6]   " << endl
             << "First x least profitable services        [2]                     First x least profitable clients         [7]   " << endl
-            << "First x services of a specific type      [3]                     First x clients in alphabetic orther     [8]   " << endl
+            << "First x services of a specific type      [3]                     First x clients in alphabetic order      [8]   " << endl
             << "Specific service by id                   [4]                     Specific client status by nif            [9]   " << endl
             << "Cancel                                   [5]                                                                    " << endl
             << "Option:                                                                                                         " << endl;
@@ -179,7 +179,8 @@ void handleMenuStatus(Empresa &e){
             case 3:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
-                cout << "Enter type of package (0-BASE,1-FROZEN, 2-DANGEROUS,3-ANIMAL) [EXIT -1] ";
+                if (n == 0) continue; 
+                cout << "Enter type of package (0 BASE | 1 FROZEN | 2 DANGEROUS | 3 ANIMAL) [EXIT -1] ";
                 type = checkOption(-1, 3);
                 if (type == -1) continue;
                 e.display_servicoStatus(0, n, Compare_servico_Leastprofit, temp[type]);
@@ -211,7 +212,7 @@ void handleAddClient(Empresa &e){
 
     
     while (true) {
-        cout<<" NIF: ";
+        cout<<"NIF: ";
         nif = checkNumber();
         if (nif == 0 || nif < -1){
             cout << "Invalid NIF. Try again." << endl; 
@@ -244,7 +245,7 @@ void handleAddClient(Empresa &e){
             return;
         }
         catch (RepeatedClient &a) {
-            cout << "There is already a client with nif "<<a.getInfo() << endl;
+            cout << "There is already a client with nif "<< nif << endl;
             cout << "Try again:" << endl; 
             continue;
         }

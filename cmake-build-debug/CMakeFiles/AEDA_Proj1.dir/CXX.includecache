@@ -112,10 +112,6 @@ cstdlib
 fstream
 -
 
-/home/maruba/Documents/AEDA_Proj1/Source/Servicos.cpp
-../Header/Servicos.h
-/home/maruba/Documents/AEDA_Proj1/Header/Servicos.h
-
 /home/maruba/Documents/AEDA_Proj1/Source/utils.cpp
 ../Header/utils.h
 /home/maruba/Documents/AEDA_Proj1/Header/utils.h

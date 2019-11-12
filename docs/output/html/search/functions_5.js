@@ -1,6 +1,7 @@
 var searchData=
 [
   ['get_5farrival',['get_arrival',['../class_servicos.html#a25e5af9cc25e67775601bad2310552df',1,'Servicos']]],
+  ['get_5fcam_5fnum',['get_cam_num',['../class_empresa.html#a38bb185925a1235e46cdfc4788b8e98d',1,'Empresa']]],
   ['get_5fcamioes_5fid',['get_camioes_id',['../class_servicos.html#a3fdae4174e4669390086ff9f411ad9db',1,'Servicos']]],
   ['get_5fcarga',['get_carga',['../class_servicos.html#a9bdc419f4897edf417c0a00af357c2f2',1,'Servicos']]],
   ['get_5fcondition',['get_condition',['../class_servicos.html#aee418190b4f594bab2ec73d456893b1b',1,'Servicos']]],

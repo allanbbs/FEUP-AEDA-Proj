@@ -14,43 +14,19 @@
   <component name="ChangeListManager">
     <list default="true" id="1847e1cc-cf8d-49e9-9c68-7270dfc545e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ficheiros/clientes" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/clientes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header/Empresa.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Empresa.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Header/Servicos.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header/Servicos.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Camiao.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Camiao.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Clientes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Clientes.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Empresa.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Empresa.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Servicos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Servicos.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Camiao.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/utils.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/utils.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_camiao_8cpp.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_camiao_8cpp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_camiao_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_camiao_8cpp_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_camiao_8h.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_camiao_8h.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_camiao_8h_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_camiao_8h_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_clientes_8cpp.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_clientes_8cpp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_clientes_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_clientes_8cpp_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_clientes_8h.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_clientes_8h.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_clientes_8h_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_clientes_8h_source.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/output/html/_empresa_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_empresa_8cpp_source.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/output/html/_empresa_8h_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_empresa_8h_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8h.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8h.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8h_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8h_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_animals.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_animals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_camiao.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_camiao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_clientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_clientes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_congelado.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_congelado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/output/html/class_empresa-members.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_empresa-members.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/output/html/class_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_perigoso.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_perigoso.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_servicos-members.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_servicos-members.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/class_servicos.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/class_servicos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/output/html/functions.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/functions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/output/html/functions_func.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/functions_func.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/output/html/main_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/main_8cpp_source.html" afterDir="false" />
@@ -182,7 +158,7 @@
       <workItem from="1573370177953" duration="1501000" />
       <workItem from="1573385211965" duration="11780000" />
       <workItem from="1573402164864" duration="1653000" />
-      <workItem from="1573543547000" duration="12921000" />
+      <workItem from="1573543547000" duration="13581000" />
     </task>
     <servers />
   </component>
