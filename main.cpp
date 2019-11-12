@@ -51,7 +51,7 @@ void mainMenu(Empresa &e){
         option = checkOption(1, 11);
         clear_screen();
 
-        if (option == 6)                                            //exit option
+        if (option == 5)                                            //exit option
             break;
         switch(option){
             case 1:
@@ -64,15 +64,15 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
 
-            case 3:
+            case 6:
                 handleAddClient(e);
                 break;
 
-            case 4: {
+            case 9: {
                 handleAddService(e);
                 break;
             }
-            case 5:
+            case 3:
                 handleAddTruck(e);
                 break;
             case 7:{
@@ -83,7 +83,7 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
             }
-            case 9:{
+            case 8:{
                 long long nif = validClientNif(e);
                 if (nif == -1) continue;
                 e.removeClient(nif);
@@ -91,7 +91,7 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
             }
-            case 8:{
+            case 4:{
                 cout << "Type the id [EXIT 0]: ";
                 long long int id = checkOption(0,Empresa::nCam);
                 if (id == 0) continue;
@@ -110,20 +110,20 @@ void mainMenu(Empresa &e){
 void printMainMenu(){
     cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT           " << endl
             << "======================================      ======================================= " << endl
-            << "Status information                 [1]      Add new client                      [3] " << endl
+            << "Status information                 [1]      Add new client                      [6] " << endl
             << "Profit information                 [2]      Change client NAME                  [7] " << endl
-            << "Add truck                          [5]      Remove a client                     [9] " << endl
-            << "Remove truck                       [8]      New service request                 [4] " << endl
-            << "Exit                               [6]                                              " << endl;
+            << "Add truck                          [3]      Remove a client                     [8] " << endl
+            << "Remove truck                       [4]      New service request                 [9] " << endl
+            << "Exit                               [5]                                              " << endl;
 }
 
 void printMenuStatus(){
     cout    << "            SEARCH SERVICES                                                     SEARCH CLIENTS                  " << endl
             << "============================================                     ============================================   " << endl
-            << "First x most profitable services         [1]                     First x most profitable clients          [3]   " << endl
-            << "First x least profitable services        [8]                     First x least profitable clients         [9]   " << endl
-            << "First x services of a specific type      [6]                     First x clients in alphabetic orther     [7]   " << endl
-            << "Specific service by id                   [2]                     Specific client status by nif            [4]   " << endl
+            << "First x most profitable services         [1]                     First x most profitable clients          [6]   " << endl
+            << "First x least profitable services        [2]                     First x least profitable clients         [7]   " << endl
+            << "First x services of a specific type      [3]                     First x clients in alphabetic orther     [8]   " << endl
+            << "Specific service by id                   [4]                     Specific client status by nif            [9]   " << endl
             << "Cancel                                   [5]                                                                    " << endl
             << "Option:                                                                                                         " << endl;
 
@@ -150,33 +150,33 @@ void handleMenuStatus(Empresa &e){
                 wait();
                 break;
             }
-            case 2:
+            case 4:
                 id = validServiceId(e);
                 e.display_servicoStatus(id);
                 wait();
                 break;
-            case 3:
+            case 6:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
                 if (n == 0) continue;
                 e.display_clientesInfo(0,n);
                 wait();
                 break;
-            case 4:
+            case 9:
                 nif = validClientNif(e);
                 if (nif != -1) {
                     e.display_clientesInfo(nif);
                     wait();
                 }
                 break;
-            case 8:
+            case 2:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
                 if (n == 0) continue;
                 e.display_servicoStatus(0, n, Compare_servico_Leastprofit);
                 wait();
                 break;
-            case 6:
+            case 3:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
                 cout << "Enter type of package (0-BASE,1-FROZEN, 2-DANGEROUS,3-ANIMAL) [EXIT -1] ";
@@ -185,14 +185,14 @@ void handleMenuStatus(Empresa &e){
                 e.display_servicoStatus(0, n, Compare_servico_Leastprofit, temp[type]);
                 wait();
                 break;
-            case 9:
+            case 7:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
                 if (n == 0) continue;
                 e.display_clientesInfo(0,n,Compare_clientesLeast);
                 wait();
                 break;
-            case 7:
+            case 8:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
                 if (n == 0) continue;
@@ -209,10 +209,14 @@ void handleAddClient(Empresa &e){
     string nome;
     cout<<"Number of clients: "<< Empresa::nCli <<endl;
 
-    cout<<"NIF ";
+    
     while (true) {
+        cout<<" NIF: ";
         nif = checkNumber();
-        if (nif == 0 || nif < -1) continue;     //do not accept negative nifs
+        if (nif == 0 || nif < -1){
+            cout << "Invalid NIF. Try again." << endl; 
+             continue;                                                      //do not accept negative nifs
+        }
         if (nif == -1) return;
 
         //case it was a ex-client
@@ -227,7 +231,7 @@ void handleAddClient(Empresa &e){
         cout<<"Nome [EXIT -1]: ";
         cin.ignore();
         getline(cin,nome);
-        if (nome == "-1") return;                   //abort operation
+        if (nome == "-1") return;                                           //abort operation
 
 
         try {
@@ -304,7 +308,7 @@ void handleAddService(Empresa &e){
         else if (tipo == "Perigoso"){
             cout << "Enter how dangerous the products are (3 TOXIC | 4 FLAMBLE | 5 SENSIBLE) [EXIT 2]";
             opt = checkOption(2,5);
-            if (opt == 3) return;
+            if (opt == 2) return;
         }
         else if(tipo == "Animal"){
             cout << "Enter the size of the animals (6 LITTLE | 7 MEDIO | 8 BIG) [EXIT 5]";
@@ -354,56 +358,36 @@ void handleAddTruck(Empresa &e){
         cout << "Max carg: ";
         carg = checkNumber();
         if (carg == -1) return;
-        if (carg < 1) cout << "Only positive numbers." << endl;
+        if (carg < 1){
+            cout << "Only positive numbers." << endl;
+            continue; 
+        }
         else break;
     }
 
-    cout << "[EXIT -1] Enter type of package (0-Base,1-Frozen,2-Dangerous,3-Animal): ";
+    cout << "[EXIT -1] Enter type of package (0 BASE | 1 FROZEN | 2 DANGEROUS | 3 ANIMAL): ";
     type = checkOption(-1, 3);
     if (type == -1) return;
 
     if(type == 0){
         e.addCamiao(0, carg);
-        cout << "Truck added successfully ";
-        wait(); 
     }
     else if (type == 1){
-        cout << "Temperature: ";
-        try{
-            caract = checkNumber();
-        }catch(WrongInput_option &error){
-            cout << "Not a number! " << endl;
-        }
-        e.addCamiao(1, carg, caract);
+        e.addCamiao(1, carg);
     }
     else if (type == 2){
-        cout << "Level of dangerous [1-10]: ";
-        while(true) {
-            try {
-                caract = checkOption(1, 10);
-                break;
-            }
-            catch (WrongInput_option &error) {
-                cout << error.getInfo() << endl;
-                continue;
-            }
-        }
-        e.addCamiao(2, carg, caract);
+        e.addCamiao(2, carg);
     }
     else if (type == 3){
-        cout << "[EXIT -1/0] Number of animals. Watch the max storage ("<< carg << ") " << endl;
-        caract = checkOption(-1, 10);
-        if (caract == -1 || caract == 0)  return;
-        }
-        e.addCamiao(3, carg, caract);
+        e.addCamiao(3, carg);
+    }
 
+    cout << "Truck added successfully ";
+    wait(); 
 
     ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
-    o << "\n" << carg << "\n" << temp[type];
-    o << "\n" << caract << "\n";
+    o << "\n\n" << carg << "\n" << temp[type];
+    o << "\n" << caract;
     o.close();
 
-
-
-
-};
+}

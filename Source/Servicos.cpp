@@ -38,6 +38,7 @@ double Servicos::cal_tempo() {
     double r = 6378.137; //radius of the earth
 
     double distance = acos(sin(x1)*sin(x2)+cos(x1)*cos(x2)*cos(dy))*r;
+    
     // it calculates the distance between the two points
     return distance / velocity;                                 //calculates the time in hours
 }
@@ -55,8 +56,9 @@ ostream &operator<<(ostream &os, Servicos servico) {
                << setw(30) << servico.get_departure()
                << setw(30) << servico.get_arrival()
                << setw(15) << servico.num_camiao()
-               << setw(10) << servico.get_profit()
-               << servico.carga << endl;
+               << setw(15) << servico.get_profit()
+               << setw(15) << servico.carga 
+               << servico.get_condition() <<endl;
     return os;
 }
 
@@ -100,6 +102,9 @@ string Servicos::get_camioes_id() const {
     return s;
 }
 
+string Servicos::get_condition(){
+    return condition; 
+}
 
 void Servicos::addCamiao(Camiao *camiao) {
     camioes.push_back(camiao);

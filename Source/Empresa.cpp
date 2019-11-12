@@ -92,7 +92,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             getline(file, aux);
             is.clear();
             is.str(aux);
-            while (!is.eof() && aux != "0") {               //get the list of trucks id
+            while (!is.eof() && aux != "0") {                   //get the list of trucks id
                 is >> aux_int;
                 this->addCamiaoId_Servico(aux_int, s);
             }
@@ -105,11 +105,8 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
                 e.addServico(s, cliNif);
             }
         }
-    else novo = true;                                       //if there's nothing to read, it means that this is a new file
+    else novo = true;                                           //if there's nothing to read, it means that this is a new file
 }
-/**
- * @function that reads and records the file of the trucks
- */
 
 void Empresa::gravaCam() {
     fstream file("../AEDA_Proj1/Ficheiros/camioes");
@@ -125,47 +122,48 @@ void Empresa::gravaCam() {
 
         getline(file, type);                                //get the type
         if (type == "Animal") {
-            Animals *c = new Animals(carga, ++nCam);
+            Animals *c = new Animals(carga, cam.size()+1);
             cam.push_back(c);
         } else if (type == "Congelado") {
-            Congelado *c = new Congelado(carga, ++nCam);
+            Congelado *c = new Congelado(carga, cam.size()+1);
             cam.push_back(c);
         } else if (type == "Perigoso") {
-            Perigoso *c = new Perigoso(carga, ++nCam);
+            Perigoso *c = new Perigoso(carga, cam.size()+1);
             cam.push_back(c);
         } else {
-            Base *c = new Base(carga, ++nCam);
+            Base *c = new Base(carga, cam.size()+1);
             cam.push_back(c);
         }
     }
 }
 
+//------------------------------------------------------------------------------------
+
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
-    for (int i = cli.size()-1; i >= 0; i--) delete cli[i];                //cleaning the vector
+    for (int i = cli.size()-1; i >= 0; i--) delete cli[i];                  //cleaning the vector
     for (int i = cam.size()-1; i >= 0; i--) delete cam[i];
     for (int i = ser.size()-1; i >= 0; i--) delete ser[i];
-    cli.clear();                                                        //deleting the vector allocation
+    cli.clear();                                                            //deleting the vector allocation
     cam.clear();
     ser.clear();
 }
 
-
 double Empresa::getLucro_mes() const {
     double lucro = 0;
-    for (auto it = ser.begin(); it < ser.end(); it++)               //profit of each service done
+    for (auto it = ser.begin(); it < ser.end(); it++)                       //profit of each service done
         lucro += (*it)->get_profit();
     return lucro;
 }
 
 
 void Empresa::addClientes(const string &name, const long long int &nif) {
-    long int pos = SearchCli(nif);                                  //check if the client already exists
-    if (pos != -1) throw RepeatedClient(name);                      // if so, throw a exception
+    long int pos = SearchCli(nif);                                          //check if the client already exists
+    if (pos != -1) throw RepeatedClient(name);                              // if so, throw a exception
     auto c = new Clientes(name, nif);
     if (nif> 0 )
-        nCli++;                                                         //increase the number of clients
+        nCli++;                                                             //increase the number of clients
     cli.push_back(c);
 }
 
@@ -274,11 +272,12 @@ void headerServInfor() {
          << setw(30) << "PARTIDA"
          << setw(30) << "CHEGADA"
          << setw(15) << "N CAMIOES"
-         << setw(10) << "PRECO"
-         << "CARGA" << endl;
+         << setw(15) << "PRECO"
+         << setw(15) << "CARGA"
+         << "CARACTERISTICA"  << endl;
     cout << "=========================================================="
             "=========================================================="
-            "==========" << endl;
+            "===========================================" << endl;
 
 }
 
@@ -293,13 +292,13 @@ void headerCamInfor() {
 
 }
 
-void Empresa::addCamiao(const int &type, const long long int &cargaMax, const double &caract) {
+void Empresa::addCamiao(const int &type, const long long int &cargaMax) {
     map<unsigned int, string> temp = {{0, "Base"},
                                       {1, "Congelado"},
                                       {2, "Perigoso"},
                                       {3, "Animal"}};
     string sType = temp[type];                                          //Get the type
-    unsigned int id = ++nCam;                                           //Increase ne number of trucks
+    unsigned int id = cam.size()+1;                                     //Increase ne number of trucks
     if (sType == "Base") {
         Camiao *c = new Base(cargaMax, id);
         cam.push_back(c);
@@ -339,7 +338,7 @@ bool Empresa::allocateCamiao(Servicos *s) {
     int carga = s->get_carga();
     sort(cam_copy.begin(), cam_copy.end(), Compare);                    //Sort by ascender order of profit 
     for (const auto &x: cam_copy) {
-        if (x->getType() == s->get_tipo() && x->getCargaMax()>0) {                            //If it has the same type of the service
+        if (x->getType() == s->get_tipo() && x->getCargaMax()>0) {      //If it has the same type of the service
             carga -= x->getCargaMax();
             s->addCamiao(x);
         }
@@ -377,12 +376,12 @@ void Empresa::rewriteClients() {
 
 
 void Empresa::removeClient(const long long int &nif) {
-    long int pos = SearchCli(nif);          //get the position of the client
-    if (nif == -1) return;                  //to cancel the operation
+    long int pos = SearchCli(nif);                                      //get the position of the client
+    if (nif == -1) return;                                              //to cancel the operation
 
-    cli[pos]->setNif((-1)*nif);         //change the nif to a negative one
+    cli[pos]->setNif((-1)*nif);                                         //change the nif to a negative one
     nCli--;
-    rewriteClients();                       //we need to rewrite the file
+    rewriteClients();                                                   //we need to rewrite the file
 }
 
 void Empresa::reAcceptClient(const long int& pos) {

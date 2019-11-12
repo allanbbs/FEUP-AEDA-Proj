@@ -82,9 +82,8 @@ public:
      * @brief It adds a new truck to the enterprise
      * @param type the type of the trucm
      * @param cargaMax max number of items
-     * @param caract the special caracteristic for the type of the truck: temperatura, quaoPerigoso or animalCount
      */
-    void addCamiao(const int&  type, const long long int &cargaMax, const double& caract = -1);
+    void addCamiao(const int&  type, const long long int &cargaMax);
 
     /**
      * @brief Search for a client with nif given

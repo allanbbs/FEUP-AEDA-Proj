@@ -131,6 +131,11 @@ public:
      */
     void addCamiao(Camiao *camiao);
 
+    /**
+     * @brief Get the condition object
+     * 
+     */
+    string get_condition(); 
 };
 
 /**

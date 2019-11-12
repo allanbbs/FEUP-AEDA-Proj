@@ -58,6 +58,8 @@ ostream &operator<<(ostream &out, const Clientes &client) {
     return out;                                                 //returns the name nif and requested services or "no services" announcement 
 }
 
+//------------------------------------------------------------------------------------
+
 bool Compare_clientes(const Clientes* c, const Clientes* c1) {
     if (c->get_profit() < c1->get_profit()) return false;
     else if (c1->get_profit() < c->get_profit()) return true;
