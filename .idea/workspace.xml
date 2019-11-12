@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="AEDA_Proj1" targetName="Doxygen" />
       <config projectName="AEDA_Proj1" targetName="AEDA_Proj1" />
     </generated>
   </component>
@@ -13,21 +12,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1847e1cc-cf8d-49e9-9c68-7270dfc545e0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ficheiros/camioes" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/camioes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ficheiros/clientes" beforeDir="false" afterPath="$PROJECT_DIR$/Ficheiros/clientes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Empresa.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Empresa.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Servicos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Servicos.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a" beforeDir="false" afterPath="$PROJECT_DIR$/a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AEDA_Proj1.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Empresa.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/Servicos.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/utils.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/Source/utils.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AEDA_Proj1.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_empresa_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_empresa_8cpp_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_empresa_8h_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_empresa_8h_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8cpp_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8h.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8h.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/_servicos_8h_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/_servicos_8h_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/output/html/main_8cpp_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/output/html/main_8cpp_source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +94,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.Doxygen">
+  <component name="RunManager" selected="CMake Application.AEDA_Proj1">
     <configuration name="AEDA_Proj1" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AEDA_Proj1" TARGET_NAME="AEDA_Proj1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AEDA_Proj1" RUN_TARGET_NAME="AEDA_Proj1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -152,6 +152,7 @@
       <workItem from="1573385211965" duration="11780000" />
       <workItem from="1573402164864" duration="1653000" />
       <workItem from="1573543547000" duration="13893000" />
+      <workItem from="1573567580521" duration="1162000" />
     </task>
     <servers />
   </component>

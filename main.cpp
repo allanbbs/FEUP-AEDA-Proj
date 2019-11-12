@@ -111,7 +111,7 @@ void printMainMenu(){
     cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT           " << endl
             << "======================================      ======================================= " << endl
             << "Status information                 [1]      Add new client                      [6] " << endl
-            << "Profit information                 [2]      Change client NAME                  [7] " << endl
+            << "Profit information                 [2]      Change client name                  [7] " << endl
             << "Add truck                          [3]      Remove a client                     [8] " << endl
             << "Remove truck                       [4]      New service request                 [9] " << endl
             << "Exit                               [5]                                              " << endl

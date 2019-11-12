@@ -142,9 +142,6 @@ void Empresa::gravaCam() {
 Empresa::Empresa() {}
 
 Empresa::~Empresa() {
-    for (int i = cli.size()-1; i >= 0; i--) delete cli[i];                  //cleaning the vector
-    for (int i = cam.size()-1; i >= 0; i--) delete cam[i];
-    for (int i = ser.size()-1; i >= 0; i--) delete ser[i];
     cli.clear();                                                            //deleting the vector allocation
     cam.clear();
     ser.clear();

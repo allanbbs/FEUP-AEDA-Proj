@@ -7,36 +7,35 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCInformation.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCXXInformation.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCommonLanguageInclude.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeFindCodeBlocks.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeGenericSystem.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeInitializeConfigs.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeLanguageInformation.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeSystemSpecificInformation.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/CMakeSystemSpecificInitialize.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-C.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-CXX.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/FindDoxygen.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageHandleStandardArgs.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageMessage.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Internal/CMakeCheckCompilerFlag.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-C.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-CXX.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/Platform/UnixPaths.cmake"
-  "/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/bin/cmake/linux/share/cmake-3.15/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.15.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeSystem.cmake"
-  "../docs/Doxyfile"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCInformation.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCXXInformation.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCommonLanguageInclude.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeFindCodeBlocks.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeGenericSystem.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeInitializeConfigs.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeLanguageInformation.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeSystemSpecificInformation.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-C.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-CXX.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindDoxygen.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageHandleStandardArgs.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageMessage.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Internal/CMakeCheckCompilerFlag.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-C.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-CXX.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Platform/UnixPaths.cmake"
+  "/opt/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/ProcessorCount.cmake"
   )
 
 # The corresponding makefile is:
@@ -47,12 +46,10 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "Doxyfile"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/AEDA_Proj1.dir/DependInfo.cmake"
-  "CMakeFiles/Doxygen.dir/DependInfo.cmake"
   )
