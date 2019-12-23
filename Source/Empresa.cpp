@@ -114,9 +114,9 @@ void Empresa::gravaCam() {
     string type;
     string auxString;
     while (!file.eof()) {
-        getline(file, auxString);                           //get first line
 
         getline(file, auxString);                           //get cargaMax
+        if (auxString == "") break;                                 //end line
         istringstream is(auxString);
         is >> carga;
         ++nCam; 
@@ -416,10 +416,9 @@ void Empresa::removeTruck(const long long int &id) {
 void Empresa::rewriteTruck() {
     ofstream o("../AEDA_Proj1/Ficheiros/camioes");
     for (auto i  = 0; i < cam.size()-1; i ++){
-        o << "\n" << cam[i]->getCargaMax() << "\n" << cam[i]->getType();
-        o << "\n";
+        o << cam[i]->getCargaMax() << "\n" << cam[i]->getType() << "\n";
     }
-    o << "\n" << cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType();
+    o << cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType() << "\n";
     o.close();
 
 }

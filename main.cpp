@@ -388,8 +388,7 @@ void handleAddTruck(Empresa &e){
     wait(); 
 
     ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
-    o << "\n\n" << carg << "\n" << temp[type];
-    o << "\n" << caract;
+    o << carg << "\n" << temp[type] << "\n";
     o.close();
 
 }
