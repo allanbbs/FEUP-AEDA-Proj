@@ -1,6 +1,0 @@
-/home/maruba/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/193.5233.144/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/maruba/Documents/AEDA_Proj1
--- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
-Doxygen needs to be installed to generate the documentation.
--- Configuring done
--- Generating done
--- Build files have been written to: /home/maruba/Documents/AEDA_Proj1/cmake-build-debug
