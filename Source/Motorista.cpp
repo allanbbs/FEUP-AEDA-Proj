@@ -3,7 +3,7 @@
 //
 
 #include "../Header/Motorista.h"
-
+#include <iomanip>
 
 float Motorista::getHours() const{
     return hours;
@@ -44,7 +44,6 @@ vector<Motorista> Workers::getBST() {
     vector<Motorista> temp;
     while (!it.isAtEnd()){
         temp.push_back(it.retrieve());
-        cout << it.retrieve().getName()<< " " << it.retrieve().getNif() << endl;
         it.advance();
     }
     return temp;
@@ -52,7 +51,14 @@ vector<Motorista> Workers::getBST() {
 
 void Workers::addMotorista(const Motorista& new_motorista) {
     bool bosta = this->BST_Workers.insert(new_motorista);
-    cout << bosta << endl;
 
 }
 
+void Workers::printBST() {
+    BSTItrIn<Motorista> it(BST_Workers);
+    while(!it.isAtEnd()){
+        cout << left << setw(30) << it.retrieve().getName() << setw(20) << it.retrieve().getNif() << it.retrieve().getHours() << endl;
+        it.advance();
+    }
+
+}
