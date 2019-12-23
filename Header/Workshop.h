@@ -25,29 +25,7 @@ public:
     bool operator<(const Workshop &w1)const;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 };
-
-
-
-
-
-
-
-
-
-
 
 
 
