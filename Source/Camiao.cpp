@@ -9,10 +9,11 @@
  * @brief It contains the implementation of the class Camiao and its sub-classes
  */
 
-Camiao::Camiao(const long long int& carg, const long long int& id) {
+Camiao::Camiao(const long long int& carg, const long long int& id,string name) {
     CargaMax = carg;
     this->id = id;
     totalProfit = 0;
+    brand = name;
 }
 
 Camiao::~Camiao() {}
@@ -27,7 +28,7 @@ void Camiao::removeTruck() {
 
 
 //------------------------------------------------------------------------------------
-Congelado::Congelado(long long int carg, long long int Id) : Camiao(carg,Id){}
+Congelado::Congelado(long long int carg, long long int Id,string name) : Camiao(carg,Id,name){}
 
 Congelado::~Congelado() {}
 
@@ -43,7 +44,7 @@ string Congelado::getType() const {
 
 //------------------------------------------------------------------------------------
 
-Perigoso::Perigoso(long long int carg, long long int Id) : Camiao(carg, Id){}
+Perigoso::Perigoso(long long int carg, long long int Id,string name) : Camiao(carg, Id,name){}
 
 Perigoso::~Perigoso() {}
 
@@ -55,7 +56,7 @@ string Perigoso::getType() const {return "Perigoso";}
 
 //------------------------------------------------------------------------------------
 
-Animals::Animals(long long int carg, long long int Id) : Camiao(carg, Id){}
+Animals::Animals(long long int carg, long long int Id,string name) : Camiao(carg, Id,name){}
 
 Animals::~Animals() {}
 
