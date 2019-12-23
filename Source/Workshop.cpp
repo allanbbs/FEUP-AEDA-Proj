@@ -16,3 +16,10 @@ Workshop::Workshop(string name,vector<string> aux){
 bool Workshop::operator<(const class Workshop & w1) const{
     return unavailability > w1.get_unavailability();
 }
+
+bool Workshop::checkForBrand(string name)const {
+    for(auto &brand : brands){
+        if(brand == name) return true;
+    }
+    return false;
+}

@@ -21,6 +21,7 @@ public:
     Workshop(string name,vector<string> aux);
     int get_unavailability() const {return unavailability;};
     string getName() const{return name;};
+    bool checkForBrand(string name)const;
     bool operator<(const Workshop &w1)const;
 
 
