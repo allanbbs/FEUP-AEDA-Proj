@@ -297,6 +297,13 @@ void headerCamInfor() {
 
 }
 
+void headerWorkersInfor(){
+    cout << left << setw(30) << "NAME" << setw(20) << "NIF" << "HOURS" << endl;
+    cout << "=========================================================="
+            "=======================" << endl;
+}
+
+
 void Empresa::addCamiao(const int &type, const long long int &cargaMax) {
     map<unsigned int, string> temp = {{0, "Base"},
                                       {1, "Congelado"},

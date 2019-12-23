@@ -16,6 +16,8 @@
 #include "Servicos.h"
 #include "Errors.h"
 #include "Clientes.h"
+#include "Motorista.h"
+
 
 /**
  * @file Empresa.h
@@ -31,6 +33,7 @@ private:
     vector<Clientes *> cli;     /**< Vector that contains all clients of this enterprise*/
     vector<Camiao *> cam;       /**<Vector that contais all camioes of this enterprise*/
     vector<Servicos *> ser;     /**<Vector that contais all services offered for the enterprise*/
+    Workers w;
 
 public:
     static size_t nCam;         /**<How many trucks there are in the enterprise**/
@@ -205,5 +208,9 @@ void headerServInfor();
  */
 void headerCamInfor();
 
+/**
+ * @brief Header for list of workers
+ */
+void headerWorkersInfor();
 
 #endif //AEDA_PROJ1_EMPRESA_H
