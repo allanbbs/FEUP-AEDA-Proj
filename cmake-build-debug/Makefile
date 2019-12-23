@@ -231,6 +231,33 @@ Source/Local.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.s
 .PHONY : Source/Local.cpp.s
 
+Source/Motorista.o: Source/Motorista.cpp.o
+
+.PHONY : Source/Motorista.o
+
+# target to build an object file
+Source/Motorista.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Motorista.cpp.o
+.PHONY : Source/Motorista.cpp.o
+
+Source/Motorista.i: Source/Motorista.cpp.i
+
+.PHONY : Source/Motorista.i
+
+# target to preprocess a source file
+Source/Motorista.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Motorista.cpp.i
+.PHONY : Source/Motorista.cpp.i
+
+Source/Motorista.s: Source/Motorista.cpp.s
+
+.PHONY : Source/Motorista.s
+
+# target to generate assembly for a file
+Source/Motorista.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Motorista.cpp.s
+.PHONY : Source/Motorista.cpp.s
+
 Source/Servicos.o: Source/Servicos.cpp.o
 
 .PHONY : Source/Servicos.o
@@ -360,6 +387,9 @@ help:
 	@echo "... Source/Local.o"
 	@echo "... Source/Local.i"
 	@echo "... Source/Local.s"
+	@echo "... Source/Motorista.o"
+	@echo "... Source/Motorista.i"
+	@echo "... Source/Motorista.s"
 	@echo "... Source/Servicos.o"
 	@echo "... Source/Servicos.i"
 	@echo "... Source/Servicos.s"
