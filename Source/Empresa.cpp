@@ -471,3 +471,7 @@ bool Empresa::setMotoristaName(Motorista m, const string &name) {
 bool Empresa::allocateMotorista(float tempo) {
     return w.allocateMotorista(tempo);
 }
+
+void Empresa::resetHours() {
+    w.resetHours();
+}

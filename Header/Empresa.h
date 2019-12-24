@@ -232,6 +232,10 @@ public:
      * @return false, case it's not possible to allocate  a Motorista; true otherwise
      */
     bool allocateMotorista(float tempo);
+    /**
+     * Reset the hours in the elements of the BST
+     */
+    void resetHours();
 
 };
 

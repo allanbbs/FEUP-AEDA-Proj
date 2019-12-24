@@ -153,7 +153,10 @@ public:
      * @return true case the Motorista has been allocated, false otherwise
      */
     bool allocateMotorista(float tempo);
-
+    /**
+     * @brief set hours to zero in all elements in the BST
+     */
+    void resetHours();
 };
 
 

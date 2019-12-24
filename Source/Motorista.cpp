@@ -189,3 +189,13 @@ bool Workers::allocateMotorista(float tempo) {
     }
     return false;
 }
+
+void Workers::resetHours() {
+    vector<Motorista> m = getBST();
+    BST_Workers.makeEmpty();
+    for (auto & it: m){
+        it.setHours(0);
+        BST_Workers.insert(it);
+    }
+    this->rewrite_file();
+}

@@ -149,7 +149,7 @@ void printMenuMotorista(){
         << "First x workers - ascending hours         [1]                       Add a worker                             [6]"<< endl
         << "First x workers - descending hours        [2]                       Remove a worker                          [7]"<< endl
         << "First x workers - alphabetic order        [3]                       Change a worker name                     [8]"<< endl
-        << "Search a specific worker by nif           [4]                                                                   "<< endl
+        << "Search a specific worker by nif           [4]                       Reset hours of work                      [9] "<< endl
         << "Cancel                                    [5]                                                                   "<< endl;
 
 }
@@ -236,7 +236,7 @@ void handleWorkersMenu(Empresa &e){
     while(true){
         clear_screen();
         printMenuMotorista();
-        option = checkOption(1,8);
+        option = checkOption(1,9);
         if (option == 5) return;
 
         switch(option){
@@ -274,6 +274,8 @@ void handleWorkersMenu(Empresa &e){
             case 8:
                 handleChangeNameWorker(e);
                 break;
+            case 9:
+                e.resetHours();
             default:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
