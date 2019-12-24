@@ -23,10 +23,12 @@ TaxTable *table = new TaxTable(in);
 void mainMenu(Empresa &e);              //handle the main menu
 void printMainMenu();
 void printMenuStatus();                 //print the menu for status
+void printMenuMotorista();
 void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
+void handleWorkersMenu(Empresa &e);
 
 int month;
 extern bool novo;
@@ -100,6 +102,10 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
             }
+            case 10:{
+                //handle menu motorista
+                handleWorkersMenu(e);
+            }
             default:
                 break;
         }
@@ -115,7 +121,7 @@ void printMainMenu(){
             << "Profit information                 [2]      Change client name                  [7] " << endl
             << "Add truck                          [3]      Remove a client                     [8] " << endl
             << "Remove truck                       [4]      New service request                 [9] " << endl
-            << "Exit                               [5]                                              " << endl
+            << "Exit                               [5]      Workers MENU                       [10] " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
 }
 
@@ -131,6 +137,19 @@ void printMenuStatus(){
 
 }
 
+/**
+ * @brief print workers menu
+ */
+void printMenuMotorista(){
+    cout<< "        WORKERS MENU VISUALIZATION                                              WORKERS MANAGEMENT              "<< endl
+        << "============================================                        ============================================"<< endl
+        << "First x workers - ascending hours         [1]                       Add a worker                             [6]"<< endl
+        << "First x workers - descending hours        [2]                       Remove a worker                          [7]"<< endl
+        << "First x workers - alphabetic order        [3]                       Change a worker name                     [8]"<< endl
+        << "Search a specific worker by nif           [4]                                                                   "<< endl
+        << "Cancel                                    [5]                                                                   "<< endl;
+
+}
 void handleMenuStatus(Empresa &e){
     int option, id, nif, type;
     long int n;
@@ -207,6 +226,38 @@ void handleMenuStatus(Empresa &e){
     }
 }
 
+void handleWorkersMenu(Empresa &e){
+    int option;
+    while(true){
+        clear_screen();
+        printMenuMotorista();
+        option = checkOption(1,8);
+        if (option == 5) return;
+        switch(option){
+            case 1:
+                headerWorkersInfor();
+                e.displayWorkers(option);
+                wait();
+                break;
+            case 2:
+                headerWorkersInfor();
+                e.displayWorkers(option);
+                wait();
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+        }
+
+    }
+}
 void handleAddClient(Empresa &e){
     long long int nif;
     string nome;

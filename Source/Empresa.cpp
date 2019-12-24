@@ -273,6 +273,16 @@ void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (
     cout << os.str();
 }
 
+void Empresa::displayWorkers(int option) {
+    switch(option){
+        case 1:
+            w.printBST();
+            break;
+        case 2:
+            w.printBST_reversed();
+            break;
+    }
+}
 void headerServInfor() {
     cout << left << setw(10) << "ID"
          << setw(15) << "TIPO"
@@ -302,8 +312,7 @@ void headerCamInfor() {
 
 void headerWorkersInfor(){
     cout << left << setw(30) << "NAME" << setw(20) << "NIF" << "HOURS" << endl;
-    cout << "=========================================================="
-            "=======================" << endl;
+    cout << "==================================================================" << endl;
 }
 
 
@@ -432,3 +441,4 @@ void Empresa::rewriteTruck() {
     o.close();
 
 }
+

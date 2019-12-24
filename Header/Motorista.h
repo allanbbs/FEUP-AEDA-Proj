@@ -87,9 +87,14 @@ public:
      */
     void printBST();
     /**
+     * @brief Prints the content of the BST by reverse order, so that the elements are in descending order of hours
+     */
+    void printBST_reversed();
+    /**
      * @brief read from Ficheiros, the file with Motoristas and insert on the BST
      */
     void readMotorista();
+
 };
 
 

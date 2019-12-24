@@ -58,7 +58,13 @@ void Workers::printBST() {
     }
 
 }
-
+void Workers::printBST_reversed(){
+    vector<Motorista> m;
+    BST_Workers.getReversedTree(m);
+    for (auto const& it: m){
+        cout << left << setw(30) << it.getName() << setw(20) << it.getNif() << it.getHours() << endl;
+    }
+}
 void Workers::readMotorista() {
     string name, aux;
     fstream file;
