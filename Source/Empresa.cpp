@@ -458,3 +458,12 @@ bool Empresa::removeMotorista(class Motorista m) {
     w.rewrite_file();
     return b;
 }
+
+bool Empresa::setMotoristaName(Motorista m, const string &name) {
+    bool b = w.setName(m, name);
+    if (b){
+        w.rewrite_file();
+        return true;
+    }
+    return false;
+}

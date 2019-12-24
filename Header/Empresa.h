@@ -208,7 +208,7 @@ public:
 
     bool removeMotorista(Motorista m);
 
-
+    bool setMotoristaName(Motorista m, const string& name);
 
 };
 

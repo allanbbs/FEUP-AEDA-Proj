@@ -67,6 +67,8 @@ public:
     bool setHours(const float & h);
 
     friend ostream &operator<<(ostream &out,const Motorista& w);
+
+    void setName(const string& name);
 };
 
 
@@ -123,6 +125,8 @@ public:
     Motorista check_nif(long long int Nif) const;
 
     void rewrite_file();
+
+    bool setName(Motorista& motorista, const string& name);
 
 };
 

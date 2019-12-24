@@ -31,7 +31,7 @@ void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
 void handleAddWorker(Empresa & e);
 void handleRemoveWorker(Empresa &e);
-
+void handleChangeNameWorker(Empresa &e);
 
 int month;
 extern bool novo;
@@ -272,6 +272,7 @@ void handleWorkersMenu(Empresa &e){
                 handleRemoveWorker(e);
                 break;
             case 8:
+                handleChangeNameWorker(e);
                 break;
             default:
                 cout << "Type x [EXIT - 0][1~10000] ";
@@ -531,4 +532,30 @@ void handleRemoveWorker(Empresa &e){
         cout << "No worker with the given NIF" << endl;
     else cout<< "Worker removed successfully!" << endl;
     wait();
+}
+
+void handleChangeNameWorker(Empresa &e){
+    long long int nif;
+    while(true) {
+        cout << "NIF: ";
+        nif = checkNumber();
+        if (nif == 0 || nif < -1) {
+            cout << "Invalid NIF. Try again." << endl;
+            continue;                                                      //do not accept negative nifs
+        }
+        if (nif == -1) return;
+        break;
+    }
+    //get the name
+    string name;
+    cout << "[EXIT -1] NAME: ";
+    cin.ignore();
+    getline(cin, name);
+    if (name == "-1") return;
+
+    if(!e.setMotoristaName(Motorista("", nif, 0), name))
+        cout << "No worker with the given NIF" << endl;
+    else cout<< "Worker name changed successfully!" << endl;
+    wait();
+
 }

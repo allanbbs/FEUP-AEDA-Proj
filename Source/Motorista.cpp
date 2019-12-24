@@ -36,6 +36,10 @@ bool Motorista::setHours(const float & h) {
     return true;
 }
 
+void Motorista::setName(const string& name){
+    this->name = name;
+}
+
 ostream &operator<<(ostream &out,const Motorista& w){
     out << left << setw(30) << w.getName() << setw(20) << w.getNif() << w.getHours() << endl;
     return out;
@@ -144,4 +148,19 @@ void Workers::rewrite_file() {
         it.advance();
     }
     file.close();
+}
+
+bool Workers::setName(Motorista &motorista, const string& name) {
+    BSTItrIn<Motorista> it (BST_Workers);
+    while(!it.isAtEnd()){
+        if (motorista == it.retrieve()) {
+            motorista = it.retrieve();
+            BST_Workers.remove(it.retrieve());
+            motorista.setName(name);
+            BST_Workers.insert(motorista);
+            return true;
+        }
+        it.advance();
+    }
+    return false;
 }
