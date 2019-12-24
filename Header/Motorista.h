@@ -5,6 +5,12 @@
 #ifndef AEDA_PROJ1_MOTORISTA_H
 #define AEDA_PROJ1_MOTORISTA_H
 #include "bst.h"
+#include "Errors.h"
+
+#include <fstream>
+#include <iomanip>
+#include <istream>
+#include <algorithm>
 #include <string>
 #include <vector>
 
@@ -60,6 +66,7 @@ public:
      */
     bool setHours(const float & h);
 
+    friend ostream &operator<<(ostream &out,const Motorista& w);
 };
 
 
@@ -83,11 +90,13 @@ public:
      */
     bool addMotorista(const Motorista& new_motorista);
     /**
-     * @brief prints the content of the BST
+     * @brief Prints the content of the BST
+     * @param n Number of elements to print
      */
     void printBST(int n);
     /**
      * @brief Prints the content of the BST by reverse order, so that the elements are in descending order of hours
+     * @param n Number of elements to print
      */
     void printBST_reversed(int n);
     /**
@@ -95,6 +104,17 @@ public:
      */
     void readMotorista();
 
+    /**
+     * It prints the bst in an alphabetic other of Motorista name
+     * @param n Number of elements to be printed
+     */
+    void printBST_alphabetic(int n);
+    /**
+     * @brief Search for Motorista with the specif nif
+     * @param Nif Nif to be searched
+     * @return Return a Motorista with name "" if it doesn't exist, else return the Motorista with the nif asked
+     */
+    Motorista check_nif(long long int Nif) const;
 };
 
 

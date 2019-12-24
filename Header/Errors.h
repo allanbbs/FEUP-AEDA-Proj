@@ -63,4 +63,10 @@ public:
     std::string getInfo() const {return info;};
 };
 
+class NoWorker: Error{
+public:
+    NoWorker(): Error("No worker with the specified NIF!"){ }
+    std::string getInfo() const {return info;};
+
+};
 #endif //AEDA_PROJ1_ERRORS_H

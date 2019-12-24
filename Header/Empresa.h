@@ -113,7 +113,11 @@ public:
      * @return double 
      */
     double getLucro_camiaoMes(const string& type) const;
-
+    /**
+     * @brief get the workers BST, in order to use it's methods
+     * @return Workers
+     */
+    Workers getBST() const;
     /**
      * @brief Display the clients information in a specific format
      * 
@@ -199,6 +203,8 @@ public:
     long long int get_cam_num(); 
 
     void displayWorkers(int option, int n);
+
+
 
 
 };

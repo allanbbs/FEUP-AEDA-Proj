@@ -228,40 +228,54 @@ void handleMenuStatus(Empresa &e){
 
 void handleWorkersMenu(Empresa &e){
     int option, n;
+    Motorista m;
+
     while(true){
         clear_screen();
         printMenuMotorista();
         option = checkOption(1,8);
         if (option == 5) return;
+
         switch(option){
-            case 1:
-                cout << "Type x [EXIT - 0][1~10000] ";
-                n = checkOption(0, 10000);
-                if (n == 0) continue;
+            case 4: {
+                cout << "NIF: ";
+                long long int nif = checkNumber();
+                if (nif == 0 || nif < -1) {
+                    cout << "Invalid NIF. Try again." << endl;
+                    wait();
+                    break;
+                }
+                if (nif == -1) break;
 
+                //check if there's a worker with this NIF
+                try {
+                    m = e.getBST().check_nif(nif);
+                } catch (NoWorker &e) {
+                    cout << e.getInfo() << endl;
+                    wait();
+                    break;
+                }
+
+                //case there's a worker with the given nif
                 headerWorkersInfor();
-                e.displayWorkers(option, n);
+                cout << m;
                 wait();
                 break;
-            case 2:
-                cout << "Type x [EXIT - 0][1~10000] ";
-                n = checkOption(0, 10000);
-                if (n == 0) continue;
-
-                headerWorkersInfor();
-                e.displayWorkers(option, n);
-                wait();
-                break;
-
-            case 3:
-                break;
-            case 4:
-                break;
+            }
             case 6:
                 break;
             case 7:
                 break;
             case 8:
+                break;
+            default:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+
+                headerWorkersInfor();
+                e.displayWorkers(option, n);
+                wait();
                 break;
 
         }
@@ -273,7 +287,6 @@ void handleAddClient(Empresa &e){
     string nome;
     cout<<"Number of clients: "<< Empresa::nCli <<endl;
 
-    
     while (true) {
         cout<<"NIF: ";
         nif = checkNumber();

@@ -163,6 +163,10 @@ double Empresa::getLucro_mes() const {
     return lucro;
 }
 
+Workers Empresa::getBST() const{
+    return w;
+}
+
 long long int Empresa::get_cam_num(){
     return cam.size(); 
 }
@@ -280,6 +284,9 @@ void Empresa::displayWorkers(int option, int n) {
             break;
         case 2:
             w.printBST_reversed(n);
+            break;
+        case 3:
+            w.printBST_alphabetic(n);
             break;
     }
 }
