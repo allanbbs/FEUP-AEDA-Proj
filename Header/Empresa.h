@@ -201,15 +201,36 @@ public:
      * @return long long int
      */
     long long int get_cam_num(); 
-
+    /**
+     * Display workers according to the option given
+     * @param option 1: Print workers ascending order of hours, option 2: Print workers descending order of hours, option 3: Print workers in alphabetic order
+     * @param n Number of workers to print
+     */
     void displayWorkers(int option, int n);
-
+    /**
+     * Add a worker to the BST
+     * @param m Worker to be added
+     * @return false case the worker already exists, true otherwise
+     */
     bool addMotorista(Motorista m);
-
+    /**
+     * Remove a worker from the BST
+     * @param m Worker (Motorista) to be removed
+     * @return false there isn't this worker, true otherwise
+     */
     bool removeMotorista(Motorista m);
-
+    /**
+     * Change the Motorista name
+     * @param m Motorista which the name will be changed
+     * @param name New name of the Motorista
+     * @return false, case the Motorista does not exist, true otherwise
+     */
     bool setMotoristaName(Motorista m, const string& name);
-
+    /**
+     * Increase the number of hours of the Motorista
+     * @param tempo Number of hours to increase
+     * @return false, case it's not possible to allocate  a Motorista; true otherwise
+     */
     bool allocateMotorista(float tempo);
 
 };

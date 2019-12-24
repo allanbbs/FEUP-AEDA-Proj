@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/**
+ * @file Motorista.cpp
+ * @brief It contains the implementation of the file Motorista.h
+ */
+
 float Motorista::getHours() const{
     return hours;
 }
@@ -31,6 +36,7 @@ bool Motorista::operator==(const Motorista & driver) const{
 }
 
 bool Motorista::setHours(const float & h) {
+    //The number of hours cannot be higher than 24, neither lower than 0
     if(h > 24 || h<0) return false;
     this->hours= h;
     return true;
@@ -45,6 +51,7 @@ ostream &operator<<(ostream &out,const Motorista& w){
     return out;
 }
 vector<Motorista> Workers::getBST() {
+    //Push back element by element in the vector temp
     BSTItrIn<Motorista> it(BST_Workers);
     vector<Motorista> temp;
     while (!it.isAtEnd()){
@@ -55,6 +62,7 @@ vector<Motorista> Workers::getBST() {
 }
 
 bool Workers::addMotorista(const Motorista& new_motorista) {
+    //Before add the Motorista, checks if there is already this Motorista in the BST
     BSTItrLevel<Motorista> it(BST_Workers);
     while(!it.isAtEnd()){
         if (it.retrieve() == new_motorista) return false;
@@ -76,6 +84,7 @@ void Workers::printBST(int n) {
     }
 
 }
+
 void Workers::printBST_reversed(int n){
     int counter = 0;
     vector<Motorista> m;
@@ -88,13 +97,11 @@ void Workers::printBST_reversed(int n){
 }
 
 void Workers::printBST_alphabetic(int n) {
+    //The BST cannnot help with the alphabetic order
+    //So the BST is passed to a vector and this one is sorted by the name
     vector<Motorista> m;
     int counter = 0;
-    BSTItrLevel<Motorista> it (BST_Workers);
-    while(!it.isAtEnd()){
-        m.push_back(it.retrieve());
-        it.advance();
-    }
+    m = this->getBST();
     sort(m.begin(),m.end(), [](const Motorista& worker1, const Motorista& worker2){return worker1.getName() < worker2.getName();});
     for (const auto & i: m){
         counter ++;
@@ -104,6 +111,7 @@ void Workers::printBST_alphabetic(int n) {
 }
 
 void Workers::readMotorista() {
+    //Read the Workers from the data base on Ficheiros
     string name, aux;
     fstream file;
     file.open("../AEDA_Proj1/Ficheiros/Motoristas");

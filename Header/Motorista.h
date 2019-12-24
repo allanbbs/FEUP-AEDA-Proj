@@ -14,12 +14,16 @@
 #include <string>
 #include <vector>
 
+/**
+ * @file Motorista.h
+ * @brief It contains the Class Motorista and Workers that manages the BST of workers
+ */
 
 class Motorista {
 private:
-    std::string name;
-    long long int nif;
-    float hours;
+    std::string name;       /**<Name of the worker**/
+    long long int nif;      /**<Nif of the worker**/
+    float hours;            /**<Number of hours of work on the day**/
 public:
     /**
      * @brief Default constructor
@@ -65,9 +69,17 @@ public:
      * @return true: if h <= 24; else false
      */
     bool setHours(const float & h);
-
+    /**
+     * Print the Motorista information
+     * @param out
+     * @param w Motorista to be printed
+     * @return
+     */
     friend ostream &operator<<(ostream &out,const Motorista& w);
-
+    /**
+     * @brief Change the name of the Motorista
+     * @param name New name to substitue the old name
+     */
     void setName(const string& name);
 };
 
@@ -105,6 +117,7 @@ public:
     /**
      * @brief Prints the content of the BST by reverse order, so that the elements are in descending order of hours
      * @param n Number of elements to print
+     * @attention For the implementation of this function, the bst.h has been changed. Two new function has been implemented: void getReversedTree(vector<Comparable>& v) const and void getReversedTree_aux(BinaryNode<Comparable> *t, vector<Comparable> &v).
      */
     void printBST_reversed(int n);
     /**
@@ -120,14 +133,25 @@ public:
     /**
      * @brief Search for Motorista with the specific nif
      * @param Nif Nif to be searched
-     * @return Return a Motorista with name "" if it doesn't exist, else return the Motorista with the nif asked
+     * @return throw an exception if it doesn't exist, else return the Motorista with the nif asked
      */
     Motorista check_nif(long long int Nif) const;
-
+    /**
+     * @brief Update the file Motoristas with the information in the BST
+     */
     void rewrite_file();
-
+    /**
+     * @brief Change the name of a Motorista
+     * @param motorista Motorista whose name will be changed
+     * @param name New name of the Motorista
+     * @return true in case of success, false otherwise
+     */
     bool setName(Motorista& motorista, const string& name);
-
+    /**
+     * Allocate a Motorista to work for more x hours
+     * @param tempo Number of hours to increase the work
+     * @return true case the Motorista has been allocated, false otherwise
+     */
     bool allocateMotorista(float tempo);
 
 };
