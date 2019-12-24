@@ -125,5 +125,23 @@ Motorista Workers::check_nif(long long Nif) const{
     throw NoWorker();
 }
 
+bool Workers::removeMotorista(const Motorista &motorista) {
+    BSTItrIn<Motorista> it (BST_Workers);
+    while(!it.isAtEnd()){
+        if (motorista == it.retrieve()) return BST_Workers.remove(it.retrieve());
+        it.advance();
+    }
+    return false;
+}
 
-
+void Workers::rewrite_file() {
+    ofstream file ("../AEDA_Proj1/Ficheiros/Motoristas");
+    BSTItrLevel<Motorista> it (BST_Workers);
+    while(!it.isAtEnd()){
+        file<< it.retrieve().getName() << endl
+            << it.retrieve().getNif() << endl
+            << it.retrieve().getHours() << endl;
+        it.advance();
+    }
+    file.close();
+}

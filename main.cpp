@@ -30,6 +30,7 @@ void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
 void handleAddWorker(Empresa & e);
+void handleRemoveWorker(Empresa &e);
 
 
 int month;
@@ -268,6 +269,7 @@ void handleWorkersMenu(Empresa &e){
                 handleAddWorker(e);
                 break;
             case 7:
+                handleRemoveWorker(e);
                 break;
             case 8:
                 break;
@@ -510,4 +512,23 @@ void handleAddWorker(Empresa & e){
     }
     wait();
 
+}
+
+void handleRemoveWorker(Empresa &e){
+    //To remove a worker, due the tree implementation, we must know the number of hours worked
+    long long int nif;
+    while(true) {
+        cout << "NIF: ";
+        nif = checkNumber();
+        if (nif == 0 || nif < -1) {
+            cout << "Invalid NIF. Try again." << endl;
+            continue;                                                      //do not accept negative nifs
+        }
+        if (nif == -1) return;
+        break;
+    }
+    if(!e.removeMotorista(Motorista("", nif, 0)))
+        cout << "No worker with the given NIF" << endl;
+    else cout<< "Worker removed successfully!" << endl;
+    wait();
 }

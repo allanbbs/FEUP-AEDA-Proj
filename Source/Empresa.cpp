@@ -452,3 +452,9 @@ void Empresa::rewriteTruck() {
 bool Empresa::addMotorista(class Motorista m) {
     return w.addMotorista(m);
 }
+
+bool Empresa::removeMotorista(class Motorista m) {
+    bool b = w.removeMotorista(m);
+    w.rewrite_file();
+    return b;
+}

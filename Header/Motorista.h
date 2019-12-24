@@ -90,6 +90,12 @@ public:
      */
     bool addMotorista(const Motorista& new_motorista);
     /**
+     * Remove the given motorista
+     * @param motorista Worker to be removed
+     * @return true if it was removed successfully, false otherwise
+     */
+    bool removeMotorista(const Motorista& motorista);
+    /**
      * @brief Prints the content of the BST
      * @param n Number of elements to print
      */
@@ -115,6 +121,8 @@ public:
      * @return Return a Motorista with name "" if it doesn't exist, else return the Motorista with the nif asked
      */
     Motorista check_nif(long long int Nif) const;
+
+    void rewrite_file();
 
 };
 

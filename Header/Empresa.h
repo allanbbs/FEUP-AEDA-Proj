@@ -206,6 +206,8 @@ public:
 
     bool addMotorista(Motorista m);
 
+    bool removeMotorista(Motorista m);
+
 
 
 };
