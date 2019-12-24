@@ -198,7 +198,7 @@ public:
      */
     long long int get_cam_num(); 
 
-    void displayWorkers(int option);
+    void displayWorkers(int option, int n);
 
 
 };

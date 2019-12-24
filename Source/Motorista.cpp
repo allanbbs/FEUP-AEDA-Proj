@@ -50,19 +50,25 @@ bool Workers::addMotorista(const Motorista& new_motorista) {
 
 }
 
-void Workers::printBST() {
+void Workers::printBST(int n) {
+    int counter = 0;
     BSTItrIn<Motorista> it(BST_Workers);
     while(!it.isAtEnd()){
+        counter ++;
         cout << left << setw(30) << it.retrieve().getName() << setw(20) << it.retrieve().getNif() << it.retrieve().getHours() << endl;
         it.advance();
+        if (counter == n) break;
     }
 
 }
-void Workers::printBST_reversed(){
+void Workers::printBST_reversed(int n){
+    int counter = 0;
     vector<Motorista> m;
     BST_Workers.getReversedTree(m);
     for (auto const& it: m){
+        counter ++;
         cout << left << setw(30) << it.getName() << setw(20) << it.getNif() << it.getHours() << endl;
+        if (counter == n) break;
     }
 }
 void Workers::readMotorista() {

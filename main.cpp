@@ -227,7 +227,7 @@ void handleMenuStatus(Empresa &e){
 }
 
 void handleWorkersMenu(Empresa &e){
-    int option;
+    int option, n;
     while(true){
         clear_screen();
         printMenuMotorista();
@@ -235,15 +235,24 @@ void handleWorkersMenu(Empresa &e){
         if (option == 5) return;
         switch(option){
             case 1:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+
                 headerWorkersInfor();
-                e.displayWorkers(option);
+                e.displayWorkers(option, n);
                 wait();
                 break;
             case 2:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+
                 headerWorkersInfor();
-                e.displayWorkers(option);
+                e.displayWorkers(option, n);
                 wait();
                 break;
+
             case 3:
                 break;
             case 4:
@@ -254,6 +263,7 @@ void handleWorkersMenu(Empresa &e){
                 break;
             case 8:
                 break;
+
         }
 
     }

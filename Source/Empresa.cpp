@@ -273,13 +273,13 @@ void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (
     cout << os.str();
 }
 
-void Empresa::displayWorkers(int option) {
+void Empresa::displayWorkers(int option, int n) {
     switch(option){
         case 1:
-            w.printBST();
+            w.printBST(n);
             break;
         case 2:
-            w.printBST_reversed();
+            w.printBST_reversed(n);
             break;
     }
 }
