@@ -39,6 +39,7 @@ int main(){
         e.gravaCli();
         e.gravaCam();
         e.gravaSer(e, month);
+        e.readMotorista();
         mainMenu(e);
     }
 }

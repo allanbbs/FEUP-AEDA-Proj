@@ -33,7 +33,7 @@ private:
     vector<Clientes *> cli;     /**< Vector that contains all clients of this enterprise*/
     vector<Camiao *> cam;       /**<Vector that contais all camioes of this enterprise*/
     vector<Servicos *> ser;     /**<Vector that contais all services offered for the enterprise*/
-    Workers w;
+    Workers w;                  /**<Class that stores the workers BST**/
 
 public:
     static size_t nCam;         /**<How many trucks there are in the enterprise**/
@@ -52,8 +52,13 @@ public:
      */
     void gravaSer(Empresa &e, const int& month);
     /**
+     * @brief Read information from Motorista.txt file and stores the information in the variable w
+     */
+    void readMotorista();
+    /**
      * @brief Constructor for the class
      */
+
     Empresa();
 
     /**

@@ -16,14 +16,37 @@ private:
     float hours;
 public:
     /**
-     * Default constructor for the Motorista
-     * @param name the name of the worker
-     * @param nif the nif of the worker
+     * @brief Default constructor
      */
-    Motorista(std::string name, int nif);
+    Motorista(): name(""), nif(0), hours(0) {};
+    /**
+     * Constructor for the Motorista
+     * @param name The name of the worker
+     * @param nif The nif of the worker
+     * @param Hours Number of daily hours
+     */
+    Motorista(std::string Name, long long int Nif, float Hours): name(Name), nif(Nif), hours(Hours){};
+    /**
+     * @brief Organized by growing order of hours
+     * @param driver The Motorista to be compared to
+     * @return True: case the number of hours is less then the number of hours of driver, false otherwise
+     */
     bool operator<(const Motorista &driver) const;
+    /**
+     * @brief Compares two Motorista variables
+     * @param driver The Motorista to be compared to
+     * @return True: case are equal, false otherwise
+     */
     bool operator==(const Motorista &driver) const;
+    /**
+     * @brief Get the number of hours until now
+     * @return Float with hours
+     */
     float getHours() const;
+    /**
+     * @brief Get the name of the motorista
+     * @return string with the name
+     */
     std::string getName() const;
     /**
      * Get the Nif
@@ -36,6 +59,7 @@ public:
      * @return true: if h <= 24; else false
      */
     bool setHours(const float & h);
+
 };
 
 
@@ -46,7 +70,7 @@ public:
     /**
      * Default constructor
      */
-    Workers(): BST_Workers(Motorista("",0)) {};
+    Workers(): BST_Workers(Motorista("",0,0)) {};
     /**
      * Get the Binary Tree in a vector in a In order sequence
      * @return Vector with the binary tree
@@ -55,10 +79,17 @@ public:
     /**
      * Adds a worker to the BST
      * @param new_motorista The worker to be added
+     * @return return true if the worker was added, else false
      */
-    void addMotorista(const Motorista& new_motorista);
-
+    bool addMotorista(const Motorista& new_motorista);
+    /**
+     * @brief prints the content of the BST
+     */
     void printBST();
+    /**
+     * @brief read from Ficheiros, the file with Motoristas and insert on the BST
+     */
+    void readMotorista();
 };
 
 

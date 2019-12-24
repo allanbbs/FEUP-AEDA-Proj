@@ -137,9 +137,12 @@ void Empresa::gravaCam() {
     }
 }
 
+void Empresa::readMotorista() {
+    w.readMotorista();
+}
 //------------------------------------------------------------------------------------
 
-Empresa::Empresa() {}
+Empresa::Empresa(){}
 
 Empresa::~Empresa() {
     vector<Clientes*> tempX;
