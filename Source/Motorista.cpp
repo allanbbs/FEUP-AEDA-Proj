@@ -164,3 +164,20 @@ bool Workers::setName(Motorista &motorista, const string& name) {
     }
     return false;
 }
+
+bool Workers::allocateMotorista(float tempo) {
+    Motorista temp;
+    BSTItrIn<Motorista> it (BST_Workers);
+    while(!it.isAtEnd()){
+        if (it.retrieve().getHours() + tempo < 24){
+            temp = it.retrieve();
+            BST_Workers.remove(it.retrieve());
+            temp.setHours(temp.getHours() + tempo);
+            BST_Workers.insert(temp);
+            rewrite_file();
+            return true;
+        }
+        it.advance();
+    }
+    return false;
+}

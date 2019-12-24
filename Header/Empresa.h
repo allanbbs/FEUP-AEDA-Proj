@@ -210,6 +210,8 @@ public:
 
     bool setMotoristaName(Motorista m, const string& name);
 
+    bool allocateMotorista(float tempo);
+
 };
 
 /**

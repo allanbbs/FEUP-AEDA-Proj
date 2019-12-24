@@ -128,6 +128,8 @@ public:
 
     bool setName(Motorista& motorista, const string& name);
 
+    bool allocateMotorista(float tempo);
+
 };
 
 

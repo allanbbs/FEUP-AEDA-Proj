@@ -401,7 +401,7 @@ void handleAddService(Empresa &e){
 
         Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga, temp_carac[opt]);
 
-
+        e.allocateMotorista(s->cal_tempo());
 
         if (!e.allocateCamiao(s)){
             cout << "Not enough trucks " << endl;
