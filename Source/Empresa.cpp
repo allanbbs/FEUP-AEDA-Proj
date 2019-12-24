@@ -449,3 +449,6 @@ void Empresa::rewriteTruck() {
 
 }
 
+bool Empresa::addMotorista(class Motorista m) {
+    return w.addMotorista(m);
+}

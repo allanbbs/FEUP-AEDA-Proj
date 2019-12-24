@@ -24,11 +24,13 @@ void mainMenu(Empresa &e);              //handle the main menu
 void printMainMenu();
 void printMenuStatus();                 //print the menu for status
 void printMenuMotorista();
+void handleWorkersMenu(Empresa &e);
 void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
-void handleWorkersMenu(Empresa &e);
+void handleAddWorker(Empresa & e);
+
 
 int month;
 extern bool novo;
@@ -263,6 +265,7 @@ void handleWorkersMenu(Empresa &e){
                 break;
             }
             case 6:
+                handleAddWorker(e);
                 break;
             case 7:
                 break;
@@ -465,5 +468,46 @@ void handleAddTruck(Empresa &e){
     ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
     o << carg << "\n" << temp[type] << "\n";
     o.close();
+
+}
+
+void handleAddWorker(Empresa & e){
+    string name;
+    long long int nif;
+
+    //get the name
+    cout << "[EXIT -1] Type the name: ";
+    cin.ignore();
+    getline(cin, name);
+    if (name == "-1") return;
+
+    while(true) {
+        //get the nif
+        cout << "Type NIF: ";
+        nif = checkNumber();
+
+        if (nif == 0 || nif < -1) {
+            cout << "Invalid NIF. Try again." << endl;
+            wait();
+            continue;                                                      //do not accept negative nifs
+        }
+        if (nif == -1) return;  //cancel the operation
+        else break;
+    }
+    Motorista m(name, nif, 0);
+    if (!e.addMotorista(m))
+        cout << "There is already a worker with the specific nif";
+    else {
+        cout << "Worker added successfully";
+        //write the content on the file
+        fstream file;
+        file.open("../AEDA_Proj1/Ficheiros/Motoristas",  ios_base::app);
+        file<< m.getName() << "\n"
+            << m.getNif() << "\n"
+            << m.getHours() << "\n";
+        file.close();
+
+    }
+    wait();
 
 }

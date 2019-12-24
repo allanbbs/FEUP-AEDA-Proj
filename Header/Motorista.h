@@ -84,7 +84,7 @@ public:
      */
     vector<Motorista> getBST();
     /**
-     * Adds a worker to the BST
+     * Adds a worker to the BST, case the Nif is not repeated
      * @param new_motorista The worker to be added
      * @return return true if the worker was added, else false
      */
@@ -110,11 +110,12 @@ public:
      */
     void printBST_alphabetic(int n);
     /**
-     * @brief Search for Motorista with the specif nif
+     * @brief Search for Motorista with the specific nif
      * @param Nif Nif to be searched
      * @return Return a Motorista with name "" if it doesn't exist, else return the Motorista with the nif asked
      */
     Motorista check_nif(long long int Nif) const;
+
 };
 
 

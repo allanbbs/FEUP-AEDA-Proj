@@ -204,6 +204,7 @@ public:
 
     void displayWorkers(int option, int n);
 
+    bool addMotorista(Motorista m);
 
 
 

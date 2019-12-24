@@ -19,11 +19,15 @@ long long int Motorista::getNif() const{
 }
 
 bool Motorista::operator<(const Motorista & driver) const{
-    return this->getHours() < driver.getHours();
+    if( this->getHours() < driver.getHours()) return true;
+    else if(this->getHours() > driver.getHours()) return false;
+    else if(this->getNif() < driver.getNif()) return true;
+    else if (this->getNif() > driver.getNif()) return false;
+    return false;
 }
 
 bool Motorista::operator==(const Motorista & driver) const{
-    return (this->name == driver.getName() && this->nif == driver.getNif());
+    return (this->nif == driver.getNif());
 }
 
 bool Motorista::setHours(const float & h) {
@@ -47,6 +51,12 @@ vector<Motorista> Workers::getBST() {
 }
 
 bool Workers::addMotorista(const Motorista& new_motorista) {
+    BSTItrLevel<Motorista> it(BST_Workers);
+    while(!it.isAtEnd()){
+        if (it.retrieve() == new_motorista) return false;
+        it.advance();
+    }
+
     return this->BST_Workers.insert(new_motorista);
 
 }
@@ -95,6 +105,7 @@ void Workers::readMotorista() {
     file.open("../AEDA_Proj1/Ficheiros/Motoristas");
     while(!file.eof()){
         getline(file, name);
+        if (name.empty()) break;
         getline(file, aux);
         long long int nif = stoi(aux);
         getline(file, aux);
@@ -102,7 +113,7 @@ void Workers::readMotorista() {
 
         BST_Workers.insert(Motorista(name, nif, hours));
     }
-
+    file.close();
 }
 
 Motorista Workers::check_nif(long long Nif) const{
@@ -113,3 +124,6 @@ Motorista Workers::check_nif(long long Nif) const{
     }
     throw NoWorker();
 }
+
+
+
