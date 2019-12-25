@@ -3,6 +3,10 @@
 //
 #include <vector>
 #include "../Header/Clientes.h"
+#include "../Header/Servicos.h"
+#include "../Header/Date.h"
+
+
 using namespace std;
 
 /**
@@ -57,6 +61,26 @@ ostream &operator<<(ostream &out, const Clientes &client) {
 
     return out;                                                 //returns the name nif and requested services or "no services" announcement 
 }
+Date Clientes::lastServiceDate() {
+    Date last = services[0]->get_date();
+    for(int i = 1; i < services.size(); i++){
+        if(services[i]->get_date().isAfter(last)){
+            last  =services[i]->get_date();
+        }
+
+    }
+    return last;
+}
+bool Clientes::inactive() {
+    int y = stoi(Date::currentDate().substr(0, 4)) - 1;
+    int m = stoi(Date::currentDate().substr(5, 7));
+    int d = stoi(Date::currentDate().substr(8));
+    Date now_minus_a_year = Date(y,m,d);
+    return this->lastServiceDate().isBefore(now_minus_a_year);// if the lastServiceDate is before now minus a year,
+    // there is more than  a year that the client doesnt request a service
+}
+
+
 
 //------------------------------------------------------------------------------------
 

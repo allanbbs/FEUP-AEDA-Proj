@@ -6,7 +6,9 @@
 #define AEDA_01_CLIENTES_H
 #include <string>
 #include <iostream>
+#include "../Header/Date.h"
 #include "../Header/Servicos.h"
+
 
 
 using namespace std;
@@ -76,6 +78,18 @@ public:
      * @return ostream with the information
      */
     friend ostream &operator<<(ostream &out, const Clientes &client);
+
+    /**
+  * @brief return the oldest request of the client
+  */
+    Date lastServiceDate();
+    /**
+     *
+     * @param client
+     * @return if ther is mora than a yaer that thte client doesnt request a service
+     */
+
+    bool inactive(); // checks if there is more than a year that the client doesnt request a service
 
 };
 /**

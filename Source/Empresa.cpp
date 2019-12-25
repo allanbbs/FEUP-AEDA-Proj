@@ -4,6 +4,7 @@
 
 #include "../Header/Empresa.h"
 #include <fstream>
+#include "../Header/Date.h"
 
 void headerServInfor();
 bool novo;
@@ -33,7 +34,7 @@ void Empresa::gravaCli() {
 void Empresa::gravaSer(Empresa &e, const int &month) {
     string fileName = "../AEDA_Proj1/Ficheiros/servicos" + to_string(month) + ".txt";
     ifstream file(fileName.c_str());
-    string local, aux, type;
+    string local, aux, type, when;
     long long int aux_int, carga, cliNif;
     double cordx, cordy;
     vector<long long int> trucks;
@@ -86,7 +87,13 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             if (type == "Animal" || type == "Perigoso" || type == "Congelado") {
                     getline(file, aux);
             }
-            Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga, aux);
+            //get the date that the service was request
+            getline(file, when);
+            is.clear();
+            is.str(when);
+            is >> when;
+            Date *date = new Date(when);
+            Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga,*date, aux);
 
             //get camioes id
             getline(file, aux);
