@@ -201,6 +201,11 @@ public:
      * @return long long int
      */
     long long int get_cam_num();
+    void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));rewriteWorkshops();};
+    bool removeWorkshop(string name);
+    void rewriteWorkshops();
+    //void fillQueue();
+    priority_queue<Workshop> getPQ() const {return pq;};
 
     vector<Camiao*> getCamiao() const {return cam;};
     vector<Servicos*> getServices() const {return ser;};

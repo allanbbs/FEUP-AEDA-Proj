@@ -21,9 +21,11 @@ void Empresa::gravaWor() {
     string aux;
     int disp;
     string delimiter = " ";
+    //vector<string> empty;
     vector<string> brands;
     while (!file.eof()) {
         brands.clear();
+       // brands.swap(empty);
         getline(file, name);            //get name
         getline(file,brand);
         size_t pos = 0;
@@ -37,8 +39,11 @@ void Empresa::gravaWor() {
         getline(file,aux);
         istringstream is(aux);
         is >> disp;
-        wor.push_back(Workshop(name,brands,disp));
+        Workshop nani(name,brands,disp);
+        wor.push_back(nani);
+        //pq.emplace(name,brands,disp);
     }
+    //fillQueue();
 }
 
 
@@ -455,7 +460,59 @@ void Empresa::rewriteTruck() {
     for (auto i  = 0; i < cam.size()-1; i ++){
         o << cam[i]->getBrand()<<"\n"<<cam[i]->getCargaMax() << "\n" << cam[i]->getType() << "\n";
     }
-    o <<cam[cam.size()-1]->getBrand()<<"\n"<< cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType() << "\n";
+    o <<cam[cam.size()-1]->getBrand()<<"\n"<< cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType();
     o.close();
 
 }
+
+void Empresa::rewriteWorkshops(){
+    ofstream out("../AEDA_Proj1/Ficheiros/workshops");
+    int aux,k;
+    for(auto i = 0;i<wor.size()-1;i++){
+        //out<<endl;
+        out<<wor[i].getName()<<endl;
+        aux = wor[i].getBrands().size() - 1;
+        k = 0;
+        for(auto &elem : wor[i].getBrands()){
+            if(k!=aux) out<<elem<<" ";
+            else{out<<elem<<endl;}
+            k++;
+        }
+        //out<<endl;
+        out<<wor[i].get_unavailability()<<endl;
+
+    }
+    int i = wor.size()-1;
+    out<<wor[i].getName()<<endl;
+    aux = wor[i].getBrands().size() - 1;
+    k = 0;
+    for(auto &elem : wor[i].getBrands()){
+        if(k!=aux) out<<elem<<" ";
+        else{out<<elem<<endl;}
+        k++;
+    }
+    //out<<endl;
+    out<<wor[i].get_unavailability();
+    out.close();
+}
+
+bool Empresa::removeWorkshop(string name) {
+    bool verify = false;
+    for(auto it = wor.begin();it!=wor.end();it++){
+        if((*it).getName() == name){
+            wor.erase(it);
+            verify = true;
+            break;
+        }
+    }
+    if(!verify) return false;
+    else {
+        rewriteWorkshops();
+        return true;
+    }
+}
+/*void Empresa::fillQueue(){
+    for(auto &elem : wor){
+        pq.push(elem);
+    }
+}*/

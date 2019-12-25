@@ -8,6 +8,7 @@
 #include "Header/Clientes.h"
 #include "Header/Servicos.h"
 #include "Header/Empresa.h"
+#include "Header/Workshop.h"
 using namespace std;
 
 /**
@@ -18,6 +19,15 @@ using namespace std;
 
 ifstream in("../AEDA_Proj1/Ficheiros/tax.txt"); //NAO MUDA!
 TaxTable *table = new TaxTable(in);
+priority_queue<int> pq;
+
+
+void fillQueue(Empresa &e,priority_queue<Workshop> &aux){
+    for(auto& el : e.getWor()){
+        aux.push(el);
+    }
+}
+
 
 
 void mainMenu(Empresa &e);              //handle the main menu
@@ -27,6 +37,54 @@ void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
+void handleWorkshop(Empresa &e){
+    int option;
+    string name,brand;
+    vector<string> brands;
+    int disp,number,k = 0;
+    clear_screen();
+    cout<<"Add Workshop[1]"<<endl;
+    cout<<"Remove Workshop[2]"<<endl;
+    cout<<"List all Workshops[3]"<<endl;
+    cout<<"Total : "<<e.getWor().size()<<endl;
+    //cout<<(e.getWor()[0].getName() == "Teste1"?"True":"False")<<endl;
+    option = checkNumber();
+    pq.push(1);
+    if(option == 1){
+        cout<<"Enter Workshop name: ";
+        cin>>name;
+        cin.ignore();
+        cout<<"Enter number of brands: ";
+        number = checkNumber();
+        while(k<number){
+            cin>>brand;
+            brands.push_back(brand);
+            k++;
+        }
+        cin.ignore();
+        cout<<"Enter initial unavailability: ";
+        disp = checkNumber();
+        e.addWorkshop(name,brands,disp);
+        return;
+    }
+    if(option == 2){
+        string name;
+        bool verify;
+        cout<<"Workshop name: ";
+        cin>>name;
+        verify = e.removeWorkshop(name);
+        if(verify) cout<<"Workshop removed succesfully"<<endl;
+        else cout<<"Workshop not found"<<endl;
+        return;
+    }
+    if(option == 3){
+        for(auto& el : e.getWor()){
+            cout<<el;
+        }
+        return;
+    }
+    return;
+}
 
 int month;
 extern bool novo;
@@ -36,25 +94,33 @@ int main(){
     cout << "Type the month to be analyzed [EXIT 0] ";
     month = checkOption(0,12);
     if (month != 0){
+        e.gravaWor();
         e.gravaCli();
         e.gravaCam();
         e.gravaSer(e, month);
-        e.gravaWor();
-        //mainMenu(e);
+        //fillQueue(e,pq);
+        mainMenu(e);
     }
+    cout<<"NANI"<<endl;
     for(auto &cam : e.getWor()){
         cout<<cam;
     }
+    cout<<"NANI"<<endl;
+    /*auto h = pq;
+    while(!h.empty()){
+        cout<<h.top();
+        h.pop();
+    }*/
 
 
 }
-/*
+
 void mainMenu(Empresa &e){
     string nome;
     while (true) {
         printMainMenu();
         int option;
-        option = checkOption(1, 11);
+        option = checkOption(1, 12);
         clear_screen();
 
         if (option == 5)                                            //exit option
@@ -63,7 +129,9 @@ void mainMenu(Empresa &e){
             case 1:
                 handleMenuStatus(e);
                 break;
-
+            case 12:
+                handleWorkshop(e);
+                break;
             case 2:
                 e.display_lucro_mes();
                 e.display_CamiaoProfit();
@@ -361,8 +429,11 @@ void handleAddService(Empresa &e){
 void handleAddTruck(Empresa &e){
     int type, carg;
     double caract;
+    string brand;
     map<unsigned int,string> temp = { {0,"Base"},{1,"Congelado"},{2,"Perigoso"},{3,"Animal"}};
     while (true) {
+        cout<<"Brand: ";
+        cin>>brand;
         cout << "Max carg: ";
         carg = checkNumber();
         if (carg == -1) return;
@@ -378,24 +449,24 @@ void handleAddTruck(Empresa &e){
     if (type == -1) return;
 
     if(type == 0){
-        e.addCamiao(0, carg);
+        e.addCamiao(0, carg,brand);
     }
     else if (type == 1){
-        e.addCamiao(1, carg);
+        e.addCamiao(1, carg,brand);
     }
     else if (type == 2){
-        e.addCamiao(2, carg);
+        e.addCamiao(2, carg,brand);
     }
     else if (type == 3){
-        e.addCamiao(3, carg);
+        e.addCamiao(3, carg,brand);
     }
 
     cout << "Truck added successfully ";
     wait(); 
-
+    /*
     ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
     o << carg << "\n" << temp[type] << "\n";
-    o.close();
+    o.close();*/
+    e.rewriteTruck();
 
 }
-*/

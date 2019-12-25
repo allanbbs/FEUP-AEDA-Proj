@@ -7,7 +7,7 @@
 #include "../Header/Workshop.h"
 using namespace std;
 
-Workshop::Workshop(string name,vector<string> aux,int nani){
+Workshop::Workshop(string name,vector<string>& aux,int nani){
     this->name = name;
     brands.assign(aux.begin(),aux.end());
     unavailability = nani;
