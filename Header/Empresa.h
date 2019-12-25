@@ -11,12 +11,14 @@
 #include <algorithm>
 #include <sstream>
 #include <fstream>
+#include <queue>
 
 #include "Camiao.h"
 #include "Servicos.h"
 #include "Errors.h"
 #include "Clientes.h"
-#include "Motorista.h"
+#include "Workshop.h"
+//#include "Motorista.h"
 
 
 /**
@@ -33,12 +35,19 @@ private:
     vector<Clientes *> cli;     /**< Vector that contains all clients of this enterprise*/
     vector<Camiao *> cam;       /**<Vector that contais all camioes of this enterprise*/
     vector<Servicos *> ser;     /**<Vector that contais all services offered for the enterprise*/
-    Workers w;
+    vector<Workshop> wor;       /**<Vector containing all workshops bounded with this enterprise*/
+    priority_queue<Workshop> pq;
+
 
 public:
     static size_t nCam;         /**<How many trucks there are in the enterprise**/
     static size_t nCli;         /**<How many clients there are in the enterprise**/
     static size_t nSer;         /**<How many services there are in the enterprise in a specific month**/
+
+    /**
+     * @brief Read information from workshops.txt file and build the wor vector
+     */
+    void gravaWor();
     /**
      * @brief Read information from clients.txt file and build the cli vector
      */
@@ -86,7 +95,7 @@ public:
      * @param type the type of the trucm
      * @param cargaMax max number of items
      */
-    void addCamiao(const int&  type, const long long int &cargaMax);
+    void addCamiao(const int&  type, const long long int &cargaMax,string brand);
 
     /**
      * @brief Search for a client with nif given
@@ -191,7 +200,12 @@ public:
      * 
      * @return long long int
      */
-    long long int get_cam_num(); 
+    long long int get_cam_num();
+
+    vector<Camiao*> getCamiao() const {return cam;};
+    vector<Servicos*> getServices() const {return ser;};
+    vector<Clientes*> getCli() const {return cli;};
+    vector<Workshop> getWor() const {return wor;};
 
 
 

@@ -76,6 +76,7 @@ public:
      * On this way it will not be allocated anymore but will keep the register
      */
     void removeTruck();
+    string getBrand() const{return brand;};
 
     Workshop& requestGenericService(priority_queue<Workshop> aux);
     Workshop& requestSpecificService(priority_queue<Workshop> aux);

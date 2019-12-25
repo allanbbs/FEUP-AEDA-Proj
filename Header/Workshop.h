@@ -7,7 +7,8 @@
 
 #include <string>
 #include <vector>
-#include <algorithm>>
+#include <algorithm>
+#include <iostream>
 using namespace std;
 
 
@@ -18,12 +19,23 @@ private:
     int unavailability;
 public:
     explicit Workshop(string name) : name(name){};
-    Workshop(string name,vector<string> aux);
+    Workshop(string name,vector<string> aux,int nani);
     int get_unavailability() const {return unavailability;};
     string getName() const{return name;};
+    vector<string> getBrands()const{return brands;};
     bool checkForBrand(string name)const;
     bool operator<(const Workshop &w1)const;
-
+    Workshop& operator=(const Workshop &w1);
+    friend ostream& operator<<(ostream& out,const Workshop &w){
+      out<<"Name: "<<w.getName()<<endl;
+      out<<"Brands: ";
+      for(auto &elem : w.getBrands()){
+          out<<elem<<" ";
+      }
+      out<<endl;
+      out<<"Available in: "<<w.get_unavailability()<<endl;
+        return out;
+    };
 
 };
 

@@ -27,6 +27,21 @@ void Camiao::removeTruck() {
 }
 
 
+Workshop& Camiao::requestGenericService(priority_queue<class Workshop> aux) {
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
 //------------------------------------------------------------------------------------
 Congelado::Congelado(long long int carg, long long int Id,string name) : Camiao(carg,Id,name){}
 

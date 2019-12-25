@@ -39,10 +39,16 @@ int main(){
         e.gravaCli();
         e.gravaCam();
         e.gravaSer(e, month);
-        mainMenu(e);
+        e.gravaWor();
+        //mainMenu(e);
     }
-}
+    for(auto &cam : e.getWor()){
+        cout<<cam;
+    }
 
+
+}
+/*
 void mainMenu(Empresa &e){
     string nome;
     while (true) {
@@ -336,7 +342,7 @@ void handleAddService(Empresa &e){
             o << "\n";
             novo = false;
         }
-        else o << "\n\n";
+        else o << "\n";
 
         o << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
@@ -392,3 +398,4 @@ void handleAddTruck(Empresa &e){
     o.close();
 
 }
+*/

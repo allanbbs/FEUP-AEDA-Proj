@@ -11,6 +11,37 @@ size_t Empresa::nCam = 0;
 size_t Empresa::nCli = 0;
 size_t Empresa::nSer = 0;
 
+
+
+
+void Empresa::gravaWor() {
+    ifstream file("../AEDA_Proj1/Ficheiros/workshops");
+    string name;                        //stores the name of the client
+    string brand;                         //auxiliar variable to read lines
+    string aux;
+    int disp;
+    string delimiter = " ";
+    vector<string> brands;
+    while (!file.eof()) {
+        brands.clear();
+        getline(file, name);            //get name
+        getline(file,brand);
+        size_t pos = 0;
+        std::string token;
+        while ((pos = brand.find(delimiter)) != std::string::npos) {
+            token = brand.substr(0, pos);
+            brands.push_back(token);
+            brand.erase(0, pos + delimiter.length());
+        }
+        if(brand.size()>=1) brands.push_back(brand);
+        getline(file,aux);
+        istringstream is(aux);
+        is >> disp;
+        wor.push_back(Workshop(name,brands,disp));
+    }
+}
+
+
 /**
  * @file Empresa.cpp
  * @brief It contains the Empresa class implementation, resposable for the management of the enterprise
@@ -37,10 +68,8 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
     long long int aux_int, carga, cliNif;
     double cordx, cordy;
     vector<long long int> trucks;
-
     if (!file.fail())
         while (!file.eof()) {
-            getline(file, aux);                             //get empty line 
 
             //get the first local (the departure)
             getline(file, local);                           //get the local of departure
@@ -113,25 +142,26 @@ void Empresa::gravaCam() {
     long long int carga;
     string type;
     string auxString;
+    string brand;
     while (!file.eof()) {
-
+        getline(file,brand);
         getline(file, auxString);                           //get cargaMax
-        if (auxString == "") break;                                 //end line
+        //if (brand == "") break;                                 //end line
         istringstream is(auxString);
         is >> carga;
         ++nCam; 
         getline(file, type);                                //get the type
         if (type == "Animal") {
-            Animals *c = new Animals(carga, cam.size()+1);
+            Animals *c = new Animals(carga, cam.size()+1,brand);
             cam.push_back(c);
         } else if (type == "Congelado") {
-            Congelado *c = new Congelado(carga, cam.size()+1);
+            Congelado *c = new Congelado(carga, cam.size()+1,brand);
             cam.push_back(c);
         } else if (type == "Perigoso") {
-            Perigoso *c = new Perigoso(carga, cam.size()+1);
+            Perigoso *c = new Perigoso(carga, cam.size()+1,brand);
             cam.push_back(c);
         } else {
-            Base *c = new Base(carga, cam.size()+1);
+            Base *c = new Base(carga, cam.size()+1,brand);
             cam.push_back(c);
         }
     }
@@ -304,7 +334,7 @@ void headerWorkersInfor(){
 }
 
 
-void Empresa::addCamiao(const int &type, const long long int &cargaMax) {
+void Empresa::addCamiao(const int &type, const long long int &cargaMax,string brand) {
     map<unsigned int, string> temp = {{0, "Base"},
                                       {1, "Congelado"},
                                       {2, "Perigoso"},
@@ -312,16 +342,16 @@ void Empresa::addCamiao(const int &type, const long long int &cargaMax) {
     string sType = temp[type];                                          //Get the type
     unsigned int id = cam.size()+1;                                     //Increase ne number of trucks
     if (sType == "Base") {
-        Camiao *c = new Base(cargaMax, id);
+        Camiao *c = new Base(cargaMax, id,brand);
         cam.push_back(c);
     } else if (sType == "Congelado") {
-        Camiao *c = new Congelado(cargaMax, id);
+        Camiao *c = new Congelado(cargaMax, id,brand);
         cam.push_back(c);
     } else if (sType == "Perigoso") {
-        Camiao *c = new Perigoso(cargaMax, id);
+        Camiao *c = new Perigoso(cargaMax, id,brand);
         cam.push_back(c);
     } else if (sType == "Animal") {
-        Camiao *c = new Animals(cargaMax, id);
+        Camiao *c = new Animals(cargaMax, id,brand);
         cam.push_back(c);
     }
     ++nCam; 
@@ -423,9 +453,9 @@ void Empresa::removeTruck(const long long int &id) {
 void Empresa::rewriteTruck() {
     ofstream o("../AEDA_Proj1/Ficheiros/camioes");
     for (auto i  = 0; i < cam.size()-1; i ++){
-        o << cam[i]->getCargaMax() << "\n" << cam[i]->getType() << "\n";
+        o << cam[i]->getBrand()<<"\n"<<cam[i]->getCargaMax() << "\n" << cam[i]->getType() << "\n";
     }
-    o << cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType() << "\n";
+    o <<cam[cam.size()-1]->getBrand()<<"\n"<< cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType() << "\n";
     o.close();
 
 }
