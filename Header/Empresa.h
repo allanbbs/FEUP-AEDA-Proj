@@ -12,13 +12,14 @@
 #include <sstream>
 #include <fstream>
 #include <queue>
+#include <unordered_set>
 
 #include "Camiao.h"
 #include "Servicos.h"
 #include "Errors.h"
 #include "Clientes.h"
 #include "Workshop.h"
-//#include "Motorista.h"
+#include "Motorista.h"
 
 
 /**
@@ -27,6 +28,7 @@
  */
 using namespace std;
 typedef priority_queue<Workshop> PQ;
+typedef unordered_set<Clientes, clienteHash, clienteHash> tabHCli;
 
 /**
  * @brief Class that manages an enterprise
@@ -39,6 +41,7 @@ private:
     Workers w;                  /**<Class that stores the workers BST**/
     vector<Workshop> wor;       /**<Vector containing all workshops bounded with this enterprise*/
     PQ pq;
+    tabHCli inactive;           /**<Hash table containing inactive clients*/
 
 
 public:
@@ -87,8 +90,9 @@ public:
      * @brief Add a new client to the vector cli
      * @param name The name of the new client
      * @param nif Personal numeration of the client
+     * @param date Date of the last service request
      */
-    void addClientes(const string &name, const long long int &nif);
+    void addClientes(const string &name, const long long int &nif, const string& date = "1500/01/01");
     /**
      * @param Partida Departure Local
      * @param Destino Arrival local
@@ -119,9 +123,9 @@ public:
     size_t SearchSer(const long long int &id) const;
     /**
      * @brief Get the profit of the month for a specific type o truck
-     * 
-     * @param type 
-     * @return double 
+     *
+     * @param type
+     * @return double
      */
     double getLucro_camiaoMes(const string& type) const;
     /**
@@ -131,7 +135,7 @@ public:
     Workers getBST() const;
     /**
      * @brief Display the clients information in a specific format
-     * 
+     *
      * @param nif Case it's a specific nif, the parameter nif must be diferent from zero
      * @param n Number of clients to be shown
      * @param f Function used to sort the vector
@@ -143,13 +147,13 @@ public:
     void display_lucro_mes();
     /**
      * @brief display profit of each truck type
-     * 
+     *
      */
     void display_CamiaoProfit();
 
     /**
-     * @brief 
-     * 
+     * @brief
+     *
      * @param id Identification of the service which must be different from zero case needs to display a specific service
      * @param n Number of services
      * @param f Function to sort the vector
@@ -159,14 +163,14 @@ public:
 
     /**
      * @brief Add a truck to a specific service based on its id
-     * 
+     *
      * @param id Identification of the truck
      * @param s Service to the truck be added to
      */
     void addCamiaoId_Servico(const int& id, Servicos* s);
     /**
      * @brief Choose trucks to be allocated to a service
-     * 
+     *
      * @param s Service requesting trucks
      * @return true if it allocated trucks successfully
      * @return false if it didn't allocate trucks successfully
@@ -208,10 +212,10 @@ public:
     void rewriteTruck();
     /**
      * @brief get number of trucks
-     * 
+     *
      * @return long long int
      */
-    long long int get_cam_num(); 
+    long long int get_cam_num();
     /**
      * Display workers according to the option given
      * @param option 1: Print workers ascending order of hours, option 2: Print workers descending order of hours, option 3: Print workers in alphabetic order
@@ -247,7 +251,6 @@ public:
      * Reset the hours in the elements of the BST
      */
     void resetHours();
-    long long int get_cam_num();
     void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));rewriteWorkshops();};
     bool removeWorkshop(string name);
     void rewriteWorkshops();
@@ -266,6 +269,8 @@ public:
             aux.pop();
         }
     };
+
+    //HASH TABLE -------------------------------------------------------
 
 
 

@@ -426,7 +426,7 @@ void handleAddClient(Empresa &e){
         try {
             e.addClientes(nome, nif);
             ofstream o("../AEDA_Proj1/Ficheiros/clientes", ios_base::app);
-            o << "\n" << nome << "\n" << nif;
+            o << "\n" << nome << "\n" << nif << "\n" << "1500/01/01";      //adding client with default date
             o.close();
             cout << "Client added successfully! ";
             wait();
@@ -434,7 +434,7 @@ void handleAddClient(Empresa &e){
         }
         catch (RepeatedClient &a) {
             cout << "There is already a client with nif "<< nif << endl;
-            cout << "Try again:" << endl; 
+            cout << "Try again:" << endl;
             continue;
         }
     }
@@ -508,7 +508,6 @@ void handleAddService(Empresa &e){
         Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga, temp_carac[opt]);
 
         e.allocateMotorista(s->cal_tempo());
-
         if (!e.allocateCamiao(s)){
             cout << "Not enough trucks " << endl;
             wait();
@@ -516,6 +515,7 @@ void handleAddService(Empresa &e){
         }
 
         e.addServico(s, anif);
+        e.rewriteClients();
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);
 

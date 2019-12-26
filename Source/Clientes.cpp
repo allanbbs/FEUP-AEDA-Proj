@@ -12,9 +12,12 @@ using namespace std;
 Clientes::Clientes() {
     name = "";
     nif = 0;
+    setDate("1500/01/01");      //Default date
 }
 
-Clientes::Clientes(const string &n, const long long int &anif) : name(n), nif(anif), profit(0) {}
+Clientes::Clientes(const string &n, const long long int &anif) : name(n), nif(anif), profit(0) {
+    setDate("1500/01/01");      //Default date
+}
 
 Clientes::~Clientes() {
     for (int i = 0 ; i < services.size(); i++) delete services[i];
@@ -47,7 +50,7 @@ void Clientes::setNif(const long long int &nif) {
 ostream &operator<<(ostream &out, const Clientes &client) {
     cout<<fixed<<setprecision(2);
     out << left << setw(30) << client.name << setw(20) << client.nif
-                <<setw(20) << client.profit; 
+                <<setw(20) << client.profit;
 
     if (client.services.empty()) out << "No services!";         //if the client hasn't requested for a service it will be noticed 
 
@@ -56,6 +59,14 @@ ostream &operator<<(ostream &out, const Clientes &client) {
     out << endl;
 
     return out;                                                 //returns the name nif and requested services or "no services" announcement 
+}
+
+void Clientes::setDate(const std::__cxx11::string & date) {
+    last_request.setDate(date);
+}
+
+string Clientes::getDate() {
+    last_request.getDate();
 }
 
 //------------------------------------------------------------------------------------

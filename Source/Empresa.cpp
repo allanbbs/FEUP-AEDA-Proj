@@ -5,6 +5,7 @@
 #include "../Header/Empresa.h"
 #include <fstream>
 
+
 void headerServInfor();
 bool novo;
 size_t Empresa::nCam = 0;
@@ -53,17 +54,19 @@ void Empresa::gravaWor() {
  * @brief It contains the Empresa class implementation, resposable for the management of the enterprise
  */
 
+//modified
 void Empresa::gravaCli() {
     ifstream file("../AEDA_Proj1/Ficheiros/clientes");
-    string name;                        //stores the name of the client       
-    string aux;                         //auxiliar variable to read lines 
+    string name;                        //stores the name of the client
+    string aux;                         //auxiliar variable to read lines
     long long int nif;
     while (!file.eof()) {
         getline(file, name);            //get name
         getline(file, aux);             //get string nif
-        istringstream is(aux);          //get unsigned int nif
+        istringstream is(aux);                  //get unsigned int nif
         is >> nif;
-        addClientes(name, nif);         //add client
+        getline(file,aux);
+        addClientes(name, nif, aux);         //add client
     }
 }
 
@@ -82,26 +85,26 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             getline(file, aux);                             //get the first coordinate
             istringstream is(aux);
             is >> cordx;
-            
+
             getline(file, aux);                             //get the second coordinate
             is.clear();
             is.str(aux);
             is >> cordy;
             Local *l1 = new Local(local, cordx, cordy);     //crete the local class for departure
-            
+
             //get the second local (the arrival)
             getline(file, local);                           //get the local of arrival
             getline(file, aux);                             //get the first coordinate
             is.clear();
             is.str(aux);
             is >> cordx;
-            
+
             getline(file, aux);                             //get the second coordinate
             is.clear();
             is.str(aux);
             is >> cordy;
             Local *l2 = new Local(local, cordx, cordy);     //create the local class for arrival
-            
+
             //get the type of service
             getline(file, type);
 
@@ -155,7 +158,7 @@ void Empresa::gravaCam() {
         //if (brand == "") break;                                 //end line
         istringstream is(auxString);
         is >> carga;
-        ++nCam; 
+        ++nCam;
         getline(file, type);                                //get the type
         if (type == "Animal") {
             Animals *c = new Animals(carga, cam.size()+1,brand);
@@ -204,22 +207,26 @@ Workers Empresa::getBST() const{
 }
 
 long long int Empresa::get_cam_num(){
-    return cam.size(); 
+    return cam.size();
 }
-void Empresa::addClientes(const string &name, const long long int &nif) {
+//modified
+void Empresa::addClientes(const string &name, const long long int &nif, const string& date) {
     long int pos = SearchCli(nif);                                          //check if the client already exists
     if (pos != -1) throw RepeatedClient(name);                              // if so, throw a exception
     auto c = new Clientes(name, nif);
+    c->setDate(date);                                                       //update date from the last service request
     if (nif> 0 )
         nCli++;                                                             //increase the number of clients
     cli.push_back(c);
 }
 
+//modified
 Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
     long int pos = SearchCli(cliNif);
     if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
+    (cli[pos])->setDate(getTimeNow().getDate());                    //set the last_service request
     return s;
 }
 
@@ -232,9 +239,9 @@ long int Empresa::SearchCli(const long long int &nif) const {
 
 size_t Empresa::SearchSer(const long long int &id) const {
     for (int i = 0; i < ser.size(); i++) {                          //Linear search O^n
-        if (ser[i]->get_id() == id) return i;                      
+        if (ser[i]->get_id() == id) return i;
     }
-    throw NoService(to_string(id));                                 //if it doenst exist throw an exception 
+    throw NoService(to_string(id));                                 //if it doenst exist throw an exception
 }
 
 void Empresa::display_lucro_mes() {
@@ -288,9 +295,9 @@ void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (
 
     if (id) {                                                       //Case just one service to be displayed
         size_t pos = SearchSer(id);
-        os << *ser[pos];    
+        os << *ser[pos];
     } else {                                                        //Case n services to be shown
-        vector<Servicos *> s(ser);                          
+        vector<Servicos *> s(ser);
         sort(s.begin(), s.end(), f);                                //Sorting according with the request
         if (type.empty()) {                                         //If there is no preference of types
             for (auto & it : s) {
@@ -300,16 +307,16 @@ void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (
             }
         }
         else{                                                       //If there is preference of type of service
-            for (auto & it : s) {                                  
+            for (auto & it : s) {
                 if (it->get_tipo() == type){                        //Check the type
                     os << *it;
                     n--;
                 }
-                if (n == 0) break;                                  //n Services has already been displayed 
+                if (n == 0) break;                                  //n Services has already been displayed
             }
         }
     }
-    headerServInfor();                                              //Show header of the list 
+    headerServInfor();                                              //Show header of the list
     cout << os.str();
 }
 
@@ -379,7 +386,7 @@ void Empresa::addCamiao(const int &type, const long long int &cargaMax,string br
         Camiao *c = new Animals(cargaMax, id,brand);
         cam.push_back(c);
     }
-    ++nCam; 
+    ++nCam;
 
 }
 
@@ -402,9 +409,9 @@ double Empresa::getLucro_camiaoMes(const string &type) const {
 }
 
 bool Empresa::allocateCamiao(Servicos *s) {
-    vector<Camiao *> cam_copy(cam);                                     
+    vector<Camiao *> cam_copy(cam);
     int carga = s->get_carga();
-    sort(cam_copy.begin(), cam_copy.end(), Compare);                    //Sort by ascender order of profit 
+    sort(cam_copy.begin(), cam_copy.end(), Compare);                    //Sort by ascender order of profit
     for (const auto &x: cam_copy) {
         if (x->getType() == s->get_tipo() && x->getCargaMax()>0) {      //If it has the same type of the service
             carga -= x->getCargaMax();
@@ -413,7 +420,7 @@ bool Empresa::allocateCamiao(Servicos *s) {
         if (carga <= 0)                                                 //If enought trucks
             break;
     }
-    return carga <= 0;                                                  
+    return carga <= 0;
 
 }
 
@@ -430,14 +437,15 @@ void Empresa::changeClientName(const long long int& nif) {
     //we need to rewrite the file
     rewriteClients();
 }
-
+//modified
 void Empresa::rewriteClients() {
     ofstream file("../AEDA_Proj1/Ficheiros/clientes");
     for (long int i = 0; i < cli.size(); i++)
         if (i != cli.size()-1)
-            file << cli[i]->getName() << endl << cli[i]->get_nif() << endl;
+            file << cli[i]->getName() << endl << cli[i]->get_nif() << endl << cli[i]->getDate() << endl;
 
-    file << cli[cli.size()-1]->getName() << endl << cli[cli.size()-1]->get_nif();
+    //avoid to create a last line on the file
+    file << cli[cli.size()-1]->getName() << endl << cli[cli.size()-1]->get_nif() << endl << cli[cli.size()-1]->getDate();
     file.close();
 
 }
@@ -510,6 +518,8 @@ bool Empresa::allocateMotorista(float tempo) {
 
 void Empresa::resetHours() {
     w.resetHours();
+}
+
 void Empresa::rewriteWorkshops(){
     ofstream out("../AEDA_Proj1/Ficheiros/workshops");
     int aux,k;

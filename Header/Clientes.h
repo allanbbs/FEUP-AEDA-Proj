@@ -6,8 +6,8 @@
 #define AEDA_01_CLIENTES_H
 #include <string>
 #include <iostream>
-#include "../Header/Servicos.h"
-
+#include "Servicos.h"
+#include "Date.h"
 
 using namespace std;
 /**
@@ -17,14 +17,15 @@ using namespace std;
 
 /**
  * @brief Class responsable to handle the clients
- * 
+ *
  */
 class Clientes {
 private:
     string name;                        /**<Name of the client*/
-    long long int nif;                       /**<Identification of the client*/
+    long long int nif;                  /**<Identification of the client*/
     vector<Servicos *> services;        /**<Services requested by the client*/
     double profit;                      /**<Clients profit*/
+    Date last_request;                  /**<Date of the last service request*/
 public:
     /**
      * Default constructos
@@ -76,12 +77,19 @@ public:
      * @return ostream with the information
      */
     friend ostream &operator<<(ostream &out, const Clientes &client);
+    /**
+     * Set the date of the last request
+     * @param date String on the format yyyy/mm/dd
+     */
+    void setDate(const string& date);
+
+    string getDate();
 
 };
 /**
  * @brief Compare the profit of the clients and compare the name
- * 
- * @param c Pointer to the first client 
+ *
+ * @param c Pointer to the first client
  * @param c1 Pointer to the second client
  * @return true if profit c1<c. If they have the same profit return true if name c<c1. If the have also the same name return true
  * @return false if profit c<c1. If they have the same profit return false if name c1<c.
@@ -89,8 +97,8 @@ public:
 bool Compare_clientes(const Clientes* c, const Clientes* c1);
 /**
  * @brief Compare the the client and compare the name
- * 
- * @param c Pointer to the first client 
+ *
+ * @param c Pointer to the first client
  * @param c1 Pointer to the second client
  * @return true if profit c<c1. If they have the same profit return true if name c<c1. If the have also the same name return true
  * @return false if profit c1<c. If they have the same profit return false if name c1<c.
@@ -98,13 +106,22 @@ bool Compare_clientes(const Clientes* c, const Clientes* c1);
 bool Compare_clientesLeast(const Clientes* c, const Clientes* c1);
 /**
  * @brief Compare the names of the clients
- * 
+ *
  * @param c Pointer to the first client
  * @param c1 Pointer to the second client
  * @return true if name c<c1. If they have the same name also return true
- * @return false if name c1<c. 
+ * @return false if name c1<c.
  */
 bool Compare_clientesAlphabetic(const Clientes *c, const Clientes* c1);
 
+//HASH TABLE ----------------------------------------------------------------
 
+struct clienteHash{
+    int operator()(const Clientes & cli) const{
+        return cli.get_nif();
+    }
+    bool operator()(const Clientes & cli1, const  Clientes & cli2) const{
+        return cli1.get_nif() == cli2.get_nif();
+    }
+};
 #endif //AEDA_01_CLIENTES_H
