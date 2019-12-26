@@ -1,0 +1,6 @@
+/opt/clion-2019.3.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1"
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+Doxygen needs to be installed to generate the documentation.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug

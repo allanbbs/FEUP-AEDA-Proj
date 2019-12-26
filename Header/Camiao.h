@@ -6,8 +6,10 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <queue>
 #include <iomanip>
 #include "TaxTable.h"
+#include "Workshop.h"
 
 using namespace std;
 #ifndef AEDA_PROJ1_CAMIAO_H
@@ -27,13 +29,14 @@ protected:
     long long int CargaMax;                  /**<Camiao max storage, if negative means that the truck is not available anymore*/
     long long int id;                        /**<The camiao identification*/
     double totalProfit;                     /**<Total profit the of the truck**/
+    string brand;                            /**<Camiao 's brand**/
 public:
     /**
      * Contructor
      * @param carg CargaMax in kg measure
      * @param id identification of the truck
      */
-    Camiao(const long long int& carg, const long long int& id);
+    Camiao(const long long int& carg, const long long int& id,string name);
     /**
      * @brief Default destructor
      */
@@ -73,6 +76,10 @@ public:
      * On this way it will not be allocated anymore but will keep the register
      */
     void removeTruck();
+    string getBrand() const{return brand;};
+
+    Workshop requestGenericService(priority_queue<Workshop>& aux);
+    Workshop requestSpecificService(priority_queue<Workshop>& aux);
 
 };
 
@@ -90,7 +97,7 @@ public:
      * @param disp If it's available or not
      * @param temp Temperature
      */
-    Congelado(long long int carg, long long int Id);
+    Congelado(long long int carg, long long int Id,string name);
     /**
      * Default destructor
      */
@@ -121,7 +128,7 @@ public:
      * @param carg cargaMax
      * @param disp If it's available or not
      */
-    Perigoso(long long int carg, long long int Id);
+    Perigoso(long long int carg, long long int Id,string name);
     /**
      * Default destructor
      *@brief Destroy the Perigoso object
@@ -152,7 +159,7 @@ public:
      * @param carg CargaMax
      * @param Id id
      */
-    Animals(long long int carg, long long int Id);
+    Animals(long long int carg, long long int Id,string name);
     /**
      * Default destructor
      *
@@ -183,7 +190,7 @@ public:
      * @param carg The actual storage
      * @param Id The identification number of the truck
      */
-    Base(long long int carg, long long int Id): Camiao(carg, Id) {};
+    Base(long long int carg, long long int Id,string name): Camiao(carg, Id, name) {};
     /**
      * @brief Get the Type object
      * @return string

@@ -11,12 +11,14 @@
 #include <algorithm>
 #include <sstream>
 #include <fstream>
+#include <queue>
 
 #include "Camiao.h"
 #include "Servicos.h"
 #include "Errors.h"
 #include "Clientes.h"
-#include "Motorista.h"
+#include "Workshop.h"
+//#include "Motorista.h"
 
 
 /**
@@ -24,6 +26,7 @@
  * @brief It contains the Empresa class declarations, resposable for the management of the enterprise
  */
 using namespace std;
+typedef priority_queue<Workshop> PQ;
 
 /**
  * @brief Class that manages an enterprise
@@ -34,11 +37,19 @@ private:
     vector<Camiao *> cam;       /**<Vector that contais all camioes of this enterprise*/
     vector<Servicos *> ser;     /**<Vector that contais all services offered for the enterprise*/
     Workers w;                  /**<Class that stores the workers BST**/
+    vector<Workshop> wor;       /**<Vector containing all workshops bounded with this enterprise*/
+    PQ pq;
+
 
 public:
     static size_t nCam;         /**<How many trucks there are in the enterprise**/
     static size_t nCli;         /**<How many clients there are in the enterprise**/
     static size_t nSer;         /**<How many services there are in the enterprise in a specific month**/
+
+    /**
+     * @brief Read information from workshops.txt file and build the wor vector
+     */
+    void gravaWor();
     /**
      * @brief Read information from clients.txt file and build the cli vector
      */
@@ -91,7 +102,7 @@ public:
      * @param type the type of the trucm
      * @param cargaMax max number of items
      */
-    void addCamiao(const int&  type, const long long int &cargaMax);
+    void addCamiao(const int&  type, const long long int &cargaMax,string brand);
 
     /**
      * @brief Search for a client with nif given
@@ -236,6 +247,28 @@ public:
      * Reset the hours in the elements of the BST
      */
     void resetHours();
+    long long int get_cam_num();
+    void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));rewriteWorkshops();};
+    bool removeWorkshop(string name);
+    void rewriteWorkshops();
+    void fillQueue();
+    priority_queue<Workshop> getPQ() const {return pq;};
+    void swap_pq(priority_queue<Workshop> & aux){pq.swap(aux);updateWor();};
+    vector<Camiao*> getCamiao() const {return cam;};
+    vector<Servicos*> getServices() const {return ser;};
+    vector<Clientes*> getCli() const {return cli;};
+    vector<Workshop> getWor() const {return wor;};
+    void updateWor(){
+        priority_queue<Workshop> aux = getPQ();
+        wor.clear();
+        while(!aux.empty()){
+            wor.push_back(aux.top());
+            aux.pop();
+        }
+    };
+
+
+
 
 };
 

@@ -69,4 +69,10 @@ public:
     std::string getInfo() const {return info;};
 
 };
+class EmptyQueue : Error{
+public:
+    EmptyQueue();
+    string getInfo() const {return "Empty Workshop queue!";};
+};
+
 #endif //AEDA_PROJ1_ERRORS_H
