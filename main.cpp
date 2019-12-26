@@ -276,6 +276,9 @@ void handleWorkersMenu(Empresa &e){
                 break;
             case 9:
                 e.resetHours();
+                cout << "Hours reseted successfully"<< endl;
+                wait();
+                break;
             default:
                 cout << "Type x [EXIT - 0][1~10000] ";
                 n = checkOption(0, 10000);
