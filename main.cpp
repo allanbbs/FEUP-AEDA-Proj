@@ -42,6 +42,7 @@ void handleWorkshop(Empresa &e){
     string name,brand;
     vector<string> brands;
     int disp,number,k = 0;
+    priority_queue<Workshop> aux;
     clear_screen();
     cout<<"Add Workshop[1]"<<endl;
     cout<<"Remove Workshop[2]"<<endl;
@@ -87,22 +88,26 @@ void handleWorkshop(Empresa &e){
         return;
     }
     if(option == 4){
-
+        aux = e.getPQ();
         long long int id;
         cout<<"Enter truck id:";
         id = checkNumber();
         vector<Camiao*> cam_copy(e.getCamiao());
         for(auto it = cam_copy.begin();it!=cam_copy.end();it++){
             if((*it)->getId() == id){
-                Workshop d = (*it)->requestGenericService(e.getPQ());
+                Workshop d = (*it)->requestGenericService(aux);
+                e.swap_pq(aux);
                 cout<<"Found Workshop: "<<endl;
                 cout<<d;
-                cout<<"New earliest workshop: "<<e.getPQ().top()<<endl;
+                cout<<"New earliest workshop: "<<"\n"<<e.getPQ().top()<<endl;
+                e.rewriteWorkshops();
                 break;
             }
         }
+        //e.rewriteWorkshops();
         return;
     }
+    //e.rewriteWorkshops();
     return;
 }
 

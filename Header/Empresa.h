@@ -207,11 +207,19 @@ public:
     void rewriteWorkshops();
     void fillQueue();
     priority_queue<Workshop> getPQ() const {return pq;};
-
+    void swap_pq(priority_queue<Workshop> & aux){pq.swap(aux);updateWor();};
     vector<Camiao*> getCamiao() const {return cam;};
     vector<Servicos*> getServices() const {return ser;};
     vector<Clientes*> getCli() const {return cli;};
     vector<Workshop> getWor() const {return wor;};
+    void updateWor(){
+        priority_queue<Workshop> aux = getPQ();
+        wor.clear();
+        while(!aux.empty()){
+            wor.push_back(aux.top());
+            aux.pop();
+        }
+    };
 
 
 
