@@ -19,7 +19,7 @@ void Empresa::gravaWor() {
     string name;                        //stores the name of the client
     string brand;                         //auxiliar variable to read lines
     string aux;
-    int disp;
+    int disp,total,k;
     string delimiter = " ";
     //vector<string> empty;
     vector<string> brands;
@@ -27,15 +27,15 @@ void Empresa::gravaWor() {
         brands.clear();
        // brands.swap(empty);
         getline(file, name);            //get name
-        getline(file,brand);
-        size_t pos = 0;
-        std::string token;
-        while ((pos = brand.find(delimiter)) != std::string::npos) {
-            token = brand.substr(0, pos);
-            brands.push_back(token);
-            brand.erase(0, pos + delimiter.length());
+        getline(file,aux);
+        istringstream f(aux);
+        f>>total;
+        k = 0;
+        while(k<total){
+            getline(file,brand);
+            brands.push_back(brand);
+            k++;
         }
-        if(brand.size()>=1) brands.push_back(brand);
         getline(file,aux);
         istringstream is(aux);
         is >> disp;
@@ -43,7 +43,8 @@ void Empresa::gravaWor() {
         wor.push_back(nani);
         //pq.emplace(name,brands,disp);
     }
-    //fillQueue();
+    file.close();
+    fillQueue();
 }
 
 
@@ -471,12 +472,9 @@ void Empresa::rewriteWorkshops(){
     for(auto i = 0;i<wor.size()-1;i++){
         //out<<endl;
         out<<wor[i].getName()<<endl;
-        aux = wor[i].getBrands().size() - 1;
-        k = 0;
+        out<<wor[i].getBrands().size()<<endl;
         for(auto &elem : wor[i].getBrands()){
-            if(k!=aux) out<<elem<<" ";
-            else{out<<elem<<endl;}
-            k++;
+            out<<elem<<endl;
         }
         //out<<endl;
         out<<wor[i].get_unavailability()<<endl;
@@ -484,12 +482,9 @@ void Empresa::rewriteWorkshops(){
     }
     int i = wor.size()-1;
     out<<wor[i].getName()<<endl;
-    aux = wor[i].getBrands().size() - 1;
-    k = 0;
+    out<<wor[i].getBrands().size()<<endl;
     for(auto &elem : wor[i].getBrands()){
-        if(k!=aux) out<<elem<<" ";
-        else{out<<elem<<endl;}
-        k++;
+        out<<elem<<endl;
     }
     //out<<endl;
     out<<wor[i].get_unavailability();
@@ -499,7 +494,7 @@ void Empresa::rewriteWorkshops(){
 bool Empresa::removeWorkshop(string name) {
     bool verify = false;
     for(auto it = wor.begin();it!=wor.end();it++){
-        if((*it).getName() == name){
+        if(it->getName() == name){
             wor.erase(it);
             verify = true;
             break;
@@ -511,8 +506,8 @@ bool Empresa::removeWorkshop(string name) {
         return true;
     }
 }
-/*void Empresa::fillQueue(){
+void Empresa::fillQueue(){
     for(auto &elem : wor){
         pq.push(elem);
     }
-}*/
+}

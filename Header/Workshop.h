@@ -26,7 +26,8 @@ public:
     bool checkForBrand(string name)const;
     bool operator<(const Workshop &w1)const;
     bool operator==(const Workshop& w1) const { return name==w1.getName();};
-    Workshop& operator=(const Workshop &w1);
+    void setUn(int a) { unavailability = a;};
+    //Workshop& operator=(const Workshop &w1);
     friend ostream& operator<<(ostream& out,const Workshop &w){
       out<<"Name: "<<w.getName()<<endl;
       out<<"Brands: ";

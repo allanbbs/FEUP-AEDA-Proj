@@ -78,8 +78,8 @@ public:
     void removeTruck();
     string getBrand() const{return brand;};
 
-    Workshop& requestGenericService(priority_queue<Workshop> aux);
-    Workshop& requestSpecificService(priority_queue<Workshop> aux);
+    Workshop& requestGenericService(priority_queue<Workshop> &aux);
+    Workshop& requestSpecificService(priority_queue<Workshop> &aux);
 
 };
 

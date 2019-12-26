@@ -26,6 +26,7 @@
  * @brief It contains the Empresa class declarations, resposable for the management of the enterprise
  */
 using namespace std;
+typedef priority_queue<Workshop> PQ;
 
 /**
  * @brief Class that manages an enterprise
@@ -36,7 +37,7 @@ private:
     vector<Camiao *> cam;       /**<Vector that contais all camioes of this enterprise*/
     vector<Servicos *> ser;     /**<Vector that contais all services offered for the enterprise*/
     vector<Workshop> wor;       /**<Vector containing all workshops bounded with this enterprise*/
-    priority_queue<Workshop> pq;
+    PQ pq;
 
 
 public:
@@ -204,13 +205,14 @@ public:
     void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));rewriteWorkshops();};
     bool removeWorkshop(string name);
     void rewriteWorkshops();
-    //void fillQueue();
+    void fillQueue();
     priority_queue<Workshop> getPQ() const {return pq;};
 
     vector<Camiao*> getCamiao() const {return cam;};
     vector<Servicos*> getServices() const {return ser;};
     vector<Clientes*> getCli() const {return cli;};
     vector<Workshop> getWor() const {return wor;};
+
 
 
 

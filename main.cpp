@@ -47,6 +47,7 @@ void handleWorkshop(Empresa &e){
     cout<<"Remove Workshop[2]"<<endl;
     cout<<"List all Workshops[3]"<<endl;
     cout<<"Total : "<<e.getWor().size()<<endl;
+    cout<<"Top of queue: "<<e.getPQ().top().get_unavailability()<<endl;
     //cout<<(e.getWor()[0].getName() == "Teste1"?"True":"False")<<endl;
     option = checkNumber();
     pq.push(1);
@@ -98,6 +99,7 @@ int main(){
         e.gravaCli();
         e.gravaCam();
         e.gravaSer(e, month);
+        //e.fillQueue();
         //fillQueue(e,pq);
         mainMenu(e);
     }

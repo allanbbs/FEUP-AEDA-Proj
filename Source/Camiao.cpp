@@ -2,7 +2,8 @@
 // Created by allanbs on 15/10/19.
 //
 #include "../Header/Camiao.h"
-
+#include <stack>
+#include "../Header/Errors.h"
 /**
  *
  * @file Camiao.cpp
@@ -27,19 +28,39 @@ void Camiao::removeTruck() {
 }
 
 
-Workshop& Camiao::requestGenericService(priority_queue<class Workshop> aux) {
-
-
-
-
-
-
-
-
-
-
-
+Workshop& Camiao::requestGenericService(priority_queue<Workshop>& aux) {
+    //stack<Workshop> aux1;
+    //if(aux.empty()) throw EmptyQueue();
+    Workshop d = aux.top();
+    aux.pop();
+    d.setUn(d.get_unavailability() + 7);
+    aux.push(d);
+    return d;
 }
+
+Workshop& Camiao::requestSpecificService(priority_queue<class Workshop>& aux) {
+    stack<Workshop> aux1;
+    Workshop d=aux.top();
+    while(!aux.empty()){
+        if(aux.top().checkForBrand(brand)){
+            Workshop d = aux.top();
+            d.setUn(d.get_unavailability()+20);
+            aux1.push(d);
+            aux.pop();
+        }
+        else{
+            aux1.push(aux.top());
+            aux.pop();
+        }
+    }
+    while(!aux1.empty()){
+        aux.push(aux1.top());
+        aux1.pop();
+    }
+    return d;
+}
+
+
 
 
 //------------------------------------------------------------------------------------

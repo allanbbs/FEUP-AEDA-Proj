@@ -13,7 +13,7 @@ Workshop::Workshop(string name,vector<string>& aux,int nani){
     unavailability = nani;
 }
 
-bool Workshop::operator<(const class Workshop & w1) const{
+bool Workshop::operator<(const Workshop & w1) const{
     return unavailability > w1.get_unavailability();
 }
 
@@ -23,11 +23,11 @@ bool Workshop::checkForBrand(string name)const {
     }
     return false;
 }
-
-Workshop& Workshop::operator=(const class Workshop & w1) {
+/*
+Workshop& Workshop::operator=(const Workshop & w1) {
     name = w1.getName();
     brands.clear();
     brands.assign(w1.getBrands().begin(),w1.getBrands().end());
     unavailability = w1.get_unavailability();
     return *this;
-}
+}*/
