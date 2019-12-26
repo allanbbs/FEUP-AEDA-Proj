@@ -44,15 +44,22 @@ public:
     static size_t nSer;         /**<How many services there are in the enterprise in a specific month**/
 
     /**
-     *
+     *@brief return a updated hashTable (of inactive clients)
      */
      tabCli gethash();
+     /**
+      * @brief search for a client
+      */
+      Clientes findClient(long long int nif);
     /**
-     * @brief displya inactives clients
+     * @brief display inactive clients
      */
 
-     void display_all_inactives(){
-     }
+     void display_all_inactives();
+     /**
+      * @brief show a inactive client
+      */
+      void show_a_inactive(long long int nif);
     /**
      * @brief Read information from clients.txt file and build the cli vector
      */
@@ -226,5 +233,9 @@ void headerCamInfor();
  * @brief Header for list of workers
  */
 void headerWorkersInfor();
+
+
+
+
 
 #endif //AEDA_PROJ1_EMPRESA_H

@@ -63,4 +63,14 @@ public:
     std::string getInfo() const {return info;};
 };
 
+/**
+ * @brief Error the client isnt inactive
+ */
+//todo the client isnt inactive
+class Noinactive : Error{
+public:
+   Noinactive(const std::string & nif): Error(nif) {}
+    std::string getInfo() const {return info;}
+};
+
 #endif //AEDA_PROJ1_ERRORS_H

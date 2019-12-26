@@ -448,5 +448,55 @@ tabCli Empresa::gethash() {
             pair<unordered_set<Clientes, hCli, eqCli>::iterator, bool> abool = inactives.insert(*it);
         }
     }
-    return tabCli();
+    return inactives;
 }
+
+void Empresa::display_all_inactives() {
+    tabCli hash = gethash();
+    ostringstream os;
+    os << fixed << setprecision(2);
+    os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
+    os << "=========================================================="
+          "=======================================" << endl;
+    for (auto it: hash) {
+        os << it;
+    }
+    cout << os.str();
+}
+
+Clientes Empresa::findClient(long long int nif) {
+    //tabCli  inactives = gethash();
+    for (auto it : cli) {
+        if (it->get_nif() == nif) {
+            return *it;
+        }
+
+    }
+    return Clientes();
+}
+
+//todo hash table not use
+void Empresa::show_a_inactive(long long int nif) {
+    tabCli inactives = gethash();
+    ostringstream os;
+    os << fixed << setprecision(2);
+    //check if the client exist
+    long int pos = SearchCli(nif);
+    if (pos == -1)
+        throw NoClient(to_string(nif));
+
+    Clientes cliente = findClient(nif); //todo
+    pair<unordered_set<Clientes, hCli, eqCli>::iterator, bool> res = inactives.insert(cliente);
+    if (res.second) // check if it is inactive
+        throw Noinactive(to_string(nif));
+    os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
+    os << "=========================================================="
+          "=======================================" << endl;
+    os << *cli[pos];
+
+    cout << os.str();
+}
+
+
+
+
