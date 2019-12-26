@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <sstream>
 #include <fstream>
-
+#include <unordered_set>
 #include "Camiao.h"
 #include "Servicos.h"
 #include "Errors.h"
@@ -24,6 +24,9 @@
  * @brief It contains the Empresa class declarations, resposable for the management of the enterprise
  */
 using namespace std;
+typedef unordered_set<Clientes, hCli, eqCli> tabCli;
+
+
 
 /**
  * @brief Class that manages an enterprise
@@ -39,6 +42,17 @@ public:
     static size_t nCam;         /**<How many trucks there are in the enterprise**/
     static size_t nCli;         /**<How many clients there are in the enterprise**/
     static size_t nSer;         /**<How many services there are in the enterprise in a specific month**/
+
+    /**
+     *
+     */
+     tabCli gethash();
+    /**
+     * @brief displya inactives clients
+     */
+
+     void display_all_inactives(){
+     }
     /**
      * @brief Read information from clients.txt file and build the cli vector
      */
