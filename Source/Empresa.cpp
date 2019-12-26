@@ -233,7 +233,7 @@ Servicos *Empresa::requestService(class Servicos * s, const long long cliNif) {
     if (pos == -1 ) throw NoClient(to_string(cliNif));
     ser.push_back(s);
     (cli[pos])->addService(s);
-    (cli[pos])->setDate(getTimeNow().getDate());
+    (cli[pos])->setDate(getTimeNow());
     rewriteClients();
     return s;
 }

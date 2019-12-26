@@ -95,5 +95,5 @@ private:
  * @brief Gets today's day, month and year
  * @return Return the information as a Date
  */
-Date getTimeNow();
+std::string getTimeNow();
 #endif //AEDA_PROJ1_DATE_H

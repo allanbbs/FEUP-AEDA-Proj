@@ -203,8 +203,8 @@ int Date::checkMonth() {
     } while (true);
 }
 
-Date getTimeNow() {
+string getTimeNow() {
     time_t now = time(0);
     tm *ltm = localtime(&now);
-    return Date(1900 + ltm->tm_year, 1 + ltm->tm_mon, ltm->tm_mday);
+    return Date(1900 + ltm->tm_year, 1 + ltm->tm_mon, ltm->tm_mday).getDate();
 }
