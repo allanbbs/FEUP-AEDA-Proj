@@ -120,10 +120,9 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             is.str(aux);
             is >> carga;
 
-            //get the caracteristic of each type
-            if (type == "Animal" || type == "Perigoso" || type == "Congelado") {
-                    getline(file, aux);
-            }
+            //get the type
+            getline(file, aux);
+
             Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga, aux);
 
             //get camioes id
@@ -226,7 +225,16 @@ Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
     if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
-    (cli[pos])->setDate(getTimeNow().getDate());                    //set the last_service request
+    return s;
+}
+
+Servicos *Empresa::requestService(class Servicos * s, const long long cliNif) {
+    long int pos = SearchCli(cliNif);
+    if (pos == -1 ) throw NoClient(to_string(cliNif));
+    ser.push_back(s);
+    (cli[pos])->addService(s);
+    (cli[pos])->setDate(getTimeNow().getDate());
+    rewriteClients();
     return s;
 }
 

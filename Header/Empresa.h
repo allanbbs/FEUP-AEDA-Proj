@@ -100,7 +100,13 @@ public:
      * @param Tipo What kind of products it will transport
      */
     Servicos * addServico(Servicos* s, const long long int cliNif);
-
+    /**
+     * @brief Adds a new service when it is requested by a client
+     * @param s Service to be added
+     * @param cliNif Client that has requested the service
+     * @return Requested service
+     */
+    Servicos * requestService(Servicos *s, const long long int cliNif);
     /**
      * @brief It adds a new truck to the enterprise
      * @param type the type of the trucm

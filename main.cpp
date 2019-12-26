@@ -514,8 +514,7 @@ void handleAddService(Empresa &e){
             return;
         }
 
-        e.addServico(s, anif);
-        e.rewriteClients();
+        e.requestService(s,anif);
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);
 
