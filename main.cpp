@@ -23,10 +23,15 @@ TaxTable *table = new TaxTable(in);
 void mainMenu(Empresa &e);              //handle the main menu
 void printMainMenu();
 void printMenuStatus();                 //print the menu for status
+void printMenuMotorista();
+void handleWorkersMenu(Empresa &e);
 void handleMenuStatus(Empresa &e);      //handle the menu status
 void handleAddClient(Empresa &e);
 void handleAddService(Empresa &e);
 void handleAddTruck(Empresa &e);
+void handleAddWorker(Empresa & e);
+void handleRemoveWorker(Empresa &e);
+void handleChangeNameWorker(Empresa &e);
 
 int month;
 extern bool novo;
@@ -39,6 +44,7 @@ int main(){
         e.gravaCli();
         e.gravaCam();
         e.gravaSer(e, month);
+        e.readMotorista();
         mainMenu(e);
     }
 }
@@ -99,6 +105,10 @@ void mainMenu(Empresa &e){
                 wait();
                 break;
             }
+            case 10:{
+                //handle menu motorista
+                handleWorkersMenu(e);
+            }
             default:
                 break;
         }
@@ -114,7 +124,7 @@ void printMainMenu(){
             << "Profit information                 [2]      Change client name                  [7] " << endl
             << "Add truck                          [3]      Remove a client                     [8] " << endl
             << "Remove truck                       [4]      New service request                 [9] " << endl
-            << "Exit                               [5]                                              " << endl
+            << "Exit                               [5]      Workers MENU                       [10] " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
 }
 
@@ -130,6 +140,19 @@ void printMenuStatus(){
 
 }
 
+/**
+ * @brief print workers menu
+ */
+void printMenuMotorista(){
+    cout<< "        WORKERS MENU VISUALIZATION                                              WORKERS MANAGEMENT              "<< endl
+        << "============================================                        ============================================"<< endl
+        << "First x workers - ascending hours         [1]                       Add a worker                             [6]"<< endl
+        << "First x workers - descending hours        [2]                       Remove a worker                          [7]"<< endl
+        << "First x workers - alphabetic order        [3]                       Change a worker name                     [8]"<< endl
+        << "Search a specific worker by nif           [4]                       Reset hours of work                      [9] "<< endl
+        << "Cancel                                    [5]                                                                   "<< endl;
+
+}
 void handleMenuStatus(Empresa &e){
     int option, id, nif, type;
     long int n;
@@ -206,12 +229,72 @@ void handleMenuStatus(Empresa &e){
     }
 }
 
+void handleWorkersMenu(Empresa &e){
+    int option, n;
+    Motorista m;
+
+    while(true){
+        clear_screen();
+        printMenuMotorista();
+        option = checkOption(1,9);
+        if (option == 5) return;
+
+        switch(option){
+            case 4: {
+                cout << "NIF: ";
+                long long int nif = checkNumber();
+                if (nif == 0 || nif < -1) {
+                    cout << "Invalid NIF. Try again." << endl;
+                    wait();
+                    break;
+                }
+                if (nif == -1) break;
+
+                //check if there's a worker with this NIF
+                try {
+                    m = e.getBST().check_nif(nif);
+                } catch (NoWorker &e) {
+                    cout << e.getInfo() << endl;
+                    wait();
+                    break;
+                }
+
+                //case there's a worker with the given nif
+                headerWorkersInfor();
+                cout << m;
+                wait();
+                break;
+            }
+            case 6:
+                handleAddWorker(e);
+                break;
+            case 7:
+                handleRemoveWorker(e);
+                break;
+            case 8:
+                handleChangeNameWorker(e);
+                break;
+            case 9:
+                e.resetHours();
+            default:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+
+                headerWorkersInfor();
+                e.displayWorkers(option, n);
+                wait();
+                break;
+
+        }
+
+    }
+}
 void handleAddClient(Empresa &e){
     long long int nif;
     string nome;
     cout<<"Number of clients: "<< Empresa::nCli <<endl;
 
-    
     while (true) {
         cout<<"NIF: ";
         nif = checkNumber();
@@ -320,7 +403,7 @@ void handleAddService(Empresa &e){
 
         Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga, temp_carac[opt]);
 
-
+        e.allocateMotorista(s->cal_tempo());
 
         if (!e.allocateCamiao(s)){
             cout << "Not enough trucks " << endl;
@@ -390,5 +473,91 @@ void handleAddTruck(Empresa &e){
     ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
     o << carg << "\n" << temp[type] << "\n";
     o.close();
+
+}
+
+void handleAddWorker(Empresa & e){
+    string name;
+    long long int nif;
+
+    //get the name
+    cout << "[EXIT -1] Type the name: ";
+    cin.ignore();
+    getline(cin, name);
+    if (name == "-1") return;
+
+    while(true) {
+        //get the nif
+        cout << "Type NIF: ";
+        nif = checkNumber();
+
+        if (nif == 0 || nif < -1) {
+            cout << "Invalid NIF. Try again." << endl;
+            wait();
+            continue;                                                      //do not accept negative nifs
+        }
+        if (nif == -1) return;  //cancel the operation
+        else break;
+    }
+    Motorista m(name, nif, 0);
+    if (!e.addMotorista(m))
+        cout << "There is already a worker with the specific nif";
+    else {
+        cout << "Worker added successfully";
+        //write the content on the file
+        fstream file;
+        file.open("../AEDA_Proj1/Ficheiros/Motoristas",  ios_base::app);
+        file<< m.getName() << "\n"
+            << m.getNif() << "\n"
+            << m.getHours() << "\n";
+        file.close();
+
+    }
+    wait();
+
+}
+
+void handleRemoveWorker(Empresa &e){
+    //To remove a worker, due the tree implementation, we must know the number of hours worked
+    long long int nif;
+    while(true) {
+        cout << "NIF: ";
+        nif = checkNumber();
+        if (nif == 0 || nif < -1) {
+            cout << "Invalid NIF. Try again." << endl;
+            continue;                                                      //do not accept negative nifs
+        }
+        if (nif == -1) return;
+        break;
+    }
+    if(!e.removeMotorista(Motorista("", nif, 0)))
+        cout << "No worker with the given NIF" << endl;
+    else cout<< "Worker removed successfully!" << endl;
+    wait();
+}
+
+void handleChangeNameWorker(Empresa &e){
+    long long int nif;
+    while(true) {
+        cout << "NIF: ";
+        nif = checkNumber();
+        if (nif == 0 || nif < -1) {
+            cout << "Invalid NIF. Try again." << endl;
+            continue;                                                      //do not accept negative nifs
+        }
+        if (nif == -1) return;
+        break;
+    }
+    //get the name
+    string name;
+    cout << "[EXIT -1] NAME: ";
+    cin.ignore();
+    getline(cin, name);
+    if (name == "-1") return;
+
+    if(!e.setMotoristaName(Motorista("", nif, 0), name))
+        cout << "No worker with the given NIF" << endl;
+    else cout<< "Worker name changed successfully!" << endl;
+    wait();
 
 }

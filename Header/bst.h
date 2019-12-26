@@ -50,7 +50,17 @@ public:
     bool remove( const Comparable & x );
 
     const BST & operator=( const BST & rhs );
-
+    /**
+     * @brief Method made for AEDA Project part 2. Store in the v vector the BST by Reverse In-Order
+     * @param v vector where the information will be stored
+     */
+    void getReversedTree(vector<Comparable>& v) const;
+    /**
+     * @brief Aux method for getReversedTree, in order to make the recursion possible
+     * @param t First node
+     * @param v Vector where the information will be stored
+     */
+    void getReversedTree_aux(BinaryNode<Comparable> *t, vector<Comparable> &v) const;
     iteratorBST<Comparable> begin() const;
     iteratorBST<Comparable> end() const;
 
@@ -311,6 +321,19 @@ void BST<Comparable>::printTree( BinaryNode<Comparable> *t ) const
     }
 }
 
+template <class Comparable>
+void BST<Comparable>::getReversedTree( vector<Comparable> & v) const{
+    getReversedTree_aux(this->root, v);
+}
+
+template <class Comparable>
+void BST<Comparable>::getReversedTree_aux(BinaryNode<Comparable> * t, vector<Comparable> & v) const{
+    if (t != NULL){
+        getReversedTree_aux(t->right, v);
+        v.push_back(t->element);
+        getReversedTree_aux(t->left, v);
+    }
+}
 template <class Comparable>
 BinaryNode<Comparable> *
 BST<Comparable>::clone( BinaryNode<Comparable> * t ) const

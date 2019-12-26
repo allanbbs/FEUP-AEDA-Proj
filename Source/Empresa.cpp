@@ -137,9 +137,12 @@ void Empresa::gravaCam() {
     }
 }
 
+void Empresa::readMotorista() {
+    w.readMotorista();
+}
 //------------------------------------------------------------------------------------
 
-Empresa::Empresa() {}
+Empresa::Empresa(){}
 
 Empresa::~Empresa() {
     vector<Clientes*> tempX;
@@ -158,6 +161,10 @@ double Empresa::getLucro_mes() const {
     for (auto it = ser.begin(); it < ser.end(); it++)                       //profit of each service done
         lucro += (*it)->get_profit();
     return lucro;
+}
+
+Workers Empresa::getBST() const{
+    return w;
 }
 
 long long int Empresa::get_cam_num(){
@@ -270,6 +277,19 @@ void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (
     cout << os.str();
 }
 
+void Empresa::displayWorkers(int option, int n) {
+    switch(option){
+        case 1:
+            w.printBST(n);
+            break;
+        case 2:
+            w.printBST_reversed(n);
+            break;
+        case 3:
+            w.printBST_alphabetic(n);
+            break;
+    }
+}
 void headerServInfor() {
     cout << left << setw(10) << "ID"
          << setw(15) << "TIPO"
@@ -299,8 +319,7 @@ void headerCamInfor() {
 
 void headerWorkersInfor(){
     cout << left << setw(30) << "NAME" << setw(20) << "NIF" << "HOURS" << endl;
-    cout << "=========================================================="
-            "=======================" << endl;
+    cout << "==================================================================" << endl;
 }
 
 
@@ -428,4 +447,31 @@ void Empresa::rewriteTruck() {
     o << cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType() << "\n";
     o.close();
 
+}
+
+bool Empresa::addMotorista(class Motorista m) {
+    return w.addMotorista(m);
+}
+
+bool Empresa::removeMotorista(class Motorista m) {
+    bool b = w.removeMotorista(m);
+    w.rewrite_file();
+    return b;
+}
+
+bool Empresa::setMotoristaName(Motorista m, const string &name) {
+    bool b = w.setName(m, name);
+    if (b){
+        w.rewrite_file();
+        return true;
+    }
+    return false;
+}
+
+bool Empresa::allocateMotorista(float tempo) {
+    return w.allocateMotorista(tempo);
+}
+
+void Empresa::resetHours() {
+    w.resetHours();
 }
