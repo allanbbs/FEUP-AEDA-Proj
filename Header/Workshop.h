@@ -27,6 +27,7 @@ public:
     bool operator<(const Workshop &w1)const;
     bool operator==(const Workshop& w1) const { return name==w1.getName();};
     void setUn(int a) { unavailability = a;};
+    void addBrand(string n){brands.push_back(n);};
     //Workshop& operator=(const Workshop &w1);
     friend ostream& operator<<(ostream& out,const Workshop &w){
       out<<"Name: "<<w.getName()<<endl;

@@ -46,6 +46,8 @@ void handleWorkshop(Empresa &e){
     cout<<"Add Workshop[1]"<<endl;
     cout<<"Remove Workshop[2]"<<endl;
     cout<<"List all Workshops[3]"<<endl;
+    cout<<"Request generic service for truck[4]"<<endl;
+    cout<<"Request specific service fro truck[5]"<<endl;
     cout<<"Total : "<<e.getWor().size()<<endl;
     cout<<"Top of queue: "<<e.getPQ().top().get_unavailability()<<endl;
     //cout<<(e.getWor()[0].getName() == "Teste1"?"True":"False")<<endl;
@@ -81,6 +83,23 @@ void handleWorkshop(Empresa &e){
     if(option == 3){
         for(auto& el : e.getWor()){
             cout<<el;
+        }
+        return;
+    }
+    if(option == 4){
+
+        long long int id;
+        cout<<"Enter truck id:";
+        id = checkNumber();
+        vector<Camiao*> cam_copy(e.getCamiao());
+        for(auto it = cam_copy.begin();it!=cam_copy.end();it++){
+            if((*it)->getId() == id){
+                Workshop d = (*it)->requestGenericService(e.getPQ());
+                cout<<"Found Workshop: "<<endl;
+                cout<<d;
+                cout<<"New earliest workshop: "<<e.getPQ().top()<<endl;
+                break;
+            }
         }
         return;
     }

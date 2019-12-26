@@ -28,7 +28,7 @@ void Camiao::removeTruck() {
 }
 
 
-Workshop& Camiao::requestGenericService(priority_queue<Workshop>& aux) {
+Workshop Camiao::requestGenericService(priority_queue<Workshop> aux) {
     //stack<Workshop> aux1;
     //if(aux.empty()) throw EmptyQueue();
     Workshop d = aux.top();
@@ -38,7 +38,7 @@ Workshop& Camiao::requestGenericService(priority_queue<Workshop>& aux) {
     return d;
 }
 
-Workshop& Camiao::requestSpecificService(priority_queue<class Workshop>& aux) {
+Workshop Camiao::requestSpecificService(priority_queue<class Workshop> aux) {
     stack<Workshop> aux1;
     Workshop d=aux.top();
     while(!aux.empty()){
