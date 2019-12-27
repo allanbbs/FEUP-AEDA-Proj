@@ -115,7 +115,7 @@ bool Date::isEqualTo(const Date &date) { //verify if two dates are the same
         return false;
 }
 
-bool Date::isAfter(const Date &date) { //checks if a date is after another
+bool Date::isAfter(const Date &date) {
     if (date.year > this->year)
         return true;
     else if (date.year < this->year)

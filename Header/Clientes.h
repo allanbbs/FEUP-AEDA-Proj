@@ -82,8 +82,11 @@ public:
      * @param date String on the format yyyy/mm/dd
      */
     void setDate(const string& date);
-
-    string getDate();
+    /**
+     * @brief Get the date from the last request
+     * @return String representing the date on the format yyyy/mm/dd
+     */
+    string getDate() const;
 
 };
 /**
@@ -114,6 +117,7 @@ bool Compare_clientesLeast(const Clientes* c, const Clientes* c1);
  */
 bool Compare_clientesAlphabetic(const Clientes *c, const Clientes* c1);
 
+void headerClientes();
 //HASH TABLE ----------------------------------------------------------------
 
 struct clienteHash{

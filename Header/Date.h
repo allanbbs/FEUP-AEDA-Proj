@@ -77,7 +77,12 @@ public:
     void show() const; // shows the date on the screen in format "yyyy/mm/dd"
     bool isValid();  // return if this is a valid day
     bool isEqualTo(const Date &date);
-    bool isAfter(const Date &date); //checks if a date is after another
+    /**
+     * @brief checks if date is after this date
+     * @param date Date to be compared
+     * @return true if is after, false otherwise
+     */
+    bool isAfter(const Date &date);
     bool isBefore(const Date &date); //checks if a date is before another
 
 

@@ -275,9 +275,16 @@ public:
             aux.pop();
         }
     };
-
-    //HASH TABLE -------------------------------------------------------
-
+    // HASH TABLE -----------------------------------
+    /**
+     * @brief updates the hash table getting all inactive clients
+     */
+    void update_hash();
+    /**
+     * @brief display all x inactive clients in an unordered
+     * @param x Number of clients to be displayed
+     */
+    void display_hash(long int x);
 
 
 

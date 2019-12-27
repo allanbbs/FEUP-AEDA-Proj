@@ -180,7 +180,9 @@ void Empresa::readMotorista() {
 }
 //------------------------------------------------------------------------------------
 
-Empresa::Empresa(){}
+Empresa::Empresa(){
+    inactive.clear();
+}
 
 Empresa::~Empresa() {
     vector<Clientes*> tempX;
@@ -275,16 +277,16 @@ void Empresa::display_clientesInfo(const long long int &nif, long int n, bool (*
         if (pos == -1)
             throw NoClient(to_string(nif));
 
-        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
-        os << "=========================================================="
-              "=======================================" << endl;
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << setw(20) <<"DATE" << "SERVICES" << endl;
+        os  << "=========================================================="
+                 "=============================================================" << endl;
         os << *cli[pos];
     } else {                                                        //Case n clients to be shown
         vector<Clientes *> c(cli);
         sort(c.begin(), c.end(), f);
-        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
-        os << "=========================================================="
-              "=======================================" << endl;
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << setw(20) <<"DATE" << "SERVICES" << endl;
+        os  << "=========================================================="
+                 "=============================================================" << endl;
         for (auto it = c.begin(); it < c.end(); it++) {
             if ((*it)->get_nif()>0) {                                   //the negative nifs are from deleted clients
                 os << *(*it);
@@ -573,3 +575,26 @@ void Empresa::fillQueue(){
         pq.push(elem);
     }
 }
+
+// HASH TABLE -----------------------------------
+
+void Empresa::update_hash() {
+    for (auto const& c: cli){
+        Date date(c->getDate());                    //date of the last client request order
+        Date date_today(getTimeNow());              //today's date
+        //compare  if it has passed one year since the last request
+        date_today.setYear(date_today.getYear()-1);
+        //case date_today is after date, means that the request was done more than a year
+        if (date.isAfter(date_today))
+            inactive.insert(*c);
+    }
+}
+
+void Empresa::display_hash(long int x) {
+    for(auto it = inactive.begin(); it != inactive.end(); it++) {
+        cout << *it;
+        x --;
+        if (!x) break;
+    }
+}
+
