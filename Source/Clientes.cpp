@@ -19,10 +19,7 @@ Clientes::Clientes(const string &n, const long long int &anif) : name(n), nif(an
     setDate("1500/01/01");      //Default date
 }
 
-Clientes::~Clientes() {
-    for (int i = 0 ; i < services.size(); i++) delete services[i];
-    services.clear();
-}
+Clientes::~Clientes() {}
 
 
 double Clientes::get_profit() const {

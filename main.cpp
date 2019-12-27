@@ -130,6 +130,7 @@ int main(){
         e.gravaCam();
         e.gravaSer(e, month);
         e.readMotorista();
+        e.update_hash();
         //e.fillQueue();
         //fillQueue(e,pq);
         mainMenu(e);
@@ -194,7 +195,6 @@ void mainMenu(Empresa &e){
                 long long nif = validClientNif(e);
                 if (nif == -1) continue;
                 e.removeClient(nif);
-                cout << "Client removed successfully! ";
                 wait();
                 break;
             }
@@ -209,6 +209,7 @@ void mainMenu(Empresa &e){
             case 10:{
                 //handle menu motorista
                 handleWorkersMenu(e);
+                break;
             }
             default:
                 break;
@@ -225,6 +226,7 @@ void printMainMenu(){
             << "Profit information                 [2]      Change client name                  [7] " << endl
             << "Add truck                          [3]      Remove a client                     [8] " << endl
             << "Remove truck                       [4]      New service request                 [9] " << endl
+            << "                                                                                    " << endl
             << "Exit                               [5]      Workers MENU                       [10] " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
 }
@@ -236,7 +238,7 @@ void printMenuStatus(){
             << "First x least profitable services        [2]                     First x least profitable clients         [7]   " << endl
             << "First x services of a specific type      [3]                     First x clients in alphabetic order      [8]   " << endl
             << "Specific service by id                   [4]                     Specific client status by nif            [9]   " << endl
-            << "Cancel                                   [5]                                                                    " << endl
+            << "Cancel                                   [5]                     Show x inactive clients                 [10]   " << endl
             << "Option:                                                                                                         " << endl;
 
 }
@@ -263,7 +265,7 @@ void handleMenuStatus(Empresa &e){
         clear_screen();
         printMenuStatus();
 
-        option = checkOption(1, 9);
+        option = checkOption(1, 10);
 
         if (option == 5) return;
         switch(option){
@@ -325,7 +327,14 @@ void handleMenuStatus(Empresa &e){
                 e.display_clientesInfo(0,n,Compare_clientesAlphabetic);
                 wait();
                 break;
-
+            case 10:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                headerClientes();
+                e.display_hash(n);
+                wait();
+                break;
         }
     }
 }

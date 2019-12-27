@@ -93,8 +93,6 @@ private:
 
     bool bissexto(int ano); //Descobre se o ano eh bissexto
     int daysInMonth(int ano, int mes);  //returns the number of days in a specific month of a specif year
-    int checkDay(); //this function checks if it's a valid day for a specific month
-    int checkMonth(); //this function checks if it's a valid month (between 1 and 12 inclusive)
 };
 /**
  * @brief Gets today's day, month and year

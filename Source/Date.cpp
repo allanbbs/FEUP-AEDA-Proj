@@ -151,57 +151,6 @@ int Date::daysInMonth(int ano, int mes)  //returns the number of days in a speci
     return meses[mes];
 }
 
-/*
-function: checks if a day is valid or not
-@param provisorio day input given by the user
-@param days number of days in this specific month and year
-return valid day
-*/
-int Date::checkDay() {
-    int provisorio;                                 // input given by the user
-    int days = daysInMonth(this->year, this->month);            // number of days given the year and month
-
-
-    do {
-        if (cin >> provisorio) {                            //get the input
-            if (provisorio > days || provisorio <= 0) {      //checks if it's a valid day
-                cin.clear();
-                cin.ignore(1000, '\n');
-                cout << "Invalid day. This month has " << days << " days. Try again: ";
-            } else
-                return provisorio;
-        } else {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "Invalid input. Try again: "; //needed check
-        }
-    } while (true);
-
-};
-
-/*
-function: checks if a month is valid or not
-@param provisorio month input given by the user
-return valid month
-*/
-int Date::checkMonth() {
-    int provisorio;         //input given by the user
-
-    do {
-        if (cin >> provisorio) {
-            if (provisorio > 12 || provisorio <= 0) {           //checks if it's a valid month
-                cin.clear();
-                cin.ignore(1000, '\n');
-                cout << "Invalid month. A year has 12 months. Try again: ";
-            } else
-                return provisorio;
-        } else {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "Invalid input. Try again: ";
-        }
-    } while (true);
-}
 
 string getTimeNow() {
     time_t now = time(0);

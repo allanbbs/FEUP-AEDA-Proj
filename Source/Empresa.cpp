@@ -219,6 +219,7 @@ void Empresa::addClientes(const string &name, const long long int &nif, const st
     if (nif> 0 )
         nCli++;                                                             //increase the number of clients
     cli.push_back(c);
+    inactive.insert(*c);                                                    //add client to the hash. It's automatically inactive
 }
 
 //modified
@@ -229,10 +230,14 @@ Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
     (cli[pos])->addService(s);
     return s;
 }
-
+//modified
 Servicos *Empresa::requestService(class Servicos * s, const long long cliNif) {
     long int pos = SearchCli(cliNif);
     if (pos == -1 ) throw NoClient(to_string(cliNif));
+    //We must verify if the client is in the hash table. If it's, remove it from there
+    auto it = inactive.find(*cli[pos]);
+    if (it != inactive.end()) inactive.erase(it);
+    //Now add the service to the client and update the date of the last request
     ser.push_back(s);
     (cli[pos])->addService(s);
     (cli[pos])->setDate(getTimeNow());
@@ -434,16 +439,29 @@ bool Empresa::allocateCamiao(Servicos *s) {
 
 }
 
+//modified
 void Empresa::changeClientName(const long long int& nif) {
     string name;
     //get the position of the client
-    long int pos = SearchCli(nif);
+    long long int pos = SearchCli(nif);
     cin.ignore();
     cout << "Type the new name [EXIT -1]: ";
     getline(cin, name);
     if (name == "-1") return;
 
+    //We must change it's in the hash table too.
+    //First we must know if it's in the hash
+    Clientes c = *cli[pos];
+    tabHCli::iterator it = inactive.find(c);
+
+    //Change the client name
     cli[pos]->setName(name);
+
+    //If the element is in the hash table, change it's name too, else do nothing
+    if (it != inactive.end()){
+        inactive.erase(it);
+        inactive.insert(*cli[pos]);
+    }
     //we need to rewrite the file
     rewriteClients();
 }
@@ -463,11 +481,23 @@ void Empresa::rewriteClients() {
 
 void Empresa::removeClient(const long long int &nif) {
     long int pos = SearchCli(nif);                                      //get the position of the client
-    if (nif == -1) return;                                              //to cancel the operation
+    if (pos == -1){
+        cout << "No such cliente! " << endl;
+        return;
+    }
+    //First we must see if the client is in the hash table.
+    tabHCli::iterator it = inactive.find(*cli[pos]);
 
     cli[pos]->setNif((-1)*nif);                                         //change the nif to a negative one
     nCli--;
+    //If the client is in the hash table, update it
+    if (it!= inactive.end()) {
+        inactive.erase(it);
+        inactive.insert(*cli[pos]);
+    }
+
     rewriteClients();                                                   //we need to rewrite the file
+    cout << "Client removed successfully! ";
 }
 
 void Empresa::reAcceptClient(const long int& pos) {
@@ -502,7 +532,7 @@ void Empresa::rewriteTruck() {
     o.close();
 
 }
-
+// MOTORISTA ---------------------------------------------------
 bool Empresa::addMotorista(class Motorista m) {
     return w.addMotorista(m);
 }
@@ -529,7 +559,7 @@ bool Empresa::allocateMotorista(float tempo) {
 void Empresa::resetHours() {
     w.resetHours();
 }
-
+// WORKSHOP --------------------------------------------------
 void Empresa::rewriteWorkshops(){
     ofstream out("../AEDA_Proj1/Ficheiros/workshops");
     int aux,k;
@@ -576,9 +606,10 @@ void Empresa::fillQueue(){
     }
 }
 
-// HASH TABLE -----------------------------------
+// HASH TABLE ----------------------------------------
 
 void Empresa::update_hash() {
+    inactive.clear();
     for (auto const& c: cli){
         Date date(c->getDate());                    //date of the last client request order
         Date date_today(getTimeNow());              //today's date
