@@ -206,5 +206,7 @@ int Date::checkMonth() {
 string getTimeNow() {
     time_t now = time(0);
     tm *ltm = localtime(&now);
-    return Date(1900 + ltm->tm_year, 1 + ltm->tm_mon, ltm->tm_mday).getDate();
+    char buffer[80];
+    strftime(buffer,80,"%Y/%m/%d",ltm);
+    return string(buffer);
 }

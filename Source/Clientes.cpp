@@ -66,7 +66,7 @@ void Clientes::setDate(const std::__cxx11::string & date) {
 }
 
 string Clientes::getDate() {
-    last_request.getDate();
+    return last_request.getDate();
 }
 
 //------------------------------------------------------------------------------------

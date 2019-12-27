@@ -450,7 +450,7 @@ void Empresa::rewriteClients() {
     ofstream file("../AEDA_Proj1/Ficheiros/clientes");
     for (long int i = 0; i < cli.size(); i++)
         if (i != cli.size()-1)
-            file << cli[i]->getName() << endl << cli[i]->get_nif() << endl << cli[i]->getDate() << endl;
+            file << cli[i]->getName() << endl << cli[i]->get_nif() << endl << string(cli[i]->getDate()) << endl;
 
     //avoid to create a last line on the file
     file << cli[cli.size()-1]->getName() << endl << cli[cli.size()-1]->get_nif() << endl << cli[cli.size()-1]->getDate();
