@@ -30,18 +30,18 @@ void fillQueue(Empresa &e,priority_queue<Workshop> &aux){
 
 
 
-void mainMenu(Empresa &e);              //handle the main menu
-void printMainMenu();
-void printMenuStatus();                 //print the menu for status
-void printMenuMotorista();
-void handleWorkersMenu(Empresa &e);
-void handleMenuStatus(Empresa &e);      //handle the menu status
-void handleAddClient(Empresa &e);
-void handleAddService(Empresa &e);
-void handleAddTruck(Empresa &e);
-void handleAddWorker(Empresa & e);
-void handleRemoveWorker(Empresa &e);
-void handleChangeNameWorker(Empresa &e);
+void mainMenu(Empresa &e);              /**<Handle the main mennu*/
+void printMainMenu();                   /**<Prints the main menu to the user*/
+void printMenuStatus();                 /**<Prints the menu status to the user that includes visualization for clients and services*/
+void printMenuMotorista();              /**<Prints the Motorista menu*/
+void handleWorkersMenu(Empresa &e);     /**<Handle the workers (Motorista) menu*/
+void handleMenuStatus(Empresa &e);      /**<Handle the menu status and the user inputs*/ 
+void handleAddClient(Empresa &e);       /**<Handle the operation of adding a new client*/
+void handleAddService(Empresa &e);      /**<Handle the operation of adding a new service*/
+void handleAddTruck(Empresa &e);        /**<Handle the operation of adding a new truck*/
+void handleAddWorker(Empresa & e);      /**<Handle the operation of adding a new worker*/
+void handleRemoveWorker(Empresa &e);    /**<Handle the operation of removing a new worker*/
+void handleChangeNameWorker(Empresa &e);/**<Handle the operation of adding a new worker name*/
 
 void handleWorkshop(Empresa &e){
     int option;
@@ -152,12 +152,12 @@ int main(){
 void mainMenu(Empresa &e){
     string nome;
     while (true) {
-        printMainMenu();
         int option;
+        printMainMenu();
         option = checkOption(1, 12);
         clear_screen();
-
-        if (option == 5)                                            //exit option
+        
+        if (option == 5)                    //exit option 
             break;
         switch(option){
             case 1:
@@ -171,7 +171,6 @@ void mainMenu(Empresa &e){
                 e.display_CamiaoProfit();
                 wait();
                 break;
-
             case 6:
                 handleAddClient(e);
                 break;
@@ -207,7 +206,6 @@ void mainMenu(Empresa &e){
                 break;
             }
             case 10:{
-                //handle menu motorista
                 handleWorkersMenu(e);
                 break;
             }
@@ -220,14 +218,12 @@ void mainMenu(Empresa &e){
 }
 
 void printMainMenu(){
-    cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT           " << endl
-            << "======================================      ======================================= " << endl
-            << "Status information                 [1]      Add new client                      [6] " << endl
-            << "Profit information                 [2]      Change client name                  [7] " << endl
-            << "Add truck                          [3]      Remove a client                     [8] " << endl
-            << "Remove truck                       [4]      New service request                 [9] " << endl
-            << "Workers MENU                      [10]                                              " << endl
-            << "Exit                               [5]                                              " << endl
+    cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT                                WORKER MENU            " << endl
+            << "======================================      =======================================      =======================================" << endl
+            << "Status info. service and client    [1]      Add new client                      [6]      Workers MENU and visualization     [10]" << endl
+            << "Profit info.                       [2]      Change client name                  [7]                                             " << endl
+            << "Add truck                          [3]      Remove a client                     [8]                                             " << endl
+            << "Remove truck                       [4]      New service request                 [9]                                             " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
 }
 
@@ -245,9 +241,6 @@ void printMenuStatus(){
 
 }
 
-/**
- * @brief print workers menu
- */
 void printMenuMotorista(){
     cout<< "        WORKERS MENU VISUALIZATION                                              WORKERS MANAGEMENT              "<< endl
         << "============================================                        ============================================"<< endl
@@ -426,6 +419,7 @@ void handleWorkersMenu(Empresa &e){
 
     }
 }
+
 void handleAddClient(Empresa &e){
     long long int nif;
     string nome;
