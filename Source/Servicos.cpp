@@ -15,9 +15,9 @@ Servicos::Servicos() {
 }
 
 Servicos::Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo,
-                   const int &Carga, const Date &adate, const string &Condition) : id(Id), departure(Departure),
+                   const int &Carga, const string &Condition) : id(Id), departure(Departure),
                                                                                    arrival(Arrival), type(Tipo),
-                                                                                   carga(Carga), date(adate), condition(Condition) {
+                                                                                   carga(Carga), condition(Condition) {
     profit = 0;
     cal_profitTime();
 };

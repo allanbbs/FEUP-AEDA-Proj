@@ -26,7 +26,8 @@ private:
     string name;                        /**<Name of the client*/
     long long int nif;                       /**<Identification of the client*/
     vector<Servicos *> services;        /**<Services requested by the client*/
-    double profit;                      /**<Clients profit*/
+    double profit;                       /**<Clients profit*/
+    Date lastrequest ;   /**<Clients lastrequest date*/
 public:
     /**
      * Default constructos
@@ -59,6 +60,10 @@ public:
      * @return Returns the client's name
      */
     string getName() const { return name; };
+    /**
+     * @brief return the services
+     */
+    vector<Servicos *> get_services(){ return services;};
 
     /**
    * Client request a service

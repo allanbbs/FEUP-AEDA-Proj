@@ -36,6 +36,7 @@ private:
     vector<Clientes *> cli;     /**< Vector that contains all clients of this enterprise*/
     vector<Camiao *> cam;       /**<Vector that contais all camioes of this enterprise*/
     vector<Servicos *> ser;     /**<Vector that contais all services offered for the enterprise*/
+    tabCli inactives;
     Workers w;
 
 public:
@@ -60,6 +61,14 @@ public:
       * @brief show a inactive client
       */
       void show_a_inactive(long long int nif);
+      /**
+       *
+       * @param c client that add a service
+       * @param s service request
+       */
+
+      void requestservice(Clientes &c,Servicos *s);
+
     /**
      * @brief Read information from clients.txt file and build the cli vector
      */
@@ -91,6 +100,7 @@ public:
     /**
      * @brief Add a new client to the vector cli
      * @param name The name of the new client
+     * @param date of the last request
      * @param nif Personal numeration of the client
      */
     void addClientes(const string &name, const long long int &nif);

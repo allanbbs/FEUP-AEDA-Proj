@@ -343,14 +343,11 @@ void handleAddService(Empresa &e) {
             opt = checkOption(5, 8);
             if (opt == 5) return;
         }
-        cout << "Enter date of service (yyyy/mm/dd) [EXIT -1]";
-        getline(cin, when);
-        if (when == "-1") return;
-        Date *date = new Date(when);
+
 
 
         Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer,
-                tipo, carga,*date,temp_carac[opt]);
+                tipo, carga,temp_carac[opt]);
 
 
         if (!e.allocateCamiao(s)) {

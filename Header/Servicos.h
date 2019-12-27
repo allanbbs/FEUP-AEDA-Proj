@@ -39,7 +39,6 @@ private:
     int carga;                              /**<Number of products of the service**/
     string condition = "None";              /**Condition to the product*/
     double tax_condition = table->table[condition];
-    Date date ;
 
 
 public:
@@ -58,7 +57,7 @@ public:
      * @param when the service was request
      */
     Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo,
-             const int &Carga, const Date &adate, const string &Condition = "None");
+             const int &Carga, const string &Condition = "None");
 
     /**
      * @brief Calculates the price according to the time of traveling, price of each camiao and the fixed tax
@@ -139,10 +138,6 @@ public:
      * 
      */
     string get_condition();
-    /**
-     * @brief return date
-     */
-     Date get_date(){return date;};
 };
 
 /**

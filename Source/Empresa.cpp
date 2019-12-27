@@ -22,11 +22,13 @@ size_t Empresa::nSer = 0;
 void Empresa::gravaCli() {
     ifstream file("../AEDA_Proj1/Ficheiros/clientes");
     string name;                        //stores the name of the client       
-    string aux;                         //auxiliar variable to read lines 
+    string aux;
+    //auxiliar variable to read lines
     long long int nif;
     while (!file.eof()) {
         getline(file, name);            //get name
         getline(file, aux);             //get string nif
+        //getline(file, last);                //get the date of the last request
         istringstream is(aux);          //get unsigned int nif
         is >> nif;
         addClientes(name, nif);         //add client
@@ -89,13 +91,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             if (type == "Animal" || type == "Perigoso" || type == "Congelado") {
                 getline(file, aux);
             }
-            //get the date that the service was request
-            getline(file, when);
-            is.clear();
-            is.str(when);
-            is >> when;
-            Date *date = new Date(when);
-            Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga, *date, aux);
+            Servicos *s = new Servicos(*l1, *l2, ++Empresa::nSer, type, carga, aux);
 
             //get camioes id
             getline(file, aux);
@@ -187,6 +183,9 @@ Servicos *Empresa::addServico(Servicos *s, const long long int cliNif) {
     if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
+    if(inactives.find(*(cli[pos])) != inactives.end()){
+        inactives.erase(*(cli[pos]));
+    }
     return s;
 }
 
@@ -441,6 +440,7 @@ void Empresa::rewriteTruck() {
 
 }
 
+
 tabCli Empresa::gethash() {
     tabCli inactives;
     for (auto it: cli) {
@@ -496,6 +496,7 @@ void Empresa::show_a_inactive(long long int nif) {
 
     cout << os.str();
 }
+
 
 
 

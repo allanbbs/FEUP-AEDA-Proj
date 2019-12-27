@@ -18,10 +18,11 @@ Clientes::Clientes() {
     nif = 0;
 }
 
-Clientes::Clientes(const string &n, const long long int &anif) : name(n), nif(anif), profit(0) {}
+Clientes::Clientes(const string &n, const long long int &anif) : name(n), nif(anif),
+                                                                 lastrequest(Date("1500/01/01")), profit(0) {}
 
 Clientes::~Clientes() {
-    for (int i = 0 ; i < services.size(); i++) delete services[i];
+    for (int i = 0; i < services.size(); i++) delete services[i];
     services.clear();
 }
 
@@ -37,23 +38,26 @@ long long int Clientes::get_nif() const {
 
 void Clientes::addService(Servicos *servico) {
     services.push_back(servico);
-    profit += servico->get_profit();                            //increase profit variable
+    profit += servico->get_profit();//increase profit variable
+    lastrequest = Date(Date::currentDate());
 
 }
 
-void Clientes::setName(const string& name) {
+void Clientes::setName(const string &name) {
     this->name = name;
 }
 
 void Clientes::setNif(const long long int &nif) {
     this->nif = nif;
 }
-ostream &operator<<(ostream &out, const Clientes &client) {
-    cout<<fixed<<setprecision(2);
-    out << left << setw(30) << client.name << setw(20) << client.nif
-                <<setw(20) << client.profit; 
 
-    if (client.services.empty()) out << "No services!";         //if the client hasn't requested for a service it will be noticed 
+ostream &operator<<(ostream &out, const Clientes &client) {
+    cout << fixed << setprecision(2);
+    out << left << setw(30) << client.name << setw(20) << client.nif
+        << setw(20) << client.profit;
+
+    if (client.services.empty())
+        out << "No services!";         //if the client hasn't requested for a service it will be noticed 
 
     for (auto a: client.services)                               //else it will print a list of the requested services
         out << a->get_id() << " ";
@@ -61,22 +65,13 @@ ostream &operator<<(ostream &out, const Clientes &client) {
 
     return out;                                                 //returns the name nif and requested services or "no services" announcement 
 }
-Date Clientes::lastServiceDate() {
-    Date last = services[0]->get_date();
-    for(int i = 1; i < services.size(); i++){
-        if(services[i]->get_date().isAfter(last)){
-            last  =services[i]->get_date();
-        }
 
-    }
-    return last;
-}
 bool Clientes::inactive() {
     int y = stoi(Date::currentDate().substr(0, 4)) - 1;
     int m = stoi(Date::currentDate().substr(5, 7));
     int d = stoi(Date::currentDate().substr(8));
-    Date now_minus_a_year = Date(y,m,d);
-    return this->lastServiceDate().isBefore(now_minus_a_year);// if the lastServiceDate is before now minus a year,
+    Date now_minus_a_year = Date(y, m, d);
+    return lastrequest.isBefore(now_minus_a_year);// if the lastServiceDate is before now minus a year,
     // there is more than  a year that the client doesnt request a service
 }
 
@@ -84,24 +79,24 @@ bool Clientes::inactive() {
 
 //------------------------------------------------------------------------------------
 
-bool Compare_clientes(const Clientes* c, const Clientes* c1) {
+bool Compare_clientes(const Clientes *c, const Clientes *c1) {
     if (c->get_profit() < c1->get_profit()) return false;
     else if (c1->get_profit() < c->get_profit()) return true;
-    else if(c->getName() < c1->getName()) return true;
+    else if (c->getName() < c1->getName()) return true;
     else if (c1->getName() < c->getName()) return false;
     return true;
 }
 
-bool Compare_clientesLeast(const Clientes *c, const Clientes* c1){
+bool Compare_clientesLeast(const Clientes *c, const Clientes *c1) {
     if (c->get_profit() < c1->get_profit()) return true;
     else if (c1->get_profit() < c->get_profit()) return false;
-    else if(c->getName() < c1->getName()) return true;
+    else if (c->getName() < c1->getName()) return true;
     else if (c1->getName() < c->getName()) return false;
     return true;
 }
 
-bool Compare_clientesAlphabetic(const Clientes *c, const Clientes* c1){
-    if(c->getName() < c1->getName()) return true;
+bool Compare_clientesAlphabetic(const Clientes *c, const Clientes *c1) {
+    if (c->getName() < c1->getName()) return true;
     else if (c1->getName() < c->getName()) return false;
     return true;
 }
