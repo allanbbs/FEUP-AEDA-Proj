@@ -285,7 +285,16 @@ public:
      * @param x Number of clients to be displayed
      */
     void display_hash(long int x);
-
+    /**
+     * @brief Search for an specific inactive client given the nif
+     * @param nif Identificantion of the client
+     * @return If the client is not in the hash, return a dumb Client with name "". Else return the client.
+     */
+    Clientes SearchInactiveClient_hash(const long long int& nif);
+    /**
+     * @brief Display the first x elements in the hash table ordered by date
+     */
+    void display_dateOrdered_hash(long int x);
 
 };
 

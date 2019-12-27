@@ -629,3 +629,28 @@ void Empresa::display_hash(long int x) {
     }
 }
 
+Clientes Empresa::SearchInactiveClient_hash(const long long & nif) {
+    for (auto it = inactive.begin(); it != inactive.end(); it++){
+        if (it->get_nif() == nif)
+            return (*it);
+    }
+    throw NoClient(to_string(nif));
+}
+
+void Empresa::display_dateOrdered_hash(long x) {
+    vector<Clientes> c;
+    for (auto it = inactive.begin(); it!= inactive.end(); it++){
+        c.push_back(*it);
+        x--;
+        if (!x) break;
+    }
+    sort(c.begin(), c.end(), [](Clientes c1, Clientes c2){
+        Date d1 = c1.getDate();
+        Date d2 = c2.getDate();
+        return d1.isAfter(d2);
+    });
+    headerClientes();
+    for (auto const& it: c){
+        cout << it;
+    }
+}

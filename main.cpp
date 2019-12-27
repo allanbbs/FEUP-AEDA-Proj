@@ -226,8 +226,8 @@ void printMainMenu(){
             << "Profit information                 [2]      Change client name                  [7] " << endl
             << "Add truck                          [3]      Remove a client                     [8] " << endl
             << "Remove truck                       [4]      New service request                 [9] " << endl
-            << "                                                                                    " << endl
-            << "Exit                               [5]      Workers MENU                       [10] " << endl
+            << "Workers MENU                      [10]                                              " << endl
+            << "Exit                               [5]                                              " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
 }
 
@@ -239,6 +239,8 @@ void printMenuStatus(){
             << "First x services of a specific type      [3]                     First x clients in alphabetic order      [8]   " << endl
             << "Specific service by id                   [4]                     Specific client status by nif            [9]   " << endl
             << "Cancel                                   [5]                     Show x inactive clients                 [10]   " << endl
+            << "                                                                 Show x inactive clients by date         [11]   " << endl
+            << "                                                                 Specific inactive status by nif         [12]   " << endl
             << "Option:                                                                                                         " << endl;
 
 }
@@ -265,7 +267,7 @@ void handleMenuStatus(Empresa &e){
         clear_screen();
         printMenuStatus();
 
-        option = checkOption(1, 10);
+        option = checkOption(1, 12);
 
         if (option == 5) return;
         switch(option){
@@ -335,7 +337,28 @@ void handleMenuStatus(Empresa &e){
                 e.display_hash(n);
                 wait();
                 break;
+            case 11:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_dateOrdered_hash(n);
+                wait();
+                break;
+            case 12:
+                nif = validClientNif(e);
+                if (nif != -1) {
+                    try {
+                        headerClientes();
+                        cout <<  e.SearchInactiveClient_hash(nif) << endl;
+                    }catch(NoClient &noclient) {
+                        clear_screen();
+                        cout << "The client is not inactive!" << endl;
+                    }
+
+                    wait();
+                }
         }
+
     }
 }
 
