@@ -44,10 +44,6 @@ public:
     static size_t nCli;         /**<How many clients there are in the enterprise**/
     static size_t nSer;         /**<How many services there are in the enterprise in a specific month**/
 
-    /**
-     *@brief return a updated hashTable (of inactive clients)
-     */
-     tabCli gethash();
      /**
       * @brief search for a client
       */
@@ -56,7 +52,7 @@ public:
      * @brief display inactive clients
      */
 
-     void display_all_inactives();
+     void display_all_inactives(int n);
      /**
       * @brief show a inactive client
       */
@@ -102,8 +98,9 @@ public:
      * @param name The name of the new client
      * @param date of the last request
      * @param nif Personal numeration of the client
+     * @param date of last request
      */
-    void addClientes(const string &name, const long long int &nif);
+    void addClientes(const string &name, const long long int &nif, string &date);
     /**
      * @param Partida Departure Local
      * @param Destino Arrival local
@@ -222,10 +219,15 @@ public:
      * 
      * @return long long int
      */
-    long long int get_cam_num(); 
+    long long int get_cam_num();
 
 
+    Servicos *addServicoFicheiro(Servicos *s, const long long int cliNif);
 
+    void build_hash();
+
+    ostringstream &
+    showClientWithDate(ostringstream &os, const unordered_set<Clientes, hCli, eqCli>::iterator &it) const;
 };
 
 /**

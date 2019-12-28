@@ -1,4 +1,3 @@
-
 Porto
 41.1579
 8.6291
@@ -10,8 +9,6 @@ Congelado
 30
 Frio
 1 5
-2018/09/01
-
 Porto
 41.1579
 8.6291
@@ -23,8 +20,6 @@ Perigoso
 30
 Inflamavel
 2
-2017/08/02
-
 Santo Ovidio
 4
 3
@@ -36,8 +31,6 @@ Congelado
 20
 Quente
 1
-2014/02/11
-
 Brasil
 1
 10
@@ -49,4 +42,3 @@ Congelado
 20
 Frio
 1
-2019/12/12

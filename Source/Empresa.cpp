@@ -3,6 +3,7 @@
 //
 
 #include "../Header/Empresa.h"
+#include "../Header/Clientes.h"
 #include <fstream>
 #include "../Header/Date.h"
 #include <unordered_set>
@@ -20,23 +21,25 @@ size_t Empresa::nSer = 0;
  */
 
 void Empresa::gravaCli() {
-    ifstream file("../AEDA_Proj1/Ficheiros/clientes");
+    ifstream file("./Ficheiros/clientes");
     string name;                        //stores the name of the client       
     string aux;
+    string last;
     //auxiliar variable to read lines
     long long int nif;
     while (!file.eof()) {
         getline(file, name);            //get name
+        getline(file, last);            //get the date of the last request
         getline(file, aux);             //get string nif
         //getline(file, last);                //get the date of the last request
         istringstream is(aux);          //get unsigned int nif
         is >> nif;
-        addClientes(name, nif);         //add client
+        addClientes(name, nif, last);         //add client
     }
 }
 
 void Empresa::gravaSer(Empresa &e, const int &month) {
-    string fileName = "../AEDA_Proj1/Ficheiros/servicos" + to_string(month) + ".txt";
+    string fileName = "./Ficheiros/servicos" + to_string(month) + ".txt";
     ifstream file(fileName.c_str());
     string local, aux, type, when;
     long long int aux_int, carga, cliNif;
@@ -107,14 +110,14 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             }
             catch (NoClient &error) {
                 cliNif = -cliNif;
-                e.addServico(s, cliNif);
+                e.addServicoFicheiro(s, cliNif);
             }
         }
     else novo = true;                                           //if there's nothing to read, it means that this is a new file
 }
 
 void Empresa::gravaCam() {
-    fstream file("../AEDA_Proj1/Ficheiros/camioes");
+    fstream file("./Ficheiros/camioes");
     long long int carga;
     string type;
     string auxString;
@@ -169,10 +172,10 @@ long long int Empresa::get_cam_num() {
     return cam.size();
 }
 
-void Empresa::addClientes(const string &name, const long long int &nif) {
+void Empresa::addClientes(const string &name, const long long int &nif, string &date) {
     long int pos = SearchCli(nif);                                          //check if the client already exists
     if (pos != -1) throw RepeatedClient(name);                              // if so, throw a exception
-    auto c = new Clientes(name, nif);
+    auto c = new Clientes(name, nif, date);
     if (nif > 0)
         nCli++;                                                             //increase the number of clients
     cli.push_back(c);
@@ -183,10 +186,18 @@ Servicos *Empresa::addServico(Servicos *s, const long long int cliNif) {
     if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
-    if(inactives.find(*(cli[pos])) != inactives.end()){
+    if (inactives.find(*(cli[pos])) != inactives.end()) {
         inactives.erase(*(cli[pos]));
     }
     return s;
+}
+
+Servicos *Empresa::addServicoFicheiro(Servicos *s, const long long int cliNif) {
+    long int pos = SearchCli(cliNif);
+    if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
+    ser.push_back(s);
+    (cli[pos])->addService(s);
+
 }
 
 long int Empresa::SearchCli(const long long int &nif) const {
@@ -380,8 +391,17 @@ void Empresa::changeClientName(const long long int &nif) {
     cout << "Type the new name [EXIT -1]: ";
     getline(cin, name);
     if (name == "-1") return;
+    if(inactives.find(findClient(nif)) != inactives.end()){
+        inactives.erase(findClient(nif));
+        cli[pos]->setName(name);
+        inactives.insert(findClient(nif));
+    }else{
+        cli[pos]->setName(name);
+    }
 
-    cli[pos]->setName(name);
+
+
+
     //we need to rewrite the file
     rewriteClients();
 }
@@ -400,9 +420,17 @@ void Empresa::rewriteClients() {
 
 void Empresa::removeClient(const long long int &nif) {
     long int pos = SearchCli(nif);                                      //get the position of the client
-    if (nif == -1) return;                                              //to cancel the operation
+    if (pos == 1) return;                                              //to cancel the operation
+    if (inactives.find(*(cli[pos])) != inactives.end()) {
+        inactives.erase(*(cli[pos]));
+        cli[pos]->setNif((-1) * nif);
+        inactives.insert(*cli[pos]);//change the nif to a negative one
 
-    cli[pos]->setNif((-1) * nif);                                         //change the nif to a negative one
+
+    } else {
+        cli[pos]->setNif((-1) * nif);                                         //change the nif to a negative one
+
+    }
     nCli--;
     rewriteClients();                                                   //we need to rewrite the file
 }
@@ -441,27 +469,43 @@ void Empresa::rewriteTruck() {
 }
 
 
-tabCli Empresa::gethash() {
-    tabCli inactives;
+void Empresa::build_hash() {
     for (auto it: cli) {
         if (it->inactive()) {
-            pair<unordered_set<Clientes, hCli, eqCli>::iterator, bool> abool = inactives.insert(*it);
+            inactives.insert(*it);
         }
     }
-    return inactives;
 }
 
-void Empresa::display_all_inactives() {
-    tabCli hash = gethash();
+void Empresa::display_all_inactives(int n) {
     ostringstream os;
     os << fixed << setprecision(2);
-    os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
+    //Case n clients to be shown
+    os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "DATE" << "SERVICES" << endl;
     os << "=========================================================="
           "=======================================" << endl;
-    for (auto it: hash) {
-        os << it;
+    unordered_set<Clientes, hCli, eqCli>::iterator it = inactives.begin();
+    while (it != inactives.end()) {
+            showClientWithDate(os,it);
+        n--;
+        it++;
+        if (n == 0) break;
     }
+
     cout << os.str();
+}
+
+ostringstream &
+Empresa::showClientWithDate(ostringstream &os, const unordered_set<Clientes, hCli, eqCli>::iterator &it) const {
+    os << left << setw(30) << it->getName() << setw(20) << it->get_nif()
+       << setw(20) << it->get_lastrequest().getDate();
+    if (it->get_services().empty())
+        os << "No services!";         //if the client hasn't requested for a service it will be noticed 
+
+    for (auto a: it->get_services())                               //else it will print a list of the requested services
+        os << a->get_id() << " ";
+    os << endl;
+    return os;
 }
 
 Clientes Empresa::findClient(long long int nif) {
@@ -477,7 +521,6 @@ Clientes Empresa::findClient(long long int nif) {
 
 //todo hash table not use
 void Empresa::show_a_inactive(long long int nif) {
-    tabCli inactives = gethash();
     ostringstream os;
     os << fixed << setprecision(2);
     //check if the client exist
@@ -489,10 +532,10 @@ void Empresa::show_a_inactive(long long int nif) {
     pair<unordered_set<Clientes, hCli, eqCli>::iterator, bool> res = inactives.insert(cliente);
     if (res.second) // check if it is inactive
         throw Noinactive(to_string(nif));
-    os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << "SERVICES" << endl;
+    os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "DATE" << "SERVICES" << endl;
     os << "=========================================================="
           "=======================================" << endl;
-    os << *cli[pos];
+    showClientWithDate(os,res.first);
 
     cout << os.str();
 }

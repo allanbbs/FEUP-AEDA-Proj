@@ -23,11 +23,12 @@ using namespace std;
  */
 class Clientes {
 private:
+
     string name;                        /**<Name of the client*/
     long long int nif;                       /**<Identification of the client*/
     vector<Servicos *> services;        /**<Services requested by the client*/
     double profit;                       /**<Clients profit*/
-    Date lastrequest ;   /**<Clients lastrequest date*/
+    Date lastrequest;   /**<Clients lastrequest date*/
 public:
     /**
      * Default constructos
@@ -40,6 +41,14 @@ public:
      * @param anif Nif (identificantion of the client)
      */
     Clientes(const string &n, const long long int &anif);
+
+    /**
+     *
+     * @param n
+     * @param date
+     * @param nif
+     */
+    Clientes(const string &n, const long long int &anif, string &aDate);
 
     /**
      * Default destructor
@@ -60,10 +69,16 @@ public:
      * @return Returns the client's name
      */
     string getName() const { return name; };
+
     /**
      * @brief return the services
      */
-    vector<Servicos *> get_services(){ return services;};
+    vector<Servicos *> get_services() const { return services; };
+
+    /**
+     * @brief return the date of the last request as a str
+     */
+    Date get_lastrequest() const{return lastrequest;};
 
     /**
    * Client request a service
@@ -92,6 +107,14 @@ public:
     friend ostream &operator<<(ostream &out, const Clientes &client);
 
     /**
+     *
+     * @param out ostream whit the information
+     * @param client object whit the register
+     * @return ostream with the information
+     */
+    static void show_cli(Clientes cli);
+
+    /**
   * @brief return the oldest request of the client
   */
     Date lastServiceDate();
@@ -104,6 +127,7 @@ public:
 
     bool inactive(); // checks if there is more than a year that the client doesnt request a service
 
+    void setLastrequest(Date &date);
 };
 
 /**

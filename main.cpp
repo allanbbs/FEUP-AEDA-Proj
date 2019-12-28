@@ -17,9 +17,8 @@ using namespace std;
  *
  */
 
-ifstream in("../AEDA_Proj1/Ficheiros/tax.txt"); //NAO MUDA!
+ifstream in("./Ficheiros/tax.txt"); //NAO MUDA!
 TaxTable *table = new TaxTable(in);
-
 
 void mainMenu(Empresa &e);              //handle the main menu
 void printMainMenu();
@@ -43,6 +42,7 @@ int main() {
         e.gravaCli();
         e.gravaCam();
         e.gravaSer(e, month);
+        e.build_hash();
         mainMenu(e);
     }
 }
@@ -106,6 +106,7 @@ void mainMenu(Empresa &e) {
             default:
                 break;
         }
+
         clear_screen();
     }
 
@@ -136,7 +137,9 @@ void printMenuStatus() {
             << endl
             << "Specific service by id                   [4]                     Specific client status by nif            [9]   "
             << endl
-            << "Cancel                                   [5]                                                                    "
+            << "Cancel                                   [5]                     First x inactives                        [12]  "
+            << endl
+            << "                                                                 Specific inactive client by nif          [13]  "
             << endl
             << "Option:                                                                                                         "
             << endl;
@@ -155,7 +158,7 @@ void handleMenuStatus(Empresa &e) {
         clear_screen();
         printMenuStatus();
 
-        option = checkOption(1, 9);
+        option = checkOption(1, 13);
 
         if (option == 5) return;
         switch (option) {
@@ -217,6 +220,22 @@ void handleMenuStatus(Empresa &e) {
                 e.display_clientesInfo(0, n, Compare_clientesAlphabetic);
                 wait();
                 break;
+            case 12:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_all_inactives(n);
+                wait();
+                break;
+            case 13:
+                nif = validClientNif(e);
+                if (nif != -1) {
+                    e.show_a_inactive(nif);
+                    wait();
+                }
+                break;
+
+
 
         }
     }
@@ -251,9 +270,9 @@ void handleAddClient(Empresa &e) {
         getline(cin, nome);
         if (nome == "-1") return;                                           //abort operation
 
-
+        string date = "1900/01/01";
         try {
-            e.addClientes(nome, nif);
+            e.addClientes(nome, nif,date);
             ofstream o("../AEDA_Proj1/Ficheiros/clientes", ios_base::app);
             o << "\n" << nome << "\n" << nif;
             o.close();

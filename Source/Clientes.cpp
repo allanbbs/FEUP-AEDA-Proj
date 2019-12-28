@@ -19,7 +19,11 @@ Clientes::Clientes() {
 }
 
 Clientes::Clientes(const string &n, const long long int &anif) : name(n), nif(anif),
-                                                                 lastrequest(Date("1500/01/01")), profit(0) {}
+                                                                 lastrequest(Date("1900/01/01")), profit(0) {}
+
+Clientes::Clientes(const string &n, const long long int &anif, string &aDate) : name(n), nif(anif),
+                                                                                lastrequest(Date(aDate)), profit(0) {}
+
 
 Clientes::~Clientes() {
     for (int i = 0; i < services.size(); i++) delete services[i];
@@ -39,8 +43,11 @@ long long int Clientes::get_nif() const {
 void Clientes::addService(Servicos *servico) {
     services.push_back(servico);
     profit += servico->get_profit();//increase profit variable
-    lastrequest = Date(Date::currentDate());
 
+
+}
+void Clientes::setLastrequest(Date &date){
+    lastrequest = date;
 }
 
 void Clientes::setName(const string &name) {
@@ -71,9 +78,11 @@ bool Clientes::inactive() {
     int m = stoi(Date::currentDate().substr(5, 7));
     int d = stoi(Date::currentDate().substr(8));
     Date now_minus_a_year = Date(y, m, d);
-    return lastrequest.isBefore(now_minus_a_year);// if the lastServiceDate is before now minus a year,
+    return lastrequest.isAfter(now_minus_a_year);// if the lastServiceDate is before now minus a year,
     // there is more than  a year that the client doesnt request a service
 }
+
+
 
 
 
