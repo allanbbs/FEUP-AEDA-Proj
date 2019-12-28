@@ -13,6 +13,7 @@
 #include <fstream>
 #include <queue>
 
+#include <unordered_set>
 #include "Camiao.h"
 #include "Servicos.h"
 #include "Errors.h"
@@ -27,6 +28,9 @@
  */
 using namespace std;
 typedef priority_queue<Workshop> PQ;
+typedef unordered_set<Clientes*, hCli, eqCli> tabCli;
+
+
 
 /**
  * @brief Class that manages an enterprise
@@ -39,6 +43,7 @@ private:
     Workers w;                  /**<Class that stores the workers BST**/
     vector<Workshop> wor;       /**<Vector containing all workshops bounded with this enterprise*/
     PQ pq;
+    tabCli inactives;
 
 
 public:
@@ -50,6 +55,27 @@ public:
      * @brief Read information from workshops.txt file and build the wor vector
      */
     void gravaWor();
+     /**
+      * @brief search for a client
+      */
+      Clientes findClient(long long int nif);
+    /**
+     * @brief display inactive clients
+     */
+
+     void display_all_inactives(int n);
+     /**
+      * @brief show a inactive client
+      */
+      void show_a_inactive(long long int nif);
+      /**
+       *
+       * @param c client that add a service
+       * @param s service request
+       */
+
+      void requestservice(Clientes &c,Servicos *s);
+
     /**
      * @brief Read information from clients.txt file and build the cli vector
      */
@@ -86,9 +112,11 @@ public:
     /**
      * @brief Add a new client to the vector cli
      * @param name The name of the new client
+     * @param date of the last request
      * @param nif Personal numeration of the client
+     * @param date of last request
      */
-    void addClientes(const string &name, const long long int &nif);
+    void addClientes(const string &name, const long long int &nif, string &date);
     /**
      * @param Partida Departure Local
      * @param Destino Arrival local
@@ -269,7 +297,12 @@ public:
 
 
 
+    Servicos *addServicoFicheiro(Servicos *s, const long long int cliNif);
 
+    void build_hash();
+
+    ostringstream &
+    showClientWithDate(ostringstream &os, const unordered_set<Clientes *, hCli, eqCli>::iterator it) const;
 };
 
 /**
@@ -287,5 +320,9 @@ void headerCamInfor();
  * @brief Header for list of workers
  */
 void headerWorkersInfor();
+
+
+
+
 
 #endif //AEDA_PROJ1_EMPRESA_H

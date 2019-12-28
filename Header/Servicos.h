@@ -16,6 +16,7 @@
 
 #include "Local.h"
 #include "Camiao.h"
+#include "../Header/Date.h"
 
 extern TaxTable *table;
 using namespace std;
@@ -53,9 +54,10 @@ public:
      * @param Id Identification for the service
      * @param profit is initialized by cal_profit() function
      * @param Condition condition of the product (cold, hot, toxic...)
+     * @param when the service was request
      */
-    Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo, const int& Carga, const string& Condition = "None");
-
+    Servicos(const Local &Departure, const Local &Arrival, const unsigned int &Id, const string &Tipo,
+             const int &Carga, const string &Condition = "None");
 
     /**
      * @brief Calculates the price according to the time of traveling, price of each camiao and the fixed tax
@@ -135,7 +137,7 @@ public:
      * @brief Get the condition object
      * 
      */
-    string get_condition(); 
+    string get_condition();
 };
 
 /**
@@ -145,7 +147,7 @@ public:
  * @return true if profit s<s1. If they have the same return true if id s<s1
  * @return false if profit s1<s. Return false case they have the same profit and id s1<s
  */
-bool Compare_servico_profit(const Servicos* c, const Servicos* c1);
+bool Compare_servico_profit(const Servicos *c, const Servicos *c1);
 
 /**
  * @function function that check if s' profit is lesser than s1's. If they gave the same profit, compare the id

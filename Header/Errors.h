@@ -73,6 +73,14 @@ class EmptyQueue : Error{
 public:
     EmptyQueue();
     string getInfo() const {return "Empty Workshop queue!";};
+/**
+ * @brief Error the client isnt inactive
+ */
+//todo the client isnt inactive
+class Noinactive : Error{
+public:
+   Noinactive(const std::string & nif): Error(nif) {}
+    std::string getInfo() const {return info;}
 };
 
 #endif //AEDA_PROJ1_ERRORS_H
