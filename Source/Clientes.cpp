@@ -26,8 +26,8 @@ Clientes::Clientes(const string &n, const long long int &anif, string &aDate) : 
 
 
 Clientes::~Clientes() {
-   // for (int i = 0; i < services.size(); i++) delete services[i];
-    //services.clear();
+    for (int i = 0; i < services.size(); i++) delete services[i];
+    services.clear();
 }
 
 
@@ -46,7 +46,8 @@ void Clientes::addService(Servicos *servico) {
 
 
 }
-void Clientes::setLastrequest(Date &date){
+
+void Clientes::setLastrequest(Date &date) {
     lastrequest = date;
 }
 
