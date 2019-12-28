@@ -30,18 +30,18 @@ void fillQueue(Empresa &e,priority_queue<Workshop> &aux){
 
 
 
-void mainMenu(Empresa &e);              //handle the main menu
-void printMainMenu();
-void printMenuStatus();                 //print the menu for status
-void printMenuMotorista();
-void handleWorkersMenu(Empresa &e);
-void handleMenuStatus(Empresa &e);      //handle the menu status
-void handleAddClient(Empresa &e);
-void handleAddService(Empresa &e);
-void handleAddTruck(Empresa &e);
-void handleAddWorker(Empresa & e);
-void handleRemoveWorker(Empresa &e);
-void handleChangeNameWorker(Empresa &e);
+void mainMenu(Empresa &e);              /**<Handle the main mennu*/
+void printMainMenu();                   /**<Prints the main menu to the user*/
+void printMenuStatus();                 /**<Prints the menu status to the user that includes visualization for clients and services*/
+void printMenuMotorista();              /**<Prints the Motorista menu*/
+void handleWorkersMenu(Empresa &e);     /**<Handle the workers (Motorista) menu*/
+void handleMenuStatus(Empresa &e);      /**<Handle the menu status and the user inputs*/ 
+void handleAddClient(Empresa &e);       /**<Handle the operation of adding a new client*/
+void handleAddService(Empresa &e);      /**<Handle the operation of adding a new service*/
+void handleAddTruck(Empresa &e);        /**<Handle the operation of adding a new truck*/
+void handleAddWorker(Empresa & e);      /**<Handle the operation of adding a new worker*/
+void handleRemoveWorker(Empresa &e);    /**<Handle the operation of removing a new worker*/
+void handleChangeNameWorker(Empresa &e);/**<Handle the operation of adding a new worker name*/
 
 void handleWorkshop(Empresa &e){
     int option;
@@ -130,6 +130,7 @@ int main(){
         e.gravaCam();
         e.gravaSer(e, month);
         e.readMotorista();
+        e.update_hash();
         //e.fillQueue();
         //fillQueue(e,pq);
         mainMenu(e);
@@ -151,12 +152,12 @@ int main(){
 void mainMenu(Empresa &e){
     string nome;
     while (true) {
-        printMainMenu();
         int option;
+        printMainMenu();
         option = checkOption(1, 12);
         clear_screen();
-
-        if (option == 5)                                            //exit option
+        
+        if (option == 5)                    //exit option 
             break;
         switch(option){
             case 1:
@@ -170,7 +171,6 @@ void mainMenu(Empresa &e){
                 e.display_CamiaoProfit();
                 wait();
                 break;
-
             case 6:
                 handleAddClient(e);
                 break;
@@ -194,7 +194,6 @@ void mainMenu(Empresa &e){
                 long long nif = validClientNif(e);
                 if (nif == -1) continue;
                 e.removeClient(nif);
-                cout << "Client removed successfully! ";
                 wait();
                 break;
             }
@@ -207,8 +206,8 @@ void mainMenu(Empresa &e){
                 break;
             }
             case 10:{
-                //handle menu motorista
                 handleWorkersMenu(e);
+                break;
             }
             default:
                 break;
@@ -219,13 +218,12 @@ void mainMenu(Empresa &e){
 }
 
 void printMainMenu(){
-    cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT           " << endl
-            << "======================================      ======================================= " << endl
-            << "Status information                 [1]      Add new client                      [6] " << endl
-            << "Profit information                 [2]      Change client name                  [7] " << endl
-            << "Add truck                          [3]      Remove a client                     [8] " << endl
-            << "Remove truck                       [4]      New service request                 [9] " << endl
-            << "Exit                               [5]      Workers MENU                       [10] " << endl
+    cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT                                WORKER MENU            " << endl
+            << "======================================      =======================================      =======================================" << endl
+            << "Status info. service and client    [1]      Add new client                      [6]      Workers MENU and visualization     [10]" << endl
+            << "Profit info.                       [2]      Change client name                  [7]                                             " << endl
+            << "Add truck                          [3]      Remove a client                     [8]                                             " << endl
+            << "Remove truck                       [4]      New service request                 [9]                                             " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
 }
 
@@ -236,14 +234,13 @@ void printMenuStatus(){
             << "First x least profitable services        [2]                     First x least profitable clients         [7]   " << endl
             << "First x services of a specific type      [3]                     First x clients in alphabetic order      [8]   " << endl
             << "Specific service by id                   [4]                     Specific client status by nif            [9]   " << endl
-            << "Cancel                                   [5]                                                                    " << endl
+            << "Cancel                                   [5]                     Show x inactive clients                 [10]   " << endl
+            << "                                                                 Show x inactive clients by date         [11]   " << endl
+            << "                                                                 Specific inactive status by nif         [12]   " << endl
             << "Option:                                                                                                         " << endl;
 
 }
 
-/**
- * @brief print workers menu
- */
 void printMenuMotorista(){
     cout<< "        WORKERS MENU VISUALIZATION                                              WORKERS MANAGEMENT              "<< endl
         << "============================================                        ============================================"<< endl
@@ -263,7 +260,7 @@ void handleMenuStatus(Empresa &e){
         clear_screen();
         printMenuStatus();
 
-        option = checkOption(1, 9);
+        option = checkOption(1, 12);
 
         if (option == 5) return;
         switch(option){
@@ -325,8 +322,36 @@ void handleMenuStatus(Empresa &e){
                 e.display_clientesInfo(0,n,Compare_clientesAlphabetic);
                 wait();
                 break;
+            case 10:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                headerClientes();
+                e.display_hash(n);
+                wait();
+                break;
+            case 11:
+                cout << "Type x [EXIT - 0][1~10000] ";
+                n = checkOption(0, 10000);
+                if (n == 0) continue;
+                e.display_dateOrdered_hash(n);
+                wait();
+                break;
+            case 12:
+                nif = validClientNif(e);
+                if (nif != -1) {
+                    try {
+                        headerClientes();
+                        cout <<  e.SearchInactiveClient_hash(nif) << endl;
+                    }catch(NoClient &noclient) {
+                        clear_screen();
+                        cout << "The client is not inactive!" << endl;
+                    }
 
+                    wait();
+                }
         }
+
     }
 }
 
@@ -394,6 +419,7 @@ void handleWorkersMenu(Empresa &e){
 
     }
 }
+
 void handleAddClient(Empresa &e){
     long long int nif;
     string nome;
@@ -426,7 +452,7 @@ void handleAddClient(Empresa &e){
         try {
             e.addClientes(nome, nif);
             ofstream o("../AEDA_Proj1/Ficheiros/clientes", ios_base::app);
-            o << "\n" << nome << "\n" << nif;
+            o << "\n" << nome << "\n" << nif << "\n" << "1500/01/01";      //adding client with default date
             o.close();
             cout << "Client added successfully! ";
             wait();
@@ -434,7 +460,7 @@ void handleAddClient(Empresa &e){
         }
         catch (RepeatedClient &a) {
             cout << "There is already a client with nif "<< nif << endl;
-            cout << "Try again:" << endl; 
+            cout << "Try again:" << endl;
             continue;
         }
     }
@@ -508,14 +534,13 @@ void handleAddService(Empresa &e){
         Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga, temp_carac[opt]);
 
         e.allocateMotorista(s->cal_tempo());
-
         if (!e.allocateCamiao(s)){
             cout << "Not enough trucks " << endl;
             wait();
             return;
         }
 
-        e.addServico(s, anif);
+        e.requestService(s,anif);
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);
 

@@ -42,3 +42,36 @@ Congelado
 20
 Frio
 1
+Casa da Maruba
+20
+20
+Casa do Gustavo
+21
+21
+Base
+33516431
+20
+Base
+7
+Miracle
+20
+20
+Miracle2
+21
+21
+Congelado
+201800490
+10
+Congelado
+13
+Hospital Sao Joao
+20
+20
+Outro Hospita
+21
+21
+Animal
+201800149
+20
+Animal
+10
