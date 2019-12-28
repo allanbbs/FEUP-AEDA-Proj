@@ -1,0 +1,72 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/Camiao.h
+sstream
+-
+fstream
+-
+vector
+-
+algorithm
+-
+iostream
+-
+queue
+-
+iomanip
+-
+TaxTable.h
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/TaxTable.h
+Workshop.h
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/Workshop.h
+
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/Errors.h
+string
+-
+
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/TaxTable.h
+fstream
+-
+iostream
+-
+sstream
+-
+fstream
+-
+iostream
+-
+sstream
+-
+algorithm
+-
+map
+-
+vector
+-
+string
+-
+
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/Workshop.h
+string
+-
+vector
+-
+algorithm
+-
+iostream
+-
+
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Source/Camiao.cpp
+../Header/Camiao.h
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/Camiao.h
+stack
+-
+../Header/Errors.h
+/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/Header/Errors.h
+

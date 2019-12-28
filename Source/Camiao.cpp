@@ -43,7 +43,7 @@ Workshop Camiao::requestSpecificService(priority_queue<Workshop> &aux) {
     Workshop d=aux.top();
     while(!aux.empty()){
         if(aux.top().checkForBrand(brand)){
-            Workshop d = aux.top();
+            d = aux.top();
             d.setUn(d.get_unavailability()+20);
             aux1.push(d);
             aux.pop();

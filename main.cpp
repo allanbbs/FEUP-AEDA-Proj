@@ -34,6 +34,7 @@ void mainMenu(Empresa &e);              /**<Handle the main mennu*/
 void printMainMenu();                   /**<Prints the main menu to the user*/
 void printMenuStatus();                 /**<Prints the menu status to the user that includes visualization for clients and services*/
 void printMenuMotorista();              /**<Prints the Motorista menu*/
+void printMenuWork();                    /**<Prints the Workshop menu*/
 void handleWorkersMenu(Empresa &e);     /**<Handle the workers (Motorista) menu*/
 void handleMenuStatus(Empresa &e);      /**<Handle the menu status and the user inputs*/ 
 void handleAddClient(Empresa &e);       /**<Handle the operation of adding a new client*/
@@ -43,74 +44,90 @@ void handleAddWorker(Empresa & e);      /**<Handle the operation of adding a new
 void handleRemoveWorker(Empresa &e);    /**<Handle the operation of removing a new worker*/
 void handleChangeNameWorker(Empresa &e);/**<Handle the operation of adding a new worker name*/
 
-void handleWorkshop(Empresa &e){
+void handleWorkshop(Empresa &e) {
     int option;
-    string name,brand;
+    string name, brand;
     vector<string> brands;
-    int disp,number,k = 0;
+    int disp, number, k = 0;
     priority_queue<Workshop> aux;
     clear_screen();
-    cout<<"Add Workshop[1]"<<endl;
-    cout<<"Remove Workshop[2]"<<endl;
-    cout<<"List all Workshops[3]"<<endl;
-    cout<<"Request generic service for truck[4]"<<endl;
-    cout<<"Request specific service fro truck[5]"<<endl;
-    cout<<"Total : "<<e.getWor().size()<<endl;
-    cout<<"Top of queue: "<<e.getPQ().top().get_unavailability()<<endl;
     //cout<<(e.getWor()[0].getName() == "Teste1"?"True":"False")<<endl;
     option = checkNumber();
-    pq.push(1);
-    if(option == 1){
-        cout<<"Enter Workshop name: ";
-        cin>>name;
+    if (option == 1) {
+        cout << "Enter Workshop name: ";
+        cin >> name;
         cin.ignore();
-        cout<<"Enter number of brands: ";
+        cout << "Enter number of brands: ";
         number = checkNumber();
-        while(k<number){
-            cin>>brand;
+        while (k < number) {
+            cin >> brand;
             brands.push_back(brand);
             k++;
         }
         cin.ignore();
-        cout<<"Enter initial unavailability: ";
+        cout << "Enter initial unavailability: ";
         disp = checkNumber();
-        e.addWorkshop(name,brands,disp);
+        e.addWorkshop(name, brands, disp);
         return;
     }
-    if(option == 2){
+    if (option == 2) {
         string name;
         bool verify;
-        cout<<"Workshop name: ";
-        cin>>name;
+        cout << "Workshop name: ";
+        cin >> name;
         verify = e.removeWorkshop(name);
-        if(verify) cout<<"Workshop removed succesfully"<<endl;
-        else cout<<"Workshop not found"<<endl;
+        if (verify) cout << "Workshop removed succesfully" << endl;
+        else cout << "Workshop not found" << endl;
         return;
     }
-    if(option == 3){
-        for(auto& el : e.getWor()){
-            cout<<el;
+    if (option == 3) {
+        for (auto &el : e.getWor()) {
+            cout << el;
         }
         return;
     }
-    if(option == 4){
+    if (option == 4) {
         aux = e.getPQ();
         long long int id;
-        cout<<"Enter truck id:";
+        cout << "Enter truck id:";
         id = checkNumber();
-        vector<Camiao*> cam_copy(e.getCamiao());
-        for(auto it = cam_copy.begin();it!=cam_copy.end();it++){
-            if((*it)->getId() == id){
+        vector<Camiao *> cam_copy(e.getCamiao());
+        for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
+            if ((*it)->getId() == id) {
                 Workshop d = (*it)->requestGenericService(aux);
                 e.swap_pq(aux);
-                cout<<"Found Workshop: "<<endl;
-                cout<<d;
-                cout<<"New earliest workshop: "<<"\n"<<e.getPQ().top()<<endl;
+                cout << "Found Workshop: " << endl;
+                cout << d;
+                cout << "New earliest workshop: " << "\n" << e.getPQ().top() << endl;
                 e.rewriteWorkshops();
                 break;
             }
         }
         //e.rewriteWorkshops();
+        return;
+    }
+    if (option == 5) {
+        aux = e.getPQ();
+        long long int id;
+        cout << "Enter truck id:";
+        id = checkNumber();
+        vector<Camiao *> cam_copy(e.getCamiao());
+        for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
+            if ((*it)->getId() == id) {
+                Workshop d = (*it)->requestSpecificService(aux);
+                e.swap_pq(aux);
+                cout << "Found Workshop: " << endl;
+                cout << d;
+                e.rewriteWorkshops();
+                break;
+            }
+        }
+        return;
+    }
+    if(option == 6){
+        cout<<"Earliest workshop: "<<endl;
+        cout<<"Name: "<<e.getPQ().top().getName()<<endl;
+        cout<<"Available in: "<<e.getPQ().top().get_unavailability()<<endl;
         return;
     }
     //e.rewriteWorkshops();
@@ -135,18 +152,6 @@ int main(){
         //fillQueue(e,pq);
         mainMenu(e);
     }
-    cout<<"NANI"<<endl;
-    for(auto &cam : e.getWor()){
-        cout<<cam;
-    }
-    cout<<"NANI"<<endl;
-    /*auto h = pq;
-    while(!h.empty()){
-        cout<<h.top();
-        h.pop();
-    }*/
-
-
 }
 
 void mainMenu(Empresa &e){
@@ -164,6 +169,7 @@ void mainMenu(Empresa &e){
                 handleMenuStatus(e);
                 break;
             case 12:
+                printMenuWork();
                 handleWorkshop(e);
                 break;
             case 2:
@@ -221,7 +227,7 @@ void printMainMenu(){
     cout    << "      TRANSPORTATION ENTERPRISE                        CLIENTS MANAGEMENT                                WORKER MENU            " << endl
             << "======================================      =======================================      =======================================" << endl
             << "Status info. service and client    [1]      Add new client                      [6]      Workers MENU and visualization     [10]" << endl
-            << "Profit info.                       [2]      Change client name                  [7]                                             " << endl
+            << "Profit info.                       [2]      Change client name                  [7]      Workshops menu and visualization   [12]" << endl
             << "Add truck                          [3]      Remove a client                     [8]                                             " << endl
             << "Remove truck                       [4]      New service request                 [9]                                             " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
@@ -249,6 +255,16 @@ void printMenuMotorista(){
         << "First x workers - alphabetic order        [3]                       Change a worker name                     [8]"<< endl
         << "Search a specific worker by nif           [4]                       Reset hours of work                      [9] "<< endl
         << "Cancel                                    [5]                                                                   "<< endl;
+
+}
+void printMenuWork(){
+    cout<< "        WORKSHOPS MENU VISUALIZATION                                              SERVICE MANAGEMENT            "<< endl
+        << "============================================                        ============================================"<< endl
+        << "Show all workshops                        [3]                       Add a workshop                           [1]"<< endl
+        << "Show earliest available workshop          [6]                       Remove a workshop                        [2]"<< endl
+        << "                                                                    Request generic service for a truck      [4]"<< endl
+        << "                                                                    Request specific service for a truck     [5]"<< endl
+        << "Cancel                                    [5]                                                                    "<< endl;
 
 }
 void handleMenuStatus(Empresa &e){
