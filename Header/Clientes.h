@@ -78,7 +78,7 @@ public:
     /**
      * @brief return the date of the last request as a str
      */
-    Date get_lastrequest() const{return lastrequest;};
+    Date get_lastrequest() const { return lastrequest; };
 
     /**
    * Client request a service
@@ -161,14 +161,14 @@ bool Compare_clientesLeast(const Clientes *c, const Clientes *c1);
 bool Compare_clientesAlphabetic(const Clientes *c, const Clientes *c1);
 
 struct eqCli {
-    bool operator()(const Clientes &c1, const Clientes &c2) const {
-        return c1.get_nif() == c2.get_nif();
+    bool operator()(const Clientes *c1, const Clientes *c2) const {
+        return c1->get_nif() == c2->get_nif();
     }
 };
 
 struct hCli {
-    int operator()(const Clientes &c1) const {
-        return c1.get_nif();
+    int operator()(const Clientes *c1) const {
+        return c1->get_nif();
     }
 };
 

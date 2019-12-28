@@ -186,8 +186,8 @@ Servicos *Empresa::addServico(Servicos *s, const long long int cliNif) {
     if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
-    if (inactives.find(*(cli[pos])) != inactives.end()) {
-        inactives.erase(*(cli[pos]));
+    if (inactives.find(cli[pos]) != inactives.end()) {
+        inactives.erase(cli[pos]);
     }
     return s;
 }
@@ -391,16 +391,7 @@ void Empresa::changeClientName(const long long int &nif) {
     cout << "Type the new name [EXIT -1]: ";
     getline(cin, name);
     if (name == "-1") return;
-    if (inactives.find(*(cli[pos])) != inactives.end()) {
-        inactives.erase(*(cli[pos]));
-        cli[pos]->setName(name);
-        inactives.insert(*(cli[pos]));
-    } else {
-        cli[pos]->setName(name);
-    }
-
-
-
+    cli[pos]->setName(name);
 
     //we need to rewrite the file
     rewriteClients();
@@ -423,16 +414,7 @@ void Empresa::rewriteClients() {
 void Empresa::removeClient(const long long int &nif) {
     long int pos = SearchCli(nif);                                      //get the position of the client
     if (pos == 1) return;                                              //to cancel the operation
-    if (inactives.find(*(cli[pos])) != inactives.end()) {
-        inactives.erase(*(cli[pos]));
-        cli[pos]->setNif((-1) * nif);
-        inactives.insert(*cli[pos]);//change the nif to a negative one
-
-
-    } else {
-        cli[pos]->setNif((-1) * nif);                                         //change the nif to a negative one
-
-    }
+    cli[pos]->setNif((-1) * nif);                                         //change the nif to a negative one
     nCli--;
     rewriteClients();                                                   //we need to rewrite the file
 }
@@ -474,7 +456,7 @@ void Empresa::rewriteTruck() {
 void Empresa::build_hash() {
     for (auto it: cli) {
         if (it->inactive()) {
-            inactives.insert(*it);
+            inactives.insert(it);
         }
     }
 }
@@ -486,7 +468,7 @@ void Empresa::display_all_inactives(int n) {
     os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "DATE" << "SERVICES" << endl;
     os << "=========================================================="
           "=======================================" << endl;
-    unordered_set<Clientes, hCli, eqCli>::iterator it = inactives.begin();
+    unordered_set<Clientes *, hCli, eqCli>::iterator it = inactives.begin();
     while (it != inactives.end()) {
         showClientWithDate(os, it);
         n--;
@@ -498,27 +480,16 @@ void Empresa::display_all_inactives(int n) {
 }
 
 ostringstream &
-Empresa::showClientWithDate(ostringstream &os, const unordered_set<Clientes, hCli, eqCli>::iterator &it) const {
-    os << left << setw(30) << it->getName() << setw(20) << it->get_nif()
-       << setw(20) << it->get_lastrequest().getDate();
-    if (it->get_services().empty())
+Empresa::showClientWithDate(ostringstream &os, const unordered_set<Clientes *, hCli, eqCli>::iterator it) const {
+    os << left << setw(30) << (*it)->getName() << setw(20) << (*it)->get_nif()
+       << setw(20) << (*it)->get_lastrequest().getDate();
+    if ((*it)->get_services().empty())
         os << "No services!";         //if the client hasn't requested for a service it will be noticed 
 
-    for (auto a: it->get_services())                               //else it will print a list of the requested services
+    for (auto a: (*it)->get_services())                               //else it will print a list of the requested services
         os << a->get_id() << " ";
     os << endl;
     return os;
-}
-
-Clientes Empresa::findClient(long long int nif) {
-    //tabCli  inactives = gethash();
-    for (auto it : cli) {
-        if (it->get_nif() == nif) {
-            return *it;
-        }
-
-    }
-    return Clientes();
 }
 
 //todo hash table not use
@@ -530,8 +501,7 @@ void Empresa::show_a_inactive(long long int nif) {
     if (pos == -1)
         throw NoClient(to_string(nif));
 
-    Clientes cliente = findClient(nif); //todo
-    pair<unordered_set<Clientes, hCli, eqCli>::iterator, bool> res = inactives.insert(cliente);
+    pair<unordered_set<Clientes *, hCli, eqCli>::iterator, bool> res = inactives.insert(cli[pos]);
     if (res.second) // check if it is inactive
         throw Noinactive(to_string(nif));
     os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "DATE" << "SERVICES" << endl;

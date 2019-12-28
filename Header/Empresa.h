@@ -24,7 +24,7 @@
  * @brief It contains the Empresa class declarations, resposable for the management of the enterprise
  */
 using namespace std;
-typedef unordered_set<Clientes, hCli, eqCli> tabCli;
+typedef unordered_set<Clientes*, hCli, eqCli> tabCli;
 
 
 
@@ -227,7 +227,7 @@ public:
     void build_hash();
 
     ostringstream &
-    showClientWithDate(ostringstream &os, const unordered_set<Clientes, hCli, eqCli>::iterator &it) const;
+    showClientWithDate(ostringstream &os, const unordered_set<Clientes *, hCli, eqCli>::iterator it) const;
 };
 
 /**
