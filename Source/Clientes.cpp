@@ -26,8 +26,8 @@ Clientes::Clientes(const string &n, const long long int &anif, string &aDate) : 
 
 
 Clientes::~Clientes() {
-    for (int i = 0; i < services.size(); i++) delete services[i];
-    services.clear();
+   // for (int i = 0; i < services.size(); i++) delete services[i];
+    //services.clear();
 }
 
 

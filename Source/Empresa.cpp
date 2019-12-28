@@ -391,11 +391,11 @@ void Empresa::changeClientName(const long long int &nif) {
     cout << "Type the new name [EXIT -1]: ";
     getline(cin, name);
     if (name == "-1") return;
-    if(inactives.find(findClient(nif)) != inactives.end()){
-        inactives.erase(findClient(nif));
+    if (inactives.find(*(cli[pos])) != inactives.end()) {
+        inactives.erase(*(cli[pos]));
         cli[pos]->setName(name);
-        inactives.insert(findClient(nif));
-    }else{
+        inactives.insert(*(cli[pos]));
+    } else {
         cli[pos]->setName(name);
     }
 
@@ -410,9 +410,11 @@ void Empresa::rewriteClients() {
     ofstream file("../AEDA_Proj1/Ficheiros/clientes");
     for (long int i = 0; i < cli.size(); i++)
         if (i != cli.size() - 1)
-            file << cli[i]->getName() << endl << cli[i]->get_nif() << endl;
+            file << cli[i]->getName() << endl << cli[i]->get_lastrequest().getDate() << endl << cli[i]->get_nif()
+                 << endl;
 
-    file << cli[cli.size() - 1]->getName() << endl << cli[cli.size() - 1]->get_nif();
+    file << cli[cli.size() - 1]->getName() << endl << cli[cli.size() - 1]->get_lastrequest().getDate()
+         << endl << cli[cli.size() - 1]->get_nif();
     file.close();
 
 }
@@ -486,7 +488,7 @@ void Empresa::display_all_inactives(int n) {
           "=======================================" << endl;
     unordered_set<Clientes, hCli, eqCli>::iterator it = inactives.begin();
     while (it != inactives.end()) {
-            showClientWithDate(os,it);
+        showClientWithDate(os, it);
         n--;
         it++;
         if (n == 0) break;
@@ -535,7 +537,7 @@ void Empresa::show_a_inactive(long long int nif) {
     os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "DATE" << "SERVICES" << endl;
     os << "=========================================================="
           "=======================================" << endl;
-    showClientWithDate(os,res.first);
+    showClientWithDate(os, res.first);
 
     cout << os.str();
 }

@@ -1,3 +1,4 @@
+
 Porto
 41.1579
 8.6291
@@ -8,7 +9,8 @@ Congelado
 201800175
 30
 Frio
-1 5
+1
+
 Porto
 41.1579
 8.6291
@@ -20,6 +22,7 @@ Perigoso
 30
 Inflamavel
 2
+
 Santo Ovidio
 4
 3
@@ -31,6 +34,7 @@ Congelado
 20
 Quente
 1
+
 Brasil
 1
 10
