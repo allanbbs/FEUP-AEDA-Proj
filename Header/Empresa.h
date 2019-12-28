@@ -18,7 +18,7 @@
 #include "Errors.h"
 #include "Clientes.h"
 #include "Workshop.h"
-//#include "Motorista.h"
+#include "Motorista.h"
 
 
 /**
@@ -247,7 +247,6 @@ public:
      * Reset the hours in the elements of the BST
      */
     void resetHours();
-    long long int get_cam_num();
     void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));rewriteWorkshops();};
     bool removeWorkshop(string name);
     void rewriteWorkshops();

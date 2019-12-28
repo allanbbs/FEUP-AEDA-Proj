@@ -510,30 +510,32 @@ bool Empresa::allocateMotorista(float tempo) {
 
 void Empresa::resetHours() {
     w.resetHours();
-void Empresa::rewriteWorkshops(){
-    ofstream out("../AEDA_Proj1/Ficheiros/workshops");
-    int aux,k;
-    for(auto i = 0;i<wor.size()-1;i++){
-        //out<<endl;
-        out<<wor[i].getName()<<endl;
-        out<<wor[i].getBrands().size()<<endl;
-        for(auto &elem : wor[i].getBrands()){
-            out<<elem<<endl;
+}
+    void Empresa::rewriteWorkshops() {
+        ofstream out("../AEDA_Proj1/Ficheiros/workshops");
+        int aux, k;
+        for (auto i = 0; i < wor.size() - 1; i++) {
+            //out<<endl;
+            out << wor[i].getName() << endl;
+            out << wor[i].getBrands().size() << endl;
+            for (auto &elem : wor[i].getBrands()) {
+                out << elem << endl;
+            }
+            //out<<endl;
+            out << wor[i].get_unavailability() << endl;
+
+        }
+        int i = wor.size() - 1;
+        out << wor[i].getName() << endl;
+        out << wor[i].getBrands().size() << endl;
+        for (auto &elem : wor[i].getBrands()) {
+            out << elem << endl;
         }
         //out<<endl;
-        out<<wor[i].get_unavailability()<<endl;
+        out << wor[i].get_unavailability();
+        out.close();
+    }
 
-    }
-    int i = wor.size()-1;
-    out<<wor[i].getName()<<endl;
-    out<<wor[i].getBrands().size()<<endl;
-    for(auto &elem : wor[i].getBrands()){
-        out<<elem<<endl;
-    }
-    //out<<endl;
-    out<<wor[i].get_unavailability();
-    out.close();
-}
 
 bool Empresa::removeWorkshop(string name) {
     bool verify = false;
@@ -550,6 +552,7 @@ bool Empresa::removeWorkshop(string name) {
         return true;
     }
 }
+
 void Empresa::fillQueue(){
     for(auto &elem : wor){
         pq.push(elem);
