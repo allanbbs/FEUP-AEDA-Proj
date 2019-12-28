@@ -76,9 +76,24 @@ public:
      * On this way it will not be allocated anymore but will keep the register
      */
     void removeTruck();
+    /**
+    * @brief Get the brand parameter
+    * @return string
+    */
     string getBrand() const{return brand;};
-
+    /**
+    * @brief Request generic service for this truck;
+     * keep in mind hat generic services require only the earliest available
+     * workshop
+    * @return Workshops
+    */
     Workshop requestGenericService(priority_queue<Workshop>& aux);
+    /**
+    * @brief Request specific service for this truck;
+     * keep in mind hat specific services require  the earliest available
+     * workshop that is specialized in this truck's brand
+    * @return Workshop
+    */
     Workshop requestSpecificService(priority_queue<Workshop>& aux);
 
 };

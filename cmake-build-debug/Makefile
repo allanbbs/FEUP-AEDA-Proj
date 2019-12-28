@@ -48,10 +48,10 @@ RM = /opt/clion-2019.3.1/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1"
+CMAKE_SOURCE_DIR = "/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug/CMakeFiles" "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/cmake-build-debug/CMakeFiles" "/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/allanbs/2 Ano/AEDA/project/AEDA_Proj1/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/allanbs/2 Ano/AEDA/project/master/AEDA_Proj1/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,33 @@ Source/Clientes.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Clientes.cpp.s
 .PHONY : Source/Clientes.cpp.s
 
+Source/Date.o: Source/Date.cpp.o
+
+.PHONY : Source/Date.o
+
+# target to build an object file
+Source/Date.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Date.cpp.o
+.PHONY : Source/Date.cpp.o
+
+Source/Date.i: Source/Date.cpp.i
+
+.PHONY : Source/Date.i
+
+# target to preprocess a source file
+Source/Date.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Date.cpp.i
+.PHONY : Source/Date.cpp.i
+
+Source/Date.s: Source/Date.cpp.s
+
+.PHONY : Source/Date.s
+
+# target to generate assembly for a file
+Source/Date.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Date.cpp.s
+.PHONY : Source/Date.cpp.s
+
 Source/Empresa.o: Source/Empresa.cpp.o
 
 .PHONY : Source/Empresa.o
@@ -230,6 +257,33 @@ Source/Local.s: Source/Local.cpp.s
 Source/Local.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Local.cpp.s
 .PHONY : Source/Local.cpp.s
+
+Source/Motorista.o: Source/Motorista.cpp.o
+
+.PHONY : Source/Motorista.o
+
+# target to build an object file
+Source/Motorista.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Motorista.cpp.o
+.PHONY : Source/Motorista.cpp.o
+
+Source/Motorista.i: Source/Motorista.cpp.i
+
+.PHONY : Source/Motorista.i
+
+# target to preprocess a source file
+Source/Motorista.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Motorista.cpp.i
+.PHONY : Source/Motorista.cpp.i
+
+Source/Motorista.s: Source/Motorista.cpp.s
+
+.PHONY : Source/Motorista.s
+
+# target to generate assembly for a file
+Source/Motorista.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Proj1.dir/build.make CMakeFiles/AEDA_Proj1.dir/Source/Motorista.cpp.s
+.PHONY : Source/Motorista.cpp.s
 
 Source/Servicos.o: Source/Servicos.cpp.o
 
@@ -381,12 +435,18 @@ help:
 	@echo "... Source/Clientes.o"
 	@echo "... Source/Clientes.i"
 	@echo "... Source/Clientes.s"
+	@echo "... Source/Date.o"
+	@echo "... Source/Date.i"
+	@echo "... Source/Date.s"
 	@echo "... Source/Empresa.o"
 	@echo "... Source/Empresa.i"
 	@echo "... Source/Empresa.s"
 	@echo "... Source/Local.o"
 	@echo "... Source/Local.i"
 	@echo "... Source/Local.s"
+	@echo "... Source/Motorista.o"
+	@echo "... Source/Motorista.i"
+	@echo "... Source/Motorista.s"
 	@echo "... Source/Servicos.o"
 	@echo "... Source/Servicos.i"
 	@echo "... Source/Servicos.s"

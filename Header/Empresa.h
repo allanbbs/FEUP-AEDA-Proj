@@ -257,16 +257,66 @@ public:
      * Reset the hours in the elements of the BST
      */
     void resetHours();
+    /**
+  * @brief add Workshop to enterprise
+  * @param brands brands vector
+  * @param disp initial unavailability
+  * @param name Workshop's name
+  */
     void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));rewriteWorkshops();};
+    /**
+     * @brief remove workshop from enterprise
+     * @param name name of workshop to be removed
+     * @return whether the workshop could be removed
+     */
     bool removeWorkshop(string name);
+    /**
+     * @brief rewrite workshop file
+     * @return long long int
+     */
     void rewriteWorkshops();
+    /**
+     * @brief fill priority queue with workshops from wor vector
+     */
     void fillQueue();
+    /**
+     * @brief get workshops in priority queue
+     *
+     * @return priority queue containing workshops
+     */
     priority_queue<Workshop> getPQ() const {return pq;};
+    /**
+     * @brief swap current priority queue with new one
+     */
     void swap_pq(priority_queue<Workshop> & aux){pq.swap(aux);updateWor();};
+    /**
+     * @brief get cam vector
+     *
+     * @return vector containing pointers to camiao
+     */
     vector<Camiao*> getCamiao() const {return cam;};
+    /**
+     * @brief get ser vector
+     *
+     * @return vector containing pointers to services
+     */
     vector<Servicos*> getServices() const {return ser;};
+    /**
+     * @brief get cli vector
+     *
+     * @return vector containing pointers to clientes
+     */
     vector<Clientes*> getCli() const {return cli;};
+    /**
+     * @brief get wor vector
+     *
+     * @return vector containing workshops
+     */
     vector<Workshop> getWor() const {return wor;};
+    /**
+     * @brief Update priority queue based on current wor vector;
+     * this function is needed because rewriteWorkshops use wor vector and not the priority queue
+     */
     void updateWor(){
         priority_queue<Workshop> aux = getPQ();
         wor.clear();
