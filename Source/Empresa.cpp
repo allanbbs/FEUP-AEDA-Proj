@@ -219,13 +219,13 @@ void Empresa::addClientes(const string &name, const long long int &nif, const st
     if (nif> 0 )
         nCli++;                                                             //increase the number of clients
     cli.push_back(c);
-    inactive.insert(*c);                                                    //add client to the hash. It's automatically inactive
+    inactive.insert(c);                                                    //add client to the hash. It's automatically inactive
 }
 
 //modified
 Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
     long int pos = SearchCli(cliNif);
-    if (pos == -1) throw NoClient(to_string(cliNif));               //check if the serices already exists
+    if (pos == -1) throw NoClient(to_string(cliNif));               //check if the services already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
     return s;
@@ -234,9 +234,10 @@ Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
 Servicos *Empresa::requestService(class Servicos * s, const long long cliNif) {
     long int pos = SearchCli(cliNif);
     if (pos == -1 ) throw NoClient(to_string(cliNif));
-    //We must verify if the client is in the hash table. If it's, remove it from there
-    auto it = inactive.find(*cli[pos]);
-    if (it != inactive.end()) inactive.erase(it);
+
+    //Remove person from inactive hashtable
+    inactive.erase(cli[pos]);
+
     //Now add the service to the client and update the date of the last request
     ser.push_back(s);
     (cli[pos])->addService(s);
@@ -451,17 +452,17 @@ void Empresa::changeClientName(const long long int& nif) {
 
     //We must change it's in the hash table too.
     //First we must know if it's in the hash
-    Clientes c = *cli[pos];
-    tabHCli::iterator it = inactive.find(c);
+    //tabHCli::iterator it = inactive.find(cli[pos]);
 
     //Change the client name
     cli[pos]->setName(name);
 
     //If the element is in the hash table, change it's name too, else do nothing
-    if (it != inactive.end()){
+    /*if (it != inactive.end()){
         inactive.erase(it);
-        inactive.insert(*cli[pos]);
-    }
+        inactive.insert(cli[pos]);
+    }*/
+
     //we need to rewrite the file
     rewriteClients();
 }
@@ -486,14 +487,14 @@ void Empresa::removeClient(const long long int &nif) {
         return;
     }
     //First we must see if the client is in the hash table.
-    tabHCli::iterator it = inactive.find(*cli[pos]);
+    tabHCli::iterator it = inactive.find(cli[pos]);
 
     cli[pos]->setNif((-1)*nif);                                         //change the nif to a negative one
     nCli--;
     //If the client is in the hash table, update it
     if (it!= inactive.end()) {
         inactive.erase(it);
-        inactive.insert(*cli[pos]);
+        inactive.insert(cli[pos]);
     }
 
     rewriteClients();                                                   //we need to rewrite the file
@@ -618,13 +619,13 @@ void Empresa::update_hash() {
         date_today.setYear(date_today.getYear()-1);
         //case date_today is after date, means that the request was done more than a year
         if (date.isAfter(date_today))
-            inactive.insert(*c);
+            inactive.insert(c);
     }
 }
 
 void Empresa::display_hash(long int x) {
     for(auto it = inactive.begin(); it != inactive.end(); it++) {
-        cout << *it;
+        cout << *(*it);
         x --;
         if (!x) break;
     }
@@ -632,8 +633,8 @@ void Empresa::display_hash(long int x) {
 
 Clientes Empresa::SearchInactiveClient_hash(const long long & nif) {
     for (auto it = inactive.begin(); it != inactive.end(); it++){
-        if (it->get_nif() == nif)
-            return (*it);
+        if ((*it)->get_nif() == nif)
+            return *(*it);
     }
     throw NoClient(to_string(nif));
 }
@@ -641,7 +642,7 @@ Clientes Empresa::SearchInactiveClient_hash(const long long & nif) {
 void Empresa::display_dateOrdered_hash(long x) {
     vector<Clientes> c;
     for (auto it = inactive.begin(); it!= inactive.end(); it++){
-        c.push_back(*it);
+        c.push_back(*(*it));
         x--;
         if (!x) break;
     }

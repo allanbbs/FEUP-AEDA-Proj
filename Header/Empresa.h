@@ -28,7 +28,7 @@
  */
 using namespace std;
 typedef priority_queue<Workshop> PQ;
-typedef unordered_set<Clientes, clienteHash, clienteHash> tabHCli;
+typedef unordered_set<Clientes*, clienteHash, clienteHash> tabHCli;
 
 /**
  * @brief Class that manages an enterprise

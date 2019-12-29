@@ -121,11 +121,11 @@ void headerClientes();
 //HASH TABLE ----------------------------------------------------------------
 
 struct clienteHash{
-    int operator()(const Clientes & cli) const{
-        return cli.get_nif();
+    int operator()(const Clientes* cli) const{
+        return cli->get_nif();
     }
-    bool operator()(const Clientes & cli1, const  Clientes & cli2) const{
-        return cli1.get_nif() == cli2.get_nif();
+    bool operator()(const Clientes* cli1, const  Clientes * cli2) const{
+        return cli1->get_nif() == cli2->get_nif();
     }
 };
 #endif //AEDA_01_CLIENTES_H
