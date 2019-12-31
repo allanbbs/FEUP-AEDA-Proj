@@ -230,6 +230,7 @@ void printMainMenu(){
             << "Profit info.                       [2]      Change client name                  [7]      Workshops menu and visualization   [12]" << endl
             << "Add truck                          [3]      Remove a client                     [8]                                             " << endl
             << "Remove truck                       [4]      New service request                 [9]                                             " << endl
+            << "Exit                               [5]                                                                                          " << endl
             << "Number of trucks: " << Empresa::nCam << endl; 
 }
 
@@ -549,13 +550,18 @@ void handleAddService(Empresa &e){
 
         Servicos *s = new Servicos(Local(partida, l1x, l1y), Local(chegada, l2x, l2y), ++Empresa::nSer, tipo, carga, temp_carac[opt]);
 
-        e.allocateMotorista(s->cal_tempo());
+
         if (!e.allocateCamiao(s)){
             cout << "Not enough trucks " << endl;
             wait();
             return;
         }
-
+        for (int i = 0; i < s->num_camiao(); i++) {
+            if (!e.allocateMotorista(s->cal_tempo())){
+                cout << "Not enought workers\n";
+                return;
+            }
+        }
         e.requestService(s,anif);
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);

@@ -179,6 +179,7 @@ bool Workers::allocateMotorista(float tempo) {
     while(!it.isAtEnd()){
         if (it.retrieve().getHours() + tempo < 24){
             temp = it.retrieve();
+            cout << temp.getName() << endl;
             BST_Workers.remove(it.retrieve());
             temp.setHours(temp.getHours() + tempo);
             BST_Workers.insert(temp);
