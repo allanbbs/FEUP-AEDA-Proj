@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 
@@ -26,22 +27,14 @@ public:
     bool checkForBrand(string name)const;
     bool operator<(const Workshop &w1)const;
     bool operator==(const Workshop& w1) const { return name==w1.getName();};
+    friend ostream& operator<<(ostream& out, Workshop w);
     void setUn(int a) { unavailability = a;};
     void addBrand(string n){brands.push_back(n);};
     //Workshop& operator=(const Workshop &w1);
-    friend ostream& operator<<(ostream& out,const Workshop &w){
-      out<<"Name: "<<w.getName()<<endl;
-      out<<"Brands: ";
-      for(auto &elem : w.getBrands()){
-          out<<elem<<" ";
-      }
-      out<<endl;
-      out<<"Available in: "<<w.get_unavailability()<<endl;
-        return out;
-    };
 
 };
 
+void headerWorkshop();
 
 
 

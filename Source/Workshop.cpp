@@ -25,7 +25,7 @@ bool Workshop::checkForBrand(string name)const {
 }
 ostream& operator<<(ostream& out, Workshop w){
     string m;                                   //string with the brands
-    for (auto const& i: w.brands) m+= i + "| ";
+    for (auto const& i: w.brands) m+= i + " | ";
     out << left << setw(30) << w.name << setw(20)  << w.unavailability << m << endl;
     return out;
 }

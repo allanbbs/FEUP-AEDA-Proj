@@ -26,13 +26,12 @@ void Empresa::gravaWor() {
     vector<string> brands;
     while (!file.eof()) {
         brands.clear();
-       // brands.swap(empty);
         getline(file, name);            //get name
         getline(file,aux);
         istringstream f(aux);
-        f>>total;
+        f >> total;
         k = 0;
-        while(k<total){
+        while(k < total){
             getline(file,brand);
             brands.push_back(brand);
             k++;

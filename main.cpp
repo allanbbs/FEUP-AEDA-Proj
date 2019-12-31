@@ -56,6 +56,7 @@ void handleWorkshop(Empresa &e) {
         option = checkOption(1, 7);
         if (option == 1) {
             cout << "Enter Workshop name: ";
+            cin.ignore();
             getline(cin, name);
             cout << "Enter number of brands: ";
             number = checkNumber();
