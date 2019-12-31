@@ -41,9 +41,15 @@ Workshop Camiao::requestGenericService(priority_queue<Workshop>& aux) {
     }
     while(!aux1.empty()){
         Workshop temp = aux1.top();
-        temp.setUn(temp.get_unavailability()-1);
-        aux.push(temp);
-        aux1.pop();
+        if(!(temp == d)) {
+            temp.setUn(temp.get_unavailability() - 1);
+            aux.push(temp);
+            aux1.pop();
+        }
+        else{
+            aux.push(aux1.top());
+            aux1.pop();
+        }
     }
     return d;
 }
