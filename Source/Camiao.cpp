@@ -29,12 +29,22 @@ void Camiao::removeTruck() {
 
 
 Workshop Camiao::requestGenericService(priority_queue<Workshop>& aux) {
-    //stack<Workshop> aux1;
+    stack<Workshop> aux1;
     //if(aux.empty()) throw EmptyQueue();
     Workshop d = aux.top();
     aux.pop();
     d.setUn(d.get_unavailability() + 7);
     aux.push(d);
+    while(!aux.empty()){
+        aux1.push(aux.top());
+        aux.pop();
+    }
+    while(!aux1.empty()){
+        Workshop temp = aux1.top();
+        temp.setUn(temp.get_unavailability()-1);
+        aux.push(temp);
+        aux1.pop();
+    }
     return d;
 }
 
@@ -49,7 +59,9 @@ Workshop Camiao::requestSpecificService(priority_queue<Workshop> &aux) {
             aux.pop();
         }
         else{
-            aux1.push(aux.top());
+            Workshop temp = aux.top();
+            temp.setUn(temp.get_unavailability()-1);
+            aux1.push(temp);
             aux.pop();
         }
     }
