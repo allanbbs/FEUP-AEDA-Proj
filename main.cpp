@@ -50,88 +50,93 @@ void handleWorkshop(Empresa &e) {
     vector<string> brands;
     int disp, number, k = 0;
     priority_queue<Workshop> aux;
-    clear_screen();
-    //cout<<(e.getWor()[0].getName() == "Teste1"?"True":"False")<<endl;
-    option = checkNumber();
-    if (option == 1) {
-        cout << "Enter Workshop name: ";
-        cin >> name;
-        cin.ignore();
-        cout << "Enter number of brands: ";
-        number = checkNumber();
-        while (k < number) {
-            cin >> brand;
-            brands.push_back(brand);
-            k++;
-        }
-        cin.ignore();
-        cout << "Enter initial unavailability: ";
-        disp = checkNumber();
-        e.addWorkshop(name, brands, disp);
-        return;
-    }
-    if (option == 2) {
-        string name;
-        bool verify;
-        cout << "Workshop name: ";
-        cin >> name;
-        verify = e.removeWorkshop(name);
-        if (verify) cout << "Workshop removed succesfully" << endl;
-        else cout << "Workshop not found" << endl;
-        return;
-    }
-    if (option == 3) {
-        for (auto &el : e.getWor()) {
-            cout << el;
-        }
-        return;
-    }
-    if (option == 4) {
-        aux = e.getPQ();
-        long long int id;
-        cout << "Enter truck id:";
-        id = checkNumber();
-        vector<Camiao *> cam_copy(e.getCamiao());
-        for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
-            if ((*it)->getId() == id) {
-                Workshop d = (*it)->requestGenericService(aux);
-                e.swap_pq(aux);
-                cout << "Found Workshop: " << endl;
-                cout << d;
-                cout << "New earliest workshop: " << "\n" << e.getPQ().top() << endl;
-                e.rewriteWorkshops();
-                break;
+    while(true) {
+        clear_screen();
+        printMenuWork();
+        option = checkOption(1, 7);
+        if (option == 1) {
+            cout << "Enter Workshop name: ";
+            getline(cin, name);
+            cout << "Enter number of brands: ";
+            number = checkNumber();
+            while (k < number) {
+                cin >> brand;
+                brands.push_back(brand);
+                k++;
             }
+            cin.ignore();
+            cout << "Enter initial unavailability: ";
+            disp = checkNumber();
+            e.addWorkshop(name, brands, disp);
+            cout << "Workshop added successfully!" << endl;
+            wait();
+            continue;
         }
-        //e.rewriteWorkshops();
-        return;
-    }
-    if (option == 5) {
-        aux = e.getPQ();
-        long long int id;
-        cout << "Enter truck id:";
-        id = checkNumber();
-        vector<Camiao *> cam_copy(e.getCamiao());
-        for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
-            if ((*it)->getId() == id) {
-                Workshop d = (*it)->requestSpecificService(aux);
-                e.swap_pq(aux);
-                cout << "Found Workshop: " << endl;
-                cout << d;
-                e.rewriteWorkshops();
-                break;
+        if (option == 2) {
+            string name;
+            bool verify;
+            cout << "Workshop name: ";
+            cin.ignore();
+            getline(cin, name);
+            verify = e.removeWorkshop(name);
+            if (verify) cout << "Workshop removed succesfully!" << endl;
+            else cout << "Workshop not found" << endl;
+            wait();
+            continue;
+        }
+        if (option == 3) {
+            headerWorkshop();
+            for (auto &el : e.getWor()) cout << el;
+            wait();
+            continue;
+        }
+        if (option == 4) {
+            aux = e.getPQ();
+            long long int id;
+            cout << "Enter truck id:";
+            id = checkNumber();
+            vector < Camiao * > cam_copy(e.getCamiao());
+            for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
+                if ((*it)->getId() == id) {
+                    Workshop d = (*it)->requestGenericService(aux);
+                    e.swap_pq(aux);
+                    cout << "Found Workshop: " << endl;
+                    cout << d;
+                    cout << "New earliest workshop: " << "\n" << e.getPQ().top() << endl;
+                    e.rewriteWorkshops();
+                    break;
+                }
             }
+            wait();
+            continue;
         }
-        return;
+        if (option == 5) {
+            aux = e.getPQ();
+            long long int id;
+            cout << "Enter truck id:";
+            id = checkNumber();
+            vector < Camiao * > cam_copy(e.getCamiao());
+            for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
+                if ((*it)->getId() == id) {
+                    Workshop d = (*it)->requestSpecificService(aux);
+                    e.swap_pq(aux);
+                    cout << "Found Workshop: " << endl;
+                    cout << d;
+                    e.rewriteWorkshops();
+                    break;
+                }
+            }
+            continue;
+        }
+        if (option == 6) {
+            headerWorkshop();
+            cout << e.getPQ().top() << endl;
+            wait();
+            continue;
+        }
+        if (option == 7) return;
     }
-    if(option == 6){
-        cout<<"Earliest workshop: "<<endl;
-        cout<<"Name: "<<e.getPQ().top().getName()<<endl;
-        cout<<"Available in: "<<e.getPQ().top().get_unavailability()<<endl;
-        return;
-    }
-    //e.rewriteWorkshops();
-    return;
+
 }
 
 int month;
@@ -148,8 +153,6 @@ int main(){
         e.gravaSer(e, month);
         e.readMotorista();
         e.update_hash();
-        //e.fillQueue();
-        //fillQueue(e,pq);
         mainMenu(e);
     }
 }
@@ -169,7 +172,6 @@ void mainMenu(Empresa &e){
                 handleMenuStatus(e);
                 break;
             case 12:
-                printMenuWork();
                 handleWorkshop(e);
                 break;
             case 2:
@@ -265,7 +267,7 @@ void printMenuWork(){
         << "Show earliest available workshop          [6]                       Remove a workshop                        [2]"<< endl
         << "                                                                    Request generic service for a truck      [4]"<< endl
         << "                                                                    Request specific service for a truck     [5]"<< endl
-        << "Cancel                                    [5]                                                                    "<< endl;
+        << "Cancel                                    [7]                                                                    "<< endl;
 
 }
 void handleMenuStatus(Empresa &e){

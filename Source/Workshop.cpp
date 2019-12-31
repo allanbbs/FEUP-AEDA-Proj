@@ -23,6 +23,17 @@ bool Workshop::checkForBrand(string name)const {
     }
     return false;
 }
+ostream& operator<<(ostream& out, Workshop w){
+    string m;                                   //string with the brands
+    for (auto const& i: w.brands) m+= i + "| ";
+    out << left << setw(30) << w.name << setw(20)  << w.unavailability << m << endl;
+    return out;
+}
+
+void headerWorkshop(){
+    cout << left << setw(30) << "NAME" << setw(20)  << "AVAILABLE IN" << "BRANDS" << endl;
+    cout << "===================================================================================================" << endl;
+}
 /*
 Workshop& Workshop::operator=(const Workshop & w1) {
     name = w1.getName();
