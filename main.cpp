@@ -51,6 +51,10 @@ void handleWorkshop(Empresa &e) {
     int disp, number, k = 0;
     priority_queue<Workshop> aux;
     while(true) {
+        k = 0;
+        brands.clear();
+        brand.clear();
+        name.clear();
         clear_screen();
         printMenuWork();
         option = checkOption(1, 7);
