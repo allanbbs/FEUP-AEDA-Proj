@@ -19,14 +19,7 @@ using namespace std;
 
 ifstream in("../AEDA_Proj1/Ficheiros/tax.txt"); //NAO MUDA!
 TaxTable *table = new TaxTable(in);
-priority_queue<int> pq;
 
-
-void fillQueue(Empresa &e,priority_queue<Workshop> &aux){
-    for(auto& el : e.getWor()){
-        aux.push(el);
-    }
-}
 
 
 
