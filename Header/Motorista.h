@@ -78,9 +78,14 @@ public:
     friend ostream &operator<<(ostream &out,const Motorista& w);
     /**
      * @brief Change the name of the Motorista
-     * @param name New name to substitue the old name
+     * @param name New name to substituted the old name
      */
     void setName(const string& name);
+    /**
+     * @brief Change the nif
+     * @param nif Nif to be changed to
+     */
+    void setNif(const long long int& nif);
 };
 
 

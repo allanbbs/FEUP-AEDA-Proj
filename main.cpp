@@ -583,8 +583,7 @@ void handleAddService(Empresa &e){
         o << partida << "\n" << l1x << "\n" << l1y;
         o << "\n" << chegada << "\n" << l2x << "\n" << l2y;
         o << "\n" << tipo << "\n" << anif<< "\n" << carga << "\n";
-        if (tipo != "None")
-            o << tipo << "\n";
+        o << temp_carac[opt] << "\n";
         o << s->get_camioes_id();
         o.close();
         cout << "Service added successfully! ";
