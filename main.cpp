@@ -37,6 +37,26 @@ void handleAddWorker(Empresa & e);      /**<Handle the operation of adding a new
 void handleRemoveWorker(Empresa &e);    /**<Handle the operation of removing a new worker*/
 void handleChangeNameWorker(Empresa &e);/**<Handle the operation of adding a new worker name*/
 
+
+
+int month;
+extern bool novo;
+
+int main(){
+    Empresa e;
+    cout << "Type the month to be analyzed [EXIT 0] ";
+    month = checkOption(0,12);
+    if (month != 0){
+        e.gravaWor();
+        e.gravaCli();
+        e.gravaCam();
+        e.gravaSer(e, month);
+        e.readMotorista();
+        e.update_hash();
+        mainMenu(e);
+    }
+}
+
 void handleWorkshop(Empresa &e) {
     int option;
     string name, brand;
@@ -144,24 +164,6 @@ void handleWorkshop(Empresa &e) {
         if (option == 7) return;
     }
 
-}
-
-int month;
-extern bool novo;
-
-int main(){
-    Empresa e;
-    cout << "Type the month to be analyzed [EXIT 0] ";
-    month = checkOption(0,12);
-    if (month != 0){
-        e.gravaWor();
-        e.gravaCli();
-        e.gravaCam();
-        e.gravaSer(e, month);
-        e.readMotorista();
-        e.update_hash();
-        mainMenu(e);
-    }
 }
 
 void mainMenu(Empresa &e){
@@ -575,10 +577,7 @@ void handleAddService(Empresa &e){
         string fileName = "../AEDA_Proj1/Ficheiros/servicos"+to_string(month)+".txt"; 
         ofstream o(fileName.c_str(), ios_base::app);
 
-        if (novo) {
-            o << "\n";
-            novo = false;
-        }
+        if (novo)  novo = false;
         else o << "\n";
 
         o << partida << "\n" << l1x << "\n" << l1y;
