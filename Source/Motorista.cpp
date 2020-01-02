@@ -42,9 +42,6 @@ bool Motorista::setHours(const float & h) {
     return true;
 }
 
-void Motorista::setNif(const long long &nif) {
-    this->nif = nif;
-}
 void Motorista::setName(const string& name){
     this->name = name;
 }
@@ -184,9 +181,8 @@ bool Workers::allocateMotorista(float tempo) {
     BSTItrIn<Motorista> it (BST_Workers);
     while(!it.isAtEnd()){
         if (it.retrieve().getHours() + tempo < 24){
-            temp.setName(it.retrieve().getName());
-            temp.setNif(it.retrieve().getNif());
-            cout << temp.getName() << endl;
+            temp = it.retrieve();
+            cout << "Worker: " << temp.getName() << endl;
             BST_Workers.remove(it.retrieve());
             temp.setHours(temp.getHours() + tempo);
             BST_Workers.insert(temp);

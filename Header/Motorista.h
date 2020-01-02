@@ -81,11 +81,6 @@ public:
      * @param name New name to substituted the old name
      */
     void setName(const string& name);
-    /**
-     * @brief Change the nif
-     * @param nif Nif to be changed to
-     */
-    void setNif(const long long int& nif);
 };
 
 

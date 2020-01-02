@@ -42,20 +42,6 @@ void Date::setYear(unsigned int year) {
     this->year = year;
 }
 
-void Date::setMonth(unsigned int month) {
-    this->month = month;
-}
-
-void Date::setDay(unsigned int day) {
-    this->day = day;
-}
-
-void Date::setDate(unsigned int year, unsigned int month, unsigned int day) {
-    this->day = day;
-    this->month = month;
-    this->year = year;
-}
-
 void Date::setDate(std::string yearMonthDay) {
     year = stoi(yearMonthDay.substr(0, 4));
     month = stoi(yearMonthDay.substr(5, 7));
@@ -66,13 +52,7 @@ unsigned int Date::getYear() const {
     return year;
 }
 
-unsigned int Date::getMonth() const {
-    return month;
-}
 
-unsigned int Date::getDay() const {
-    return day;
-}
 //GET++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /*
 function: gets the date in string format
@@ -97,23 +77,6 @@ string Date::getDate() const // returns the date in format "yyyy/mm/dd"
 }
 
 //OTHERS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-void Date::show() const // shows the date on the screen in format "yyyy/mm/dd"
-{
-    cout << Date::getDate() << endl;
-}
-
-bool Date::isValid() {  // return if this is a valid day
-    if (daysInMonth(year, month) != day)
-        cerr << "Invalid input! This month has " << daysInMonth(year, month) << endl;
-    return false;
-}
-
-bool Date::isEqualTo(const Date &date) { //verify if two dates are the same
-    if (date.year == this->year && date.month == this->month && date.day == this->day)
-        return true;
-    else
-        return false;
-}
 
 bool Date::isAfter(const Date &date) {
     if (date.year > this->year)

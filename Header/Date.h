@@ -35,23 +35,6 @@ public:
      * @param year
      */
     void setYear(unsigned int year);
-    /**
-     * @brief Set the month
-     * @param month
-     */
-    void setMonth(unsigned int month);
-    /**
-     * @brief set the day
-     * @param day
-     */
-    void setDay(unsigned int day);
-    /**
-     * @brief Set the hole date given the parameters
-     * @param year
-     * @param month
-     * @param day
-     */
-    void setDate(unsigned int year, unsigned int month, unsigned int day);
 
     /**
      * @brief Set the hole date
@@ -64,19 +47,10 @@ public:
      * @return Return the year
      */
     unsigned int getYear() const;
-    /**
-     * @brief Get the month
-     * @return Return the Month
-     */
-    unsigned int getMonth() const;
 
-    unsigned int getDay() const;
     std::string getDate() const; // returns the date in format "yyyy/mm/dd"
 
     //OTHERS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    void show() const; // shows the date on the screen in format "yyyy/mm/dd"
-    bool isValid();  // return if this is a valid day
-    bool isEqualTo(const Date &date);
     /**
      * @brief checks if date is after this date
      * @param date Date to be compared
