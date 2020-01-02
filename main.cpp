@@ -58,8 +58,10 @@ void handleWorkshop(Empresa &e) {
             cout << "Enter Workshop name: ";
             cin.ignore();
             getline(cin, name);
+            if(name == "exit") continue;
             cout << "Enter number of brands: ";
             number = checkNumber();
+            if(number == -1) continue;
             while (k < number) {
                 cin >> brand;
                 brands.push_back(brand);
@@ -68,6 +70,7 @@ void handleWorkshop(Empresa &e) {
             cin.ignore();
             cout << "Enter initial unavailability: ";
             disp = checkNumber();
+            if(disp == -1) continue;
             e.addWorkshop(name, brands, disp);
             cout << "Workshop added successfully!" << endl;
             wait();
@@ -79,8 +82,12 @@ void handleWorkshop(Empresa &e) {
             cout << "Workshop name: ";
             cin.ignore();
             getline(cin, name);
+            if(name == "exit"){
+                cout<<"Operation cancelled successfully!"<<endl;
+                continue;
+            }
             verify = e.removeWorkshop(name);
-            if (verify) cout << "Workshop removed succesfully!" << endl;
+            if (verify) cout << "Workshop removed successfully!" << endl;
             else cout << "Workshop not found" << endl;
             wait();
             continue;
@@ -96,6 +103,7 @@ void handleWorkshop(Empresa &e) {
             long long int id;
             cout << "Enter truck id:";
             id = checkNumber();
+            if(id == -1) continue;
             vector < Camiao * > cam_copy(e.getCamiao());
             for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
                 if ((*it)->getId() == id) {
@@ -116,6 +124,7 @@ void handleWorkshop(Empresa &e) {
             long long int id;
             cout << "Enter truck id:";
             id = checkNumber();
+            if(id == -1) continue;
             vector < Camiao * > cam_copy(e.getCamiao());
             for (auto it = cam_copy.begin(); it != cam_copy.end(); it++) {
                 if ((*it)->getId() == id) {
