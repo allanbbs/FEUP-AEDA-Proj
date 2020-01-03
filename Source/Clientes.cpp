@@ -58,7 +58,7 @@ ostream &operator<<(ostream &out, const Clientes &client) {
     return out;                                                 //returns the name nif and requested services or "no services" announcement 
 }
 
-void Clientes::setDate(const std::__cxx11::string & date) {
+void Clientes::setDate(const string & date) {
     last_request.setDate(date);
 }
 

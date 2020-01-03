@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classError.html" title="Class made to throw types of errors. " alt="" coords="5,132,59,159"/>
+<area shape="rect" id="node2" href="$classEmptyQueue.html" title="EmptyQueue" alt="" coords="125,5,232,32"/>
+<area shape="rect" id="node3" href="$classNoClient.html" title="Error case the client doens&#39;t exist. " alt="" coords="139,56,218,83"/>
+<area shape="rect" id="node4" href="$classNoService.html" title="Error case the service doesn&#39;t exist. " alt="" coords="135,107,223,133"/>
+<area shape="rect" id="node5" href="$classNoWorker.html" title="NoWorker" alt="" coords="135,157,222,184"/>
+<area shape="rect" id="node6" href="$classRepeatedClient.html" title="Error case the client already exists. " alt="" coords="118,208,239,235"/>
+<area shape="rect" id="node7" href="$classWrongInput__option.html" title="Error for wrong inputs. " alt="" coords="107,259,251,285"/>
+</map>

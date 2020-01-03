@@ -1,0 +1,5 @@
+<map id="Workers::removeMotorista" name="Workers::removeMotorista">
+<area shape="rect" id="node2" href="$classEmpresa.html#ab7588fbfa5880ba3b87b682511f2d4fd" title="Empresa::removeMotorista" alt="" coords="248,5,447,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a109e06aa6c8c81ed6367af4d613ead36" title="handleRemoveWorker" alt="" coords="495,5,660,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a7703598baa1a385894615b786f9cf9e9" title="handleWorkersMenu" alt="" coords="708,5,863,32"/>
+</map>

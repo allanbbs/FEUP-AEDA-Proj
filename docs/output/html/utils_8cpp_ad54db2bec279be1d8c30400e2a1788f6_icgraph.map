@@ -1,0 +1,7 @@
+<map id="checkOption" name="checkOption">
+<area shape="rect" id="node2" href="$main_8cpp.html#aa5ff31fc21c42a201a27a2dd4883c7cf" title="mainMenu" alt="" coords="359,8,449,34"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a1dec0eb9ccb2d271a32c5ca77a7ef482" title="handleMenuStatus" alt="" coords="162,33,305,60"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a7703598baa1a385894615b786f9cf9e9" title="handleWorkersMenu" alt="" coords="156,84,311,110"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a002985b0a11b714de9f9f762203fd2bc" title="handleAddService" alt="" coords="164,134,303,161"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a17fd015ee14ae389ccf810662b55f12e" title="handleAddTruck" alt="" coords="171,185,296,212"/>
+</map>

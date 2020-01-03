@@ -1,0 +1,9 @@
+<map id="handleAddClient" name="handleAddClient">
+<area shape="rect" id="node2" href="$utils_8h.html#a517ab7f68319b35a52ed085490b0ae75" title="Checks if the input given is a number, not a string. " alt="" coords="218,14,330,41"/>
+<area shape="rect" id="node4" href="$classEmpresa.html#a58a26bec368815a4608660af549855c1" title="Search for a client with nif given. " alt="" coords="429,170,577,197"/>
+<area shape="rect" id="node5" href="$classEmpresa.html#a0de4eb82c44af2365df9ff7ba7f77e04" title="Reaccept a ex&#45;client into the enterprise After being excluded from the enterprise the client might wa..." alt="" coords="183,69,365,95"/>
+<area shape="rect" id="node7" href="$utils_8h.html#aa3b21853f890838c88d047d6c2786917" title="Function makes the user waits until it presses enter. " alt="" coords="249,170,299,197"/>
+<area shape="rect" id="node8" href="$classEmpresa.html#ab5a333dc8c915a4a5486a76fb7478522" title="Add a new client to the vector cli. " alt="" coords="192,221,356,247"/>
+<area shape="rect" id="node3" href="$classWrongInput__option.html#a5ad8a61deebc3b5a376c208cc915eabc" title="Get the Info parameter. " alt="" coords="427,5,579,47"/>
+<area shape="rect" id="node6" href="$classEmpresa.html#a095eaafe3bd2c08914f8e0e7ab075f2e" title="this method rewrites all the clients. Usually this function is called when something has changed for ..." alt="" coords="413,71,592,98"/>
+</map>

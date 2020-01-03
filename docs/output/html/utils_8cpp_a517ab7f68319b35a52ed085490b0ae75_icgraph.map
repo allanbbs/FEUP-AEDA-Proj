@@ -1,0 +1,9 @@
+<map id="checkNumber" name="checkNumber">
+<area shape="rect" id="node2" href="$main_8cpp.html#a7703598baa1a385894615b786f9cf9e9" title="handleWorkersMenu" alt="" coords="413,225,568,252"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a1ffdf0b6bbbe5ee7be5a28caa774049a" title="handleAddClient" alt="" coords="201,48,330,75"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a002985b0a11b714de9f9f762203fd2bc" title="handleAddService" alt="" coords="196,99,335,125"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a17fd015ee14ae389ccf810662b55f12e" title="handleAddTruck" alt="" coords="203,149,328,176"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#ae5519eeb73ebb24af72c53c2dee66192" title="handleAddWorker" alt="" coords="197,200,334,227"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a109e06aa6c8c81ed6367af4d613ead36" title="handleRemoveWorker" alt="" coords="183,251,348,277"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#aa5689cc6a4c6ad5facd13aad309e3eef" title="handleChangeNameWorker" alt="" coords="165,301,365,328"/>
+</map>

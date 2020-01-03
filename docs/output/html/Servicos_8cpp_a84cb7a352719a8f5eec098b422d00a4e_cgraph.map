@@ -1,0 +1,11 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="node2" href="$classServicos.html#ae13c3186f8f5b687c00373d6e0c3a012" title="Servicos::get_id" alt="" coords="177,5,303,32"/>
+<area shape="rect" id="node3" href="$classServicos.html#a421807c0764d402bf698c8d79a794102" title="Servicos::get_tipo" alt="" coords="171,56,309,83"/>
+<area shape="rect" id="node4" href="$classServicos.html#ae00c9c64e9d9e53be5513251c75ed999" title="Calculates the time of traveling according to geographic cordenates of the arrival and departure..." alt="" coords="163,107,317,133"/>
+<area shape="rect" id="node5" href="$classServicos.html#a22a17de353d39a4c5d4cc3aeb133fddf" title="Servicos::get_departure" alt="" coords="152,157,328,184"/>
+<area shape="rect" id="node7" href="$classServicos.html#a25e5af9cc25e67775601bad2310552df" title="Servicos::get_arrival" alt="" coords="163,208,317,235"/>
+<area shape="rect" id="node8" href="$classServicos.html#ae8781ba7133069c9c67de9b920aafea2" title="Servicos::num_camiao" alt="" coords="155,259,325,285"/>
+<area shape="rect" id="node9" href="$classServicos.html#abccba289bb598131f1848088783cfe0f" title="Servicos::get_profit" alt="" coords="167,309,313,336"/>
+<area shape="rect" id="node10" href="$classServicos.html#aee418190b4f594bab2ec73d456893b1b" title="Get the condition object. " alt="" coords="153,360,327,387"/>
+<area shape="rect" id="node6" href="$classLocal.html#ac930b2856d6af39fc1c43f4ce3f3b2f4" title="Get the Name parameter. " alt="" coords="376,183,500,209"/>
+</map>

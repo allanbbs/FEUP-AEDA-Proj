@@ -1,0 +1,5 @@
+<map id="NoService::getInfo" name="NoService::getInfo">
+<area shape="rect" id="node2" href="$utils_8cpp.html#aee6fc6707ff3eaa39890a34299344dd8" title="It checks if the id given already exists and if it&#39;s not a string. Case wrong input, asks the person to try again. " alt="" coords="196,5,311,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a1dec0eb9ccb2d271a32c5ca77a7ef482" title="handleMenuStatus" alt="" coords="359,5,501,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#aa5ff31fc21c42a201a27a2dd4883c7cf" title="mainMenu" alt="" coords="549,5,640,32"/>
+</map>

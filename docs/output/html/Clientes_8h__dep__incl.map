@@ -1,0 +1,8 @@
+<map id="Header/Clientes.h" name="Header/Clientes.h">
+<area shape="rect" id="node2" href="$Empresa_8h.html" title="It contains the Empresa class declarations, resposable for the management of the enterprise. " alt="" coords="183,80,326,107"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="This is the main page of the project that contains the implementation of it. " alt="" coords="300,229,383,256"/>
+<area shape="rect" id="node7" href="$Clientes_8cpp.html" title="It contais the implementation of class Clientes responsable for Clients management. " alt="" coords="430,80,581,107"/>
+<area shape="rect" id="node3" href="$utils_8h.html" title="Some functions that are useful in the project. " alt="" coords="11,155,125,181"/>
+<area shape="rect" id="node6" href="$Empresa_8cpp.html" title="It contains the Empresa class implementation, resposable for the management of the enterprise..." alt="" coords="149,155,304,181"/>
+<area shape="rect" id="node5" href="$utils_8cpp.html" title="Implementation of functions that are useful in the project. " alt="" coords="5,229,131,256"/>
+</map>

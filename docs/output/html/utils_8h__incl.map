@@ -1,0 +1,13 @@
+<map id="Header/utils.h" name="Header/utils.h">
+<area shape="rect" id="node2" href="$Empresa_8h.html" title="It contains the Empresa class declarations, resposable for the management of the enterprise. " alt="" coords="845,80,936,107"/>
+<area shape="rect" id="node10" href="$Camiao_8h.html" title="It contains the declarations of the class Camiao and its sub&#45;classes. " alt="" coords="585,304,669,331"/>
+<area shape="rect" id="node15" href="$Workshop_8h_source.html" title="Workshop.h" alt="" coords="765,379,864,405"/>
+<area shape="rect" id="node16" href="$Servicos_8h.html" title="Declarations of Servicos class responsable for handle the services (individualy) " alt="" coords="1305,229,1394,256"/>
+<area shape="rect" id="node19" href="$Errors_8h.html" title="This is the implementation and declaration of error classes. " alt="" coords="1512,379,1584,405"/>
+<area shape="rect" id="node20" href="$Clientes_8h.html" title="It contais the declarations of class Clientes responsable for Clients management. ..." alt="" coords="1645,155,1731,181"/>
+<area shape="rect" id="node23" href="$Motorista_8h.html" title="It contains the Class Motorista and Workers that manages the BST of workers. " alt="" coords="919,304,1014,331"/>
+<area shape="rect" id="node13" href="$TaxTable_8h.html" title="Declarations of the class TaxTable responsable to handle the classes of the trucks. " alt="" coords="499,379,589,405"/>
+<area shape="rect" id="node18" href="$Local_8h.html" title="File with the declaration of Local class reponsable to handle the location of the services..." alt="" coords="1419,379,1487,405"/>
+<area shape="rect" id="node21" href="$Date_8h_source.html" title="Date.h" alt="" coords="1710,379,1775,405"/>
+<area shape="rect" id="node24" href="$bst_8h_source.html" title="bst.h" alt="" coords="939,379,994,405"/>
+</map>

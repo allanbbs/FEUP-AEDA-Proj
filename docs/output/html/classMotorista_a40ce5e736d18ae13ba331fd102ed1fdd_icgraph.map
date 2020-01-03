@@ -1,0 +1,16 @@
+<map id="Motorista::getName" name="Motorista::getName">
+<area shape="rect" id="node2" href="$classMotorista.html#aac974c8b29c696f8c8445b3db0332a9c" title="Motorista::Motorista" alt="" coords="235,5,387,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ae5519eeb73ebb24af72c53c2dee66192" title="handleAddWorker" alt="" coords="751,56,889,83"/>
+<area shape="rect" id="node5" href="$Motorista_8cpp.html#a50558bd167c60ece0454bd5938990451" title="operator\&lt;\&lt;" alt="" coords="261,107,360,133"/>
+<area shape="rect" id="node6" href="$classWorkers.html#a7998169c8b4513cbadd7ea9359c9f010" title="Workers::printBST_alphabetic" alt="" coords="204,157,417,184"/>
+<area shape="rect" id="node8" href="$classWorkers.html#a2a6be4529f5c7e06fc4fa2d9ce432ab1" title="Update the file Motoristas with the information in the BST. " alt="" coords="233,208,389,235"/>
+<area shape="rect" id="node13" href="$classWorkers.html#a73d66724649c7e10df6d3baac00df5c6" title="Workers::allocateMotorista" alt="" coords="213,259,409,285"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a7703598baa1a385894615b786f9cf9e9" title="handleWorkersMenu" alt="" coords="968,132,1123,159"/>
+<area shape="rect" id="node7" href="$classEmpresa.html#aefc74a351bb2620871b6f60c00faff49" title="Empresa::displayWorkers" alt="" coords="475,107,662,133"/>
+<area shape="rect" id="node9" href="$classEmpresa.html#ab7588fbfa5880ba3b87b682511f2d4fd" title="Empresa::removeMotorista" alt="" coords="469,157,668,184"/>
+<area shape="rect" id="node11" href="$classEmpresa.html#a5d331058a9294ca09275eb9b7810101d" title="Empresa::setMotoristaName" alt="" coords="465,208,672,235"/>
+<area shape="rect" id="node10" href="$main_8cpp.html#a109e06aa6c8c81ed6367af4d613ead36" title="handleRemoveWorker" alt="" coords="737,157,903,184"/>
+<area shape="rect" id="node12" href="$main_8cpp.html#aa5689cc6a4c6ad5facd13aad309e3eef" title="handleChangeNameWorker" alt="" coords="720,208,920,235"/>
+<area shape="rect" id="node14" href="$classEmpresa.html#a05ed3f13c73ab623ade0622891e0cbe9" title="Empresa::allocateMotorista" alt="" coords="469,259,669,285"/>
+<area shape="rect" id="node15" href="$main_8cpp.html#a002985b0a11b714de9f9f762203fd2bc" title="handleAddService" alt="" coords="751,259,889,285"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="Header/Clientes.h" name="Header/Clientes.h">
+<area shape="rect" id="node4" href="$Servicos_8h.html" title="Declarations of Servicos class responsable for handle the services (individualy) " alt="" coords="298,80,388,107"/>
+<area shape="rect" id="node17" href="$Date_8h_source.html" title="Date.h" alt="" coords="122,229,188,256"/>
+<area shape="rect" id="node8" href="$Local_8h.html" title="File with the declaration of Local class reponsable to handle the location of the services..." alt="" coords="30,229,98,256"/>
+<area shape="rect" id="node9" href="$Camiao_8h.html" title="It contains the declarations of the class Camiao and its sub&#45;classes. " alt="" coords="633,155,717,181"/>
+<area shape="rect" id="node14" href="$TaxTable_8h.html" title="Declarations of the class TaxTable responsable to handle the classes of the trucks. " alt="" coords="588,229,679,256"/>
+<area shape="rect" id="node16" href="$Workshop_8h_source.html" title="Workshop.h" alt="" coords="415,229,514,256"/>
+</map>

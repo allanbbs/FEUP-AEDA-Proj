@@ -1,0 +1,6 @@
+<map id="Motorista::setHours" name="Motorista::setHours">
+<area shape="rect" id="node2" href="$classMotorista.html#aac974c8b29c696f8c8445b3db0332a9c" title="Motorista::Motorista" alt="" coords="225,5,377,32"/>
+<area shape="rect" id="node3" href="$classWorkers.html#a73d66724649c7e10df6d3baac00df5c6" title="Workers::allocateMotorista" alt="" coords="203,56,399,83"/>
+<area shape="rect" id="node4" href="$classEmpresa.html#a05ed3f13c73ab623ade0622891e0cbe9" title="Empresa::allocateMotorista" alt="" coords="447,56,647,83"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a002985b0a11b714de9f9f762203fd2bc" title="handleAddService" alt="" coords="695,56,833,83"/>
+</map>
