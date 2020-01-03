@@ -1,6 +1,0 @@
-<map id="Header/Empresa.h" name="Header/Empresa.h">
-<area shape="rect" id="node2" href="$utils_8h.html" title="Some functions that are useful in the project. " alt="" coords="85,80,198,107"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title="This is the main page of the project that contains the implementation of it. " alt="" coords="5,155,88,181"/>
-<area shape="rect" id="node5" href="$Empresa_8cpp.html" title="It contains the Empresa class implementation, resposable for the management of the enterprise..." alt="" coords="223,80,377,107"/>
-<area shape="rect" id="node4" href="$utils_8cpp.html" title="Implementation of functions that are useful in the project. " alt="" coords="112,155,237,181"/>
-</map>

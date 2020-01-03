@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classCamiao.html" title="Class responsable for truck management. " alt="" coords="5,81,77,108"/>
-<area shape="rect" id="node2" href="$classAnimals.html" title="Camiao Truck with animals as product. " alt="" coords="133,5,208,32"/>
-<area shape="rect" id="node3" href="$classBase.html" title="Camiao Sub class for base products. " alt="" coords="143,56,198,83"/>
-<area shape="rect" id="node4" href="$classCongelado.html" title="Camiao Truck with frozens as product. " alt="" coords="125,107,216,133"/>
-<area shape="rect" id="node5" href="$classPerigoso.html" title="Camiao Sub class that handles trucks with dangerous products. " alt="" coords="131,157,210,184"/>
-</map>

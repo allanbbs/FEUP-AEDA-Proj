@@ -40,7 +40,8 @@ double Servicos::cal_tempo() {
     double distance = acos(sin(x1)*sin(x2)+cos(x1)*cos(x2)*cos(dy))*r;
     
     // it calculates the distance between the two points
-    return distance / velocity;                                 //calculates the time in hours
+    double time = distance/velocity;
+    return time;                           //calculates the time in hours
 }
 
 int Servicos::num_camiao(){

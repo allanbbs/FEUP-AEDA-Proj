@@ -1,11 +1,13 @@
-﻿Congelado
-3
+﻿
+
 Perigoso
 43
+Congelado
+30
 Animal
-6
+34
 Base
-2
+20
 Frio
 3
 Medio

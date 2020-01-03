@@ -15,6 +15,6 @@ TaxTable::TaxTable(istream &input) {
     while(!input.eof()){
         getline(input,type);
         getline(input,tax);
-        if(!type.empty() && !tax.empty())table[type] = stod(tax);
+        if(!type.empty() && !tax.empty()) table[type] = stod(tax);
     }
 }

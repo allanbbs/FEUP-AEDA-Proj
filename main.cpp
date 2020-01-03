@@ -630,10 +630,7 @@ void handleAddTruck(Empresa &e){
 
     cout << "Truck added successfully ";
     wait(); 
-    /*
-    ofstream o("../AEDA_Proj1/Ficheiros/camioes", ios_base::app);
-    o << carg << "\n" << temp[type] << "\n";
-    o.close();*/
+
     e.rewriteTruck();
 
 }

@@ -1,8 +1,0 @@
-<map id="Error" name="Error">
-<area shape="rect" id="node2" href="$classEmptyQueue.html" title="EmptyQueue" alt="" coords="5,80,112,107"/>
-<area shape="rect" id="node3" href="$classNoClient.html" title="Error case the client doens&#39;t exist. " alt="" coords="137,80,215,107"/>
-<area shape="rect" id="node4" href="$classNoService.html" title="Error case the service doesn&#39;t exist. " alt="" coords="240,80,328,107"/>
-<area shape="rect" id="node5" href="$classNoWorker.html" title="NoWorker" alt="" coords="353,80,439,107"/>
-<area shape="rect" id="node6" href="$classRepeatedClient.html" title="Error case the client already exists. " alt="" coords="463,80,585,107"/>
-<area shape="rect" id="node7" href="$classWrongInput__option.html" title="Error for wrong inputs. " alt="" coords="609,80,753,107"/>
-</map>

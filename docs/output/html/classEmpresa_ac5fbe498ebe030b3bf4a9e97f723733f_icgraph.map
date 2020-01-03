@@ -1,6 +1,0 @@
-<map id="Empresa::SearchSer" name="Empresa::SearchSer">
-<area shape="rect" id="node2" href="$classEmpresa.html#ac4d3ac24f3af716817284793d53e4edb" title="Empresa::display_servico\lStatus" alt="" coords="205,5,393,47"/>
-<area shape="rect" id="node5" href="$utils_8cpp.html#aee6fc6707ff3eaa39890a34299344dd8" title="It checks if the id given already exists and if it&#39;s not a string. Case wrong input, asks the person to try again. " alt="" coords="242,71,357,98"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a1dec0eb9ccb2d271a32c5ca77a7ef482" title="handleMenuStatus" alt="" coords="441,42,584,69"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#aa5ff31fc21c42a201a27a2dd4883c7cf" title="mainMenu" alt="" coords="632,42,723,69"/>
-</map>

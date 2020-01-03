@@ -1,8 +1,0 @@
-<map id="handleAddTruck" name="handleAddTruck">
-<area shape="rect" id="node2" href="$utils_8h.html#a517ab7f68319b35a52ed085490b0ae75" title="Checks if the input given is a number, not a string. " alt="" coords="206,5,318,32"/>
-<area shape="rect" id="node4" href="$utils_8h.html#ad54db2bec279be1d8c30400e2a1788f6" title="checkOption" alt="" coords="211,56,313,83"/>
-<area shape="rect" id="node5" href="$classEmpresa.html#adecbe6faf9d700e39b6ad5323b2db883" title="It adds a new truck to the enterprise. " alt="" coords="181,107,343,133"/>
-<area shape="rect" id="node6" href="$utils_8h.html#aa3b21853f890838c88d047d6c2786917" title="Function makes the user waits until it presses enter. " alt="" coords="237,157,287,184"/>
-<area shape="rect" id="node7" href="$classEmpresa.html#a632509f2cb440b2ae5f27178c66cf2d6" title="rewrite the truck file " alt="" coords="179,208,345,235"/>
-<area shape="rect" id="node3" href="$classWrongInput__option.html#a5ad8a61deebc3b5a376c208cc915eabc" title="Get the Info parameter. " alt="" coords="393,23,545,65"/>
-</map>

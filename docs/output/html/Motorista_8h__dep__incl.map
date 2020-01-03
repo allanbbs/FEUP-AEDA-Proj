@@ -1,8 +1,0 @@
-<map id="Header/Motorista.h" name="Header/Motorista.h">
-<area shape="rect" id="node2" href="$Empresa_8h.html" title="It contains the Empresa class declarations, resposable for the management of the enterprise. " alt="" coords="70,80,213,107"/>
-<area shape="rect" id="node7" href="$Motorista_8cpp.html" title="It contains the implementation of the file Motorista.h. " alt="" coords="237,80,395,107"/>
-<area shape="rect" id="node3" href="$utils_8h.html" title="Some functions that are useful in the project. " alt="" coords="85,155,198,181"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="This is the main page of the project that contains the implementation of it. " alt="" coords="5,229,88,256"/>
-<area shape="rect" id="node6" href="$Empresa_8cpp.html" title="It contains the Empresa class implementation, resposable for the management of the enterprise..." alt="" coords="223,155,377,181"/>
-<area shape="rect" id="node5" href="$utils_8cpp.html" title="Implementation of functions that are useful in the project. " alt="" coords="112,229,237,256"/>
-</map>

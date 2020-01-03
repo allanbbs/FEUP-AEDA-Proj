@@ -30,7 +30,6 @@ void Camiao::removeTruck() {
 
 Workshop Camiao::requestGenericService(priority_queue<Workshop>& aux) {
     stack<Workshop> aux1;
-    //if(aux.empty()) throw EmptyQueue();
     Workshop d = aux.top();
     aux.pop();
     d.setUn(d.get_unavailability() + 7);

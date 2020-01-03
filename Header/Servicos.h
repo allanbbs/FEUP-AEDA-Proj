@@ -60,6 +60,7 @@ public:
      */
     ~Servicos() {};
 
+
     /**
      * @brief Calculates the price according to the time of traveling, price of each camiao and the fixed tax
      * @param tax Fixed tax established by the enterprise
@@ -138,7 +139,8 @@ public:
      * @brief Get the condition object
      * 
      */
-    string get_condition(); 
+    string get_condition();
+
 };
 
 /**

@@ -1,9 +1,0 @@
-<map id="Motorista::Motorista" name="Motorista::Motorista">
-<area shape="rect" id="node2" href="$classMotorista.html#a1d738b913d35e4d451cc1007aa66cbdb" title="Organized by growing order of hours. " alt="" coords="211,40,368,67"/>
-<area shape="rect" id="node3" href="$classMotorista.html#a44fa665945fd0f5489d35386f3393b45" title="Get the number of hours until now. " alt="" coords="421,15,572,41"/>
-<area shape="rect" id="node4" href="$classMotorista.html#a3d08ce5b8f2ab71073b204d3c3f47469" title="Motorista::getNif" alt="" coords="431,91,562,117"/>
-<area shape="rect" id="node5" href="$classMotorista.html#a78015854b79350254c7583ab57dac505" title="Compares two Motorista variables. " alt="" coords="205,141,373,168"/>
-<area shape="rect" id="node6" href="$classMotorista.html#a40ce5e736d18ae13ba331fd102ed1fdd" title="Get the name of the motorista. " alt="" coords="214,192,365,219"/>
-<area shape="rect" id="node7" href="$classMotorista.html#a8400f01e9fae2708c83ae8ee34e1dac1" title="Motorista::setHours" alt="" coords="215,243,364,269"/>
-<area shape="rect" id="node8" href="$classMotorista.html#a5f74e2ec104aec72748f1be2cc83014f" title="Change the name of the Motorista. " alt="" coords="214,293,365,320"/>
-</map>

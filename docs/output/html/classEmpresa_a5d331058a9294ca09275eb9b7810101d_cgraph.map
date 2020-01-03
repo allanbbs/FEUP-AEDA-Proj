@@ -1,8 +1,0 @@
-<map id="Empresa::setMotoristaName" name="Empresa::setMotoristaName">
-<area shape="rect" id="node2" href="$classWorkers.html#a1079f198f1d7a686fa4946e1422c58a4" title="Change the name of a Motorista. " alt="" coords="267,19,409,45"/>
-<area shape="rect" id="node4" href="$classWorkers.html#a2a6be4529f5c7e06fc4fa2d9ce432ab1" title="Update the file Motoristas with the information in the BST. " alt="" coords="260,81,416,108"/>
-<area shape="rect" id="node3" href="$classMotorista.html#a5f74e2ec104aec72748f1be2cc83014f" title="Change the name of the Motorista. " alt="" coords="464,5,615,32"/>
-<area shape="rect" id="node5" href="$classMotorista.html#a40ce5e736d18ae13ba331fd102ed1fdd" title="Get the name of the motorista. " alt="" coords="464,56,615,83"/>
-<area shape="rect" id="node6" href="$classMotorista.html#a3d08ce5b8f2ab71073b204d3c3f47469" title="Motorista::getNif" alt="" coords="474,107,605,133"/>
-<area shape="rect" id="node7" href="$classMotorista.html#a44fa665945fd0f5489d35386f3393b45" title="Get the number of hours until now. " alt="" coords="464,157,615,184"/>
-</map>

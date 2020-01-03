@@ -1,9 +1,0 @@
-<map id="Source/Clientes.cpp" name="Source/Clientes.cpp">
-<area shape="rect" id="node3" href="$Clientes_8h.html" title="It contais the declarations of class Clientes responsable for Clients management. ..." alt="" coords="850,80,1001,107"/>
-<area shape="rect" id="node6" href="$Servicos_8h.html" title="Declarations of Servicos class responsable for handle the services (individualy) " alt="" coords="595,155,685,181"/>
-<area shape="rect" id="node18" href="$Date_8h_source.html" title="Date.h" alt="" coords="1006,304,1071,331"/>
-<area shape="rect" id="node9" href="$Local_8h.html" title="File with the declaration of Local class reponsable to handle the location of the services..." alt="" coords="811,304,879,331"/>
-<area shape="rect" id="node10" href="$Camiao_8h.html" title="It contains the declarations of the class Camiao and its sub&#45;classes. " alt="" coords="465,229,549,256"/>
-<area shape="rect" id="node15" href="$TaxTable_8h.html" title="Declarations of the class TaxTable responsable to handle the classes of the trucks. " alt="" coords="544,304,635,331"/>
-<area shape="rect" id="node17" href="$Workshop_8h_source.html" title="Workshop.h" alt="" coords="371,304,469,331"/>
-</map>
