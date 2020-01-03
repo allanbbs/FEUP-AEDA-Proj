@@ -669,9 +669,9 @@ void handleAddWorker(Empresa & e){
         //write the content on the file
         fstream file;
         file.open("../AEDA_Proj1/Ficheiros/Motoristas",  ios_base::app);
-        file<< m.getName() << "\n"
+        file<<"\n"<< m.getName() << "\n"
             << m.getNif() << "\n"
-            << m.getHours() << "\n";
+            << m.getHours();
         file.close();
 
     }

@@ -13,7 +13,7 @@
 
 /**
  * @file Workshop.h
- * @brief It contains the Class workshop definition
+ * @brief It contains the Class Workshop definition
  */
 using namespace std;
 
@@ -29,7 +29,7 @@ public:
      */
     explicit Workshop(string name) : name(name){};
     /**
-     * Constructor for the Motorista
+     * Constructor for the Workshop
      * @param name The name of the workshop
      * @param aux vector containing the brands in which this workshops specializes in
      * @param nani Initial unavailability

@@ -103,7 +103,8 @@ Perigoso::Perigoso(long long int carg, long long int Id,string name) : Camiao(ca
 Perigoso::~Perigoso() {}
 
 double Perigoso::cal_preco() {
-    return tax * (double)CargaMax;
+    long long int Carga_positive = CargaMax < 0 ?  -CargaMax : CargaMax;  // case the truck is not used anymore the max storage will be negative, but we want to calculate the profit with positive numbers
+    return tax * (double)Carga_positive;
 }
 
 string Perigoso::getType() const {return "Perigoso";}
@@ -115,7 +116,8 @@ Animals::Animals(long long int carg, long long int Id,string name) : Camiao(carg
 Animals::~Animals() {}
 
 double Animals::cal_preco() {
-    return tax * (double)CargaMax;
+    long long int Carga_positive = CargaMax < 0 ?  -CargaMax : CargaMax;  // case the truck is not used anymore the max storage will be negative, but we want to calculate the profit with positive numbers
+    return tax * (double)Carga_positive;
 }
 
 string Animals::getType() const {
@@ -129,7 +131,8 @@ string Base::getType() const {
 }
 
 double Base::cal_preco() {
-    return tax * (double)CargaMax;
+    long long int Carga_positive = CargaMax < 0 ?  -CargaMax : CargaMax;  // case the truck is not used anymore the max storage will be negative, but we want to calculate the profit with positive numbers
+    return tax * (double)Carga_positive;
 }
 
 //------------------------------------------------------------------------------------

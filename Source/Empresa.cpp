@@ -428,6 +428,7 @@ bool Empresa::allocateCamiao(Servicos *s) {
     int carga = s->get_carga();
     sort(cam_copy.begin(), cam_copy.end(), Compare);                    //Sort by ascender order of profit
     for (const auto &x: cam_copy) {
+        string m = x->getType();
         if (x->getType() == s->get_tipo() && x->getCargaMax()>0) {      //If it has the same type of the service
             carga -= x->getCargaMax();
             s->addCamiao(x);
@@ -563,7 +564,6 @@ void Empresa::resetHours() {
         ofstream out("../AEDA_Proj1/Ficheiros/workshops");
         int aux, k;
         for (auto i = 0; i < wor.size() - 1; i++) {
-            //out<<endl;
             out << wor[i].getName() << endl;
             out << wor[i].getBrands().size() << endl;
             for (auto &elem : wor[i].getBrands()) {

@@ -50,15 +50,15 @@ int Servicos::num_camiao(){
 ostream &operator<<(ostream &os, Servicos servico) {
     os<<fixed<<setprecision(2);
     cout.fill();
-    os << left << setw(10) << servico.get_id()
-               << setw(15) << servico.get_tipo()
+    os << left << setw(10) << servico.id
+               << setw(15) << servico.type
                << setw(10) << servico.cal_tempo()
                << setw(30) << servico.get_departure()
                << setw(30) << servico.get_arrival()
                << setw(15) << servico.num_camiao()
                << setw(15) << servico.get_profit()
                << setw(15) << servico.carga 
-               << servico.get_condition() <<endl;
+               << servico.condition <<endl;
     return os;
 }
 

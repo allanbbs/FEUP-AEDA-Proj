@@ -8,7 +8,7 @@
 using namespace std;
 
 /**
- * @file Workshop.h
+ * @file Workshop.cpp
  * @brief It contains the implementation of the class Workshop
  */
 
