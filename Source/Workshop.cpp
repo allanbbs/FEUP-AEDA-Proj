@@ -7,6 +7,11 @@
 #include "../Header/Workshop.h"
 using namespace std;
 
+/**
+ * @file Workshop.h
+ * @brief It contains the implementation of the class Workshop
+ */
+
 Workshop::Workshop(string name,vector<string>& aux,int nani){
     this->name = name;
     brands.assign(aux.begin(),aux.end());
@@ -34,11 +39,3 @@ void headerWorkshop(){
     cout << left << setw(30) << "NAME" << setw(20)  << "AVAILABLE IN" << "BRANDS" << endl;
     cout << "===================================================================================================" << endl;
 }
-/*
-Workshop& Workshop::operator=(const Workshop & w1) {
-    name = w1.getName();
-    brands.clear();
-    brands.assign(w1.getBrands().begin(),w1.getBrands().end());
-    unavailability = w1.get_unavailability();
-    return *this;
-}*/

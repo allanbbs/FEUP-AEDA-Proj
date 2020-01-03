@@ -9,7 +9,10 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-
+/**
+ * @file Date.h
+ * @brief It contains the definition of the class Date
+ */
 class Date {
 public:
 
@@ -48,25 +51,43 @@ public:
      */
     unsigned int getYear() const;
 
-    std::string getDate() const; // returns the date in format "yyyy/mm/dd"
+    /**
+    * @brief gets the date in string format
+    * @param d day of Date
+    * @param m month of Date
+    * @param y year of Date
+    * @return Date formatted into string "yyyy/mm/dd"
+*/
+    std::string getDate() const;
 
-    //OTHERS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     /**
      * @brief checks if date is after this date
      * @param date Date to be compared
      * @return true if is after, false otherwise
      */
     bool isAfter(const Date &date);
-    bool isBefore(const Date &date); //checks if a date is before another
+
+
 
 
 private:
     unsigned int year;
     unsigned int month;
     unsigned int day;
-
-    bool bissexto(int ano); //Descobre se o ano eh bissexto
-    int daysInMonth(int ano, int mes);  //returns the number of days in a specific month of a specif year
+    /**
+     * @brief Finds out if it's a bissextile year
+     * @param ano The year
+     * @return True if it's bissextile, false otherwise
+     */
+    bool bissexto(int ano);
+    /**
+     * @brief Returns the number of days in a specific month of a specific year
+     * @param ano The year in question
+     * @param mes The month in question
+     * @return The number of days in this month
+     */
+    int daysInMonth(int ano, int mes);
 };
 /**
  * @brief Gets today's day, month and year

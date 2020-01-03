@@ -12,8 +12,8 @@
 #include <iomanip>
 
 /**
- * @file Motorista.h
- * @brief It contains the Class Motorista and Workers that manages the BST of workers
+ * @file Workshop.h
+ * @brief It contains the Class workshop definition
  */
 using namespace std;
 
@@ -85,12 +85,12 @@ public:
      * @param n name of the new brand to be added
      */
     void addBrand(string n){brands.push_back(n);};
-    //Workshop& operator=(const Workshop &w1);
+
 
 };
 /**
-     * @brief Prints table to display workshops
-     */
+* @brief Prints table to display workshops
+*/
 void headerWorkshop();
 
 

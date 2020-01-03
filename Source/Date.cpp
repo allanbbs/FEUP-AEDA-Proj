@@ -12,7 +12,11 @@
 
 
 using namespace std;
-//CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/**
+ * @file Date.cpp
+ * @brief It contains the implementation of the class Date
+ */
 
 Date::Date() {
     time_t tt;
@@ -37,7 +41,7 @@ Date::Date(string yearMonthDay) // yearMonthDay must be in format "yyyy/mm/dd"
     day = stoi(yearMonthDay.substr(8));
 }
 
-//SET++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 void Date::setYear(unsigned int year) {
     this->year = year;
 }
@@ -53,15 +57,9 @@ unsigned int Date::getYear() const {
 }
 
 
-//GET++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/*
-function: gets the date in string format
-@param d day of Date
-@param m month of Date
-@param y year of Date
-return Date formatted into string
-*/
-string Date::getDate() const // returns the date in format "yyyy/mm/dd"
+
+
+string Date::getDate() const
 {
     string d, m, y;
     if (day < 10)
@@ -76,7 +74,7 @@ string Date::getDate() const // returns the date in format "yyyy/mm/dd"
     return to_string(year) + "/" + m + "/" + d;
 }
 
-//OTHERS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 bool Date::isAfter(const Date &date) {
     if (date.year > this->year)
@@ -90,10 +88,6 @@ bool Date::isAfter(const Date &date) {
     else if (date.day > this->day)
         return true;
     return false;
-}
-
-bool Date::isBefore(const Date &date) {  //checks if a date is before another
-    return !isAfter(date);
 }
 
 bool Date::bissexto(int ano) //Check if the year is a leap year
