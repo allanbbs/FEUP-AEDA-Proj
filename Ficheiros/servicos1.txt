@@ -31,3 +31,36 @@ Perigoso
 20
 Inflamavel
 3
+Planet Vudacon
+20.3
+24.5
+Planet Albin
+24
+21
+Animal
+201800179
+24
+Grande
+4 6
+Planet Terra
+21.4
+22
+Planet Mars
+22
+22.6
+Perigoso
+201800180
+22
+Toxico
+3
+Jupiter
+21.4
+22
+Saturn
+20
+21
+Perigoso
+201800181
+45
+Inflamavel
+3
