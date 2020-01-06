@@ -154,6 +154,7 @@ void handleWorkshop(Empresa &e) {
                     break;
                 }
             }
+            wait();
             continue;
         }
         if (option == 6) {
