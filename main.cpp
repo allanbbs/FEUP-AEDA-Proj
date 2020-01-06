@@ -89,6 +89,7 @@ void handleWorkshop(Empresa &e) {
             disp = checkNumber();
             if(disp == -1) continue;
             e.addWorkshop(name, brands, disp);
+            e.updateWor();
             cout << "Workshop added successfully!" << endl;
             wait();
             continue;

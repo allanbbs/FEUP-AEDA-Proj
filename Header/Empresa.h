@@ -263,7 +263,7 @@ public:
   * @param disp initial unavailability
   * @param name Workshop's name
   */
-    void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));rewriteWorkshops();};
+    void addWorkshop(string name,vector<string> &brands,int disp){wor.push_back(Workshop(name,brands,disp));pq.push(Workshop(name,brands,disp));rewriteWorkshops();};
     /**
      * @brief remove workshop from enterprise
      * @param name name of workshop to be removed
@@ -327,7 +327,7 @@ public:
     };
     // HASH TABLE -----------------------------------
     /**
-     * @brief updates the hash table getting all inactive clients
+     * @brief updates the hash tabl getting all inactive clients
      */
     void update_hash();
     /**

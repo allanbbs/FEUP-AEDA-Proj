@@ -7,12 +7,11 @@
 
 
 void headerServInfor();
+
 bool novo;
 size_t Empresa::nCam = 0;
 size_t Empresa::nCli = 0;
 size_t Empresa::nSer = 0;
-
-
 
 
 void Empresa::gravaWor() {
@@ -20,26 +19,26 @@ void Empresa::gravaWor() {
     string name;                        //stores the name of the client
     string brand;                         //auxiliar variable to read lines
     string aux;
-    int disp,total,k;
+    int disp, total, k;
     string delimiter = " ";
     //vector<string> empty;
     vector<string> brands;
     while (!file.eof()) {
         brands.clear();
         getline(file, name);            //get name
-        getline(file,aux);
+        getline(file, aux);
         istringstream f(aux);
         f >> total;
         k = 0;
-        while(k < total){
-            getline(file,brand);
+        while (k < total) {
+            getline(file, brand);
             brands.push_back(brand);
             k++;
         }
-        getline(file,aux);
+        getline(file, aux);
         istringstream is(aux);
         is >> disp;
-        Workshop nani(name,brands,disp);
+        Workshop nani(name, brands, disp);
         wor.push_back(nani);
         //pq.emplace(name,brands,disp);
     }
@@ -64,7 +63,7 @@ void Empresa::gravaCli() {
         getline(file, aux);             //get string nif
         istringstream is(aux);                  //get unsigned int nif
         is >> nif;
-        getline(file,aux);
+        getline(file, aux);
         addClientes(name, nif, aux);         //add client
     }
 }
@@ -136,7 +135,7 @@ void Empresa::gravaSer(Empresa &e, const int &month) {
             try {
                 e.addServico(s, cliNif);                        //associate the service to a client
             }
-            catch(NoClient & error){
+            catch (NoClient &error) {
                 cliNif = -cliNif;
                 e.addServico(s, cliNif);
             }
@@ -151,7 +150,7 @@ void Empresa::gravaCam() {
     string auxString;
     string brand;
     while (!file.eof()) {
-        getline(file,brand);
+        getline(file, brand);
         getline(file, auxString);                           //get cargaMax
         //if (brand == "") break;                                 //end line
         istringstream is(auxString);
@@ -159,16 +158,16 @@ void Empresa::gravaCam() {
         ++nCam;
         getline(file, type);                                //get the type
         if (type == "Animal") {
-            Animals *c = new Animals(carga, cam.size()+1,brand);
+            Animals *c = new Animals(carga, cam.size() + 1, brand);
             cam.push_back(c);
         } else if (type == "Congelado") {
-            Congelado *c = new Congelado(carga, cam.size()+1,brand);
+            Congelado *c = new Congelado(carga, cam.size() + 1, brand);
             cam.push_back(c);
         } else if (type == "Perigoso") {
-            Perigoso *c = new Perigoso(carga, cam.size()+1,brand);
+            Perigoso *c = new Perigoso(carga, cam.size() + 1, brand);
             cam.push_back(c);
         } else {
-            Base *c = new Base(carga, cam.size()+1,brand);
+            Base *c = new Base(carga, cam.size() + 1, brand);
             cam.push_back(c);
         }
     }
@@ -179,14 +178,14 @@ void Empresa::readMotorista() {
 }
 //------------------------------------------------------------------------------------
 
-Empresa::Empresa(){
+Empresa::Empresa() {
     inactive.clear();
 }
 
 Empresa::~Empresa() {
-    vector<Clientes*> tempX;
-    vector<Camiao*> tempY;
-    vector<Servicos*> tempZ;
+    vector<Clientes *> tempX;
+    vector<Camiao *> tempY;
+    vector<Servicos *> tempZ;
     cli.clear();
     cam.clear();
     ser.clear();
@@ -202,37 +201,40 @@ double Empresa::getLucro_mes() const {
     return lucro;
 }
 
-Workers Empresa::getBST() const{
+Workers Empresa::getBST() const {
     return w;
 }
 
-long long int Empresa::get_cam_num(){
+long long int Empresa::get_cam_num() {
     return cam.size();
 }
+
 //modified
-void Empresa::addClientes(const string &name, const long long int &nif, const string& date) {
+void Empresa::addClientes(const string &name, const long long int &nif, const string &date) {
     long int pos = SearchCli(nif);                                          //check if the client already exists
     if (pos != -1) throw RepeatedClient(name);                              // if so, throw a exception
     auto c = new Clientes(name, nif);
     c->setDate(date);                                                       //update date from the last service request
-    if (nif> 0 )
+    if (nif > 0)
         nCli++;                                                             //increase the number of clients
     cli.push_back(c);
-    inactive.insert(c);                                                    //add client to the hash. It's automatically inactive
+    inactive.insert(
+            c);                                                    //add client to the hash. It's automatically inactive
 }
 
 //modified
-Servicos *Empresa::addServico(Servicos* s, const long long int cliNif) {
+Servicos *Empresa::addServico(Servicos *s, const long long int cliNif) {
     long int pos = SearchCli(cliNif);
     if (pos == -1) throw NoClient(to_string(cliNif));               //check if the services already exists
     ser.push_back(s);
     (cli[pos])->addService(s);
     return s;
 }
+
 //modified
-Servicos *Empresa::requestService(class Servicos * s, const long long cliNif) {
+Servicos *Empresa::requestService(class Servicos *s, const long long cliNif) {
     long int pos = SearchCli(cliNif);
-    if (pos == -1 ) throw NoClient(to_string(cliNif));
+    if (pos == -1) throw NoClient(to_string(cliNif));
 
     //Remove person from inactive hashtable
     inactive.erase(cli[pos]);
@@ -274,7 +276,8 @@ void Empresa::display_CamiaoProfit() {
 }
 
 
-void Empresa::display_clientesInfo(const long long int &nif, long int n, bool (*f)(const Clientes* c, const Clientes* c1)) {
+void
+Empresa::display_clientesInfo(const long long int &nif, long int n, bool (*f)(const Clientes *c, const Clientes *c1)) {
     ostringstream os;
     os << fixed << setprecision(2);
     if (nif) {                                                      //Case just one client to be shown
@@ -282,18 +285,20 @@ void Empresa::display_clientesInfo(const long long int &nif, long int n, bool (*
         if (pos == -1)
             throw NoClient(to_string(nif));
 
-        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << setw(20) <<"DATE" << "SERVICES" << endl;
-        os  << "=========================================================="
-                 "=============================================================" << endl;
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << setw(20) << "DATE"
+           << "SERVICES" << endl;
+        os << "=========================================================="
+              "=============================================================" << endl;
         os << *cli[pos];
     } else {                                                        //Case n clients to be shown
         vector<Clientes *> c(cli);
         sort(c.begin(), c.end(), f);
-        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << setw(20) <<"DATE" << "SERVICES" << endl;
-        os  << "=========================================================="
-                 "=============================================================" << endl;
+        os << left << setw(30) << "NAME" << setw(20) << "NIF" << setw(20) << "PROFIT" << setw(20) << "DATE"
+           << "SERVICES" << endl;
+        os << "=========================================================="
+              "=============================================================" << endl;
         for (auto it = c.begin(); it < c.end(); it++) {
-            if ((*it)->get_nif()>0) {                                   //the negative nifs are from deleted clients
+            if ((*it)->get_nif() > 0) {                                   //the negative nifs are from deleted clients
                 os << *(*it);
                 n--;                                                    //When n == 0, n clients has already been displayed
             }
@@ -304,7 +309,8 @@ void Empresa::display_clientesInfo(const long long int &nif, long int n, bool (*
 }
 
 
-void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (*f)(const Servicos*, const Servicos*), const string& type) const {
+void Empresa::display_servicoStatus(const long long int &id, long int n, bool (*f)(const Servicos *, const Servicos *),
+                                    const string &type) const {
     ostringstream os;
     os << fixed << setprecision(2);
 
@@ -315,15 +321,14 @@ void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (
         vector<Servicos *> s(ser);
         sort(s.begin(), s.end(), f);                                //Sorting according with the request
         if (type.empty()) {                                         //If there is no preference of types
-            for (auto & it : s) {
+            for (auto &it : s) {
                 os << *it;
                 n--;
                 if (n == 0) break;
             }
-        }
-        else{                                                       //If there is preference of type of service
-            for (auto & it : s) {
-                if (it->get_tipo() == type){                        //Check the type
+        } else {                                                       //If there is preference of type of service
+            for (auto &it : s) {
+                if (it->get_tipo() == type) {                        //Check the type
                     os << *it;
                     n--;
                 }
@@ -336,7 +341,7 @@ void Empresa::display_servicoStatus(const long long int  &id, long int n, bool (
 }
 
 void Empresa::displayWorkers(int option, int n) {
-    switch(option){
+    switch (option) {
         case 1:
             w.printBST(n);
             break;
@@ -348,6 +353,7 @@ void Empresa::displayWorkers(int option, int n) {
             break;
     }
 }
+
 void headerServInfor() {
     cout << left << setw(10) << "ID"
          << setw(15) << "TIPO"
@@ -357,7 +363,7 @@ void headerServInfor() {
          << setw(15) << "N CAMIOES"
          << setw(15) << "PRECO"
          << setw(15) << "CARGA"
-         << "CARACTERISTICA"  << endl;
+         << "CARACTERISTICA" << endl;
     cout << "=========================================================="
             "=========================================================="
             "===========================================" << endl;
@@ -375,30 +381,30 @@ void headerCamInfor() {
 
 }
 
-void headerWorkersInfor(){
+void headerWorkersInfor() {
     cout << left << setw(30) << "NAME" << setw(20) << "NIF" << "HOURS" << endl;
     cout << "==================================================================" << endl;
 }
 
 
-void Empresa::addCamiao(const int &type, const long long int &cargaMax,string brand) {
+void Empresa::addCamiao(const int &type, const long long int &cargaMax, string brand) {
     map<unsigned int, string> temp = {{0, "Base"},
                                       {1, "Congelado"},
                                       {2, "Perigoso"},
                                       {3, "Animal"}};
     string sType = temp[type];                                          //Get the type
-    unsigned int id = cam.size()+1;                                     //Increase ne number of trucks
+    unsigned int id = cam.size() + 1;                                     //Increase ne number of trucks
     if (sType == "Base") {
-        Camiao *c = new Base(cargaMax, id,brand);
+        Camiao *c = new Base(cargaMax, id, brand);
         cam.push_back(c);
     } else if (sType == "Congelado") {
-        Camiao *c = new Congelado(cargaMax, id,brand);
+        Camiao *c = new Congelado(cargaMax, id, brand);
         cam.push_back(c);
     } else if (sType == "Perigoso") {
-        Camiao *c = new Perigoso(cargaMax, id,brand);
+        Camiao *c = new Perigoso(cargaMax, id, brand);
         cam.push_back(c);
     } else if (sType == "Animal") {
-        Camiao *c = new Animals(cargaMax, id,brand);
+        Camiao *c = new Animals(cargaMax, id, brand);
         cam.push_back(c);
     }
     ++nCam;
@@ -429,7 +435,7 @@ bool Empresa::allocateCamiao(Servicos *s) {
     sort(cam_copy.begin(), cam_copy.end(), Compare);                    //Sort by ascender order of profit
     for (const auto &x: cam_copy) {
         string m = x->getType();
-        if (x->getType() == s->get_tipo() && x->getCargaMax()>0) {      //If it has the same type of the service
+        if (x->getType() == s->get_tipo() && x->getCargaMax() > 0) {      //If it has the same type of the service
             carga -= x->getCargaMax();
             s->addCamiao(x);
         }
@@ -441,7 +447,7 @@ bool Empresa::allocateCamiao(Servicos *s) {
 }
 
 //modified
-void Empresa::changeClientName(const long long int& nif) {
+void Empresa::changeClientName(const long long int &nif) {
     string name;
     //get the position of the client
     long long int pos = SearchCli(nif);
@@ -466,15 +472,17 @@ void Empresa::changeClientName(const long long int& nif) {
     //we need to rewrite the file
     rewriteClients();
 }
+
 //modified
 void Empresa::rewriteClients() {
     ofstream file("../AEDA_Proj1/Ficheiros/clientes");
     for (long int i = 0; i < cli.size(); i++)
-        if (i != cli.size()-1)
+        if (i != cli.size() - 1)
             file << cli[i]->getName() << endl << cli[i]->get_nif() << endl << string(cli[i]->getDate()) << endl;
 
     //avoid to create a last line on the file
-    file << cli[cli.size()-1]->getName() << endl << cli[cli.size()-1]->get_nif() << endl << cli[cli.size()-1]->getDate();
+    file << cli[cli.size() - 1]->getName() << endl << cli[cli.size() - 1]->get_nif() << endl
+         << cli[cli.size() - 1]->getDate();
     file.close();
 
 }
@@ -482,17 +490,17 @@ void Empresa::rewriteClients() {
 
 void Empresa::removeClient(const long long int &nif) {
     long int pos = SearchCli(nif);                                      //get the position of the client
-    if (pos == -1){
+    if (pos == -1) {
         cout << "No such cliente! " << endl;
         return;
     }
     //First we must see if the client is in the hash table.
     tabHCli::iterator it = inactive.find(cli[pos]);
 
-    cli[pos]->setNif((-1)*nif);                                         //change the nif to a negative one
+    cli[pos]->setNif((-1) * nif);                                         //change the nif to a negative one
     nCli--;
     //If the client is in the hash table, update it
-    if (it!= inactive.end()) {
+    if (it != inactive.end()) {
         inactive.erase(it);
         inactive.insert(cli[pos]);
     }
@@ -501,13 +509,13 @@ void Empresa::removeClient(const long long int &nif) {
     cout << "Client removed successfully! ";
 }
 
-void Empresa::reAcceptClient(const long int& pos) {
-    cli[pos]->setNif((-1)*cli[pos]->get_nif());
+void Empresa::reAcceptClient(const long int &pos) {
+    cli[pos]->setNif((-1) * cli[pos]->get_nif());
     rewriteClients();
 }
 
 void Empresa::removeTruck(const long long int &id) {
-    for (auto const & t: cam){
+    for (auto const &t: cam) {
         if (t->getId() == id) {
             if (t->getCargaMax() < 0) {
                 cout << "Truck has already been removed ";
@@ -526,13 +534,15 @@ void Empresa::removeTruck(const long long int &id) {
 
 void Empresa::rewriteTruck() {
     ofstream o("../AEDA_Proj1/Ficheiros/camioes");
-    for (auto i  = 0; i < cam.size()-1; i ++){
-        o << cam[i]->getBrand()<<"\n"<<cam[i]->getCargaMax() << "\n" << cam[i]->getType() << "\n";
+    for (auto i = 0; i < cam.size() - 1; i++) {
+        o << cam[i]->getBrand() << "\n" << cam[i]->getCargaMax() << "\n" << cam[i]->getType() << "\n";
     }
-    o <<cam[cam.size()-1]->getBrand()<<"\n"<< cam[cam.size()-1]->getCargaMax() << "\n" << cam[cam.size()-1]->getType();
+    o << cam[cam.size() - 1]->getBrand() << "\n" << cam[cam.size() - 1]->getCargaMax() << "\n"
+      << cam[cam.size() - 1]->getType();
     o.close();
 
 }
+
 // MOTORISTA ---------------------------------------------------
 bool Empresa::addMotorista(class Motorista m) {
     return w.addMotorista(m);
@@ -546,7 +556,7 @@ bool Empresa::removeMotorista(class Motorista m) {
 
 bool Empresa::setMotoristaName(Motorista m, const string &name) {
     bool b = w.setName(m, name);
-    if (b){
+    if (b) {
         w.rewrite_file();
         return true;
     }
@@ -560,49 +570,50 @@ bool Empresa::allocateMotorista(float tempo) {
 void Empresa::resetHours() {
     w.resetHours();
 }
-    void Empresa::rewriteWorkshops() {
-        ofstream out("../AEDA_Proj1/Ficheiros/workshops");
-        int aux, k;
-        for (auto i = 0; i < wor.size() - 1; i++) {
-            out << wor[i].getName() << endl;
-            out << wor[i].getBrands().size() << endl;
-            for (auto &elem : wor[i].getBrands()) {
-                out << elem << endl;
-            }
-            //out<<endl;
-            out << wor[i].get_unavailability() << endl;
 
-        }
-        int i = wor.size() - 1;
+void Empresa::rewriteWorkshops() {
+    ofstream out("../AEDA_Proj1/Ficheiros/workshops");
+    int aux, k;
+    for (auto i = 0; i < wor.size() - 1; i++) {
         out << wor[i].getName() << endl;
         out << wor[i].getBrands().size() << endl;
         for (auto &elem : wor[i].getBrands()) {
             out << elem << endl;
         }
         //out<<endl;
-        out << wor[i].get_unavailability();
-        out.close();
+        out << wor[i].get_unavailability() << endl;
+
     }
+    int i = wor.size() - 1;
+    out << wor[i].getName() << endl;
+    out << wor[i].getBrands().size() << endl;
+    for (auto &elem : wor[i].getBrands()) {
+        out << elem << endl;
+    }
+    //out<<endl;
+    out << wor[i].get_unavailability();
+    out.close();
+}
 
 
 bool Empresa::removeWorkshop(string name) {
     bool verify = false;
-    for(auto it = wor.begin();it!=wor.end();it++){
-        if(it->getName() == name){
+    for (auto it = wor.begin(); it != wor.end(); it++) {
+        if (it->getName() == name) {
             wor.erase(it);
             verify = true;
             break;
         }
     }
-    if(!verify) return false;
+    if (!verify) return false;
     else {
         rewriteWorkshops();
         return true;
     }
 }
 
-void Empresa::fillQueue(){
-    for(auto &elem : wor){
+void Empresa::fillQueue() {
+    for (auto &elem : wor) {
         pq.push(elem);
     }
 }
@@ -611,11 +622,11 @@ void Empresa::fillQueue(){
 
 void Empresa::update_hash() {
     inactive.clear();
-    for (auto const& c: cli){
+    for (auto const &c: cli) {
         Date date(c->getDate());                    //date of the last client request order
         Date date_today(getTimeNow());              //today's date
         //compare  if it has passed one year since the last request
-        date_today.setYear(date_today.getYear()-1);
+        date_today.setYear(date_today.getYear() - 1);
         //case date_today is after date, means that the request was done more than a year
         if (date.isAfter(date_today))
             inactive.insert(c);
@@ -623,15 +634,15 @@ void Empresa::update_hash() {
 }
 
 void Empresa::display_hash(long int x) {
-    for(auto it = inactive.begin(); it != inactive.end(); it++) {
+    for (auto it = inactive.begin(); it != inactive.end(); it++) {
         cout << *(*it);
-        x --;
+        x--;
         if (!x) break;
     }
 }
 
-Clientes Empresa::SearchInactiveClient_hash(const long long & nif) {
-    for (auto it = inactive.begin(); it != inactive.end(); it++){
+Clientes Empresa::SearchInactiveClient_hash(const long long &nif) {
+    for (auto it = inactive.begin(); it != inactive.end(); it++) {
         if ((*it)->get_nif() == nif)
             return *(*it);
     }
@@ -640,18 +651,18 @@ Clientes Empresa::SearchInactiveClient_hash(const long long & nif) {
 
 void Empresa::display_dateOrdered_hash(long x) {
     vector<Clientes> c;
-    for (auto it = inactive.begin(); it!= inactive.end(); it++){
+    for (auto it = inactive.begin(); it != inactive.end(); it++) {
         c.push_back(*(*it));
         x--;
         if (!x) break;
     }
-    sort(c.begin(), c.end(), [](Clientes c1, Clientes c2){
+    sort(c.begin(), c.end(), [](Clientes c1, Clientes c2) {
         Date d1 = c1.getDate();
         Date d2 = c2.getDate();
         return d1.isAfter(d2);
     });
     headerClientes();
-    for (auto const& it: c){
+    for (auto const &it: c) {
         cout << it;
     }
 }
